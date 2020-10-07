@@ -30,7 +30,7 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Kavinsky</div>
-            <div class="name">Odd Look ft. The Weeknd</div>
+            <div class="name">ddddt. The Weeknd</div>
         </div>
         <div class="playarea">
             <div class="prevSong"></div>
