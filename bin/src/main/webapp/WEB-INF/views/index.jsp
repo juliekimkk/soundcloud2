@@ -77,7 +77,7 @@ $(function () { objectFitImages() });
 
 						<p>
 							Discover, stream, and share a constantly expanding mix of music<br>
-							from emerging and major artists around the world.
+							from emerging and major artists around the world.zzz
 						</p>
 					</div>
 				</div>
