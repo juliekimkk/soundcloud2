@@ -132,7 +132,7 @@ public class perPageDAOTest {
 		logger.info("\n Update view Result \n");
 
 		if (result > 0) {
-			logger.info("\n 업데이트 성공1");
+			logger.info("\n 업데이트 성공");
 		} else {
 			logger.info("\n 업데이트 실패");
 		}
