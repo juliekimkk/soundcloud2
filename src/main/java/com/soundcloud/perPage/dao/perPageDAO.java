@@ -16,4 +16,5 @@ public interface perPageDAO {
 	
 	public int viewcnt(int song_no) throws Exception;
 
+
 }

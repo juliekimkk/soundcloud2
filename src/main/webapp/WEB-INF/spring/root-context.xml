@@ -24,6 +24,8 @@
 
 	<context:component-scan
 		base-package="com.soundcloud.perPage.dao"></context:component-scan>
+		<context:component-scan
+		base-package="com.soundcloud.user.dao"></context:component-scan>
 
 
 	<bean id="SqlSessionFactory"

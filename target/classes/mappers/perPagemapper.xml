@@ -14,9 +14,7 @@
 
 		select
 
-		song_no, user_name, song_name, theme,
-		reg_date,
-		play_list, view
+		*
 
 		from
 
@@ -68,7 +66,7 @@
 	</update>
 
 	<update id="viewcnt"
-		parameterType="int">
+		parameterType="com.soundcloud.perPage.domain.perPageVO">
 
 		update songs set
 
@@ -77,5 +75,6 @@
 		where song_no = #{song_no}
 
 	</update>
+	
 
 </mapper>

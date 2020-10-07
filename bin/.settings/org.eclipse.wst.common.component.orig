@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
+<<<<<<< HEAD
+                	
+    
+=======
+<<<<<<< HEAD
+                	
+    
+=======
+<<<<<<< HEAD
+    	
+    <wb-module deploy-name="mainpage-1.0.0-BUILD-SNAPSHOT">
+                
+=======
+            	
+>>>>>>> 5b2c9c79b085690305553ad9a8ec936fd2992db9
+>>>>>>> 21340fd636250f720cf9557637c863873f241768
+=======
+                	
+    
+>>>>>>> 이창민
+    
+    
+    <wb-module deploy-name="mainpage-1.0.0-BUILD-SNAPSHOT">
+                                        
+<<<<<<< HEAD
+<<<<<<< HEAD
+        
+=======
+>>>>>>> 21340fd636250f720cf9557637c863873f241768
+=======
+>>>>>>> 이창민
+        
+        
+        
+>>>>>>> project/이창민
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+                                		
+        
+        
+        
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+                                		
+        
+        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+                                		
+        
+        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 이창민
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+                                		
+        
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                                		
+        
+=======
+<<<<<<< HEAD
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
+        		
+        <property name="java-output-path" value="target/classes"/>
+        <property name="context-root" value="mainpage"/>
+        	
+    </wb-module>
+=======
+                        		
+>>>>>>> 5b2c9c79b085690305553ad9a8ec936fd2992db9
+>>>>>>> 21340fd636250f720cf9557637c863873f241768
+=======
+>>>>>>> 이창민
+        
+        
+        <property name="java-output-path" value="target/classes"/>
+                
+        <property name="context-root" value="mainpage"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                                	
+    
+=======
+<<<<<<< HEAD
+                                	
+    
+=======
+                        	
+>>>>>>> project/이창민
+>>>>>>> 5b2c9c79b085690305553ad9a8ec936fd2992db9
+>>>>>>> 21340fd636250f720cf9557637c863873f241768
+=======
+                                	
+    
+>>>>>>> 이창민
+    
+    
+    </wb-module>
+                
+
+
+
+</project-modules>

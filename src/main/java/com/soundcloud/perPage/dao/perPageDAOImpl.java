@@ -44,4 +44,5 @@ public class perPageDAOImpl implements perPageDAO {
 
 		return sqlSession.update("com.soundcloud.perPage.perPagemapper.viewcnt", song_no);
 	}
+	
 }

@@ -8,7 +8,7 @@
 
 
 
-<mapper namespace="com.soundcloud.perPage.perPagemapper">
+<mapper namespace="com.soundcloud.user.usermapper">
 
 	<select id="getuser"
 		resultType="com.soundcloud.user.domain.userVO">
@@ -38,18 +38,19 @@
 
 		user_name = #{user_name},
 		e_mail =
-		#{e_mail}
+		#{e_mail},
+		user_password = #{user_password}
 
 		where user_no = #{user_no}
 
 	</update>
-	
+
 	<delete id="deleteuser">
-	
-	delete from user
-	
-	where user_no = #{user_no}
-		
+
+		delete from user
+
+		where user_no = #{user_no}
+
 	</delete>
 
 </mapper>

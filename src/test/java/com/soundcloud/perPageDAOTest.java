@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Base64;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -43,7 +44,7 @@ public class perPageDAOTest {
 		}
 	}
 
-	//@Test
+	@Test
 	public void testInsert() throws Exception {
 
 		perPageVO pagevo = new perPageVO();
@@ -64,7 +65,7 @@ public class perPageDAOTest {
 		}
 	}
 
-	private byte[] getImage() throws FileNotFoundException, IOException {
+	private String getImage() throws FileNotFoundException, IOException {
 		byte[] pic = null;
 		String imagePath = System.getProperty("user.dir") + System.getProperty("file.separator") + "images"
 				+ System.getProperty("file.separator") + "1.jpg";
@@ -73,10 +74,10 @@ public class perPageDAOTest {
 			pic = new byte[is.available()];
 			is.read(pic);
 		}
-		return pic;
+		return Base64.getEncoder().encodeToString(pic);
 	}
 
-	private byte[] getSong() throws FileNotFoundException, IOException {
+	private String getSong() throws FileNotFoundException, IOException {
 		byte[] song = null;
 		String songPath = System.getProperty("user.dir") + System.getProperty("file.separator") + "songs"
 				+ System.getProperty("file.separator") + "guririRoki.mp3";
@@ -85,7 +86,7 @@ public class perPageDAOTest {
 			song = new byte[is.available()];
 			is.read(song);
 		}
-		return song;
+		return Base64.getEncoder().encodeToString(song);
 	}
 
 //	@Test

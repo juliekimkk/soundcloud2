@@ -371,7 +371,7 @@ $(function () { objectFitImages() });
 				<div class="col-12">
 					<div class="load-more-btn text-center wow fadeInUp"
 						data-wow-delay="300ms">
-						<a href="#" class="btn oneMusic-btn">Load More <i
+						<a href="#" class="btn oneMusic-btn">Load More please <i
 							class="fa fa-angle-double-right"></i></a>
 					</div>
 				</div>
@@ -487,4 +487,4 @@ $(function () { objectFitImages() });
 </nav>
 </body>
 </html>
->>>>>>> 5b2c9c79b085690305553ad9a8ec936fd2992db9
+

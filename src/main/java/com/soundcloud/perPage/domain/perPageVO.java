@@ -7,8 +7,8 @@ public class perPageVO {
 	private int song_no;
 	private String user_name;
 	private String song_name;
-	private byte[] song;
-	private byte[] song_pic;
+	private String song;
+	private String song_pic;
 	private String theme;
 	private String reg_date;
 	private String play_list;
@@ -38,20 +38,20 @@ public class perPageVO {
 		this.song_name = song_name;
 	}
 
-	public byte[] getSong() {
+	public String getSong() {
 		return song;
 	}
 
-	public void setSong(byte[] song) {
+	public void setSong(String song) {
 		this.song = song;
 	}
 
-	public byte[] getSong_pic() {
+	public String getSong_pic() {
 		return song_pic;
 	}
 
-	public void setSong_pic(byte[] song_pic) {
-		this.song_pic = song_pic;
+	public void setSong_pic(String string) {
+		this.song_pic = string;
 	}
 
 	public String getTheme() {
