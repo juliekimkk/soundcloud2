@@ -1,0 +1,10 @@
+@charset "utf-8";
+.mainimage{
+	position:relative;
+}
+.mainimage.pictext{
+	position:absolute;
+	top:10px
+	left:10px;
+	color:#FFF;
+}
