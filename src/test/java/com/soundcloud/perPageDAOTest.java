@@ -44,7 +44,7 @@ public class perPageDAOTest {
 		}
 	}
 
-	@Test
+	//@Test
 	public void testInsert() throws Exception {
 
 		perPageVO pagevo = new perPageVO();
@@ -103,7 +103,7 @@ public class perPageDAOTest {
 		}
 	}
 
-//	@Test
+	@Test
 	public void testupdate() throws Exception {
 
 		perPageVO pagevo = new perPageVO();

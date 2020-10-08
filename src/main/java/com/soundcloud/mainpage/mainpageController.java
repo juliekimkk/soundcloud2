@@ -1,7 +1,5 @@
 package com.soundcloud.mainpage;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import javax.inject.Inject;
@@ -46,6 +44,12 @@ public class mainpageController {
 	public String LoginIndex(Model model) throws Exception {
 		model.addAttribute("mainsonglist", perpageDao.getsongs());
 		return "/LoginIndex";
+	}
+	
+	@RequestMapping(value = "/test", method = RequestMethod.GET) //post방식
+	public String test(Model model) throws Exception {
+		model.addAttribute("mainsonglist", perpageDao.getsongs());
+		return "/test";
 	}
 	
 }

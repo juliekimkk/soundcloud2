@@ -13,7 +13,7 @@
 <body>
 	<tbody>
 
-		<c:choose>
+		<c:choose> 
 
 			<c:when test="${empty songList }">
 
@@ -23,7 +23,7 @@
 
 			</c:when>
 
-			<c:when test="${!empty songList}">
+			<c:when test="${!empty songList}">  
 
 				<c:forEach var="list" items="${songList}">
 
@@ -33,7 +33,7 @@
 
 						<td><c:out value="${list.song_name}" /></td>
 
-						<td><img src="data:image/jpg;base64,${list.song_pic}" /></td>
+						<td><img src="data:image/jpg;base64,${list.song_pic}" /></td> 
 						<audio controls="controls">
 							<source src="data:audio/mpeg;base64,${list.song}" type="audio/ogg">
 						</audio>
