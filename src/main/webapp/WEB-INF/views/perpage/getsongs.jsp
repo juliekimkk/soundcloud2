@@ -31,7 +31,7 @@ function fn_getuser(user_name) {
 <body>
 	<tbody>
 
-		<c:choose> 
+		<c:choose>
 
 			<c:when test="${empty songList }">
 
@@ -41,7 +41,7 @@ function fn_getuser(user_name) {
 
 			</c:when>
 
-			<c:when test="${!empty songList}">  
+			<c:when test="${!empty songList}">
 
 				<c:forEach var="list" items="${songList}">
 
@@ -55,7 +55,7 @@ function fn_getuser(user_name) {
 
 						<td><c:out value="${list.song_name}" /></td>
 
-						<td><img src="data:image/jpg;base64,${list.song_pic}" /></td> 
+						<td><img src="data:image/jpg;base64,${list.song_pic}" /></td>
 						<audio controls="controls">
 							<source src="data:audio/mpeg;base64,${list.song}"
 								type="audio/ogg">

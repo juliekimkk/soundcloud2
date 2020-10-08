@@ -1,0 +1,117 @@
+@charset "utf-8";
+<<<<<<< HEAD
+/* [Master Stylesheet - v1.0] */
+/* :: 1.0 Import Fonts */
+@import url("https://fonts.googleapis.com/css?family=Archivo+Narrow:400,400i,500,500i,600,600i,700,700i");
+/* :: 2.0 Import All CSS */
+@import url(css/bootstrap.min.css);
+@import url(css/classy-nav.css);
+@import url(css/owl.carousel.min.css);
+@import url(css/animate.css);
+@import url(css/magnific-popup.css);
+@import url(css/font-awesome.min.css);
+@import url(css/audioplayer.css);
+@import url(css/one-music-icon.css);
+/* :: 3.0 Base CSS */
+
+
+.mainimage {
+	position: relative;
+}
+
+.mainimage.pictext {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	color: #FFF;
+	left: 10px;
+}
+
+/*사진안에 버튼,텍스트넣기*/
+.jumbotron {
+	position: relative;
+	overflow: hidden;
+}
+
+.jumbotron .container {
+	position: relative;
+	z-index: 2;
+	background: rgba(0, 0, 0, 0.2);
+	padding: 2rem;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+}
+
+.jumbotron-background {
+	object-fit: cover;
+	font-family: 'object-fit: cover;';
+	position: absolute;
+	top: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+}
+
+=======
+.mainimage{
+	position:relative;
+}
+.mainimage.pictext{
+	position:absolute;
+	top:10px
+	left:10px;
+	color:#FFF;
+}
+
+.jumbotron {
+
+  position:relative;
+  overflow:hidden;
+}
+
+.jumbotron .container {
+  position:relative;
+  z-index:2;
+  
+/*   background:rgba(0,0,0,0.2);
+  padding:2rem;
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius:3px; 텍스트 배경 */
+}
+
+.jumbotron-background {
+  object-fit:cover;
+  font-family: 'object-fit: cover;';
+  position:absolute;
+  top:0;
+  z-index:1;
+  width:100%;
+  height:100%;
+  opacity:0.5;
+}
+
+.maintext{
+  text-align: center;
+
+ }
+ 
+.mainbutton{
+ 
+  op: 10
+  left:100;px; 	
+ }
+ 
+ * {
+    margin: 0;
+    padding: 0;
+  -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+}
+
+
+
+>>>>>>> 5b2c9c79b085690305553ad9a8ec936fd2992db9
