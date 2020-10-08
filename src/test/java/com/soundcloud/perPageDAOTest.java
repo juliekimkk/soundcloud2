@@ -40,28 +40,28 @@ public class perPageDAOTest {
 				logger.info(list.getSong_name());
 			}
 		} else {
-			logger.info("데이터가 없습니다");
+			logger.info("?�이?��? ?�습?�다");
 		}
 	}
 
-	//@Test
+//	@Test
 	public void testInsert() throws Exception {
 
 		perPageVO pagevo = new perPageVO();
 
 		pagevo.setUser_name("user00");
-		pagevo.setSong_name("로키 한국어 커버");
+		pagevo.setSong_name("로키 ?�국?? 커버");
 		pagevo.setSong(getSong());
 		pagevo.setSong_pic(getImage());
-		pagevo.setPlay_list("테스트");
-		pagevo.setTheme("커버링");
+		pagevo.setPlay_list("?�스??");
+		pagevo.setTheme("커버�?");
 
 		int result = pageDAO.insertsong(pagevo);
 		logger.info("\n Insert Song Result \n");
 		if (result == 1) {
-			logger.info("\n 등록성공");
+			logger.info("\n ?�록?�공");
 		} else {
-			logger.info("\n 등록실패");
+			logger.info("\n ?�록?�패");
 		}
 	}
 
@@ -97,9 +97,9 @@ public class perPageDAOTest {
 		logger.info("\n Delete song Result \n");
 
 		if (result > 0) {
-			logger.info("\n 삭제성공");
+			logger.info("\n ??��?�공");
 		} else {
-			logger.info("\n 삭제실패");
+			logger.info("\n ??��?�패");
 		}
 	}
 
@@ -109,18 +109,18 @@ public class perPageDAOTest {
 		perPageVO pagevo = new perPageVO();
 
 		pagevo.setSong_no(1);
-		pagevo.setSong_name("구리리 로키(한국어커버)");
-		pagevo.setTheme("테스트");
-		pagevo.setPlay_list("테스트 리스트");
+		pagevo.setSong_name("구리�? 로키(?�국?�커�?)");
+		pagevo.setTheme("?�스??");
+		pagevo.setPlay_list("?�스?? 리스??");
 
 		int result = pageDAO.updatesong(pagevo);
 
 		logger.info("\n Update song Result \n");
 
 		if (result > 0) {
-			logger.info("\n 업데이트 성공");
+			logger.info("\n ?�데?�트 ?�공");
 		} else {
-			logger.info("\n 업데이트 실패");
+			logger.info("\n ?�데?�트 ?�패");
 		}
 	}
 
@@ -132,9 +132,9 @@ public class perPageDAOTest {
 		logger.info("\n Update view Result \n");
 
 		if (result > 0) {
-			logger.info("\n 업데이트 성공");
+			logger.info("\n ?�데?�트 ?�공");
 		} else {
-			logger.info("\n 업데이트 실패");
+			logger.info("\n ?�데?�트 ?�패");
 		}
 	}
 

@@ -20,6 +20,20 @@
 
 		songs
 
+	</select><select id="getsongsbyusername"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+		
+		select
+		
+		*
+		
+		from
+		
+		songs
+		
+		where
+		
+		user_name=#{username}
 	</select>
 
 	<insert id="insertsong"
