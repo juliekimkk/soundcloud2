@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+
+    PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="com.soundcloud.perPage.perPagemapper">
+	<select id="getsongs"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select
+
+		song_no, user_name, song_name, theme,
+		reg_date,
+		play_list, view
+
+		from
+
+		songs
+
+	</select>
+
+	<insert id="insertsong"
+		parameterType="com.soundcloud.perPage.domain.perPageVO">
+
+		insert into songs(user_name, song_name, song,
+		song_pic,
+		theme, play_list)
+
+		value(
+		#{user_name},
+		#{song_name},
+		#{song},
+		#{song_pic},
+		#{theme},
+		#{play_list}
+		)
+
+	</insert>
+
+	<delete id="deletesong" parameterType="int">
+
+		delete from songs
+
+		where
+		song_no = #{song_no}
+
+	</delete>
+
+	<update id="updatesong"
+		parameterType="com.soundcloud.perPage.domain.perPageVO">
+
+		update songs set
+
+		song_name = #{song_name},
+
+		theme =
+		#{theme},
+
+		play_list = #{play_list}
+
+		where song_no = #{song_no}
+
+	</update>
+
+	<update id="viewcnt"
+		parameterType="int">
+
+		update songs set
+
+		view = view + 1
+
+		where song_no = #{song_no}
+
+	</update>
+
+</mapper>
