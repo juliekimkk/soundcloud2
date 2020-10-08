@@ -43,8 +43,23 @@ public class perPageDAOTest {
 			logger.info("데이터가 없습니다");
 		}
 	}
-
+	
 	@Test
+	public void testgetsongsbyusername() throws Exception{
+		
+		List<perPageVO> pageList = pageDAO.getsongsbyusername("user00");
+		logger.info("\n Song List by User_Name \n");
+		if(pageList.size() > 0) {
+			for(perPageVO list : pageList) {
+				logger.info(list.getSong_name());
+				logger.info(list.getUser_name());
+			}
+		}else {
+			logger.info("데이터가 없습니다.");
+		}
+	}
+
+//	@Test
 	public void testInsert() throws Exception {
 
 		perPageVO pagevo = new perPageVO();
