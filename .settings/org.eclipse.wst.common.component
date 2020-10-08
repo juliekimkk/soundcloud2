@@ -1,44 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
                             	
     
+=======
+                        	
+>>>>>>> f03c9725c4d99bdf58e5f2db2cde64863c5da989
     
     
     
     
     
     <wb-module deploy-name="mainpage-1.0.0-BUILD-SNAPSHOT">
+<<<<<<< HEAD
                                                                 
         
+=======
+                                                        
+>>>>>>> f03c9725c4d99bdf58e5f2db2cde64863c5da989
         
         
         
         
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+<<<<<<< HEAD
                                                         		
         
+=======
+                                                		
+>>>>>>> f03c9725c4d99bdf58e5f2db2cde64863c5da989
         
         
         
         
         
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+<<<<<<< HEAD
                                                         		
+=======
+                                                		
+        
+>>>>>>> f03c9725c4d99bdf58e5f2db2cde64863c5da989
         
         
         
         
+<<<<<<< HEAD
+=======
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+                                                		
+        
+>>>>>>> f03c9725c4d99bdf58e5f2db2cde64863c5da989
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
                                                         		
         
         
+<<<<<<< HEAD
+=======
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+                                                		
+        
+>>>>>>> f03c9725c4d99bdf58e5f2db2cde64863c5da989
         
         
         
         
         <property name="java-output-path" value="target/classes"/>
+<<<<<<< HEAD
                                         
         
         
@@ -46,14 +76,25 @@
         <property name="context-root" value="mainpage"/>
                                                         	
     
+=======
+                                
+        
+        
+        <property name="context-root" value="mainpage"/>
+                                                	
+>>>>>>> f03c9725c4d99bdf58e5f2db2cde64863c5da989
     
     
     
     
     
     </wb-module>
+<<<<<<< HEAD
                             
 
+=======
+                        
+>>>>>>> f03c9725c4d99bdf58e5f2db2cde64863c5da989
 
 
 
