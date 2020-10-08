@@ -37,3 +37,12 @@ public class HomeController {
 	}
 
 }
+//@RequestMapping(value = "/", method = RequestMethod.GET)
+//public String index(Model mode)
+//{
+//	
+//	
+//	return "join";
+//}
+//
+
