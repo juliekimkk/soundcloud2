@@ -350,9 +350,6 @@ $(function () { objectFitImages() });
 			</div>
 
 		</div>
-
-
-		
 </body>
 </html>
 				</div>
