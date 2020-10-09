@@ -26,6 +26,8 @@ public class CommonController {
 		log.info("error: " + error);
 		log.info("logout: " + logout);
 
+		System.out.println(error);
+
 		if (error != null) {
 			model.addAttribute("error", "Login Error Check Your Account");
 		}

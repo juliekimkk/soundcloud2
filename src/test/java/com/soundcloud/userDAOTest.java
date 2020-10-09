@@ -23,7 +23,7 @@ public class userDAOTest {
 	@Inject
 	private userDAO userDAO;
 	
-	//@Test
+	@Test
 	public void testgetsongs() throws Exception {
 
 		List<userVO> userList = userDAO.getuser();

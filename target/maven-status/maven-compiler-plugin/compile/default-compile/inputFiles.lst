@@ -16,5 +16,4 @@ D:\project\src\main\java\com\soundcloud\security\CustomNoOpPasswordEncoder.java
 D:\project\src\main\java\com\soundcloud\user\dao\userDAO.java
 D:\project\src\main\java\com\soundcloud\user\domain\userVO.java
 D:\project\src\main\java\com\soundcloud\controller\perpagecontroller.java
-D:\project\src\main\java\com\soundcloud\mainpage\HomeController.java
 D:\project\src\main\java\com\soundcloud\security\CustomLoginSuccessHandler.java

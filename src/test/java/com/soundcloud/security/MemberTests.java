@@ -21,6 +21,7 @@ import lombok.extern.log4j.Log4j;
   "file:src/main/webapp/WEB-INF/spring/security-context.xml"
   })
 @Log4j
+
 public class MemberTests {
 
   @Setter(onMethod_ = @Autowired)

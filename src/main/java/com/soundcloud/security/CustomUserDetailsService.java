@@ -18,10 +18,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 	@Setter(onMethod_ = { @Autowired })
 	private MemberMapper memberMapper;
 	
-	public void setMapper(MemberMapper mapper)
-	{
-		memberMapper= mapper;
-	}
 
 	@Override
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
