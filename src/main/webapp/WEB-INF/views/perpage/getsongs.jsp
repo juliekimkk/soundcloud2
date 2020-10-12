@@ -9,7 +9,22 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="shortcut icon" href="#">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
 
+function fn_getuser(user_no) {
+
+	var url = "${getuser.request.contextPath}/perpage/getuser";
+
+	url = url + "?user_no=" + user_no;
+
+	location.href = url;
+	
+	console.log(url);
+
+}
+
+</script>
 
 </head>
 <body>
@@ -54,21 +69,6 @@
 
 	</tbody>
 
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script type="text/javascript">
 
-function fn_getuser(user_no) {
-
-	var url = "${getuser.request.contextPath}/perpage/getuser";
-
-	url = url + "?user_no=" + user_no;
-
-	location.href = url;
-	
-	console.log(url);
-
-}
-
-</script>
 </body>
 </html>

@@ -42,6 +42,7 @@
 					</tr>
 
 				</c:forEach>
+				<a href="${getuser.request.contextPath}/perpage/getsongs">목록가기</a>
 
 			</c:when>
 

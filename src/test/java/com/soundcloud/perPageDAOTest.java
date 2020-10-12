@@ -30,7 +30,7 @@ public class perPageDAOTest {
 	@Inject
 	private perPageDAO pageDAO;
 
-	@Test
+//	@Test
 	public void testgetsongs() throws Exception {
 
 		List<perPageVO> pageList = pageDAO.getsongs();
@@ -64,7 +64,7 @@ public class perPageDAOTest {
 
 		perPageVO pagevo = new perPageVO();
 
-		pagevo.setUser_name("user00");
+		pagevo.setUser_name("user01");
 		pagevo.setSong_name("로키 한국어 커버");
 		pagevo.setSong(getSong());
 		pagevo.setSong_pic(getImage());
