@@ -51,4 +51,14 @@ public class mainpageController {
 			return "/index";
 	}
 	
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String test(Model model) throws Exception {		
+		return "/test";
+	}
+	
+	
+	
+	
+	
+	
 }

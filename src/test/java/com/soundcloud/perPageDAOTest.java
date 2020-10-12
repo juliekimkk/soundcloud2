@@ -44,7 +44,7 @@ public class perPageDAOTest {
 		}
 	}
 	
-	@Test
+//	@Test
 	public void testgetsongsbyusername() throws Exception{
 		
 		List<perPageVO> pageList = pageDAO.getsongsbyusername("user00");
@@ -59,7 +59,7 @@ public class perPageDAOTest {
 		}
 	}
 
-//	@Test
+	@Test
 	public void testInsert() throws Exception {
 
 		perPageVO pagevo = new perPageVO();
@@ -83,7 +83,7 @@ public class perPageDAOTest {
 	private String getImage() throws FileNotFoundException, IOException {
 		byte[] pic = null;
 		String imagePath = System.getProperty("user.dir") + System.getProperty("file.separator") + "images"
-				+ System.getProperty("file.separator") + "1.jpg";
+				+ System.getProperty("file.separator") + "앱등이7.jpg";
 		File image = new File(imagePath);
 		try (InputStream is = new FileInputStream(image)) {
 			pic = new byte[is.available()];
@@ -92,6 +92,8 @@ public class perPageDAOTest {
 		return Base64.getEncoder().encodeToString(pic);
 	}
 
+	
+	
 	private String getSong() throws FileNotFoundException, IOException {
 		byte[] song = null;
 		String songPath = System.getProperty("user.dir") + System.getProperty("file.separator") + "songs"

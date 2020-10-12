@@ -1,0 +1,11 @@
+@charset "utf-8";
+.gallery {
+	display:inline-block;
+	display:none;
+}
+
+li {
+  list-style:none;
+  
+
+}
