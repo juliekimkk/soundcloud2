@@ -18,22 +18,22 @@
 
 		from
 
-		songs
+		songs join user
 
 	</select><select id="getsongsbyusername"
 		resultType="com.soundcloud.perPage.domain.perPageVO">
 		
 		select
-		
+
 		*
-		
+
 		from
-		
-		songs
+
+		songs join user
 		
 		where
 		
-		user_name=#{username}
+		user_no = #{user_no}
 	</select>
 
 	<insert id="insertsong"

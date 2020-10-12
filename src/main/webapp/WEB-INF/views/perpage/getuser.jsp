@@ -29,9 +29,8 @@
 
 						<td><c:out value="${list.song_no}" /></td>
 
-						<td><a href="#"
-							onClick="fn_getuser(<c:out value="${list.user_name}"/>)"> <c:out
-									value="${list.user_name}" /></a></td>
+						<td><c:out
+									value="${list.user_name}" /></td>
 
 						<td><c:out value="${list.song_name}" /></td>
 

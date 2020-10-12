@@ -31,9 +31,9 @@ public class perpagecontroller {
 	}
 	
 	@RequestMapping(value = "/getuser", method = RequestMethod.GET)
-	public String getuser(Model model, @RequestParam("user_name") String user_name)throws Exception{
+	public String getuser(Model model, @RequestParam("user_no") int user_no)throws Exception{
 		
-		model.addAttribute("songList", perpageDao.getsongsbyusername(user_name));
+		model.addAttribute("songList", perpageDao.getsongsbyusername(user_no));
 		
 		return "perpage/getuser";
 	}

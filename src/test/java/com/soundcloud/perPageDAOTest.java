@@ -30,24 +30,24 @@ public class perPageDAOTest {
 	@Inject
 	private perPageDAO pageDAO;
 
-//	@Test
+	@Test
 	public void testgetsongs() throws Exception {
 
 		List<perPageVO> pageList = pageDAO.getsongs();
 		logger.info("\n Song List \n");
 		if (pageList.size() > 0) {
 			for (perPageVO list : pageList) {
-				logger.info(list.getSong_name());
+				System.out.println(list.getSong_name());
 			}
 		} else {
 			logger.info("데이터가 없습니다");
 		}
 	}
 	
-	@Test
+//	@Test
 	public void testgetsongsbyusername() throws Exception{
 		
-		List<perPageVO> pageList = pageDAO.getsongsbyusername("user00");
+		List<perPageVO> pageList = pageDAO.getsongsbyusername(1);
 		logger.info("\n Song List by User_Name \n");
 		if(pageList.size() > 0) {
 			for(perPageVO list : pageList) {
