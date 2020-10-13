@@ -64,8 +64,8 @@ public class perPageDAOTest {
 
 		perPageVO pagevo = new perPageVO();
 
-		pagevo.setUser_name("user00");
-		pagevo.setSong_name("로키 한국어 커버");
+		pagevo.setUser_name("user11");
+		pagevo.setSong_name("showpic");
 		pagevo.setSong(getSong());
 		pagevo.setSong_pic(getImage());
 		pagevo.setPlay_list("테스트");
@@ -83,7 +83,7 @@ public class perPageDAOTest {
 	private String getImage() throws FileNotFoundException, IOException {
 		byte[] pic = null;
 		String imagePath = System.getProperty("user.dir") + System.getProperty("file.separator") + "images"
-				+ System.getProperty("file.separator") + "앱등이7.jpg";
+				+ System.getProperty("file.separator") + "show_1.jpg";
 		File image = new File(imagePath);
 		try (InputStream is = new FileInputStream(image)) {
 			pic = new byte[is.available()];
