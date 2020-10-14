@@ -70,7 +70,7 @@
 
 				<c:when test="${empty songList }">
 					<tr>
-						<td colspan="5" align="center">데이터가 없습니다.</td>
+						<td colspan="5" align="center">데이터가 없습니다.이런ㅠㅠ</td>
 					</tr>
 				</c:when>
 				<c:when test="${!empty songList}">
