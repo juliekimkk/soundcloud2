@@ -52,5 +52,7 @@
 		where user_no = #{user_no}
 
 	</delete>
+	
+
 
 </mapper>
