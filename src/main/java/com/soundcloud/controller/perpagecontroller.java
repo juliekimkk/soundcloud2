@@ -38,10 +38,5 @@ public class perpagecontroller {
 		return "perpage/getuser";
 	}
 
-	@RequestMapping(value = "/insert", method = RequestMethod.GET)
-	public String insert(Model model) throws Exception {
-
-		return "redirect:/perpage/getsongs";
-	}
 
 }
