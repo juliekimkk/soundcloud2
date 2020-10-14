@@ -12,28 +12,14 @@
 	<select id="getsongs"
 		resultType="com.soundcloud.perPage.domain.perPageVO">
 
-		select
+		select * from songs join user using(user_name)
 
-		*
-
-		from
-
-		songs
-
-	</select><select id="getsongsbyusername"
+	</select>
+	<select id="getsongsbyusername"
 		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs join user using(user_name) where user_no = #{user_no}
 		
-		select
-		
-		*
-		
-		from
-		
-		songs
-		
-		where
-		
-		user_name=#{username}
 	</select>
 
 	<insert id="insertsong"
@@ -86,9 +72,10 @@
 
 		view = view + 1
 
-		where song_no = #{song_no}
+		where song_no =
+		#{song_no}
 
 	</update>
-	
+
 
 </mapper>

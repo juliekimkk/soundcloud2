@@ -4,7 +4,7 @@
 <html>
 <head>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<link rel="shortcut icon" href="#">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -29,9 +29,8 @@
 
 						<td><c:out value="${list.song_no}" /></td>
 
-						<td><a href="#"
-							onClick="fn_getuser(<c:out value="${list.user_name}"/>)"> <c:out
-									value="${list.user_name}" /></a></td>
+						<td><c:out
+									value="${list.user_name}" /></td>
 
 						<td><c:out value="${list.song_name}" /></td>
 
@@ -43,6 +42,7 @@
 					</tr>
 
 				</c:forEach>
+				<a href="${getuser.request.contextPath}/perpage/getsongs">목록가기</a>
 
 			</c:when>
 

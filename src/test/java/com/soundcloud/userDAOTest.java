@@ -37,15 +37,15 @@ public class userDAOTest {
 		}
 	}
 
-	//@Test
+//	@Test
 	public void testInsert() throws Exception {
 
 		userVO uservo = new userVO();
 
-		uservo.setUser_id("asd");
+		uservo.setUser_id("asdf");
 		uservo.setUser_password("1234");
-		uservo.setUser_name("user00");
-		uservo.setE_mail("asd@asd.asd");
+		uservo.setUser_name("user01");
+		uservo.setE_mail("asdf@asd.asd");
 
 		int result = userDAO.insertuser(uservo);
 		logger.info("\n Insert user Result \n");

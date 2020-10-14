@@ -37,17 +37,17 @@ public class perPageDAOTest {
 		logger.info("\n Song List \n");
 		if (pageList.size() > 0) {
 			for (perPageVO list : pageList) {
-				logger.info(list.getSong_name());
+				System.out.println(list.getSong_name());
 			}
 		} else {
 			logger.info("데이터가 없습니다");
 		}
 	}
 	
-	@Test
+//	@Test
 	public void testgetsongsbyusername() throws Exception{
 		
-		List<perPageVO> pageList = pageDAO.getsongsbyusername("user00");
+		List<perPageVO> pageList = pageDAO.getsongsbyusername(1);
 		logger.info("\n Song List by User_Name \n");
 		if(pageList.size() > 0) {
 			for(perPageVO list : pageList) {
@@ -64,7 +64,7 @@ public class perPageDAOTest {
 
 		perPageVO pagevo = new perPageVO();
 
-		pagevo.setUser_name("user00");
+		pagevo.setUser_name("user01");
 		pagevo.setSong_name("로키 한국어 커버");
 		pagevo.setSong(getSong());
 		pagevo.setSong_pic(getImage());

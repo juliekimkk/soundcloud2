@@ -22,9 +22,9 @@ public class perPageDAOImpl implements perPageDAO {
 	}
 	
 	@Override
-	public List<perPageVO> getsongsbyusername(String user_name) throws Exception{
+	public List<perPageVO> getsongsbyusername(int user_no) throws Exception{
 		
-		return sqlSession.selectList("com.soundcloud.perPage.perPagemapper.getsongsbyusername", user_name);
+		return sqlSession.selectList("com.soundcloud.perPage.perPagemapper.getsongsbyusername", user_no);
 	}
 
 	@Override

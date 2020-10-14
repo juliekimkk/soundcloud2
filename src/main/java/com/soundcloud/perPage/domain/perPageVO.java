@@ -13,6 +13,15 @@ public class perPageVO {
 	private String reg_date;
 	private String play_list;
 	private int view;
+	private int user_no;
+
+	public int getUser_no() {
+		return user_no;
+	}
+
+	public void setUser_no(int user_no) {
+		this.user_no = user_no;
+	}
 
 	public int getSong_no() {
 		return song_no;
