@@ -47,7 +47,7 @@ public class perPageDAOTest {
 //	@Test
 	public void testgetsongsbyusername() throws Exception{
 		
-		List<perPageVO> pageList = pageDAO.getsongsbyusername(1);
+		List<perPageVO> pageList = pageDAO.getsongsbyuserno(1);
 		logger.info("\n Song List by User_Name \n");
 		if(pageList.size() > 0) {
 			for(perPageVO list : pageList) {
