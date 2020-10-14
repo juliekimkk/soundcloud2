@@ -25,6 +25,7 @@
 				<div class="carousel-inner">
 					<div class="carousel-item active">
 						<div class="row">
+						
 							<div class="col">
 								<img class="img-fluid"
 									src="http://via.placeholder.com/800x450/caa8f5/ffffff?text=Image+1"
