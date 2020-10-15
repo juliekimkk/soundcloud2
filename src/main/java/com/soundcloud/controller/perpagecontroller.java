@@ -46,26 +46,30 @@ public class perpagecontroller {
 		return "perpage/getuser";
 	}
 	
-	@RequestMapping("/insert")
-	public void insert(Model mode) {
+	@RequestMapping(value = "/insert", method = RequestMethod.GET)
+	public void insert(Model model,@RequestParam("user_no") int user_no) throws Exception {
 		
-		log.info("노래 업로드");
+		model.addAttribute("songList",perpageDao.getsongsbyuserno(user_no));
+
 	}
 	
 	@PostMapping("/saveImage")
-	public String saveImage(perPageVO vo) throws Exception {
+	public String saveImage(Model model,perPageVO vo) throws Exception {
 		
+		String path = "C:\\fakepath\\";
+		
+			
 		byte[] pic = null;
-		String imagePath = vo.getSong_pic();
-		File image = new File(imagePath);
+		String imagePath =vo.getSong_pic();
+		File image = new File(path + imagePath);
 		InputStream is = new FileInputStream(image);
 		pic = new byte[is.available()];
 		is.read(pic);
-		String getImage = Base64.getEncoder().encodeToString(pic);
+		String getImage =Base64.getEncoder().encodeToString(pic);
 		
 		byte[] song = null;
-		String songPath = vo.getSong();
-		File song1 = new File(songPath);
+		String songPath =vo.getSong();
+		File song1 = new File(path + songPath);
 		InputStream sis = new FileInputStream(song1);
 		song = new byte[sis.available()];
 		sis.read(song);
@@ -77,7 +81,7 @@ public class perpagecontroller {
 		
 		perpageDao.insertsong(vo);
 		                                                                                                                                                                                                    
-		return "redirect:perpage/getuser";
+		return "redirect:getuser";
 
 	}
 

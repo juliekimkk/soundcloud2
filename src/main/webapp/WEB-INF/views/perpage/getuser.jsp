@@ -7,6 +7,20 @@
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+function fn_insert(user_no) {
+
+	var url = "${getuser.request.contextPath}/perpage/insert";
+
+	url = url + "?user_no=" + user_no;
+
+	location.href = url;
+	
+	console.log(url);
+
+}
+</script>
 </head>
 <body>
 	<tbody>
@@ -15,7 +29,7 @@
 
 			<c:when test="${empty songList }">
 				<tr>
-					<td colspan="5" align="center">?�이?��? ?�습?�다.</td>
+					<td colspan="5" align="center">데이터가 없습니다.</td>
 				</tr>
 			</c:when>
 
@@ -28,7 +42,7 @@
 						<td><c:out value="${list.song_name}" /></td>
 
 						<td><img src="data:image/jpg;base64,${list.song_pic}" /></td>
-						
+
 						<audio controls="controls">
 							<source src="data:audio/mpeg;base64,${list.song}"
 								type="audio/ogg">
@@ -36,8 +50,8 @@
 					</tr>
 
 				</c:forEach>
-				<a href = "getsongs">목록가기</a>
-				<a href = "insert">노래넣기</a>
+				<a href="getsongs">목록가기</a>
+				<a href="#" onClick="fn_insert(<c:out value="${songList[0].user_no}"/>)">노래넣기</a>
 
 			</c:when>
 
