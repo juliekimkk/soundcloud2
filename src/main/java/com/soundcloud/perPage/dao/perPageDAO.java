@@ -17,6 +17,8 @@ public interface perPageDAO {
 	public int updatesong(perPageVO pagevo) throws Exception;
 	
 	public int viewcnt(int song_no) throws Exception;
+	
+	public List<perPageVO> viewcnt2() throws Exception;
 
 
 }

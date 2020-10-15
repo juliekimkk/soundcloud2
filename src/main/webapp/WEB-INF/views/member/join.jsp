@@ -10,37 +10,39 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<!-- Font-->
 	<link rel="stylesheet" type="text/css" href="/resources/css/roboto-font.css">
-	<link rel="stylesheet" type="text/css" href="/resources/fonts/font-awesome-5/css/fontawesome-all.min.css">
+	<link rel="stylesheet" type="text/css" href="/resource/sfonts/font-awesome-5/css/fontawesome-all.min.css">
 	<!-- Main Style Css -->
     <link rel="stylesheet" href="/resources/css/style.css"/>
 </head>
 <body class="form-v5">
 	<div class="page-content">
 		<div class="form-v5-content">
-			<form class="form-detail" action="#" method="post">
+			<form class="form-detail" action="/member/register" method="post">
 				<h2>Register Account Form</h2>
 				<div class="form-row">
-					<label for="full-name">ID</label>
-					<input type="text" name="full-name" id="full-name" class="input-text" placeholder="Your ID" required>
+					<label for="userid">ID</label>
+					<input type="text" name="userid" id="userid" class="input-text" placeholder="Your ID" required>
 					<i class="fas fa-user"></i>
 				</div>
 				<div class="form-row">
-					<label for="nick-name">Nick Name</label>
-					<input type="text" name="nick-name" id="nick-name" class="input-text" placeholder="Your Nick Name" required>
+					<label for="userName">Nick Name</label>
+					<input type="text" name="userName" id="userName" class="input-text" placeholder="Your Nick Name" required>
 					<i class="fas fa-user"></i>
 				</div>
-				<div class="form-row">
+				<!-- <div class="form-row">
 					<label for="your-email">Your Email</label>
 					<input type="text" name="your-email" id="your-email" class="input-text" placeholder="Your Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
 					<i class="fas fa-envelope"></i>
-				</div>
+				</div> -->
 				<div class="form-row">
-					<label for="password">Password</label>
-					<input type="password" name="password" id="password" class="input-text" placeholder="Your Password" required>
+					<label for="userpw">Password</label>
+					<input type="password" name="userpw" id="userpw" class="input-text" placeholder="Your Password" required>
 					<i class="fas fa-lock"></i>
 				</div>
 				<div class="form-row-last">
 					<input type="submit" name="register" class="register" value="Register">
+					  <input type="hidden" name="${_csrf.parameterName}"
+    value="${_csrf.token}" />
 				</div>
 			</form>
 		</div>

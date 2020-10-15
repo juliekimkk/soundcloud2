@@ -18,8 +18,9 @@
 	<select id="getsongsbyuserno"
 		resultType="com.soundcloud.perPage.domain.perPageVO">
 
-		select * from songs join user using(user_name) where user_no = #{user_no}
-		
+		select * from songs join user using(user_name) where
+		user_no = #{user_no}
+
 	</select>
 
 	<insert id="insertsong"
@@ -77,5 +78,12 @@
 
 	</update>
 
+	<select id="viewcnt2"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs order by view DESC limit 10;
+
+
+	</select>
 
 </mapper>
