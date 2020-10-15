@@ -40,14 +40,14 @@ public class perPageDAOTest {
 				logger.info(list.getSong_name());
 			}
 		} else {
-			logger.info("?�이?��? ?�습?�다");
+			logger.info("?�이?��? ?�습?�다.");
 		}
 	}
 	
 //	@Test
 	public void testgetsongsbyusername() throws Exception{
 		
-		List<perPageVO> pageList = pageDAO.getsongsbyusername(1);
+		List<perPageVO> pageList = pageDAO.getsongsbyuserno(1);
 		logger.info("\n Song List by User_Name \n");
 		if(pageList.size() > 0) {
 			for(perPageVO list : pageList) {
@@ -55,35 +55,35 @@ public class perPageDAOTest {
 				logger.info(list.getUser_name());
 			}
 		}else {
-			logger.info("?�이?��? ?�습?�다.");
+			logger.info("?�이?��? ?�습?�다.");
 		}
 	}
 
-	@Test
+//	@Test
 	public void testInsert() throws Exception {
 
 		perPageVO pagevo = new perPageVO();
 
-		pagevo.setUser_name("user02");
-		pagevo.setSong_name("노래4");
+		pagevo.setUser_name("user11");
+		pagevo.setSong_name("showpic");
 		pagevo.setSong(getSong());
 		pagevo.setSong_pic(getImage());
-		pagevo.setPlay_list("테스트");
-		pagevo.setTheme("커버링");
+		pagevo.setPlay_list("?�스??");
+		pagevo.setTheme("커버");
 
 		int result = pageDAO.insertsong(pagevo);
 		logger.info("\n Insert Song Result \n");
 		if (result == 1) {
-			logger.info("\n 등록성공");
+			logger.info("\n ?�록?�공");
 		} else {
-			logger.info("\n 등록실패");
+			logger.info("\n ?�록?�패");
 		}
 	}
 
 	private String getImage() throws FileNotFoundException, IOException {
 		byte[] pic = null;
 		String imagePath = System.getProperty("user.dir") + System.getProperty("file.separator") + "images"
-				+ System.getProperty("file.separator") + "pic11.jpg";
+				+ System.getProperty("file.separator") + "show_1.jpg";
 		File image = new File(imagePath);
 		try (InputStream is = new FileInputStream(image)) {
 			pic = new byte[is.available()];
@@ -126,7 +126,7 @@ public class perPageDAOTest {
 		perPageVO pagevo = new perPageVO();
 
 		pagevo.setSong_no(1);
-		pagevo.setSong_name("구리�? 로키(?�국?�커�?)");
+		pagevo.setSong_name("구리�?? 로키(?�국?�커�??)");
 		pagevo.setTheme("?�스??");
 		pagevo.setPlay_list("?�스?? 리스??");
 

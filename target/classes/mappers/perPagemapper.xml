@@ -15,7 +15,7 @@
 		select * from songs join user using(user_name)
 
 	</select>
-	<select id="getsongsbyusername"
+	<select id="getsongsbyuserno"
 		resultType="com.soundcloud.perPage.domain.perPageVO">
 
 		select * from songs join user using(user_name) where

@@ -8,6 +8,11 @@
 	<title>Form-v5 by Colorlib</title>
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="/resources/css/roboto-font.css">
+	<link rel="stylesheet" type="text/css" href="/resource/sfonts/font-awesome-5/css/fontawesome-all.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="/resources/css/style.css"/>
 </head>
 <body class="form-v5">
 	<div class="page-content">

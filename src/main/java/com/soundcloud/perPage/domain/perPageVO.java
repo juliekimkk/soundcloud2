@@ -59,8 +59,8 @@ public class perPageVO {
 		return song_pic;
 	}
 
-	public void setSong_pic(String string) {
-		this.song_pic = string;
+	public void setSong_pic(String song_pic) {
+		this.song_pic = song_pic;
 	}
 
 	public String getTheme() {
