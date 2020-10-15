@@ -37,48 +37,7 @@ public class saveImageController {
 	 * @param vo
 	 * @return
 	 */
-	@RequestMapping(value = "/saveImage")
-	public String saveImage(perPageVO vo) throws Exception {
-		
-		byte[] pic = null;
-		String imagePath = vo.getSong_pic();
-		File image = new File(imagePath);
-		InputStream is = new FileInputStream(image);
-		pic = new byte[is.available()];
-		is.read(pic);
-		String getImage = Base64.getEncoder().encodeToString(pic);
-		
-		byte[] song = null;
-		String songPath = vo.getSong();
-		File song1 = new File(songPath);
-		InputStream sis = new FileInputStream(song1);
-		song = new byte[sis.available()];
-		sis.read(song);
-		String getSong = Base64.getEncoder().encodeToString(song);
-		
-		
-		vo.setSong_pic(getImage);
-		
-		vo.setSong(getSong);
-		
-		dao.insertsong(vo);
-		
-		return "perpage/getuser";
 
-	}
-
-
-	private String getSong() throws FileNotFoundException, IOException {
-		byte[] song = null;
-		String songPath = System.getProperty("user.dir") + System.getProperty("file.separator") + "songs"
-				+ System.getProperty("file.separator") + "guririRoki.mp3";
-		File song1 = new File(songPath);
-		try (InputStream is = new FileInputStream(song1)) {
-			song = new byte[is.available()];
-			is.read(song);
-		}
-		return Base64.getEncoder().encodeToString(song);
-	}
 
 	@Autowired
 	private SqlSession query;

@@ -40,7 +40,7 @@ public class perPageDAOTest {
 				logger.info(list.getSong_name());
 			}
 		} else {
-			logger.info("?�이?��? ?�습?�다");
+			logger.info("데이터가 없습니다.");
 		}
 	}
 	
@@ -55,11 +55,11 @@ public class perPageDAOTest {
 				logger.info(list.getUser_name());
 			}
 		}else {
-			logger.info("?�이?��? ?�습?�다.");
+			logger.info("데이터가 없습니다.");
 		}
 	}
 
-	@Test
+//	@Test
 	public void testInsert() throws Exception {
 
 		perPageVO pagevo = new perPageVO();
@@ -68,8 +68,8 @@ public class perPageDAOTest {
 		pagevo.setSong_name("showpic");
 		pagevo.setSong(getSong());
 		pagevo.setSong_pic(getImage());
-		pagevo.setPlay_list("?�스??");
-		pagevo.setTheme("커버�?");
+		pagevo.setPlay_list("테스트");
+		pagevo.setTheme("커버");
 
 		int result = pageDAO.insertsong(pagevo);
 		logger.info("\n Insert Song Result \n");

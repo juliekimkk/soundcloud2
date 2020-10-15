@@ -15,7 +15,7 @@
 
 			<c:when test="${empty songList }">
 				<tr>
-					<td colspan="5" align="center">?�이?��? ?�습?�다.</td>
+					<td colspan="5" align="center">?�이?��? ?�습?�다.</td>
 				</tr>
 			</c:when>
 
@@ -23,9 +23,7 @@
 				<c:forEach var="list" items="${songList}">
 					<tr>
 						<td><c:out value="${list.song_no}" /></td>
-						<td><a href="#"
-							   onClick="fn_getuser(<c:out value="${list.user_name}"/>)"> <c:out
-							   value="${list.user_name}" /></a></td>
+						<td><c:out value="${list.user_name}" /></td>
 
 						<td><c:out value="${list.song_name}" /></td>
 
@@ -38,6 +36,8 @@
 					</tr>
 
 				</c:forEach>
+				<a href = "getsongs">목록가기</a>
+				<a href = "insert">노래넣기</a>
 
 			</c:when>
 
