@@ -64,26 +64,26 @@ public class perPageDAOTest {
 
 		perPageVO pagevo = new perPageVO();
 
-		pagevo.setUser_name("user11");
-		pagevo.setSong_name("showpic");
+		pagevo.setUser_name("user02");
+		pagevo.setSong_name("노래4");
 		pagevo.setSong(getSong());
 		pagevo.setSong_pic(getImage());
-		pagevo.setPlay_list("?�스??");
-		pagevo.setTheme("커버�?");
+		pagevo.setPlay_list("테스트");
+		pagevo.setTheme("커버링");
 
 		int result = pageDAO.insertsong(pagevo);
 		logger.info("\n Insert Song Result \n");
 		if (result == 1) {
-			logger.info("\n ?�록?�공");
+			logger.info("\n 등록성공");
 		} else {
-			logger.info("\n ?�록?�패");
+			logger.info("\n 등록실패");
 		}
 	}
 
 	private String getImage() throws FileNotFoundException, IOException {
 		byte[] pic = null;
 		String imagePath = System.getProperty("user.dir") + System.getProperty("file.separator") + "images"
-				+ System.getProperty("file.separator") + "show_1.jpg";
+				+ System.getProperty("file.separator") + "pic11.jpg";
 		File image = new File(imagePath);
 		try (InputStream is = new FileInputStream(image)) {
 			pic = new byte[is.available()];
