@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.soundcloud.perPage.dao.perPageDAO;
 import com.soundcloud.perPage.domain.perPageVO;
 import com.soundcloud.user.dao.userDAO;
+import com.soundcloud.user.domain.userVO;
 
 @Controller
 
@@ -44,6 +45,7 @@ public class perpagecontroller {
 	public String getuser(Model model, @RequestParam("user_no") int user_no) throws Exception {
 
 		model.addAttribute("songList", perpageDao.getsongsbyuserno(user_no));
+		model.addAttribute("user",userDao.getuserbyuserno(user_no));
 
 		return "perpage/getuser";
 	}
@@ -51,7 +53,7 @@ public class perpagecontroller {
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public void insert(Model model,@RequestParam("user_no") int user_no) throws Exception {
 		
-		model.addAttribute("songList",perpageDao.getsongsbyuserno(user_no));
+		model.addAttribute("user",userDao.getuserbyuserno(user_no));
 
 	}
 	
@@ -91,13 +93,16 @@ public class perpagecontroller {
 	public void userupdate(Model model,@RequestParam("user_no") int user_no) throws Exception {
 	
 		model.addAttribute("userList",userDao.getuserbyuserno(user_no));
+		model.addAttribute("songList",perpageDao.getsongsbyuserno(user_no));
 		
 	}
 	
 	@PostMapping("/userupdateaction")
-	public String userupdateaction(Model model,perPageVO vo) throws Exception {
+	public String userupdateaction(Model model,userVO vo,perPageVO pvo,@RequestParam("user_no")int user_no) throws Exception {
+
 		
-		
+		userDao.updateuser(vo);
+		perpageDao.updatesonguser(pvo);
 		
 		return "redirect:getuser?user_no="+vo.getUser_no();
 	}
