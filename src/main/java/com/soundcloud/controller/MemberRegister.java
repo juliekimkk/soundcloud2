@@ -1,6 +1,9 @@
 package com.soundcloud.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,14 +12,20 @@ import com.soundcloud.domain.MemberVO;
 import com.soundcloud.service.MemberService;
 
 import lombok.AllArgsConstructor;
+import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
 @RequestMapping("/member/*") 
 @AllArgsConstructor
+@ContextConfiguration({
+	  "file:src/main/webapp/WEB-INF/spring/root-context.xml",
+	  "file:src/main/webapp/WEB-INF/spring/security-context.xml"
+	  })
 public class MemberRegister {
 
+	
 	private MemberService service;
 
 	
@@ -34,8 +43,9 @@ public class MemberRegister {
 		System.out.println(membervo.toString());
 		log.info("============================== ");
 		
+		String pw = membervo.getUserpw();
 		
-//		log.info("register: " + membervo);
+		log.info("register pw: " + pw);
 
 		service.register(membervo);
 

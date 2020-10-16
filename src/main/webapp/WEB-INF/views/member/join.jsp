@@ -29,11 +29,11 @@
 					<input type="text" name="userName" id="userName" class="input-text" placeholder="Your Nick Name" required>
 					<i class="fas fa-user"></i>
 				</div>
-				<!-- <div class="form-row">
+				 <div class="form-row">
 					<label for="your-email">Your Email</label>
-					<input type="text" name="your-email" id="your-email" class="input-text" placeholder="Your Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+					<input type="text" name="useremail" id="your-email" class="input-text" placeholder="Your Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
 					<i class="fas fa-envelope"></i>
-				</div> -->
+				</div> 
 				<div class="form-row">
 					<label for="userpw">Password</label>
 					<input type="password" name="userpw" id="userpw" class="input-text" placeholder="Your Password" required>
