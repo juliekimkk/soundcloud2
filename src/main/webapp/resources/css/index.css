@@ -348,3 +348,249 @@ section
 	transition: all 200ms ease;
 }
 
+
+
+
+
+
+.footer
+{
+	display: block;
+	background: #1f2128;
+	padding-top: 48px;
+	padding-bottom: 48px;
+}
+.footer .logo
+{
+	position: relative;
+	top: auto;
+	left: auto;
+	-webkit-transform: none;
+	-moz-transform: none;
+	-ms-transform: none;
+	-o-transform: none;
+	transform: none;
+}
+.footer .logo a
+{
+	color: rgba(255,255,255,0.3);
+}
+.footer_content_row
+{
+	margin-top: 34px;
+}
+.footer_title
+{
+	font-size: 24px;
+	color: rgba(255,255,255,0.3);
+	font-weight: 500;
+	line-height: 1.2;
+}
+.footer_list
+{
+	-webkit-column-count: 2;
+	-moz-column-count: 2;
+	column-count: 2;
+	margin-top: 63px;
+}
+.footer_list > div > div
+{
+	display: inline-block;
+	height: 20px;
+	background: #ff3500;
+	border-radius: 3px;
+	margin-bottom: 5px;
+	margin-bottom: 10px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.footer_list  > div > div:hover
+{
+	background: #2e3038;
+}
+.footer_list  > div > div a
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	font-size: 12.73px;
+	line-height: 20px;
+	color: #FFFFFF;
+	font-weight: 500;
+	padding-left: 6px;
+	padding-right: 7px;
+}
+.latest_container
+{
+	margin-top: 63px;
+}
+.latest:not(:last-child)
+{
+	margin-bottom: 36px;
+}
+.latest_play
+{
+	width: 16px;
+	height: 16px;
+	opacity: 0.5;
+	margin-top: 2px;
+}
+.latest_play svg
+{
+	max-width: 100%;
+	max-height: 100%;
+	vertical-align: top;
+}
+.latest_play svg path
+{
+	fill: rgba(255,255,255,0.5);
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.latest_title_container:hover .latest_play svg path
+{
+	fill: #ff3500;
+}
+.latest_title_content
+{
+	padding-left: 11px;
+}
+.latest_title
+{
+	font-size: 16px;
+	font-weight: 500;
+	color: #FFFFFF;
+	line-height: 1.2;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.latest_title_container:hover .latest_title
+{
+	color: #ff3500;
+}
+.latest_episode_info
+{
+	margin-top: 6px;
+	padding-left: 27px;
+}
+.latest_episode_info ul li:not(:last-of-type)::after
+{
+	display: inline-block;
+	content: '|';
+	font-size: 12px;
+	color: #FFFFFF;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.latest_episode_info ul li a
+{
+	font-size: 12px;
+	font-weight: 300;
+	color: #FFFFFF;
+}
+.latest_episode_info ul li a:hover
+{
+	color: #ff3500;
+}
+.gallery
+{
+	width: calc(100% + 30px);
+	margin-top: 62px;
+}
+.gallery_item
+{
+	width: calc((100% - 90px) / 3);
+	max-width: 98px;
+	border-radius: 3px;
+	overflow: hidden;
+	margin-bottom: 30px;
+	margin-right: 30px;
+}
+.gallery_item::after
+{
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	visibility: hidden;
+	opacity: 0;
+	content: '';
+	pointer-events: none;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.gallery_item:hover::after
+{
+	visibility: visible;
+	opacity: 1;
+}
+.gallery_item a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.footer_social_row
+{
+	margin-top: 50px;
+}
+.footer_social ul li
+{
+	width: 45px;
+	height: 45px;
+	border: solid 1px #FFFFFF;
+	box-shadow: 0 0 1px 0px #FFFFFF inset, 0 0 1px 0px #FFFFFF;
+	border-radius: 50%;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.footer_social ul li:not(:last-of-type)
+{
+	margin-right: 7px;
+}
+.footer_social ul li a
+{
+	display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.footer_social ul li a i
+{
+	font-size: 18px;
+	color: #FFFFFF;
+	line-height: 43px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.footer_social ul li:hover
+{
+	border-color: #ff3500;
+	box-shadow: 0 0 1px 0px #ff3500 inset, 0 0 1px 0px #ff3500;
+}
+.footer_social ul li:hover a i
+{
+	color: #ff3500;
+}

@@ -176,28 +176,194 @@ function singin() {
 		</tbody>
 	</nav>
 
+<%@ include file="MainpagePlaylist.jsp"%>
+
+<!-- Footer -->
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row footer_logo_row">
+				<div class="col d-flex flex-row align-items-center justify-content-center">
+					<div class="logo">
+						<a href="#"><span>my</span>podcast<img src="images/play.png" alt=""></a>
+					</div>
+				</div>
+			</div>
+			<div class="row footer_content_row">
+				
+				<!-- Tags -->
+				<div class="col-lg-4">
+					<div class="footer_title">Tags</div>
+					<div class="footer_list">
+						<div><div><a href="#">music</a></div></div>
+						<div><div><a href="#">art</a></div></div>
+						<div><div><a href="#">technology</a></div></div>
+						<div><div><a href="#">travel & food</a></div></div>
+						<div><div><a href="#">viral</a></div></div>
+						<div><div><a href="#">social media</a></div></div>
+						<div><div><a href="#">interview</a></div></div>
+						<div><div><a href="#">developement</a></div></div>
+						<div><div><a href="#">success</a></div></div>
+						<div><div><a href="#">live</a></div></div>
+						<div><div><a href="#">did you know?</a></div></div>
+						<div><div><a href="#">health</a></div></div>
+					</div>
+				</div>
+
+				<!-- Latest Episodes -->
+				<div class="col-lg-4">
+					<div class="footer_title">Latest Episodes</div>
+					<div class="latest_container">
+						
+						<!-- Latest -->
+						<div class="latest">
+							<div class="latest_title_container d-flex flex-row align-items-start justify-content-start">
+								<a href="episode.html">
+									<div class="d-flex flex-row align-items-start justify-content-start">
+										<div class="latest_play">
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 714 714" style="enable-background:new 0 0 714 714;" xml:space="preserve">
+												<g id="Play">
+													<path d="M641.045,318.521L102,0C73.822,0,51,22.822,51,51v612c0,28.178,22.822,51,51,51l539.045-318.521      C654.661,387.422,663,372.81,663,357C663,341.19,654.661,326.579,641.045,318.521z M153,565.386V148.614L505.665,357      L153,565.386z" fill="#FFFFFF"/>
+												</g>
+											</svg>
+										</div>
+										<div class="latest_title_content">
+											<div class="latest_title">Season 4 Episode 48 - A Step Further</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="latest_episode_info">
+								<ul class="d-flex flex-row align-items-start justify-content-start">
+									<li><a href="#">September 24, 2018</a></li>
+									<li><a href="#">Music</a></li>
+								</ul>
+							</div>
+						</div>
+
+
+						<!-- Latest -->
+						<div class="latest">
+							<div class="latest_title_container d-flex flex-row align-items-start justify-content-start">
+								<a href="episode.html">
+									<div class="d-flex flex-row align-items-start justify-content-start">
+										<div class="latest_play">
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 714 714" style="enable-background:new 0 0 714 714;" xml:space="preserve">
+												<g id="Play">
+													<path d="M641.045,318.521L102,0C73.822,0,51,22.822,51,51v612c0,28.178,22.822,51,51,51l539.045-318.521      C654.661,387.422,663,372.81,663,357C663,341.19,654.661,326.579,641.045,318.521z M153,565.386V148.614L505.665,357      L153,565.386z" fill="#FFFFFF"/>
+												</g>
+											</svg>
+										</div>
+										<div class="latest_title_content">
+											<div class="latest_title">Season 4 Episode 47 - Deep in Crypto</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="latest_episode_info">
+								<ul class="d-flex flex-row align-items-start justify-content-start">
+									<li><a href="#">September 24, 2018</a></li>
+									<li><a href="#">Music</a></li>
+								</ul>
+							</div>
+						</div>
+
+
+
+						<!-- Latest -->
+						<div class="latest">
+							<div class="latest_title_container d-flex flex-row align-items-start justify-content-start">
+								<a href="episode.html">
+									<div class="d-flex flex-row align-items-start justify-content-start">
+										<div class="latest_play">
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 714 714" style="enable-background:new 0 0 714 714;" xml:space="preserve">
+												<g id="Play">
+													<path d="M641.045,318.521L102,0C73.822,0,51,22.822,51,51v612c0,28.178,22.822,51,51,51l539.045-318.521      C654.661,387.422,663,372.81,663,357C663,341.19,654.661,326.579,641.045,318.521z M153,565.386V148.614L505.665,357      L153,565.386z" fill="#FFFFFF"/>
+												</g>
+											</svg>
+										</div>
+										<div class="latest_title_content">
+											<div class="latest_title">Season 4 Episode 46 - Nothing is real</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="latest_episode_info">
+								<ul class="d-flex flex-row align-items-start justify-content-start">
+									<li><a href="#">September 24, 2018</a></li>
+									<li><a href="#">Music</a></li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Gallery -->
+				<div class="col-lg-4">
+					<div class="footer_title">Instagram</div>
+					<div class="gallery d-flex flex-row align-items-start justify-content-start flex-wrap">
+						
+						<!-- Gallery Item -->
+						<div class="gallery_item">
+							<a class="colorbox" href="resources/images/gallery_1_large.jpg"><img src="resources/images/gallery_1.jpg" alt=""></a>
+						</div>
+
+						<!-- Gallery Item -->
+						<div class="gallery_item">
+							<a class="colorbox" href="resources/images/gallery_2_large.jpg"><img src="resources/images/gallery_2.jpg" alt=""></a>
+						</div>
+
+						<!-- Gallery Item -->
+						<div class="gallery_item">
+							<a class="colorbox" href="resources/images/gallery_3_large.jpg"><img src="resources/images/gallery_3.jpg" alt=""></a>
+						</div>
+
+						<!-- Gallery Item -->
+						<div class="gallery_item">
+							<a class="colorbox" href="resources/images/gallery_4_large.jpg"><img src="resources/images/gallery_4.jpg" alt=""></a>
+						</div>
+
+						<!-- Gallery Item -->
+						<div class="gallery_item">
+							<a class="colorbox" href="resources/images/gallery_5_large.jpg"><img src="resources/images/gallery_5.jpg" alt=""></a>
+						</div>
+						
+						<!-- Gallery Item -->
+						<div class="gallery_item">
+							<a class="colorbox" href="resources/images/gallery_3_large.jpg"><img src="resources/images/gallery_3.jpg" alt=""></a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="row footer_social_row">
+				<div class="col">
+					<div class="footer_social">
+						<ul class="d-flex flex-row align-items-center justify-content-center">
+							<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+</br></br><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+		</div>
+	</footer>	
+
 
 
 	
 
 
 
-	<%@ include file="MainpagePlaylist.jsp"%>
 
-
-
-
-	<div class="container">
-		<div class="asd">
-			<h1 class="text-center">코딩 독학을 소개합니다.</h1>
-			<p class="text-center">코딩 독학은 It 교육 자료 입니다. 다양한 IT 유료 및 강의가 들어
-				갑니다.</p>
-			<p class="text-center">
-				<a class="btn btn-primary btn-lg" href="#" role="button">강의 들으러
-					가기</a>
-		
-			</p>
-		</div>
-	</div>
 </body>
 </html>

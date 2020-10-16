@@ -40,7 +40,9 @@ public class mainpageController {
 	
 	@RequestMapping(value = "/LoginIndex", method = RequestMethod.GET) //post방식
 	public String LoginIndex(Model model) throws Exception {
-		model.addAttribute("mainsonglist", perpageDao.getsongs());
+		List<perPageVO> song = perpageDao.getsongs();		
+		model.addAttribute("songList", song);
+		
 		return "/LoginIndex";
 	}
 	
@@ -48,6 +50,7 @@ public class mainpageController {
 		public String index(Model model) throws Exception {		
 			List<perPageVO> song = perpageDao.getsongs();		
 			model.addAttribute("songList", song);
+			
 			List<perPageVO> viewcnt2 = perpageDao.viewcnt2();
 			log.info(viewcnt2.toString());
 			model.addAttribute("viewcnt2", viewcnt2);
