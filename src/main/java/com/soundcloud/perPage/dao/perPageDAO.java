@@ -8,7 +8,7 @@ public interface perPageDAO {
 
 	public List<perPageVO> getsongs() throws Exception;
 	
-	public List<perPageVO> getsongsbyusername(String user_name) throws Exception;
+	public List<perPageVO> getsongsbyuserno(int user_no) throws Exception;
 
 	public int insertsong(perPageVO pagevo) throws Exception;
 	
@@ -16,7 +16,11 @@ public interface perPageDAO {
 	
 	public int updatesong(perPageVO pagevo) throws Exception;
 	
+	public int updatesonguser(perPageVO pagevo) throws Exception;
+	
 	public int viewcnt(int song_no) throws Exception;
+	
+	public List<perPageVO> viewcnt2() throws Exception;
 
 
 }

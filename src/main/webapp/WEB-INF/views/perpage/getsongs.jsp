@@ -9,15 +9,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="shortcut icon" href="#">
-
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 
-function fn_getuser(user_name) {
+function fn_getuser(user_no) {
 
 	var url = "${getuser.request.contextPath}/perpage/getuser";
 
-	url = url + "?user_name=" + user_name;
+	url = url + "?user_no=" + user_no;
 
 	location.href = url;
 	
@@ -45,7 +44,7 @@ function fn_getuser(user_name) {
 						<td><c:out value="${list.song_no}" /></td>
 
 						<td><a href="#"
-							onClick="fn_getuser(<c:out value="${list.user_name}"/>)"> <c:out
+							onClick="fn_getuser(<c:out value="${list.user_no}"/>)"><c:out
 									value="${list.user_name}" /></a></td>
 
 						<td><c:out value="${list.song_name}" /></td>
@@ -64,6 +63,7 @@ function fn_getuser(user_name) {
 		</c:choose>
 
 	</tbody>
+
 
 </body>
 </html>

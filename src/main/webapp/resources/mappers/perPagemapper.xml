@@ -14,14 +14,27 @@
 
 		select
 
-		song_no, user_name, song_name, theme,
-		reg_date,
-		play_list, view
+		*
 
 		from
 
 		songs
 
+	</select>
+	<select id="getsongsbyusername"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select
+
+		*
+
+		from
+
+		songs
+
+		where
+
+		user_name=#{username}
 	</select>
 
 	<insert id="insertsong"
@@ -68,14 +81,22 @@
 	</update>
 
 	<update id="viewcnt"
-		parameterType="int">
+		parameterType="com.soundcloud.perPage.domain.perPageVO">
 
 		update songs set
 
 		view = view + 1
 
-		where song_no = #{song_no}
+		where song_no =
+		#{song_no}
 
 	</update>
+
+	<select id="viewcnt2"
+		parameterType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs order by view DESC limit 0,10;
+	</select>
+
 
 </mapper>

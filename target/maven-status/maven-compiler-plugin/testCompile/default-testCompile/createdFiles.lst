@@ -1,0 +1,5 @@
+com\soundcloud\perPageDAOTest.class
+com\soundcloud\mapper\MemberMapperTests.class
+com\soundcloud\MysqlConnectionTest.class
+com\soundcloud\userDAOTest.class
+com\soundcloud\security\MemberTests.class

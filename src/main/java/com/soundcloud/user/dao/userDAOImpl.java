@@ -20,6 +20,12 @@ public class userDAOImpl implements userDAO {
 
 		return sqlSession.selectList("com.soundcloud.user.usermapper.getuser");
 	}
+	
+	@Override
+	public List<userVO> getuserbyuserno(int user_no) throws Exception {
+
+		return sqlSession.selectList("com.soundcloud.user.usermapper.getuserbyuserno", user_no);
+	}
 
 	@Override
 	public int insertuser(userVO uservo) throws Exception {

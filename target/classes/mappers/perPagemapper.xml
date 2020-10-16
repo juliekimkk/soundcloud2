@@ -12,28 +12,15 @@
 	<select id="getsongs"
 		resultType="com.soundcloud.perPage.domain.perPageVO">
 
-		select
+		select * from songs 
 
-		*
-
-		from
-
-		songs
-
-	</select><select id="getsongsbyusername"
+	</select>
+	<select id="getsongsbyuserno"
 		resultType="com.soundcloud.perPage.domain.perPageVO">
-		
-		select
-		
-		*
-		
-		from
-		
-		songs
-		
-		where
-		
-		user_name=#{username}
+
+		select * from songs where
+		user_no = #{user_no}
+
 	</select>
 
 	<insert id="insertsong"
@@ -41,7 +28,7 @@
 
 		insert into songs(user_name, song_name, song,
 		song_pic,
-		theme, play_list)
+		theme, play_list,user_no)
 
 		value(
 		#{user_name},
@@ -49,7 +36,8 @@
 		#{song},
 		#{song_pic},
 		#{theme},
-		#{play_list}
+		#{play_list},
+		#{user_no}
 		)
 
 	</insert>
@@ -67,6 +55,8 @@
 		parameterType="com.soundcloud.perPage.domain.perPageVO">
 
 		update songs set
+		
+		user_name = #{user_name},
 
 		song_name = #{song_name},
 
@@ -78,6 +68,16 @@
 		where song_no = #{song_no}
 
 	</update>
+	
+	<update id="updatesonguser" parameterType="com.soundcloud.perPage.domain.perPageVO">
+	
+	update songs set
+	
+	user_name = #{user_name}
+	
+	where user_no = #{user_no}
+	
+	</update>
 
 	<update id="viewcnt"
 		parameterType="com.soundcloud.perPage.domain.perPageVO">
@@ -86,9 +86,17 @@
 
 		view = view + 1
 
-		where song_no = #{song_no}
+		where song_no =
+		#{song_no}
 
 	</update>
-	
+
+	<select id="viewcnt2"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs order by view DESC limit 10;
+
+
+	</select>
 
 </mapper>

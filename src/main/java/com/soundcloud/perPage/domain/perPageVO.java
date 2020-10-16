@@ -13,6 +13,15 @@ public class perPageVO {
 	private String reg_date;
 	private String play_list;
 	private int view;
+	private int user_no;
+
+	public int getUser_no() {
+		return user_no;
+	}
+
+	public void setUser_no(int user_no) {
+		this.user_no = user_no;
+	}
 
 	public int getSong_no() {
 		return song_no;
@@ -50,8 +59,8 @@ public class perPageVO {
 		return song_pic;
 	}
 
-	public void setSong_pic(String string) {
-		this.song_pic = string;
+	public void setSong_pic(String song_pic) {
+		this.song_pic = song_pic;
 	}
 
 	public String getTheme() {
