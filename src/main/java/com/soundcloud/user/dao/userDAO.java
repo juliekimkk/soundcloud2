@@ -7,6 +7,8 @@ import com.soundcloud.user.domain.userVO;
 public interface userDAO {
 
 	public List<userVO> getuser() throws Exception;
+	
+	public List<userVO> getuserbyuserno(int user_no) throws Exception;
 
 	public int insertuser(userVO uservo) throws Exception;
 
