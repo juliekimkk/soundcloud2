@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.soundcloud.perPage.dao.perPageDAO;
 import com.soundcloud.perPage.domain.perPageVO;
+import com.soundcloud.user.dao.userDAO;
 
 @Controller
 
@@ -28,6 +28,8 @@ public class perpagecontroller {
 
 	@Inject
 	private perPageDAO perpageDao;
+	@Inject
+	private userDAO userDao;
 	
 	private static final Logger log = LoggerFactory.getLogger(perpagecontroller.class);
 
@@ -73,6 +75,7 @@ public class perpagecontroller {
 		song = new byte[sis.available()];
 		sis.read(song);
 		String getSong = Base64.getEncoder().encodeToString(song);
+		
 				
 		vo.setSong_pic(getImage);
 		
@@ -80,8 +83,32 @@ public class perpagecontroller {
 		
 		perpageDao.insertsong(vo);
 		                                                                                                                                                                                                    
-		return "redirect:getuser";
+		return "redirect:getuser"+"?user_no="+vo.getUser_no();
 
+	}
+	
+	@RequestMapping(value = "/userupdate", method = RequestMethod.GET)
+	public void userupdate(Model model,@RequestParam("user_no") int user_no) throws Exception {
+	
+		model.addAttribute("userList",userDao.getuserbyuserno(user_no));
+		
+	}
+	
+	@PostMapping("/userupdateaction")
+	public String userupdateaction(Model model,perPageVO vo) throws Exception {
+		
+		
+		
+		return "redirect:getuser?user_no="+vo.getUser_no();
+	}
+	
+	@RequestMapping(value = "/songdelete", method = RequestMethod.GET)
+	public String songdelete(Model model, perPageVO vo,@RequestParam(value = "song_no")int song_no,@RequestParam(value = "user_no")int user_no) throws Exception{
+		
+		perpageDao.deletesong(song_no);
+		
+		return "redirect:getuser?user_no=" + user_no;
+		
 	}
 
 

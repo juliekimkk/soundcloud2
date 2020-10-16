@@ -20,7 +20,7 @@
 		<input type="text" name="theme">
 		<label for="play_list">플레이 리스트</label>
 		<input type="text" name="play_list">
-		<input type="submit">
+		<input type="submit" value="등록">
 		<input type="hidden" name="user_no" value="${songList[0].user_no}">
 		<input type="hidden" name="${_csrf.parameterName}"
     value="${_csrf.token}" />
