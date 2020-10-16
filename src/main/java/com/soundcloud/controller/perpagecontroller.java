@@ -57,7 +57,6 @@ public class perpagecontroller {
 	public String saveImage(Model model,perPageVO vo) throws Exception {
 		
 		String path = "C:\\fakepath\\";
-		
 			
 		byte[] pic = null;
 		String imagePath =vo.getSong_pic();
