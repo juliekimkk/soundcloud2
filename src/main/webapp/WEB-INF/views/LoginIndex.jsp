@@ -37,25 +37,54 @@
 </head>
 <body>
 	<section>
-		<tbody>
+		<div class="container">
+			<hr class="my-1">
+			<h4 class="display-4">Study</h1>
+			<p>Popular playlists from the SoundCloud community</p>
+		</div>
+			<tbody>
 
-			<c:choose>
+				<c:choose>
 
-				<c:when test="${empty songList }">
-					<tr>
-						<td colspan="5" align="center">데이터가 없습니다.이런ㅠㅠ</td>
-					</tr>
-				</c:when>
-				<c:when test="${!empty songList}">
+					<c:when test="${empty songList }">
+						<tr>
+							<td colspan="5" align="center">데이터가 없습니다.이런ㅠㅠ</td>
+						</tr>
+					</c:when>
+					<c:when test="${!empty songList}">
 
-					<div class="container">
-						<div id="gallery" class="carousel slide" data-ride="carousel">
+						<div class="container">
+							<div id="gallery" class="carousel slide" data-ride="carousel">
 
-							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<div class="row">
-										<c:forEach var="list" items="${songList}" varStatus="status">
-											<c:if test="${status.count < 6}">
+								<div class="carousel-inner">
+									<div class="carousel-item active">
+										<div class="row">
+											<c:forEach var="list" items="${songList}" varStatus="status">
+												<c:if test="${status.count < 6}">
+													<div class="col">
+														<div class="show_image">
+															<td class="img-fluid"><c:out value="${list.song_no}" /></td>
+															<a href="episode.html"> <img class="img-fluid"
+																src="data:image/jpg;base64,${list.song_pic}"
+																alt="Image 1" /></a> <img class="show_play_icon"
+																src="<c:url value="/resources/images/play.svg" />" />
+
+
+															<td class="img-fluid"><a href="LoginIndex"><c:out
+																		value="${list.song_name}" /></a></td>
+															<td class="img-fluid"><a href="LoginIndex"><c:out
+																		value="${list.user_name}" /></a></td>
+														</div>
+													</div>
+												</c:if>
+												<c:if test="${status.count == 6}">
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="row">
+											</c:if>
+											<c:if test="${status.count >= 6}">
+
 												<div class="col">
 													<div class="show_image">
 														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
@@ -64,6 +93,89 @@
 															alt="Image 1" /></a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play.svg" />" />
 
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
+													</div>
+												</div>
+											</c:if>
+											</c:forEach>
+										</div>
+									</div>
+								</div>
+								<a class="carousel-control-prev" href="#gallery" role="button"
+									data-slide="prev"> <span class="carousel-control-prev-icon"
+									aria-hidden="true"></span> <span class="sr-only">Previous</span>
+								</a> <a class="carousel-control-next" href="#gallery" role="button"
+									data-slide="next"> <span class="carousel-control-next-icon"
+									aria-hidden="true"></span> <span class="sr-only">Next</span>
+								</a>
+							</div>
+						</div>
+					</c:when>
+				</c:choose>
+			</tbody>
+	</section>
+	
+	
+	
+		<section>
+		<div class="container">
+			<hr class="my-1">
+			<h4 class="display-4">Party</h1>
+			<p>Popular playlists from the SoundCloud community</p>
+		</div>
+			<tbody>
+
+				<c:choose>
+
+					<c:when test="${empty songList }">
+						<tr>
+							<td colspan="5" align="center">데이터가 없습니다.이런ㅠㅠ</td>
+						</tr>
+					</c:when>
+					<c:when test="${!empty songList}">
+
+						<div class="container">
+							<div id="gallery" class="carousel slide" data-ride="carousel">
+
+								<div class="carousel-inner">
+									<div class="carousel-item active">
+										<div class="row">
+											<c:forEach var="list" items="${songList}" varStatus="status">
+												<c:if test="${status.count < 6}">
+													<div class="col">
+														<div class="show_image">
+															<td class="img-fluid"><c:out value="${list.song_no}" /></td>
+															<a href="episode.html"> <img class="img-fluid"
+																src="data:image/jpg;base64,${list.song_pic}"
+																alt="Image 1" /></a> <img class="show_play_icon"
+																src="<c:url value="/resources/images/play.svg" />" />
+
+
+															<td class="img-fluid"><a href="LoginIndex"><c:out
+																		value="${list.song_name}" /></a></td>
+															<td class="img-fluid"><a href="LoginIndex"><c:out
+																		value="${list.user_name}" /></a></td>
+														</div>
+													</div>
+												</c:if>
+												<c:if test="${status.count == 6}">
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="row">
+											</c:if>
+											<c:if test="${status.count >= 6}">
+
+												<div class="col">
+													<div class="show_image">
+														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
+														<a href="episode.html"> <img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}"
+															alt="Image 1" /></a> <img class="show_play_icon"
+															src="<c:url value="/resources/images/play.svg" />" />
 
 														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.song_name}" /></a></td>
@@ -72,47 +184,270 @@
 													</div>
 												</div>
 											</c:if>
-											<c:if test="${status.count == 6}">
+											</c:forEach>
+										</div>
 									</div>
 								</div>
-								<div class="carousel-item">
-									<div class="row">
-										</c:if>
-										<c:if test="${status.count >= 6}">
-
-											<div class="col">
-												<div class="show_image">
-													<td class="img-fluid"><c:out value="${list.song_no}" /></td>
-													<a href="episode.html"> <img class="img-fluid"
-														src="data:image/jpg;base64,${list.song_pic}" alt="Image 1" /></a>
-													<img class="show_play_icon"
-														src="<c:url value="/resources/images/play.svg" />" />
-
-													<td class="img-fluid"><a href="LoginIndex"><c:out
-																value="${list.song_name}" /></a></td>
-													<td class="img-fluid"><a href="LoginIndex"><c:out
-																value="${list.user_name}" /></a></td>
-												</div>
-											</div>
-										</c:if>
-										</c:forEach>
-									</div>
-								</div>
+								<a class="carousel-control-prev" href="#gallery" role="button"
+									data-slide="prev"> <span class="carousel-control-prev-icon"
+									aria-hidden="true"></span> <span class="sr-only">Previous</span>
+								</a> <a class="carousel-control-next" href="#gallery" role="button"
+									data-slide="next"> <span class="carousel-control-next-icon"
+									aria-hidden="true"></span> <span class="sr-only">Next</span>
+								</a>
 							</div>
-							<a class="carousel-control-prev" href="#gallery" role="button"
-								data-slide="prev"> <span class="carousel-control-prev-icon"
-								aria-hidden="true"></span> <span class="sr-only">Previous</span>
-							</a> <a class="carousel-control-next" href="#gallery" role="button"
-								data-slide="next"> <span class="carousel-control-next-icon"
-								aria-hidden="true"></span> <span class="sr-only">Next</span>
-							</a>
 						</div>
-					</div>
-				</c:when>
-			</c:choose>
-		</tbody>
+					</c:when>
+				</c:choose>
+			</tbody>
 	</section>
 
+
+		<section>
+		<div class="container">
+			<hr class="my-1">
+			<h4 class="display-4">Chill</h1>
+			<p>Popular playlists from the SoundCloud community</p>
+		</div>
+			<tbody>
+
+				<c:choose>
+
+					<c:when test="${empty songList }">
+						<tr>
+							<td colspan="5" align="center">데이터가 없습니다.이런ㅠㅠ</td>
+						</tr>
+					</c:when>
+					<c:when test="${!empty songList}">
+
+						<div class="container">
+							<div id="gallery" class="carousel slide" data-ride="carousel">
+
+								<div class="carousel-inner">
+									<div class="carousel-item active">
+										<div class="row">
+											<c:forEach var="list" items="${songList}" varStatus="status">
+												<c:if test="${status.count < 6}">
+													<div class="col">
+														<div class="show_image">
+															<td class="img-fluid"><c:out value="${list.song_no}" /></td>
+															<a href="episode.html"> <img class="img-fluid"
+																src="data:image/jpg;base64,${list.song_pic}"
+																alt="Image 1" /></a> <img class="show_play_icon"
+																src="<c:url value="/resources/images/play.svg" />" />
+
+
+															<td class="img-fluid"><a href="LoginIndex"><c:out
+																		value="${list.song_name}" /></a></td>
+															<td class="img-fluid"><a href="LoginIndex"><c:out
+																		value="${list.user_name}" /></a></td>
+														</div>
+													</div>
+												</c:if>
+												<c:if test="${status.count == 6}">
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="row">
+											</c:if>
+											<c:if test="${status.count >= 6}">
+
+												<div class="col">
+													<div class="show_image">
+														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
+														<a href="episode.html"> <img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}"
+															alt="Image 1" /></a> <img class="show_play_icon"
+															src="<c:url value="/resources/images/play.svg" />" />
+
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
+													</div>
+												</div>
+											</c:if>
+											</c:forEach>
+										</div>
+									</div>
+								</div>
+								<a class="carousel-control-prev" href="#gallery" role="button"
+									data-slide="prev"> <span class="carousel-control-prev-icon"
+									aria-hidden="true"></span> <span class="sr-only">Previous</span>
+								</a> <a class="carousel-control-next" href="#gallery" role="button"
+									data-slide="next"> <span class="carousel-control-next-icon"
+									aria-hidden="true"></span> <span class="sr-only">Next</span>
+								</a>
+							</div>
+						</div>
+					</c:when>
+				</c:choose>
+			</tbody>
+	</section>
+	
+		<section>
+		<div class="container">
+			<hr class="my-1">
+			<h4 class="display-4">Charts: Top 50</h1>
+			<p>Popular playlists from the SoundCloud community</p>
+		</div>
+			<tbody>
+
+				<c:choose>
+
+					<c:when test="${empty songList }">
+						<tr>
+							<td colspan="5" align="center">데이터가 없습니다.이런ㅠㅠ</td>
+						</tr>
+					</c:when>
+					<c:when test="${!empty songList}">
+
+						<div class="container">
+							<div id="gallery" class="carousel slide" data-ride="carousel">
+
+								<div class="carousel-inner">
+									<div class="carousel-item active">
+										<div class="row">
+											<c:forEach var="list" items="${songList}" varStatus="status">
+												<c:if test="${status.count < 6}">
+													<div class="col">
+														<div class="show_image">
+															<td class="img-fluid"><c:out value="${list.song_no}" /></td>
+															<a href="episode.html"> <img class="img-fluid"
+																src="data:image/jpg;base64,${list.song_pic}"
+																alt="Image 1" /></a> <img class="show_play_icon"
+																src="<c:url value="/resources/images/play.svg" />" />
+
+
+															<td class="img-fluid"><a href="LoginIndex"><c:out
+																		value="${list.song_name}" /></a></td>
+															<td class="img-fluid"><a href="LoginIndex"><c:out
+																		value="${list.user_name}" /></a></td>
+														</div>
+													</div>
+												</c:if>
+												<c:if test="${status.count == 6}">
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="row">
+											</c:if>
+											<c:if test="${status.count >= 6}">
+
+												<div class="col">
+													<div class="show_image">
+														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
+														<a href="episode.html"> <img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}"
+															alt="Image 1" /></a> <img class="show_play_icon"
+															src="<c:url value="/resources/images/play.svg" />" />
+
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
+													</div>
+												</div>
+											</c:if>
+											</c:forEach>
+										</div>
+									</div>
+								</div>
+								<a class="carousel-control-prev" href="#gallery" role="button"
+									data-slide="prev"> <span class="carousel-control-prev-icon"
+									aria-hidden="true"></span> <span class="sr-only">Previous</span>
+								</a> <a class="carousel-control-next" href="#gallery" role="button"
+									data-slide="next"> <span class="carousel-control-next-icon"
+									aria-hidden="true"></span> <span class="sr-only">Next</span>
+								</a>
+							</div>
+						</div>
+					</c:when>
+				</c:choose>
+			</tbody>
+	</section>
+	
+		<section>
+		<div class="container">
+			<hr class="my-1">
+			<h4 class="display-4">Relax</h1>
+			<p>Popular playlists from the SoundCloud community</p>
+		</div>
+			<tbody>
+
+				<c:choose>
+
+					<c:when test="${empty songList }">
+						<tr>
+							<td colspan="5" align="center">데이터가 없습니다.이런ㅠㅠ</td>
+						</tr>
+					</c:when>
+					<c:when test="${!empty songList}">
+
+						<div class="container">
+							<div id="gallery" class="carousel slide" data-ride="carousel">
+
+								<div class="carousel-inner">
+									<div class="carousel-item active">
+										<div class="row">
+											<c:forEach var="list" items="${songList}" varStatus="status">
+												<c:if test="${status.count < 6}">
+													<div class="col">
+														<div class="show_image">
+															<td class="img-fluid"><c:out value="${list.song_no}" /></td>
+															<a href="episode.html"> <img class="img-fluid"
+																src="data:image/jpg;base64,${list.song_pic}"
+																alt="Image 1" /></a> <img class="show_play_icon"
+																src="<c:url value="/resources/images/play.svg" />" />
+
+
+															<td class="img-fluid"><a href="LoginIndex"><c:out
+																		value="${list.song_name}" /></a></td>
+															<td class="img-fluid"><a href="LoginIndex"><c:out
+																		value="${list.user_name}" /></a></td>
+														</div>
+													</div>
+												</c:if>
+												<c:if test="${status.count == 6}">
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="row">
+											</c:if>
+											<c:if test="${status.count >= 6}">
+
+												<div class="col">
+													<div class="show_image">
+														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
+														<a href="episode.html"> <img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}"
+															alt="Image 1" /></a> <img class="show_play_icon"
+															src="<c:url value="/resources/images/play.svg" />" />
+
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
+													</div>
+												</div>
+											</c:if>
+											</c:forEach>
+										</div>
+									</div>
+								</div>
+								<a class="carousel-control-prev" href="#gallery" role="button"
+									data-slide="prev"> <span class="carousel-control-prev-icon"
+									aria-hidden="true"></span> <span class="sr-only">Previous</span>
+								</a> <a class="carousel-control-next" href="#gallery" role="button"
+									data-slide="next"> <span class="carousel-control-next-icon"
+									aria-hidden="true"></span> <span class="sr-only">Next</span>
+								</a>
+							</div>
+						</div>
+					</c:when>
+				</c:choose>
+			</tbody>
+	</section>
 
 </body>
 </html>
