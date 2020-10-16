@@ -16,6 +16,13 @@
 		select * from user
 
 	</select>
+	
+	<select id="getuserbyuserno"
+		resultType="com.soundcloud.user.domain.userVO">
+
+		select * from user where user_no = #{user_no}
+
+	</select>
 
 	<insert id="insertuser"
 		parameterType="com.soundcloud.user.domain.userVO">

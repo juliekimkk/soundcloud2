@@ -20,6 +20,28 @@ function fn_insert(user_no) {
 	console.log(url);
 
 }
+function fn_userupdate(user_no) {
+
+	var url = "${getuser.request.contextPath}/perpage/userupdate";
+
+	url = url + "?user_no=" + user_no;
+
+	location.href = url;
+	
+	console.log(url);
+}
+function fn_del(song_no,user_no) {
+
+	var url = "${getuser.request.contextPath}/perpage/songdelete";
+
+	url = url + "?song_no=" + song_no;
+	
+	url = url + "&user_no=" + user_no;
+
+	location.href = url;
+	
+	console.log(url);
+}
 </script>
 </head>
 <body>
@@ -36,11 +58,12 @@ function fn_insert(user_no) {
 			<c:when test="${!empty songList}">
 				<c:forEach var="list" items="${songList}">
 					<tr>
-						<td><c:out value="${list.song_no}" /></td>
 						<td><c:out value="${list.user_name}" /></td>
 
 						<td><c:out value="${list.song_name}" /></td>
-
+						<td><a href="#"
+							onClick="fn_del(<c:out value="${list.song_no},${list.user_no}"/>)">
+								삭제</a>
 						<td><img src="data:image/jpg;base64,${list.song_pic}" /></td>
 
 						<audio controls="controls">
@@ -50,14 +73,19 @@ function fn_insert(user_no) {
 					</tr>
 
 				</c:forEach>
-				<a href="getsongs">목록가기</a>
-				<a href="#" onClick="fn_insert(<c:out value="${songList[0].user_no}"/>)">노래넣기</a>
 
 			</c:when>
 
 		</c:choose>
 
+
 	</tbody>
+	<a href="getsongs">목록가기</a>
+	<a href="#"
+		onClick="fn_insert(<c:out value="${user[0].user_no}"/>)">노래넣기</a>
+	<a href="#"
+		onClick="fn_userupdate(<c:out value="${songList[0].user_no}"/>)">회원정보수정</a>
+
 
 </body>
 </html>
