@@ -10,7 +10,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -20,6 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.soundcloud.perPage.dao.perPageDAO;
 import com.soundcloud.perPage.domain.perPageVO;
+import com.soundcloud.mainLogin.dao.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/root-context.xml" })
@@ -40,7 +40,7 @@ public class perPageDAOTest {
 				logger.info(list.getSong_name());
 			}
 		} else {
-			logger.info("?�이?��? ?�습?�다.");
+			logger.info("?�이?��? ?�습?�다.");
 		}
 	}
 	
@@ -55,7 +55,7 @@ public class perPageDAOTest {
 				logger.info(list.getUser_name());
 			}
 		}else {
-			logger.info("?�이?��? ?�습?�다.");
+			logger.info("?�이?��? ?�습?�다.");
 		}
 	}
 
@@ -68,15 +68,15 @@ public class perPageDAOTest {
 		pagevo.setSong_name("showpic");
 		pagevo.setSong(getSong());
 		pagevo.setSong_pic(getImage());
-		pagevo.setPlay_list("?�스??");
+		pagevo.setPlay_list("?�스??");
 		pagevo.setTheme("커버");
 
 		int result = pageDAO.insertsong(pagevo);
 		logger.info("\n Insert Song Result \n");
 		if (result == 1) {
-			logger.info("\n ?�록?�공");
+			logger.info("\n ?�록?�공");
 		} else {
-			logger.info("\n ?�록?�패");
+			logger.info("\n ?�록?�패");
 		}
 	}
 
@@ -126,7 +126,7 @@ public class perPageDAOTest {
 		perPageVO pagevo = new perPageVO();
 
 		pagevo.setSong_no(1);
-		pagevo.setSong_name("구리�?? 로키(?�국?�커�??)");
+		pagevo.setSong_name("구리�?? 로키(?�국?�커�??)");
 		pagevo.setTheme("?�스??");
 		pagevo.setPlay_list("?�스?? 리스??");
 
@@ -154,5 +154,7 @@ public class perPageDAOTest {
 			logger.info("\n ?�데?�트 ?�패");
 		}
 	}
+	
+	
 
 }

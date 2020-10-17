@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.soundcloud.mainLogin.dao.mainLoginDAO;
 import com.soundcloud.perPage.dao.perPageDAO;
 import com.soundcloud.perPage.domain.perPageVO;
 
@@ -22,10 +23,11 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Controller
 public class mainpageController {
-	
+
 	@Inject
 	private perPageDAO perpageDao;
 	private perPageVO pagevo;
+	private mainLoginDAO mainloginDao;
 
 	private static final Logger logger = LoggerFactory.getLogger(mainpageController.class);
 
@@ -36,33 +38,32 @@ public class mainpageController {
 	 * @RequestMapping(value = "/index", method = RequestMethod.GET) public String
 	 * home(Locale locale, Model model) { return "index"; }
 	 */
-		
-	
-	@RequestMapping(value = "/LoginIndex", method = RequestMethod.GET) //post방식
-	public String LoginIndex(Model model) throws Exception {
-		List<perPageVO> song = perpageDao.getsongs();		
-		model.addAttribute("songList", song);
-		
+
+	@RequestMapping(value = "/LoginIndex", method = RequestMethod.GET) // post방식
+	public String LoginIndex(Model model, String theme2) throws Exception {
+		List<perPageVO> theme = perpageDao.getsongsbytheme(theme2);
+		model.addAttribute("theme", theme);
+
 		return "/LoginIndex";
 	}
-	
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-		public String index(Model model) throws Exception {		
-			List<perPageVO> song = perpageDao.getsongs();		
-			model.addAttribute("songList", song);
-			
-			List<perPageVO> viewcnt2 = perpageDao.viewcnt2();
-			log.info(viewcnt2.toString());
-			model.addAttribute("viewcnt2", viewcnt2);
 
-			return "/index";
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String index(Model model) throws Exception {
+		List<perPageVO> song = perpageDao.getsongs();
+		model.addAttribute("songList", song);
+
+		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();
+		log.info(viewcnt2.toString());
+		model.addAttribute("viewcnt2", viewcnt2);
+
+		return "/index";
 	}
-	
+
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String test(Model model) throws Exception {		
+	public String test(Model model) throws Exception {
 		return "/test";
 	}
-	
+
 	@RequestMapping(value = "/MainpagePlaylist", method = RequestMethod.GET)
 	public String MainpagePlaylist(Model model) throws Exception {
 		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();
@@ -71,9 +72,4 @@ public class mainpageController {
 		return "/MainpagePlaylist";
 	}
 
-	
-	
-	
-	
-	
 }

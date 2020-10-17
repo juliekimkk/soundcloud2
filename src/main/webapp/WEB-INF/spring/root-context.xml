@@ -29,6 +29,7 @@
 	<context:component-scan	base-package="com.soundcloud.domain"></context:component-scan>
 	<context:component-scan	base-package="com.soundcloud.mapper"></context:component-scan>
 	<context:component-scan	base-package="com.soundcloud.security"></context:component-scan>
+	<context:component-scan base-package="com.soundcloud.mainLogin.dao"></context:component-scan>
 
 
 	<task:annotation-driven />

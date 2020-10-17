@@ -119,6 +119,9 @@ function singin() {
 									<div class="row">
 										<c:forEach var="list" items="${songList}" varStatus="status">
 											<c:if test="${status.count < 6}">
+												<c:if test="${theme eq 'study'}">
+													<p>반가워요
+												
 												<div class="col">
 													<div class="show_image">
 														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
@@ -134,6 +137,7 @@ function singin() {
 																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
+												</c:if>
 											</c:if>
 											<c:if test="${status.count == 6}">
 									</div>

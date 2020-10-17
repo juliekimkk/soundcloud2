@@ -57,4 +57,9 @@ public class perPageDAOImpl implements perPageDAO {
 		return sqlSession.selectList("com.soundcloud.perPage.perPagemapper.viewcnt2");
 	}
 	
+	@Override
+	public List<perPageVO> getsongsbytheme(String theme) throws Exception {
+		
+		return sqlSession.selectList("com.soundcloud.perPage.perPagemapper.getsongsbytheme", theme);
+	}
 }

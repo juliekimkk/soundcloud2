@@ -46,12 +46,12 @@
 
 				<c:choose>
 
-					<c:when test="${empty songList }">
+					<c:when test="${empty theme }">
 						<tr>
 							<td colspan="5" align="center">데이터가 없습니다.이런ㅠㅠ</td>
 						</tr>
 					</c:when>
-					<c:when test="${!empty songList}">
+					<c:when test="${!empty theme}">
 
 						<div class="container">
 							<div id="gallery" class="carousel slide" data-ride="carousel">
@@ -59,7 +59,7 @@
 								<div class="carousel-inner">
 									<div class="carousel-item active">
 										<div class="row">
-											<c:forEach var="list" items="${songList}" varStatus="status">
+											<c:forEach var="list" items="${theme}" varStatus="status">
 												<c:if test="${status.count < 6}">
 													<div class="col">
 														<div class="show_image">
@@ -130,12 +130,12 @@
 
 				<c:choose>
 
-					<c:when test="${empty songList }">
+					<c:when test="${empty theme }">
 						<tr>
 							<td colspan="5" align="center">데이터가 없습니다.이런ㅠㅠ</td>
 						</tr>
 					</c:when>
-					<c:when test="${!empty songList}">
+					<c:when test="${!empty theme}">
 
 						<div class="container">
 							<div id="gallery" class="carousel slide" data-ride="carousel">
@@ -213,12 +213,12 @@
 
 				<c:choose>
 
-					<c:when test="${empty songList }">
+					<c:when test="${empty getsongsbytheme }">
 						<tr>
 							<td colspan="5" align="center">데이터가 없습니다.이런ㅠㅠ</td>
 						</tr>
 					</c:when>
-					<c:when test="${!empty songList}">
+					<c:when test="${!empty getsongsbytheme}">
 
 						<div class="container">
 							<div id="gallery" class="carousel slide" data-ride="carousel">
@@ -295,12 +295,12 @@
 
 				<c:choose>
 
-					<c:when test="${empty songList }">
+					<c:when test="${empty getsongsbytheme }">
 						<tr>
 							<td colspan="5" align="center">데이터가 없습니다.이런ㅠㅠ</td>
 						</tr>
 					</c:when>
-					<c:when test="${!empty songList}">
+					<c:when test="${!empty getsongsbytheme}">
 
 						<div class="container">
 							<div id="gallery" class="carousel slide" data-ride="carousel">
@@ -377,12 +377,12 @@
 
 				<c:choose>
 
-					<c:when test="${empty songList }">
+					<c:when test="${empty getsongsbytheme }">
 						<tr>
 							<td colspan="5" align="center">데이터가 없습니다.이런ㅠㅠ</td>
 						</tr>
 					</c:when>
-					<c:when test="${!empty songList}">
+					<c:when test="${!empty getsongsbytheme}">
 
 						<div class="container">
 							<div id="gallery" class="carousel slide" data-ride="carousel">

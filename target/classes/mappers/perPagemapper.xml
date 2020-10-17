@@ -86,4 +86,12 @@
 
 	</select>
 
+
+	<select id="getsongsbytheme"  
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+		select *
+		from songs
+		where theme = #{study}
+	</select>
+
 </mapper>
