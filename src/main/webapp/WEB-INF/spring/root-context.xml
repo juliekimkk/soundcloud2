@@ -47,7 +47,7 @@
 		<property name="driverClassName"
 			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 		<property name="url"
-			value="jdbc:log4jdbc:mysql://127.0.0.1:3306/soundcloud-member?useSSL=false&amp;serverTimezone=UTC"></property>
+			value="jdbc:log4jdbc:mysql://127.0.0.1:3306/project?useSSL=false&amp;serverTimezone=UTC"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="rootroot"></property>
 	</bean>

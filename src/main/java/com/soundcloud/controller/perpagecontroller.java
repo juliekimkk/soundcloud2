@@ -2,7 +2,6 @@ package com.soundcloud.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Base64;
 import java.util.List;
@@ -17,8 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.soundcloud.perPage.dao.perPageDAO;
 import com.soundcloud.perPage.domain.perPageVO;
@@ -34,7 +31,7 @@ public class perpagecontroller {
 	private perPageDAO perpageDao;
 	@Inject
 	private userDAO userDao;
-
+	
 	private static final Logger log = LoggerFactory.getLogger(perpagecontroller.class);
 
 	@RequestMapping(value = "/getsongs", method = RequestMethod.GET)
@@ -48,104 +45,76 @@ public class perpagecontroller {
 	public String getuser(Model model, @RequestParam("user_no") int user_no) throws Exception {
 
 		model.addAttribute("songList", perpageDao.getsongsbyuserno(user_no));
-		model.addAttribute("user", userDao.getuserbyuserno(user_no));
+		model.addAttribute("user",userDao.getuserbyuserno(user_no));
 
 		return "perpage/getuser";
 	}
-
+	
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
-	public void insert(Model model, @RequestParam("user_no") int user_no) throws Exception {
-
-		model.addAttribute("user", userDao.getuserbyuserno(user_no));
+	public void insert(Model model,@RequestParam("user_no") int user_no) throws Exception {
+		
+		model.addAttribute("user",userDao.getuserbyuserno(user_no));
 
 	}
-
+	
 	@PostMapping("/saveImage")
-	public String saveImage(Model model, perPageVO vo, MultipartHttpServletRequest mtfRequest) throws Exception {
-
+	public String saveImage(Model model,perPageVO vo) throws Exception {
+		
 		String path = "C:\\fakepath\\";
-
-		MultipartFile mf = mtfRequest.getFile("song");
-		String originFileName = mf.getOriginalFilename();
-
-		String saveFile = path + System.currentTimeMillis() + originFileName;
-		
-		try {
-			mf.transferTo(new File(saveFile));
-		}catch(IllegalStateException e) {
-			e.printStackTrace();
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
-		
-		MultipartFile mf2 = mtfRequest.getFile("song_pic");
-		String originFileName2 = mf2.getOriginalFilename();
-
-		String saveFile2 = path + System.currentTimeMillis() + originFileName;
-		
-		try {
-			mf.transferTo(new File(saveFile2));
-		}catch(IllegalStateException e) {
-			e.printStackTrace();
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
-		
-		
-		
-
+			
 		byte[] pic = null;
-		String imagePath = vo.getSong_pic();
-		File image = new File(saveFile);
+		String imagePath =vo.getSong_pic();
+		File image = new File(path + imagePath);
 		InputStream is = new FileInputStream(image);
 		pic = new byte[is.available()];
 		is.read(pic);
-		String getImage = Base64.getEncoder().encodeToString(pic);
-
+		String getImage =Base64.getEncoder().encodeToString(pic);
+		
 		byte[] song = null;
-		String songPath = vo.getSong();
-		File song1 = new File(saveFile2);
+		String songPath =vo.getSong();
+		File song1 = new File(path + songPath);
 		InputStream sis = new FileInputStream(song1);
 		song = new byte[sis.available()];
 		sis.read(song);
 		String getSong = Base64.getEncoder().encodeToString(song);
-
+		
+				
 		vo.setSong_pic(getImage);
-
+		
 		vo.setSong(getSong);
-
+		
 		perpageDao.insertsong(vo);
-
-		return "redirect:getuser" + "?user_no=" + vo.getUser_no();
+		                                                                                                                                                                                                    
+		return "redirect:getuser"+"?user_no="+vo.getUser_no();
 
 	}
-
+	
 	@RequestMapping(value = "/userupdate", method = RequestMethod.GET)
-	public void userupdate(Model model, @RequestParam("user_no") int user_no) throws Exception {
-
-		model.addAttribute("userList", userDao.getuserbyuserno(user_no));
-		model.addAttribute("songList", perpageDao.getsongsbyuserno(user_no));
-
+	public void userupdate(Model model,@RequestParam("user_no") int user_no) throws Exception {
+	
+		model.addAttribute("userList",userDao.getuserbyuserno(user_no));
+		model.addAttribute("songList",perpageDao.getsongsbyuserno(user_no));
+		
 	}
-
+	
 	@PostMapping("/userupdateaction")
-	public String userupdateaction(Model model, userVO vo, perPageVO pvo, @RequestParam("user_no") int user_no)
-			throws Exception {
+	public String userupdateaction(Model model,userVO vo,perPageVO pvo,@RequestParam("user_no")int user_no) throws Exception {
 
+		
 		userDao.updateuser(vo);
 		perpageDao.updatesonguser(pvo);
-
-		return "redirect:getuser?user_no=" + vo.getUser_no();
+		
+		return "redirect:getuser?user_no="+vo.getUser_no();
 	}
-
+	
 	@RequestMapping(value = "/songdelete", method = RequestMethod.GET)
-	public String songdelete(Model model, perPageVO vo, @RequestParam(value = "song_no") int song_no,
-			@RequestParam(value = "user_no") int user_no) throws Exception {
-
+	public String songdelete(Model model, perPageVO vo,@RequestParam(value = "song_no")int song_no,@RequestParam(value = "user_no")int user_no) throws Exception{
+		
 		perpageDao.deletesong(song_no);
-
+		
 		return "redirect:getuser?user_no=" + user_no;
-
+		
 	}
+
 
 }

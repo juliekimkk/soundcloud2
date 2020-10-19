@@ -8,13 +8,12 @@
 </head>
 <body>
 	<a href="getsongs">목록가기</a>
-	<form action="saveImage" method="post" enctype="multipart/form-data">
+	<form action="saveImage" method="post">
 		<input type="hidden" name="user_name" value="${user[0].user_name}" required>
 		<label for="song_name">곡 제목</label> 
 		<input type="text" name="song_name" placeholder="곡 제목" required> 
 		<label for="song">노래 파일</label> 
-		<input type="file" name="song" id="song">
-		<input type="text" name ="path" id="filetext">
+		<input type="file" name="song"> 
 		<label for="song_pic">노래 커버 사진</label> 
 		<input type="file" name="song_pic">
 		<label for="theme">테마</label>
