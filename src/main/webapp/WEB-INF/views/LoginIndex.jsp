@@ -61,10 +61,11 @@
 								<div class="carousel-item active">
 									<div class="row">
 										<c:forEach var="list" items="${theme}" varStatus="status">
-											<c:if test="${(status.count < 6 and {theme.theme} eq 'chill')}">
+											<c:if test="${(status.count < 6) and (list.theme == 'party') }">
 											
 												<div class="col">
 													<div class="show_image">
+													<td>ssssssss<c:out value="${list.theme}" /></td>
 														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
 														<a href="episode.html"> <img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}"

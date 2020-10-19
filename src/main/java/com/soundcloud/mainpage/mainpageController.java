@@ -39,8 +39,17 @@ public class mainpageController {
 
 	@RequestMapping(value = "/LoginIndex", method = RequestMethod.GET) // post방식
 	public String LoginIndex(Model model, String theme2) throws Exception {
-		List<perPageVO> theme = perpageDao.getsongsbytheme("chill");
-		model.addAttribute("theme", theme);
+		List<perPageVO> theme;
+		if(theme2 == null || theme2.equals("")) {
+			theme = perpageDao.getsongsbythemeNone();
+			model.addAttribute("theme", theme);
+		}
+		else
+		{
+			theme = perpageDao.getsongsbytheme(theme2);
+			model.addAttribute("theme", theme);
+		}
+				
 		log.info(theme.get(0).getSong_name());
 		return "/LoginIndex";
 	}

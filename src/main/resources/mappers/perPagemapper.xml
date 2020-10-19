@@ -94,5 +94,9 @@
 		where theme = #{study}
 	</select>
 
-
+	<select id="getsongsbythemeNone"  
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+		select *
+		from songs
+	</select>
 </mapper>
