@@ -1,6 +1,16 @@
 package com.soundcloud.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
+import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.soundcloud.domain.MemberVO;
@@ -18,12 +28,21 @@ public class MemberServiceImpl implements MemberService {
 	@Setter(onMethod_ = @Autowired)
 	private MemberMapper mapper;
 
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 	@Override
 	public void register(MemberVO member) {
 
 		log.info("register......" + member);
 
+		bCryptPasswordEncoder = new BCryptPasswordEncoder();
+		 
+		 String pw = member.getUserpw();
+		 member.setUserpw(bCryptPasswordEncoder.encode(pw));
+		
+
 		mapper.insert(member);
+		mapper.insert_useauth(member);
 	}
 
 	@Override

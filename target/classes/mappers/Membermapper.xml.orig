@@ -11,7 +11,10 @@
 		<result property="userid" column="userid" />
 		<result property="userpw" column="userpw" />
 		<result property="userName" column="username" />
+<<<<<<< HEAD
 		<result property="useremail" column="useremail" />
+=======
+>>>>>>> d966e6d8966b2b8da1afa02f68c3a9651a110bad
 		<result property="regDate" column="regdate" />
 		<result property="updateDate" column="updatedate" />
 		<collection property="authList" resultMap="authMap">
@@ -37,11 +40,17 @@
 
 	<insert id="insert"
 		parameterType="com.soundcloud.domain.MemberVO">
+<<<<<<< HEAD
 		insert into tbl_member (userid,	username, userpw, useremail)
+=======
+		insert into tbl_member (userid,
+		username, userpw)
+>>>>>>> d966e6d8966b2b8da1afa02f68c3a9651a110bad
 		value
 		(
 		#{userid},
 		#{userName},
+<<<<<<< HEAD
 		#{userpw},
 		#{useremail}
 		)
@@ -51,4 +60,10 @@
 	<insert id="insert_useauth">
 		insert into tbl_member_auth (userid, auth) values (#{userid},'ROLE_USER')
 	</insert>
+=======
+		#{userpw}
+		)
+	</insert>
+
+>>>>>>> d966e6d8966b2b8da1afa02f68c3a9651a110bad
 </mapper>

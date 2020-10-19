@@ -40,6 +40,13 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/main.css">
 <!--===============================================================================================-->
+<script type="text/javascript">
+    function f_link(){
+        location.href = "/index";
+    }
+  
+</script>
+
 </head>
 <body>
 
@@ -78,7 +85,7 @@
 								for="ckb1"> Remember me </label>
 						</div>
 						<div>
-							<a href="#" class="txt1"> sign in </a>
+						<a href="http://localhost:8080/member/join" class="txt1"> sign in </a>
 						</div>
 						<div>
 							<a href="#" class="txt1"> Forgot? </a>
@@ -90,8 +97,11 @@
 					</div>
 					<input type="hidden" name="${_csrf.parameterName}"
 						value="${_csrf.token}" />
+					<div class="container-login100-form-btn m-t-17">
 
+					</div>
 				</form>
+					 <button onclick="f_link();" class="login100-form-btn">Back</button>
 			</div>
 		</div>
 	</div>
