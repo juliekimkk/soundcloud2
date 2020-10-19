@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.soundcloud.mainLogin.dao.mainLoginDAO;
 import com.soundcloud.perPage.dao.perPageDAO;
 import com.soundcloud.perPage.domain.perPageVO;
 
@@ -27,7 +26,6 @@ public class mainpageController {
 	@Inject
 	private perPageDAO perpageDao;
 	private perPageVO pagevo;
-	private mainLoginDAO mainloginDao;
 
 	private static final Logger logger = LoggerFactory.getLogger(mainpageController.class);
 
@@ -41,9 +39,9 @@ public class mainpageController {
 
 	@RequestMapping(value = "/LoginIndex", method = RequestMethod.GET) // post방식
 	public String LoginIndex(Model model, String theme2) throws Exception {
-		List<perPageVO> theme = perpageDao.getsongsbytheme(theme2);
+		List<perPageVO> theme = perpageDao.getsongsbytheme("chill");
 		model.addAttribute("theme", theme);
-
+		log.info(theme.get(0).getSong_name());
 		return "/LoginIndex";
 	}
 

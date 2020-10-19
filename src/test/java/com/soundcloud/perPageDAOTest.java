@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.soundcloud.perPage.dao.perPageDAO;
 import com.soundcloud.perPage.domain.perPageVO;
-import com.soundcloud.mainLogin.dao.*;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/root-context.xml" })
@@ -59,31 +59,31 @@ public class perPageDAOTest {
 		}
 	}
 
-//	@Test
+	@Test
 	public void testInsert() throws Exception {
 
 		perPageVO pagevo = new perPageVO();
 
-		pagevo.setUser_name("user11");
-		pagevo.setSong_name("showpic");
+		pagevo.setUser_name("user13");
+		pagevo.setSong_name("노래13");
 		pagevo.setSong(getSong());
 		pagevo.setSong_pic(getImage());
-		pagevo.setPlay_list("?�스??");
-		pagevo.setTheme("커버");
+		pagevo.setPlay_list("테스트");
+		pagevo.setTheme("relax");
 
 		int result = pageDAO.insertsong(pagevo);
 		logger.info("\n Insert Song Result \n");
 		if (result == 1) {
-			logger.info("\n ?�록?�공");
+			logger.info("\n 등록성공");
 		} else {
-			logger.info("\n ?�록?�패");
+			logger.info("\n 등록실패패");
 		}
 	}
 
 	private String getImage() throws FileNotFoundException, IOException {
 		byte[] pic = null;
 		String imagePath = System.getProperty("user.dir") + System.getProperty("file.separator") + "images"
-				+ System.getProperty("file.separator") + "show_1.jpg";
+				+ System.getProperty("file.separator") + "pic2.jpg";
 		File image = new File(imagePath);
 		try (InputStream is = new FileInputStream(image)) {
 			pic = new byte[is.available()];

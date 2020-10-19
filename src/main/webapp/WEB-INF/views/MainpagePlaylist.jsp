@@ -55,6 +55,15 @@
 	display:inline;
 	float:right;
 	max-width:100%;
+
+}
+
+
+
+.submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
 
@@ -75,16 +84,16 @@
 			
 			<c:when test="${viewcnt2 != null}">
 
-				<div class="container" style="border: solid red; display:grid;">
-					<div id="gallery" class="carousel slide" data-ride="carousel" style= "border: solid blue; ">
+				<div class="container" style="display:grid;">
+					<div id="gallery" class="carousel slide" data-ride="carousel">
 
 						<div class="carousel-inner">
 							<div class="carousel-item active">
-								
+								<div class="line" style= "width:1100px; height:600px;">
 									<c:forEach var="list" items="${viewcnt2}" varStatus="status">
 										<c:if test="${status.count < 13}">
 											
-												<div class="show_image" style= "width:200px; margin:0px; border: solid yellow; "> 
+												<div class="show_image" style= "width:180px; margin:10px; border: solid white; "> 
 													<a href="episode.html"> 
 													<img class="img-fluid" src="data:image/jpg;base64,${list.song_pic}" alt="Image 1" /></a>
 													<img class="show_play_icon"
@@ -97,11 +106,13 @@
 																value="${list.user_name}" /></a></td>
 													<td class="img-fluid">조회수:<c:out value="${list.view}" /></td>			
 												</div>
-										
+											
 										</c:if>
 									</c:forEach>
+									</div>
 								</div>
 							</div>
+							<div class="submit"><button onClick="create()"; type="button" class="btn btn-danger btn-lg" >Explore trending playlists</button></div>
 						</div>
 
 					</div>
@@ -109,7 +120,9 @@
 			</c:when>
 
 		</c:choose>
+		
 	</tbody>
+	
 </nav>
 
 
