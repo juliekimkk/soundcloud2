@@ -43,10 +43,41 @@ function fn_del(song_no,user_no) {
 	console.log(url);
 }
 </script>
+<style type="text/css">
+.menu {
+	float: right;
+	list-style: none;
+}
+
+.menu li {
+	float: left;
+	margin: 10px;
+}
+</style>
 </head>
 <body>
-	<tbody>
+	<div>
+		<a href="getsongs">목록가기</a> <a href="#"
+			onClick="fn_insert(<c:out value="${user[0].user_no}"/>)">노래넣기</a> <a
+			href="#"
+			onClick="fn_userupdate(<c:out value="${songList[0].user_no}"/>)">회원정보수정</a>
+	</div>
+	<div>
+		<c:out value="${user[0].user_name }" />
+	</div>
 
+	<ul class="menu">
+		<li>메뉴1</li>
+
+		<li>메뉴2</li>
+
+		<li>메뉴3</li>
+
+		<li>메뉴4</li>
+
+		<li>메뉴5</li>
+	</ul>
+	<tbody>
 		<c:choose>
 
 			<c:when test="${empty songList }">
@@ -57,21 +88,20 @@ function fn_del(song_no,user_no) {
 
 			<c:when test="${!empty songList}">
 				<c:forEach var="list" items="${songList}">
-					<tr>
-						<td><c:out value="${list.user_name}" /></td>
+					<div>
+						<tr>
+							<td><img src="data:image/jpg;base64,${list.song_pic}" /></td>
+							<td><audio controls="controls">
+									<source src="data:audio/mpeg;base64,${list.song}"
+										type="audio/ogg"></td>
+							</audio>
+							<td><c:out value="${list.song_name}" /></td>
+							<td><a href="#"
+								onClick="fn_del(<c:out value="${list.song_no},${list.user_no}"/>)">
+									삭제</a></td>
+						</tr>
 
-						<td><c:out value="${list.song_name}" /></td>
-						<td><a href="#"
-							onClick="fn_del(<c:out value="${list.song_no},${list.user_no}"/>)">
-								삭제</a>
-						<td><img src="data:image/jpg;base64,${list.song_pic}" /></td>
-
-						<audio controls="controls">
-							<source src="data:audio/mpeg;base64,${list.song}"
-								type="audio/ogg">
-						</audio>
-					</tr>
-
+					</div>
 				</c:forEach>
 
 			</c:when>
@@ -80,11 +110,7 @@ function fn_del(song_no,user_no) {
 
 
 	</tbody>
-	<a href="getsongs">목록가기</a>
-	<a href="#"
-		onClick="fn_insert(<c:out value="${user[0].user_no}"/>)">노래넣기</a>
-	<a href="#"
-		onClick="fn_userupdate(<c:out value="${songList[0].user_no}"/>)">회원정보수정</a>
+
 
 
 </body>

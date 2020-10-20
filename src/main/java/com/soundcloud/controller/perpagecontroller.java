@@ -2,10 +2,11 @@ package com.soundcloud.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.Base64;
+import java.util.Calendar;
 import java.util.List;
+import java.util.UUID;
 
 import javax.inject.Inject;
 
@@ -64,7 +65,7 @@ public class perpagecontroller {
 	public String saveImage(@RequestParam(value = "songpic") MultipartFile song_pic,
 			@RequestParam(value = "song_") MultipartFile song, @ModelAttribute perPageVO vo, Model model)
 			throws Exception {
-		
+
 		/*
 		 * String path = "C:\\upload";
 		 * 
@@ -73,29 +74,76 @@ public class perpagecontroller {
 		 * if(!folder.exists()) { folder.mkdirs(); }
 		 */
 
+		String path2 = "C:\\upload\\";
+
+		File folder2 = new File(path2);
+
+		if (!folder2.exists()) {
+			folder2.mkdir();
+		}
+
+		String path = path2 + vo.getUser_name();
+
+		File folder = new File(path);
+
+		if (!folder.exists()) {
+			folder.mkdir();
+		}
+
+		Calendar cal = Calendar.getInstance();
+		String dateyear;
+		String datemonth;
+		String dateday;
+
+		dateyear = String.format("%04d", cal.get(Calendar.YEAR));
+		datemonth = String.format("%02d", cal.get(Calendar.MONTH) + 1);
+		dateday = String.format("%02d", cal.get(Calendar.DAY_OF_MONTH));
+
+		String yearpath = path + "\\" + dateyear + "\\";
+		File yearfolder = new File(yearpath);
+		if (!yearfolder.exists()) {
+			yearfolder.mkdir();
+		}
+		
+		String monthpath = yearpath + "\\" + datemonth + "\\";
+		File monthfolder = new File(monthpath);
+		if (!monthfolder.exists()) {
+			monthfolder.mkdir();
+		}
+		
+		String daypath = monthpath + "\\" + dateday + "\\";
+		File dayfolder = new File(daypath);
+		if (!dayfolder.exists()) {
+			dayfolder.mkdir();
+		}
+
 		String picpath = song_pic.getOriginalFilename();
-		
-		File picfile = new File(picpath);
-		
+
+		UUID picuuid = UUID.randomUUID();
+
+		File picfile = new File(daypath, picuuid.toString() + "_" + picpath);
+
 		song_pic.transferTo(picfile);
-		
+
 		String songpath = song.getOriginalFilename();
-		
-		File songfile = new File(songpath);
-		
+
+		UUID songuuid = UUID.randomUUID();
+
+		File songfile = new File(daypath, songuuid + "_" + songpath);
+
 		song.transferTo(songfile);
-	
+
 		byte[] pic = null;
-		String imagePath = picpath;
-		File image = new File("C:\\upload\\" + imagePath);
+		String imagePath = picuuid.toString() + "_" + picpath;
+		File image = new File(daypath + imagePath);
 		InputStream is = new FileInputStream(image);
 		pic = new byte[is.available()];
 		is.read(pic);
 		String getImage = Base64.getEncoder().encodeToString(pic);
 
 		byte[] song2 = null;
-		String songPath = songpath;
-		File song1 = new File("C:\\upload\\" + songPath);
+		String songPath = songuuid.toString() + "_" + songpath;
+		File song1 = new File(daypath + songPath);
 		InputStream sis = new FileInputStream(song1);
 		song2 = new byte[sis.available()];
 		sis.read(song2);
