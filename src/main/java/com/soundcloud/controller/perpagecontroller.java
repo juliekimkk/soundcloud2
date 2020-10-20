@@ -57,6 +57,12 @@ public class perpagecontroller {
 
 	}
 	
+	@RequestMapping(value = "/userpage", method = RequestMethod.GET)
+	public String userpage() throws Exception{
+		
+		return "perpage/userpage";
+	}
+	
 	@PostMapping("/saveImage")
 	public String saveImage(Model model,perPageVO vo) throws Exception {
 		

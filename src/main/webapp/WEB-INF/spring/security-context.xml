@@ -79,11 +79,12 @@
 		<security:authentication-provider
 			user-service-ref="customUserDetailsService">
 
-			<security:password-encoder
-				ref="customPasswordEncoder" />
 <!-- 			<security:password-encoder
-				ref="bcryptPasswordEncoder" />
+				ref="customPasswordEncoder" />
  -->
+ 			<security:password-encoder
+				ref="bcryptPasswordEncoder" />
+
 		</security:authentication-provider>
 
 	</security:authentication-manager>
