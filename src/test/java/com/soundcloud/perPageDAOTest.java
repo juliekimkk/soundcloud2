@@ -10,7 +10,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -20,6 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.soundcloud.perPage.dao.perPageDAO;
 import com.soundcloud.perPage.domain.perPageVO;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/root-context.xml" })
@@ -40,7 +40,7 @@ public class perPageDAOTest {
 				logger.info(list.getSong_name());
 			}
 		} else {
-			logger.info("?�이?��? ?�습?�다.");
+			logger.info("등록을 성공하였습니다.song");
 		}
 	}
 	
@@ -55,35 +55,35 @@ public class perPageDAOTest {
 				logger.info(list.getUser_name());
 			}
 		}else {
-			logger.info("?�이?��? ?�습?�다.");
+			logger.info("등록을 성공하였습니다.");
 		}
 	}
 
-//	@Test
+	@Test
 	public void testInsert() throws Exception {
 
 		perPageVO pagevo = new perPageVO();
 
-		pagevo.setUser_name("user11");
-		pagevo.setSong_name("showpic");
+		pagevo.setUser_name("user14");
+		pagevo.setSong_name("노래14");
 		pagevo.setSong(getSong());
 		pagevo.setSong_pic(getImage());
-		pagevo.setPlay_list("?�스??");
-		pagevo.setTheme("커버");
+		pagevo.setPlay_list("테스트");
+		pagevo.setTheme("chill");
 
 		int result = pageDAO.insertsong(pagevo);
 		logger.info("\n Insert Song Result \n");
 		if (result == 1) {
-			logger.info("\n ?�록?�공");
+			logger.info("\n 등록성공");
 		} else {
-			logger.info("\n ?�록?�패");
+			logger.info("\n 등록실패패");
 		}
 	}
 
 	private String getImage() throws FileNotFoundException, IOException {
 		byte[] pic = null;
 		String imagePath = System.getProperty("user.dir") + System.getProperty("file.separator") + "images"
-				+ System.getProperty("file.separator") + "show_1.jpg";
+				+ System.getProperty("file.separator") + "pic3.jpg";
 		File image = new File(imagePath);
 		try (InputStream is = new FileInputStream(image)) {
 			pic = new byte[is.available()];
@@ -114,9 +114,9 @@ public class perPageDAOTest {
 		logger.info("\n Delete song Result \n");
 
 		if (result > 0) {
-			logger.info("\n ??��?�공");
+			logger.info("\n 삭제성공");
 		} else {
-			logger.info("\n ??��?�패");
+			logger.info("\n 삭제실폐");
 		}
 	}
 
@@ -126,7 +126,7 @@ public class perPageDAOTest {
 		perPageVO pagevo = new perPageVO();
 
 		pagevo.setSong_no(1);
-		pagevo.setSong_name("구리�?? 로키(?�국?�커�??)");
+		pagevo.setSong_name("구리�?? 로키(?�국?�커�??)");
 		pagevo.setTheme("?�스??");
 		pagevo.setPlay_list("?�스?? 리스??");
 
@@ -154,5 +154,7 @@ public class perPageDAOTest {
 			logger.info("\n ?�데?�트 ?�패");
 		}
 	}
+	
+	
 
 }
