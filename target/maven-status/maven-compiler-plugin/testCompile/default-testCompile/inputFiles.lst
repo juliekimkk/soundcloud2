@@ -1,5 +1,6 @@
-D:\project\src\test\java\com\soundcloud\userDAOTest.java
-D:\project\src\test\java\com\soundcloud\MysqlConnectionTest.java
-D:\project\src\test\java\com\soundcloud\perPageDAOTest.java
-D:\project\src\test\java\com\soundcloud\mapper\MemberMapperTests.java
-D:\project\src\test\java\com\soundcloud\security\MemberTests.java
+D:\jsp23-master\eclipse\SoundCloud\src\test\java\com\soundcloud\mapper\MemberMapperTests.java
+D:\jsp23-master\eclipse\SoundCloud\src\test\java\com\soundcloud\mainpage\insertImage.java
+D:\jsp23-master\eclipse\SoundCloud\src\test\java\com\soundcloud\security\MemberTests.java
+D:\jsp23-master\eclipse\SoundCloud\src\test\java\com\soundcloud\perPageDAOTest.java
+D:\jsp23-master\eclipse\SoundCloud\src\test\java\com\soundcloud\userDAOTest.java
+D:\jsp23-master\eclipse\SoundCloud\src\test\java\com\soundcloud\MysqlConnectionTest.java

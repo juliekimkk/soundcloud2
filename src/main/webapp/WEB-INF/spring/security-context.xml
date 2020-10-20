@@ -17,7 +17,7 @@
 	<bean id="bcryptPasswordEncoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
-	<bean id="customPasswordEncoder" class="com.soundcloud.security.CustomNoOpPasswordEncoder"></bean>
+<!-- 	<bean id="customPasswordEncoder" class="com.soundcloud.security.CustomNoOpPasswordEncoder"></bean> -->
 
 	<bean id="customUserDetailsService"
 		class="com.soundcloud.security.CustomUserDetailsService"></bean>
@@ -79,11 +79,11 @@
 		<security:authentication-provider
 			user-service-ref="customUserDetailsService">
 
-<!-- 			<security:password-encoder
-				ref="customPasswordEncoder" /> -->
 			<security:password-encoder
+				ref="customPasswordEncoder" />
+<!-- 			<security:password-encoder
 				ref="bcryptPasswordEncoder" />
-
+ -->
 		</security:authentication-provider>
 
 	</security:authentication-manager>

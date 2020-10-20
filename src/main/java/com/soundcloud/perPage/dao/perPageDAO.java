@@ -21,6 +21,10 @@ public interface perPageDAO {
 	public int viewcnt(int song_no) throws Exception;
 	
 	public List<perPageVO> viewcnt2() throws Exception;
+	
+	public List<perPageVO> getsongsbytheme(String theme) throws Exception;
+	
+	public List<perPageVO> getsongsbythemeNone() throws Exception;
 
 
 }
