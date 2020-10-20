@@ -20,6 +20,18 @@
 	<context:annotation-config></context:annotation-config>
 	<tx:annotation-driven />
 
+<<<<<<< HEAD
+	<context:component-scan	base-package="com.soundcloud.perPage.dao"></context:component-scan>
+	<context:component-scan	base-package="com.soundcloud.perPage.domain"></context:component-scan>
+	<context:component-scan	base-package="com.soundcloud.perPage.controller"></context:component-scan>
+	<context:component-scan	base-package="com.soundcloud.user.dao"></context:component-scan>
+	<context:component-scan	base-package="com.soundcloud.*"></context:component-scan>
+	<context:component-scan	base-package="com.soundcloud.controller"></context:component-scan>
+	<context:component-scan	base-package="com.soundcloud.domain"></context:component-scan>
+	<context:component-scan	base-package="com.soundcloud.mapper"></context:component-scan>
+	<context:component-scan	base-package="com.soundcloud.security"></context:component-scan>
+	<context:component-scan base-package="com.soundcloud.mainLogin.dao"></context:component-scan>
+=======
 	<context:component-scan
 		base-package="com.soundcloud.perPage.dao"></context:component-scan>
 	<context:component-scan
@@ -38,6 +50,7 @@
 		base-package="com.soundcloud.mapper"></context:component-scan>
 	<context:component-scan
 		base-package="com.soundcloud.security"></context:component-scan>
+>>>>>>> 3a52409560e207a772811539fd6faac77cb8f573
 
 
 	<task:annotation-driven />
