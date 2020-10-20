@@ -22,7 +22,7 @@ public class MemberMapperTests {
   
 
   
-  @Test
+ // @Test
   public void testRead() {
     
     MemberVO vo = mapper.read("admin90");

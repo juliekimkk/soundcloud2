@@ -23,7 +23,10 @@
 		class="com.soundcloud.security.CustomUserDetailsService"></bean>
 
 
-	<security:http>
+	<security:http auto-config="false" use-expressions="true">
+	
+	<security:intercept-url pattern="/perpage/saveImage" access="permitAll"/>
+
 
 		<security:intercept-url pattern="/sample/all"
 			access="permitAll" />

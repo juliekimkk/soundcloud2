@@ -30,7 +30,7 @@ public class perPageDAOTest {
 	@Inject
 	private perPageDAO pageDAO;
 
-//	@Test
+	@Test
 	public void testgetsongs() throws Exception {
 
 		List<perPageVO> pageList = pageDAO.getsongs();
@@ -40,7 +40,7 @@ public class perPageDAOTest {
 				logger.info(list.getSong_name());
 			}
 		} else {
-			logger.info("?�이?��? ?�습?�다.");
+			logger.info("데이터가 없습니다.");
 		}
 	}
 	
@@ -55,7 +55,7 @@ public class perPageDAOTest {
 				logger.info(list.getUser_name());
 			}
 		}else {
-			logger.info("?�이?��? ?�습?�다.");
+			logger.info("데이터가 없습니다.");
 		}
 	}
 
@@ -68,15 +68,15 @@ public class perPageDAOTest {
 		pagevo.setSong_name("showpic");
 		pagevo.setSong(getSong());
 		pagevo.setSong_pic(getImage());
-		pagevo.setPlay_list("?�스??");
+		pagevo.setPlay_list("테스트");
 		pagevo.setTheme("커버");
 
 		int result = pageDAO.insertsong(pagevo);
 		logger.info("\n Insert Song Result \n");
 		if (result == 1) {
-			logger.info("\n ?�록?�공");
+			logger.info("\n 등록성공");
 		} else {
-			logger.info("\n ?�록?�패");
+			logger.info("\n 등록실패");
 		}
 	}
 
@@ -113,10 +113,10 @@ public class perPageDAOTest {
 
 		logger.info("\n Delete song Result \n");
 
-		if (result > 0) {
-			logger.info("\n ??��?�공");
+		if (result == 1) {
+			logger.info("\n 삭제성공");
 		} else {
-			logger.info("\n ??��?�패");
+			logger.info("\n 삭제실패");
 		}
 	}
 
@@ -126,18 +126,18 @@ public class perPageDAOTest {
 		perPageVO pagevo = new perPageVO();
 
 		pagevo.setSong_no(1);
-		pagevo.setSong_name("구리�?? 로키(?�국?�커�??)");
-		pagevo.setTheme("?�스??");
-		pagevo.setPlay_list("?�스?? 리스??");
+		pagevo.setSong_name("가나다라");
+		pagevo.setTheme("가나");
+		pagevo.setPlay_list("플레이리스트");
 
 		int result = pageDAO.updatesong(pagevo);
 
 		logger.info("\n Update song Result \n");
 
 		if (result > 0) {
-			logger.info("\n ?�데?�트 ?�공");
+			logger.info("\n 업데이트 성공");
 		} else {
-			logger.info("\n ?�데?�트 ?�패");
+			logger.info("\n 업데이트 실패");
 		}
 	}
 
@@ -149,9 +149,9 @@ public class perPageDAOTest {
 		logger.info("\n Update view Result \n");
 
 		if (result > 0) {
-			logger.info("\n ?�데?�트 ?�공");
+			logger.info("\n 업데이트 성공");
 		} else {
-			logger.info("\n ?�데?�트 ?�패");
+			logger.info("\n 업데이트 실패");
 		}
 	}
 
