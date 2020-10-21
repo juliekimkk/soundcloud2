@@ -66,9 +66,16 @@ public class mainpageController {
 		return "/index";
 	}
 
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	@RequestMapping(value = "/playpage", method = RequestMethod.GET)
 	public String test(Model model) throws Exception {
-		return "/test";
+		List<perPageVO> song = perpageDao.getsongs();
+		model.addAttribute("songList", song);
+
+		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();
+		log.info(viewcnt2.toString());
+		model.addAttribute("viewcnt2", viewcnt2);
+		
+		return "/playpage";
 	}
 
 	@RequestMapping(value = "/MainpagePlaylist", method = RequestMethod.GET)
