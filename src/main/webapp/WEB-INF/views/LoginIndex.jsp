@@ -68,8 +68,10 @@
 													<div class="col">
 														<div class="show_image">
 															<img class="img-fluid"
-																src="data:image/jpg;base64,${list.song_pic}"
-																alt="Image 1" /></a>
+																src="data:image/jpg;base64,${list.song_pic}" /></a> <img
+																class="show_play_icon"
+																src="<c:url value="/resources/images/play.svg" />" />
+																											
 															<td class="img-fluid"><a href="LoginIndex">노래
 																	이름: <c:out value="${list.song_name}" />
 															</a></td>
@@ -86,7 +88,7 @@
 										<div class="row">
 											<c:forEach var="list" items="${theme}" varStatus="status">
 												<c:if
-													test="${(status.count < 12 ) and (list.theme == 'chill') and (status.count > 5) }">
+													test="${(status.count < 11 ) and (list.theme == 'chill') and (status.count > 5) }">
 													<div class="col">
 														<div class="show_image">
 															<img class="img-fluid"
@@ -108,11 +110,12 @@
 									</div>
 								</div>
 								<a class="carousel-control-prev"
-									style="border: 2px dashed magenta;" href="#gallery1"
+									style="border: 2px dashed magenta; top: 25px; " href="#gallery1"
 									role="button" data-slide="prev"> <span
 									class="carousel-control-prev-icon" aria-hidden="true"></span> <span
 									class="sr-only">Previous</span>
-								</a> <a class="carousel-control-next" href="#gallery1" role="button"
+								</a> <a class="carousel-control-next" 
+									style="top:25px;" href="#gallery1" role="button"
 									data-slide="next"> <span class="carousel-control-next-icon"
 									aria-hidden="true"></span> <span class="sr-only">Next</span>
 								</a>
@@ -156,12 +159,11 @@
 									<div class="row">
 										<c:forEach var="list" items="${theme}" varStatus="status">
 											<c:if
-												test="${(status.count < 12) and (list.theme == 'party') }">
+												test="${(status.count < 16) and (list.theme == 'party') }">
 
 												<div class="col">
 													<div class="show_image">
-														<td>ssssssss<c:out value="${list.theme}" /></td>
-														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
+												<%-- 		<td class="img-fluid"><c:out value="${list.song_no}" /></td> --%>
 														<a href="episode.html"> <img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}"
 															alt="Image 1" /></a> <img class="show_play_icon"
@@ -182,10 +184,9 @@
 									<div class="row">
 										<c:forEach var="list" items="${theme}" varStatus="status">
 											<c:if
-												test="${(status.count > 11) and (status.count < 17) and (list.theme == 'party') }">
+												test="${(status.count > 15) and (status.count < 21) and (list.theme == 'party') }">
 												<div class="col">
 													<div class="show_image">
-														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
 														<a href="episode.html"> <img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}"
 															alt="Image 1" /></a> <img class="show_play_icon"
@@ -249,16 +250,14 @@
 									<div class="row">
 										<c:forEach var="list" items="${theme}" varStatus="status">
 											<c:if
-												test="${(status.count < 22 ) and (list.theme == 'relax') }">
+												test="${(status.count < 26 ) and (list.theme == 'relax') }">
 
 												<div class="col">
 													<div class="show_image">
-														<td>ssssssss<c:out value="${list.theme}" /></td>
-														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
 														<a href="episode.html"> <img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}"
 															alt="Image 1" /></a> <img class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
+															src="<c:url value="/resources/images/play_logo.svg" />" />
 														<td class="img-fluid"><a href="LoginIndex">노래 이름
 																: <c:out value="${list.song_name}" />
 														</a></td>
@@ -275,10 +274,9 @@
 									<div class="row">
 										<c:forEach var="list" items="${theme}" varStatus="status">
 											<c:if
-												test="${(status.count < 27) and (list.theme == 'relax') and (status.count > 21) }">
+												test="${(status.count < 31) and (list.theme == 'relax') and (status.count > 25) }">
 												<div class="col">
 													<div class="show_image">
-														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
 														<a href="episode.html"> <img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}"
 															alt="Image 1" /></a> <img class="show_play_icon"
@@ -342,12 +340,10 @@
 									<div class="row">
 										<c:forEach var="list" items="${theme}" varStatus="status">
 											<c:if
-												test="${(status.count < 25) and (list.theme == 'workout') }">
+												test="${(status.count < 46) and (list.theme == 'workout') }">
 
 												<div class="col">
 													<div class="show_image">
-														<td>ssssssss<c:out value="${list.theme}" /></td>
-														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
 														<a href="episode.html"> <img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}"
 															alt="Image 1" /></a> <img class="show_play_icon"
@@ -368,10 +364,9 @@
 									<div class="row">
 										<c:forEach var="list" items="${theme}" varStatus="status">
 											<c:if
-												test="${(status.count < 25) and (list.theme == 'workout') }">
+												test="${(status.count < 51) and (list.theme == 'workout') and (status.count > 45) }">												
 												<div class="col">
 													<div class="show_image">
-														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
 														<a href="episode.html"> <img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}"
 															alt="Image 1" /></a> <img class="show_play_icon"
@@ -435,12 +430,10 @@
 									<div class="row">
 										<c:forEach var="list" items="${theme}" varStatus="status">
 											<c:if
-												test="${(status.count < 25) and (list.theme == 'study') }">
+												test="${(status.count < 36) and (list.theme == 'study') }">
 
 												<div class="col">
 													<div class="show_image">
-														<td>ssssssss<c:out value="${list.theme}" /></td>
-														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
 														<a href="episode.html"> <img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}"
 															alt="Image 1" /></a> <img class="show_play_icon"
@@ -461,10 +454,9 @@
 									<div class="row">
 										<c:forEach var="list" items="${theme}" varStatus="status">
 											<c:if
-												test="${(status.count == 25) and (list.theme == 'study') }">
+												test="${(status.count < 41) and (list.theme == 'study') and (status.count >35)}">												
 												<div class="col">
 													<div class="show_image">
-														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
 														<a href="episode.html"> <img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}"
 															alt="Image 1" /></a> <img class="show_play_icon"
