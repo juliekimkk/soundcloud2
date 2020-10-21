@@ -66,9 +66,9 @@ public class mainpageController {
 		return "/index";
 	}
 
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	@RequestMapping(value = "/playlist", method = RequestMethod.GET)
 	public String test(Model model) throws Exception {
-		return "/test";
+		return "/playlist";
 	}
 
 	@RequestMapping(value = "/MainpagePlaylist", method = RequestMethod.GET)
