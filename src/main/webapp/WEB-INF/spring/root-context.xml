@@ -70,13 +70,14 @@
 
 	</bean>
 
-	<!-- MultipartResolver -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="100000000" />  <!-- 10MB -->
-		<property name="maxInMemorySize" value="100000000" /> <!-- 10MB -->
+		<property name="maxUploadSize" value="104857600" />
+		<property name="maxInMemorySize" value="102400" />
 	</bean>
-	
+
+
+
 	<mybatis-spring:scan
 		base-package="com.soundcloud.mapper" />
 
