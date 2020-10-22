@@ -1,57 +1,89 @@
-console.clear();
-var _data = JSON.parse(`{"lyrics":[{"line":"","time":-1},{"line":"Hey, let's all go into the forest","note":"Verse 1","time":16000},{"line":"Nobody will notice for a while","time":20000},{"line":"There we can visit all the creatures","time":24000},{"line":"Maybe they can teach us facts of life","time":27500},{"line":"","time":32000},{"line":"Or we can travel to the ocean","note":"Verse 2","time":55500},{"line":"Don't forget your lotion","time":59500},{"line":"It's quite hot","time":61500},{"line":"I once met seven lovely crabs","time":64000},{"line":"They said I should go back and join them for tea","time":67500},{"line":"","time":72000},{"line":"Oh wait, the forest got demolished","note":"Verse 3","time":95500},{"line":"When they built the airport years ago","time":99000},{"line":"But we can still go see the ocean","time":103500},{"line":"Cause they put it in a bowl at the mall","time":107500},{"line":"","time":112000}]}`);
-var currentLine = "";
+function calculateTotalValue(length) {
+  var minutes = Math.floor(length / 60),
+    seconds_int = length - minutes * 60,
+    seconds_str = seconds_int.toString(),
+    seconds = seconds_str.substr(0, 2),
+    time = minutes + ':' + seconds
 
-function align() {
-   var a = $(".highlighted").height();
-   var c = $(".content").height();
-   var d = $(".highlighted").offset().top - $(".highlighted").parent().offset().top;
-   var e = d + (a/2) - (c/2);
-   $(".content").animate(
-       {scrollTop: e + "px"}, {easing: "swing", duration: 250}
-   );
+  return time;
 }
 
-var lyricHeight = $(".lyrics").height();
-$(window).on("resize", function() {
-   if ($(".lyrics").height() != lyricHeight) { //Either width changes so that a line may take up or use less vertical space or the window height changes, 2 in 1
-      lyricHeight = $(".lyrics").height();
-      align();
-   }
-});
+function calculateCurrentValue(currentTime) {
+  var current_hour = parseInt(currentTime / 3600) % 24,
+    current_minute = parseInt(currentTime / 60) % 60,
+    current_seconds_long = currentTime % 60,
+    current_seconds = current_seconds_long.toFixed(),
+    current_time = (current_minute < 10 ? "0" + current_minute : current_minute) + ":" + (current_seconds < 10 ? "0" + current_seconds : current_seconds);
 
-$(document).ready(function(){
-   $("video").on('timeupdate', function(e){
-      var time = this.currentTime*1000;
-      var past = _data["lyrics"].filter(function (item) {
-         return item.time < time;
-      });
-      if (_data["lyrics"][past.length] != currentLine) {
-         currentLine = _data["lyrics"][past.length];
-         $(".lyrics div").removeClass("highlighted");
-         $(`.lyrics div:nth-child(${past.length})`).addClass("highlighted"); //Text might take up more lines, do before realigning
-         align();
-      }
-   });
-});
-
-generate();
-
-function generate() {
-   var html = "";
-   for(var i = 0; i < _data["lyrics"].length; i++) {
-      html += "<div";
-      if(i == 0) {
-         html+=` class="highlighted"`;
-         currentLine = 0;
-      }
-      if(_data["lyrics"][i]["note"]) {
-         html += ` note="${_data["lyrics"][i]["note"]}"`;
-      }
-      html += ">";
-      html += _data["lyrics"][i]["line"] == "" ? "•" : _data["lyrics"][i]["line"];
-      html += "</div>"
-   }
-   $(".lyrics").html(html);
-   align();
+  return current_time;
 }
+
+function initProgressBar() {
+  var player = document.getElementById('player');
+  var length = player.duration
+  var current_time = player.currentTime;
+
+  // calculate total length of value
+  var totalLength = calculateTotalValue(length)
+  jQuery(".end-time").html(totalLength);
+
+  // calculate current value time
+  var currentTime = calculateCurrentValue(current_time);
+  jQuery(".start-time").html(currentTime);
+
+  var progressbar = document.getElementById('seekObj');
+  progressbar.value = (player.currentTime / player.duration);
+  progressbar.addEventListener("click", seek);
+
+  if (player.currentTime == player.duration) {
+    $('#play-btn').removeClass('pause');
+  }
+
+  function seek(evt) {
+    var percent = evt.offsetX / this.offsetWidth;
+    player.currentTime = percent * player.duration;
+    progressbar.value = percent / 100;
+  }
+};
+
+function initPlayers(num) {
+  // pass num in if there are multiple audio players e.g 'player' + i
+
+  for (var i = 0; i < num; i++) {
+    (function() {
+
+      // Variables
+      // ----------------------------------------------------------
+      // audio embed object
+      var playerContainer = document.getElementById('player-container'),
+        player = document.getElementById('player'),
+        isPlaying = false,
+        playBtn = document.getElementById('play-btn');
+
+      // Controls Listeners
+      // ----------------------------------------------------------
+      if (playBtn != null) {
+        playBtn.addEventListener('click', function() {
+          togglePlay()
+        });
+      }
+
+      // Controls & Sounds Methods
+      // ----------------------------------------------------------
+      function togglePlay() {
+        if (player.paused === false) {
+          player.pause();
+          isPlaying = false;
+          $('#play-btn').removeClass('pause');
+
+        } else {
+          player.play();
+          $('#play-btn').addClass('pause');
+          isPlaying = true;
+        }
+      }
+    }());
+  }
+}
+
+initPlayers(jQuery('#player-container').length);
