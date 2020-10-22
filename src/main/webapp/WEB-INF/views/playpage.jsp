@@ -70,7 +70,7 @@
 	color: white;
 }
 
-.show_image { /*가로정렬 */
+.show_image { /*가로정?? */
 	display: inline;
 	float: right;
 	max-width: 100%;
@@ -112,7 +112,7 @@
 					</div>
 
 					<div class="button_border home_button trans_200">
-						<a href="#" onClick="singin()";>로그인</a>
+						<a href="#" onClick="singin()";>로그??</a>
 					</div>
 				</div>
 
@@ -139,7 +139,7 @@
 
 				<c:when test="${viewcnt2 == null}">
 					<tr>
-						<td colspan="5" align="center">데이터가 없습니다.</td>
+						<td colspan="5" align="center">?�이?��? ?�습?�다.</td>
 					</tr>
 				</c:when>
 
@@ -160,7 +160,7 @@
 								<li class="singername" stlye="border: solid blue"><a href="LoginIndex">
 																: <c:out value="${list.user_name}" />
 														</a></td> </li>
-								<li class="songname" style="border: solid red;"><a href="LoginIndex">노래 이름
+								<li class="songname" style="border: solid red;"><a href="LoginIndex">?�래 ?�름
 																: <c:out value="${list.song_name}" /></li>
 								<li class="viewcnt" style="border: solid magenta">
 																<c:out value="${list.view}" /></li>
