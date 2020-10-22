@@ -98,5 +98,10 @@
 		select * from songs order by view DESC limit 0,10;
 	</select>
 
+	<select id="theme"
+		parameterType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs order by theme = #{theme}
+	</select>
 
 </mapper>
