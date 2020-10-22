@@ -238,6 +238,7 @@ public class perpagecontroller {
 			vo.setUser_pic(getImage);
 
 			userDao.updateuser(vo);
+			
 		}
 
 		perpageDao.updatesonguser(pvo);
