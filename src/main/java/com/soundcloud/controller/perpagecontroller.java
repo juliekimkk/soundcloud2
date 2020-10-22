@@ -66,7 +66,7 @@ public class perpagecontroller {
 			@RequestParam(value = "song_") MultipartFile song, @ModelAttribute perPageVO vo, Model model)
 			throws Exception {
 
-		String path2 = "C:\\supload\\";
+		String path2 = "C:\\upload\\";
 
 		File folder2 = new File(path2);
 

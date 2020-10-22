@@ -66,11 +66,7 @@ public class mainpageController {
 		return "/index";
 	}
 
-<<<<<<< HEAD
-	@RequestMapping(value = "/playlist", method = RequestMethod.GET)
-	public String test(Model model) throws Exception {
-		return "/playlist";
-=======
+
 	@RequestMapping(value = "/playpage", method = RequestMethod.GET)
 	public String test(Model model) throws Exception {
 		List<perPageVO> song = perpageDao.getsongs();
@@ -81,7 +77,7 @@ public class mainpageController {
 		model.addAttribute("viewcnt2", viewcnt2);
 		
 		return "/playpage";
->>>>>>> 주희
+
 	}
 
 	@RequestMapping(value = "/MainpagePlaylist", method = RequestMethod.GET)
