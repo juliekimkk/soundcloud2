@@ -42,6 +42,8 @@ function fn_del(song_no,user_no) {
 	
 	console.log(url);
 }
+
+
 </script>
 <style type="text/css">
 .menu {
@@ -64,6 +66,7 @@ function fn_del(song_no,user_no) {
 	</div>
 	<div>
 		<c:out value="${user[0].user_name }" />
+		<img id="userpic_" src="data:image/jpg;base64,${user[0].user_pic}"/>
 	</div>
 
 	<ul class="menu">

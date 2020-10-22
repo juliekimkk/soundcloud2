@@ -66,15 +66,7 @@ public class perpagecontroller {
 			@RequestParam(value = "song_") MultipartFile song, @ModelAttribute perPageVO vo, Model model)
 			throws Exception {
 
-		/*
-		 * String path = "C:\\upload";
-		 * 
-		 * File folder = new File(path);
-		 * 
-		 * if(!folder.exists()) { folder.mkdirs(); }
-		 */
-
-		String path2 = "C:\\upload\\";
+		String path2 = "C:\\supload\\";
 
 		File folder2 = new File(path2);
 
@@ -104,13 +96,13 @@ public class perpagecontroller {
 		if (!yearfolder.exists()) {
 			yearfolder.mkdir();
 		}
-		
+
 		String monthpath = yearpath + "\\" + datemonth + "\\";
 		File monthfolder = new File(monthpath);
 		if (!monthfolder.exists()) {
 			monthfolder.mkdir();
 		}
-		
+
 		String daypath = monthpath + "\\" + dateday + "\\";
 		File dayfolder = new File(daypath);
 		if (!dayfolder.exists()) {
@@ -167,10 +159,87 @@ public class perpagecontroller {
 	}
 
 	@PostMapping("/userupdateaction")
-	public String userupdateaction(Model model, userVO vo, perPageVO pvo, @RequestParam("user_no") int user_no)
-			throws Exception {
+	public String userupdateaction(Model model, userVO vo, perPageVO pvo, @RequestParam("user_no") int user_no,
+			@RequestParam(value = "userpic") MultipartFile user_pic) throws Exception {
 
-		userDao.updateuser(vo);
+		String path2 = "C:\\user_pic\\";
+
+		File folder2 = new File(path2);
+
+		if (!folder2.exists()) {
+			folder2.mkdir();
+		}
+
+		String path = path2 + vo.getUser_name();
+
+		File folder = new File(path);
+
+		if (!folder.exists()) {
+			folder.mkdir();
+		}
+
+		Calendar cal = Calendar.getInstance();
+		String dateyear;
+		String datemonth;
+		String dateday;
+
+		dateyear = String.format("%04d", cal.get(Calendar.YEAR));
+		datemonth = String.format("%02d", cal.get(Calendar.MONTH) + 1);
+		dateday = String.format("%02d", cal.get(Calendar.DAY_OF_MONTH));
+
+		String yearpath = path + "\\" + dateyear + "\\";
+		File yearfolder = new File(yearpath);
+		if (!yearfolder.exists()) {
+			yearfolder.mkdir();
+		}
+
+		String monthpath = yearpath + "\\" + datemonth + "\\";
+		File monthfolder = new File(monthpath);
+		if (!monthfolder.exists()) {
+			monthfolder.mkdir();
+		}
+
+		String daypath = monthpath + "\\" + dateday + "\\";
+		File dayfolder = new File(daypath);
+		if (!dayfolder.exists()) {
+			dayfolder.mkdir();
+		}
+		if (user_pic.getOriginalFilename() == "") {
+			byte[] im = null;
+			String image = "C:\\user_pic\\pngegg.png";
+			File img = new File(image);
+			InputStream iis = new FileInputStream(img);
+			im = new byte[iis.available()];
+			iis.read();
+			String getImage = Base64.getEncoder().encodeToString(im);
+			
+			vo.setUser_pic(getImage);
+
+			userDao.updateuser(vo);
+		}
+
+		if (vo.getUser_pic() != "") {
+			String picpath = user_pic.getOriginalFilename();
+
+			UUID picuuid = UUID.randomUUID();
+
+			File picfile = new File(daypath, picuuid.toString() + "_" + picpath);
+
+			user_pic.transferTo(picfile);
+
+			byte[] pic = null;
+			String imagePath = picuuid.toString() + "_" + picpath;
+			File image = new File(daypath + imagePath);
+			InputStream is = new FileInputStream(image);
+			pic = new byte[is.available()];
+			is.read(pic);
+			String getImage = Base64.getEncoder().encodeToString(pic);
+
+			vo.setUser_pic(getImage);
+
+			userDao.updateuser(vo);
+		}
+
 		perpageDao.updatesonguser(pvo);
 
 		return "redirect:getuser?user_no=" + vo.getUser_no();

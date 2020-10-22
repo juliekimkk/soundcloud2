@@ -118,7 +118,7 @@ function singin() {
 								<div class="carousel-item active">
 									<div class="row">
 										<c:forEach var="list" items="${songList}" varStatus="status">
-											<c:if test="${status.count < 6}">
+											<c:if test="${status.count <= 5}">
 												<div class="col">
 													<div class="show_image">
 														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
@@ -135,13 +135,13 @@ function singin() {
 													</div>
 												</div>
 											</c:if>
-											<c:if test="${status.count == 6}">
+											<c:if test="${status.count % 5 == 0}">
 									</div>
 								</div>
 								<div class="carousel-item">
 									<div class="row">
 										</c:if>
-										<c:if test="${status.count >= 6}">
+										<c:if test="${status.count >= 5}">
 
 											<div class="col">
 												<div class="show_image">

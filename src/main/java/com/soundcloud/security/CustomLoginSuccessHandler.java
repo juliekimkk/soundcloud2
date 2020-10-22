@@ -33,7 +33,7 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 		if (roleNames.contains("ROLE_USER")) {
 			System.out.println("======================");
 
-			response.sendRedirect("/index");
+			response.sendRedirect("/LoginIndex");
 			return;
 		}
 		
