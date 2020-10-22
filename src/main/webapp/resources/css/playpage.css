@@ -6,6 +6,10 @@
 	display:none;
 }
 
+ul, li{
+
+}
+
 li {
   list-style:none;
   
@@ -29,7 +33,7 @@ body
 	color: #a5a5a5;
 }
 div
-{
+{	
 	display: block;
 	position: relative;
 	-webkit-box-sizing: border-box;
@@ -345,7 +349,14 @@ section
 .songname{
 	position:absolute;
 	left:300px;
-	width:850px;
+	width:400px;
+	height:50px;
+}
+
+.viewcnt{
+	position:absolute;
+	left:1110px;
+	width:80px;
 	height:50px;
 }
 

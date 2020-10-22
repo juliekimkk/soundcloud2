@@ -80,7 +80,7 @@
 			user-service-ref="customUserDetailsService">
 
 			<security:password-encoder
-				ref="customPasswordEncoder" />
+				ref="bcryptPasswordEncoder" />
 <!-- 			<security:password-encoder
 				ref="bcryptPasswordEncoder" />
  -->

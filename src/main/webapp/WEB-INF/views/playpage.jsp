@@ -50,7 +50,7 @@
 
 <link rel="stylesheet" href="/resources/css/main.css">
 
-<title>SoundCloud</title>
+<title>playlist page</title>
 
 <style type="text/css">
 * {
@@ -157,11 +157,13 @@
 								<li class="songno" style="border: solid black;"><a href="LoginIndex">
 																<c:out value="${list.user_no}" /></a></li>
 								
-								<li class="singername" stlye="border: solid blue"><a href="LoginIndex">가수 이름
+								<li class="singername" stlye="border: solid blue"><a href="LoginIndex">
 																: <c:out value="${list.user_name}" />
 														</a></td> </li>
 								<li class="songname" style="border: solid red;"><a href="LoginIndex">노래 이름
 																: <c:out value="${list.song_name}" /></li>
+								<li class="viewcnt" style="border: solid magenta">
+																<c:out value="${list.view}" /></li>
 							</ul>
 
 						</c:forEach>

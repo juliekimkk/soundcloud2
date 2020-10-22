@@ -141,7 +141,7 @@ function singin() {
 												</div>
 												</c:if>
 											</c:if>
-											<c:if test="${status.count == 6}">
+											<c:if test="${status.count % 5 == 0}">
 									</div>
 								</div>
 								<div class="carousel-item">
