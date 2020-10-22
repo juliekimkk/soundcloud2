@@ -80,7 +80,7 @@ function singin() {
 					<button onClick="create()"; type="button" class="btn btn-danger btn-sm">Create account</button>
 					
 				<div class="button_border home_button trans_200">
-						<a href="#" onClick="singin()";>로그인</a>
+						<a href="#" onClick="singin()";>로그??</a>
 				</div>
 				</div>
 
@@ -106,7 +106,7 @@ function singin() {
 
 				<c:when test="${empty songList }">
 					<tr>
-						<td colspan="5" align="center">데이터가 없습니다.이런ㅠㅠ</td>
+						<td colspan="5" align="center">?�이?��? ?�습?�다.?�런?�ㅠ</td>
 					</tr>
 				</c:when>
 				<c:when test="${!empty songList}">
