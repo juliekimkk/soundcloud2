@@ -40,21 +40,20 @@ function fn_getuser(user_no) {
 
 			<c:when test="${!empty songList}">
 				<c:forEach var="list" items="${songList}">
-					<tr>
-						<td><c:out value="${list.song_no}" /></td>
-
-						<td><a href="#"
-							onClick="fn_getuser(<c:out value="${list.user_no}"/>)"><c:out
-									value="${list.user_name}" /></a></td>
-
-						<td><c:out value="${list.song_name}" /></td>
-
-						<td><img src="data:image/jpg;base64,${list.song_pic}" /></td>
-						
-						<audio controls="controls">
-							<source src="data:audio/mpeg;base64,${list.song}" type="audio/ogg">
-						</audio>
-					</tr>
+					<div>
+						<tr>
+							<td><c:out value="${list.song_no}" /></td>
+							<td><img src="data:image/jpg;base64,${list.song_pic}" /></td>
+							<td><audio controls="controls">
+									<source src="data:audio/mpeg;base64,${list.song}"
+										type="audio/ogg">
+								</audio></td>
+							<td><a href="#"
+								onClick="fn_getuser(<c:out value="${list.user_no}"/>)"><c:out
+										value="${list.user_name}" /></a></td>
+							<td><c:out value="${list.song_name}" /></td>
+						</tr>
+					</div>
 
 				</c:forEach>
 

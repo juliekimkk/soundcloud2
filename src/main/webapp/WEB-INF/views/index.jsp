@@ -54,7 +54,7 @@ function singin() {
 <link rel="stylesheet" href="/resources/css/main.css">
 
 <title>SoundCloud</title>
-<style>
+<style type="text/css">
 .jumbotron {
 	background-image: url('/resources/images/main.jpg');
 	background-size: cover;
@@ -71,26 +71,24 @@ function singin() {
 </style>
 
 </head>
-<body style="background-color:#f2f2f2;">
-<div class="super_class" style=" width:1200px; height:1100px; left:350px; background-color:white;">
-	
+<body>
+
+	<nav>
 		<div class="container">
-			<div class="jumbotron jumbotron-fluid">
-				<div class="mainbutton">
-					<div class="button_border home_button trans_200">
-						<a href="#" onClick="singin()";>
-						Create account</a></div>
+			<div class="jumbotron jumbotron-fluid bg-dark" width="90%" height="130%" style="border: solid blue";>
+				<div class="mainbutton" style="border: solid red";>
+					<button onClick="create()"; type="button" class="btn btn-danger btn-sm">Create account</button>
 					
 				<div class="button_border home_button trans_200">
-						<a href="#" onClick="singin()";>로그인</a>
+						<a href="#" onClick="singin()";>로그??</a>
 				</div>
 				</div>
 
 				<div class="maintext">
 					<div class="container text-white">
-						<h4 class="display-4" >Connect on SoundCloud</h4>
-	
-						<p> 
+						<h1 class="display-4" >Connect on SoundCloud</h1>
+						<hr class="my-4">
+						<p>
 							Discover, stream, and share a constantly expanding mix of music<br>
 							from emerging and major artists around the world.
 						</p>
@@ -98,17 +96,17 @@ function singin() {
 				</div>
 			</div>
 		</div>
-	
+	</nav>
 
 
-	<%-- <nav>
+	<nav>
 		<tbody>
 
 			<c:choose>
 
 				<c:when test="${empty songList }">
 					<tr>
-						<td colspan="5" align="center">데이터가 없습니다.이런ㅠㅠ</td>
+						<td colspan="5" align="center">?�이?��? ?�습?�다.?�런?�ㅠ</td>
 					</tr>
 				</c:when>
 				<c:when test="${!empty songList}">
@@ -120,10 +118,7 @@ function singin() {
 								<div class="carousel-item active">
 									<div class="row">
 										<c:forEach var="list" items="${songList}" varStatus="status">
-											<c:if test="${status.count < 6}">
-												<c:if test="${theme eq 'study'}">
-													<p>반가워요
-												
+											<c:if test="${status.count <= 5}">
 												<div class="col">
 													<div class="show_image">
 														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
@@ -139,15 +134,14 @@ function singin() {
 																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
-												</c:if>
 											</c:if>
-											<c:if test="${status.count == 6}">
+											<c:if test="${status.count % 5 == 0}">
 									</div>
 								</div>
 								<div class="carousel-item">
 									<div class="row">
 										</c:if>
-										<c:if test="${status.count >= 6}">
+										<c:if test="${status.count >= 5}">
 
 											<div class="col">
 												<div class="show_image">
@@ -181,11 +175,7 @@ function singin() {
 			</c:choose>
 		</tbody>
 	</nav>
- --%>
 
- 
-<div class="sc-font-light" style= "text-align: center" ><h4>Hear what’s trending for free in the SoundCloud community</h4></div>
- 
 <%@ include file="MainpagePlaylist.jsp"%>
 
 <!-- Footer -->
@@ -195,7 +185,7 @@ function singin() {
 			<div class="row footer_logo_row">
 				<div class="col d-flex flex-row align-items-center justify-content-center">
 					<div class="logo">
-						<a href="#"><span>my</span>SoundCloud<img src="images/play.png" alt=""></a>
+						<a href="#"><span>my</span>podcast<img src="images/play.png" alt=""></a>
 					</div>
 				</div>
 			</div>
@@ -367,7 +357,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 		</div>
 	</footer>	
-</div>
+
 
 
 	

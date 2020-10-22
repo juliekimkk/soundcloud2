@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -20,7 +21,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.soundcloud.perPage.dao.perPageDAO;
 import com.soundcloud.perPage.domain.perPageVO;
 
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/root-context.xml" })
 public class perPageDAOTest {
@@ -30,7 +30,7 @@ public class perPageDAOTest {
 	@Inject
 	private perPageDAO pageDAO;
 
-//	@Test
+	@Test
 	public void testgetsongs() throws Exception {
 
 		List<perPageVO> pageList = pageDAO.getsongs();
@@ -40,7 +40,7 @@ public class perPageDAOTest {
 				logger.info(list.getSong_name());
 			}
 		} else {
-			logger.info("등록을 성공하였습니다.song");
+			logger.info("?�이?��? ?�습?�다.");
 		}
 	}
 	
@@ -55,35 +55,35 @@ public class perPageDAOTest {
 				logger.info(list.getUser_name());
 			}
 		}else {
-			logger.info("등록을 성공하였습니다.");
+			logger.info("?�이?��? ?�습?�다.");
 		}
 	}
 
-	@Test
+//	@Test
 	public void testInsert() throws Exception {
 
 		perPageVO pagevo = new perPageVO();
 
-		pagevo.setUser_name("user14");
-		pagevo.setSong_name("노래14");
+		pagevo.setUser_name("user11");
+		pagevo.setSong_name("showpic");
 		pagevo.setSong(getSong());
 		pagevo.setSong_pic(getImage());
-		pagevo.setPlay_list("테스트");
-		pagevo.setTheme("chill");
+		pagevo.setPlay_list("?�스??");
+		pagevo.setTheme("커버");
 
 		int result = pageDAO.insertsong(pagevo);
 		logger.info("\n Insert Song Result \n");
 		if (result == 1) {
-			logger.info("\n 등록성공");
+			logger.info("\n ?�록?�공");
 		} else {
-			logger.info("\n 등록실패패");
+			logger.info("\n ?�록?�패");
 		}
 	}
 
 	private String getImage() throws FileNotFoundException, IOException {
 		byte[] pic = null;
 		String imagePath = System.getProperty("user.dir") + System.getProperty("file.separator") + "images"
-				+ System.getProperty("file.separator") + "pic3.jpg";
+				+ System.getProperty("file.separator") + "show_1.jpg";
 		File image = new File(imagePath);
 		try (InputStream is = new FileInputStream(image)) {
 			pic = new byte[is.available()];
@@ -113,10 +113,10 @@ public class perPageDAOTest {
 
 		logger.info("\n Delete song Result \n");
 
-		if (result > 0) {
-			logger.info("\n 삭제성공");
+		if (result == 1) {
+			logger.info("\n ??��?�공");
 		} else {
-			logger.info("\n 삭제실폐");
+			logger.info("\n ??��?�패");
 		}
 	}
 
@@ -126,18 +126,18 @@ public class perPageDAOTest {
 		perPageVO pagevo = new perPageVO();
 
 		pagevo.setSong_no(1);
-		pagevo.setSong_name("구리�?? 로키(?�국?�커�??)");
-		pagevo.setTheme("?�스??");
-		pagevo.setPlay_list("?�스?? 리스??");
+		pagevo.setSong_name("가?�다??");
+		pagevo.setTheme("가??");
+		pagevo.setPlay_list("?�레?�리?�트");
 
 		int result = pageDAO.updatesong(pagevo);
 
 		logger.info("\n Update song Result \n");
 
 		if (result > 0) {
-			logger.info("\n ?�데?�트 ?�공");
+			logger.info("\n ?�데?�트 ?�공");
 		} else {
-			logger.info("\n ?�데?�트 ?�패");
+			logger.info("\n ?�데?�트 ?�패");
 		}
 	}
 
@@ -149,12 +149,10 @@ public class perPageDAOTest {
 		logger.info("\n Update view Result \n");
 
 		if (result > 0) {
-			logger.info("\n ?�데?�트 ?�공");
+			logger.info("\n ?�데?�트 ?�공");
 		} else {
-			logger.info("\n ?�데?�트 ?�패");
+			logger.info("\n ?�데?�트 ?�패");
 		}
 	}
-	
-	
 
 }

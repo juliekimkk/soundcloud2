@@ -8,7 +8,7 @@ import javax.sql.DataSource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -23,12 +23,13 @@ import lombok.extern.log4j.Log4j;
 public class MemberTests {
 
 	@Setter(onMethod_ = @Autowired)
-	private PasswordEncoder pwencoder;
+	private BCryptPasswordEncoder pwencoder;
 
 	@Setter(onMethod_ = @Autowired)
 	private DataSource ds;
 
-	@Test
+	
+//	@Test
 	public void testInsertMember() {
 
 		String sql = "insert into tbl_member(userid, userpw, username) values (?,?,?)";
@@ -83,7 +84,7 @@ public class MemberTests {
 		} // end for
 	}
 
-	@Test
+//	@Test
 	public void testInsertAuth() {
 
 		String sql = "insert into tbl_member_auth (userid, auth) values (?,?)";
