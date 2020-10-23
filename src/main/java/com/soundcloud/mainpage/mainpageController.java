@@ -10,9 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.soundcloud.perPage.dao.perPageDAO;
 import com.soundcloud.perPage.domain.perPageVO;
+import com.soundcloud.user.dao.userDAO;
+import com.soundcloud.user.domain.userVO;
 
 import lombok.extern.log4j.Log4j;
 
@@ -25,7 +28,10 @@ public class mainpageController {
 
 	@Inject
 	private perPageDAO perpageDao;
-	private perPageVO pagevo;
+
+	@Inject
+	private userDAO userDao;
+
 
 	private static final Logger logger = LoggerFactory.getLogger(mainpageController.class);
 
@@ -40,16 +46,14 @@ public class mainpageController {
 	@RequestMapping(value = "/LoginIndex", method = RequestMethod.GET) // post방식
 	public String LoginIndex(Model model, String theme2) throws Exception {
 		List<perPageVO> theme;
-		if(theme2 == null || theme2.equals("")) {
+		if (theme2 == null || theme2.equals("")) {
 			theme = perpageDao.getsongsbythemeNone();
 			model.addAttribute("theme", theme);
-		}
-		else
-		{
+		} else {
 			theme = perpageDao.getsongsbytheme(theme2);
 			model.addAttribute("theme", theme);
 		}
-				
+
 		log.info(theme.get(0).getSong_name());
 		return "/LoginIndex";
 	}
@@ -66,17 +70,23 @@ public class mainpageController {
 		return "/index";
 	}
 
-
 	@RequestMapping(value = "/playpage", method = RequestMethod.GET)
-	public String test(Model model) throws Exception {
+	public String test(Model model, @RequestParam("song_no") int song_no, @RequestParam("user_no") int user_no) throws Exception {
 		List<perPageVO> song = perpageDao.getsongs();
 		model.addAttribute("songList", song);
 
-		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();
-		log.info(viewcnt2.toString());
+		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();;
 		model.addAttribute("viewcnt2", viewcnt2);
 		
+		List<perPageVO> songno = perpageDao.getsongbysongno(song_no);
+		model.addAttribute("songno", songno);
+
+
+		List<userVO> userno = userDao.getuserbyuserno2(user_no);
+		model.addAttribute("user_no", userno);
+		
 		return "/playpage";
+
 
 	}
 

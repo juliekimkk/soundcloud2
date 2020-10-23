@@ -60,9 +60,9 @@ function fn_del(song_no,user_no) {
 <body>
 	<div>
 		<a href="getsongs">목록가기</a> <a href="#"
-			onClick="fn_insert(<c:out value="${user[0].user_no}"/>)">노래넣기</a> <a
+			onClick="fn_insert(<c:out value="${songList[0].user_no}"/>)">노래넣기user</a> <a
 			href="#"
-			onClick="fn_userupdate(<c:out value="${songList[0].user_no}"/>)">회원정보수정</a>
+			onClick="fn_userupdate(<c:out value="${songList[0].user_no}"/>)">회원정보수정 user</a>
 	</div>
 	<div>
 		<c:out value="${user[0].user_name }" />

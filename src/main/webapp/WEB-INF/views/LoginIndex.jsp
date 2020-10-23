@@ -1,9 +1,17 @@
+<%
+ response.setHeader("Cache-Control","no-cache");
+ response.setHeader("Pragma","no-cache");
+ response.setDateHeader("Expires",0);
+%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+
 
 <link
 	href="/resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
@@ -30,6 +38,21 @@
 	$(function() {
 		objectFitImages()
 	});
+	
+	function fn_getuser(song_no,user_no) {
+
+		var url = "${getuser.request.contextPath}/playpage";
+
+		url = url + "?song_no=" + song_no;
+		
+		url = url + "&user_no=" + user_no;
+
+		location.href = url;
+		
+		console.log(url);
+
+	}
+	
 </script>
 <link rel="stylesheet" href="/resources/css/LoginIndex.css">
 
@@ -50,7 +73,7 @@
 				<c:choose>
 					<c:when test="${empty theme}">
 						<tr>
-							<td colspan="5" align="center">?°μ΄?°κ? ?†μµ?λ‹¤.?΄λ°? γ… </td>
+							<td colspan="5" align="center">?οΏ½μ΄?οΏ½οΏ½? ?οΏ½μµ?οΏ½λ‹¤.?οΏ½λ°?οΏ½γ… </td>
 						</tr>
 					</c:when>
 
@@ -67,16 +90,20 @@
 
 													<div class="col">
 														<div class="show_image">
-															<img class="img-fluid"
-																src="data:image/jpg;base64,${list.song_pic}" /></a> <img
-																class="show_play_icon"
-																src="<c:url value="/resources/images/play.svg" />" />
-																											
-															<td class="img-fluid"><a href="LoginIndex">?Έλ
-																	?΄λ¦„: <c:out value="${list.song_name}" />
+															<a href="#"
+																onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no}"/>)">		
+																<img class="img-fluid"
+																src="data:image/jpg;base64,${list.song_pic}" alt=""/>
+															 <img class="show_play_icon"
+																src="<c:url value="/resources/images/play.svg" />" /></a>
+
+
+
+															<td class="img-fluid"><a href="LoginIndex">λ…Έλμ΄λ¦„
+																	: <c:out value="${list.song_name}" />
 															</a></td>
-															<td class="img-fluid"><a href="LoginIndex">? μ? ?΄λ¦„
-																	: <c:out value="${list.user_name}" />
+															<td class="img-fluid"><a href="LoginIndex">?οΏ½οΏ½?
+																	?οΏ½λ¦„ : <c:out value="${list.user_name}" />
 															</a></td>
 														</div>
 													</div>
@@ -91,9 +118,11 @@
 													test="${(status.count < 11 ) and (list.theme == 'chill') and (status.count > 5) }">
 													<div class="col">
 														<div class="show_image">
-															<img class="img-fluid"
-																src="data:image/jpg;base64,${list.song_pic}" /></a> <img
-																class="show_play_icon"
+															<a href="#"
+																onClick="fn_getuser(<c:out value="${list.user_no}"/>)">
+																<img class="img-fluid"
+																src="data:image/jpg;base64,${list.song_pic}" alt="" />
+															</a> <img class="show_play_icon"
 																src="<c:url value="/resources/images/play.svg" />" />
 
 															<td class="img-fluid"><a href="LoginIndex"><c:out
@@ -110,14 +139,14 @@
 									</div>
 								</div>
 								<a class="carousel-control-prev"
-									style="border: 2px dashed magenta; top: 25px; " href="#gallery1"
+									style="border: 2px dashed magenta; top: 25px;" href="#gallery1"
 									role="button" data-slide="prev"> <span
 									class="carousel-control-prev-icon" aria-hidden="true"></span> <span
 									class="sr-only">Previous</span>
-								</a> <a class="carousel-control-next" 
-									style="top:25px;" href="#gallery1" role="button"
-									data-slide="next"> <span class="carousel-control-next-icon"
-									aria-hidden="true"></span> <span class="sr-only">Next</span>
+								</a> <a class="carousel-control-next" style="top: 25px;"
+									href="#gallery1" role="button" data-slide="next"> <span
+									class="carousel-control-next-icon" aria-hidden="true"></span> <span
+									class="sr-only">Next</span>
 								</a>
 							</div>
 						</div>
@@ -132,7 +161,7 @@
 
 
 
-	<!-- ?λ²μ§ΈνΈ?? -->
+	<!-- ?οΏ½λ²μ§ΈνΈ?? -->
 	<section>
 		<div class="container">
 			<hr class="my-1">
@@ -147,7 +176,7 @@
 
 				<c:when test="${empty theme}">
 					<tr>
-						<td colspan="5" align="center">?°μ΄?°κ? ?†μµ?λ‹¤.?΄λ°? γ… </td>
+						<td colspan="5" align="center">?οΏ½μ΄?οΏ½οΏ½? ?οΏ½μµ?οΏ½λ‹¤.?οΏ½λ°?οΏ½γ… </td>
 					</tr>
 				</c:when>
 
@@ -163,17 +192,17 @@
 
 												<div class="col">
 													<div class="show_image">
-												<%-- 		<td class="img-fluid"><c:out value="${list.song_no}" /></td> --%>
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.user_no}"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" />
+														</a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play.svg" />" />
-														<td class="img-fluid"><a href="LoginIndex">?Έλ ?΄λ¦„
-																: <c:out value="${list.song_name}" />
-														</a></td>
-														<td class="img-fluid"><a href="LoginIndex">? μ? ?΄λ¦„
-																: <c:out value="${list.user_name}" />
-														</a></td>
+
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
 											</c:if>
@@ -187,9 +216,11 @@
 												test="${(status.count > 15) and (status.count < 21) and (list.theme == 'party') }">
 												<div class="col">
 													<div class="show_image">
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.user_no}"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" />
+														</a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play.svg" />" />
 
 														<td class="img-fluid"><a href="LoginIndex"><c:out
@@ -223,7 +254,7 @@
 
 
 
-	<!-- ?Έλ²μ§ΈνΈ?? -->
+	<!-- ?οΏ½λ²μ§ΈνΈ?? -->
 	<section>
 		<div class="container">
 			<hr class="my-1">
@@ -238,7 +269,7 @@
 
 				<c:when test="${empty theme}">
 					<tr>
-						<td colspan="5" align="center">?°μ΄?°κ? ?†μµ?λ‹¤.?΄λ°? γ… </td>
+						<td colspan="5" align="center">?οΏ½μ΄?οΏ½οΏ½? ?οΏ½μµ?οΏ½λ‹¤.?οΏ½λ°?οΏ½γ… </td>
 					</tr>
 				</c:when>
 
@@ -254,16 +285,17 @@
 
 												<div class="col">
 													<div class="show_image">
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
-															src="<c:url value="/resources/images/play_logo.svg" />" />
-														<td class="img-fluid"><a href="LoginIndex">?Έλ ?΄λ¦„
-																: <c:out value="${list.song_name}" />
-														</a></td>
-														<td class="img-fluid"><a href="LoginIndex">? μ? ?΄λ¦„
-																: <c:out value="${list.user_name}" />
-														</a></td>
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.user_no}"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" />
+														</a> <img class="show_play_icon"
+															src="<c:url value="/resources/images/play.svg" />" />
+
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
 											</c:if>
@@ -277,9 +309,11 @@
 												test="${(status.count < 31) and (list.theme == 'relax') and (status.count > 25) }">
 												<div class="col">
 													<div class="show_image">
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.user_no}"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" />
+														</a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play.svg" />" />
 
 														<td class="img-fluid"><a href="LoginIndex"><c:out
@@ -313,7 +347,7 @@
 
 
 
-	<!-- ?¤λ²μ§ΈνΈ?? -->
+	<!-- ?οΏ½λ²μ§ΈνΈ?? -->
 	<section>
 		<div class="container">
 			<hr class="my-1">
@@ -328,7 +362,7 @@
 
 				<c:when test="${empty theme}">
 					<tr>
-						<td colspan="5" align="center">?°μ΄?°κ? ?†μµ?λ‹¤.?΄λ°? γ… </td>
+						<td colspan="5" align="center">?οΏ½μ΄?οΏ½οΏ½? ?οΏ½μµ?οΏ½λ‹¤.?οΏ½λ°?οΏ½γ… </td>
 					</tr>
 				</c:when>
 
@@ -344,16 +378,17 @@
 
 												<div class="col">
 													<div class="show_image">
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.user_no}"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" />
+														</a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play.svg" />" />
-														<td class="img-fluid"><a href="LoginIndex">?Έλ ?΄λ¦„
-																: <c:out value="${list.song_name}" />
-														</a></td>
-														<td class="img-fluid"><a href="LoginIndex">? μ? ?΄λ¦„
-																: <c:out value="${list.user_name}" />
-														</a></td>
+
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
 											</c:if>
@@ -364,12 +399,14 @@
 									<div class="row">
 										<c:forEach var="list" items="${theme}" varStatus="status">
 											<c:if
-												test="${(status.count < 51) and (list.theme == 'workout') and (status.count > 45) }">												
+												test="${(status.count < 51) and (list.theme == 'workout') and (status.count > 45) }">
 												<div class="col">
 													<div class="show_image">
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.user_no}"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" />
+														</a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play.svg" />" />
 
 														<td class="img-fluid"><a href="LoginIndex"><c:out
@@ -403,7 +440,7 @@
 
 
 
-	<!-- ?¤μ„―λ²μ§Έ?Έλ™ -->
+	<!-- ?οΏ½μ„―λ²μ§Έ?οΏ½λ™ -->
 	<section>
 		<div class="container">
 			<hr class="my-1">
@@ -418,7 +455,7 @@
 
 				<c:when test="${empty theme}">
 					<tr>
-						<td colspan="5" align="center">?°μ΄?°κ? ?†μµ?λ‹¤.?΄λ°? γ… </td>
+						<td colspan="5" align="center">?οΏ½μ΄?οΏ½οΏ½? ?οΏ½μµ?οΏ½λ‹¤.?οΏ½λ°?οΏ½γ… </td>
 					</tr>
 				</c:when>
 
@@ -434,16 +471,17 @@
 
 												<div class="col">
 													<div class="show_image">
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.user_no}"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" />
+														</a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play.svg" />" />
-														<td class="img-fluid"><a href="LoginIndex">?Έλ ?΄λ¦„
-																: <c:out value="${list.song_name}" />
-														</a></td>
-														<td class="img-fluid"><a href="LoginIndex">? μ? ?΄λ¦„
-																: <c:out value="${list.user_name}" />
-														</a></td>
+
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
 											</c:if>
@@ -454,12 +492,14 @@
 									<div class="row">
 										<c:forEach var="list" items="${theme}" varStatus="status">
 											<c:if
-												test="${(status.count < 41) and (list.theme == 'study') and (status.count >35)}">												
+												test="${(status.count < 41) and (list.theme == 'study') and (status.count >35)}">
 												<div class="col">
 													<div class="show_image">
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.user_no}"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" />
+														</a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play.svg" />" />
 
 														<td class="img-fluid"><a href="LoginIndex"><c:out

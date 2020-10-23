@@ -29,6 +29,8 @@
 	<context:component-scan
 		base-package="com.soundcloud.user.dao"></context:component-scan>
 	<context:component-scan
+		base-package="com.soundcloud.user.domain"></context:component-scan>
+	<context:component-scan
 		base-package="com.soundcloud.*"></context:component-scan>
 	<context:component-scan
 		base-package="com.soundcloud.controller"></context:component-scan>

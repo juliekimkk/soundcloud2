@@ -36,6 +36,14 @@
 
 		user_name=#{username}
 	</select>
+	
+	<select id="getsongbysongno"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs where
+		song_no = #{song_no}
+
+	</select>
 
 	<insert id="insertsong"
 		parameterType="com.soundcloud.perPage.domain.perPageVO">
@@ -103,5 +111,7 @@
 
 		select * from songs order by theme = #{theme}
 	</select>
+
+	
 
 </mapper>
