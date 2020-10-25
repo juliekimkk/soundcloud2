@@ -117,83 +117,69 @@
 
 
 
-		<div class="songlist_big" style="border: solid magenta;">
-			<div class="container">
-
-				<div class="userpic">
-					<img class="song_pic_image"
-						src="data:image/jpg;base64,${user_no[1].user_pic[1]}" alt="" />
-				</div>
 
 
-				<div class="jumbotron jumbotron-fluid">
+		<div style="display:flex;">
 
-					<div class="mainbutton">
-						<div class="userimage">
-							<a href="#" onClick="fn_del()";><img class="song_pic_image"
-								src="data:image/jpg;base64,${user_no[1].user_pic[1].play_list[1]}" alt="" /></a>
+			<tbody>
+				<c:choose>
+					<c:when test="${user_no != null}">
+
+						<div class="container">
+							<div class="profile_pic">
+								<img class="song_pic_image"
+									src="data:image/jpg;base64,${user_no[0].user_pic}" alt="" />
+							</div>
+							<div class="profile_userID">
+								<a href="LoginIndex"> <c:out value="${user_no[0].user_name}" /></a>
+							</div>
 						</div>
-					</div>
 
-					<div class="maintext">
-						<div class="container text-white">
-							<h4 class="display-4">
-								<c:out value="${list.song_no}" />
-								</a>
-							</h4>
+					</c:when>
+				</c:choose>
+			</tbody>
 
 
+			<tbody>
+				<c:choose>
+
+
+					<c:when test="${playlist == null}">
+						<tr>
+							<td colspan="5" align="center">데이터가 없습니다.</td>
+						</tr>
+					</c:when>
+
+
+					<c:when test="${playlist != null}">
+						<div class="songlist_big" style="border: solid magenta;">
+							<c:forEach var="list" items="${playlist}" varStatus="status">
+
+								<ul class="songlist_one" style="border: solid red;">
+									<li class="thumnails" style="border: solid blue;"><a
+										href="episode.html"> <img class="img-fluid"
+											src="data:image/jpg;base64,${list.song_pic}" alt="" /></a> <img
+										class="show_play_icon"
+										src="<c:url value="/resources/images/play_logo.svg" />" /></li>
+									<li class="songno" style="border: solid black;"><a
+										href="LoginIndex"> <c:out value="${list.user_no}" /></a></li>
+
+									<li class="singername" stlye="border: solid blue"><a
+										href="LoginIndex"> : <c:out value="${list.play_list}" />
+									</a>
+										</td></li>
+									<li class="songname" style="border: solid red;"><a
+										href="LoginIndex">노래 이름 : <c:out value="${list.song_name}" /></li>
+									<li class="viewcnt" style="border: solid magenta"><c:out
+											value="${list.view}" /></li>
+								</ul>
+
+							</c:forEach>
 						</div>
-					</div>
-				</div>
-			</div>
+					</c:when>
+				</c:choose>
+			</tbody>
 		</div>
-
-
-	</div>
-
-
-
-
-	<tbody>
-		<c:choose>
-
-
-			<c:when test="${playlist == null}">
-				<tr>
-					<td colspan="5" align="center">데이터가 없습니다.</td>
-				</tr>
-			</c:when>
-
-
-			<c:when test="${playlist != null}">
-				<div class="songlist_big" style="border: solid magenta;">
-					<c:forEach var="list" items="${playlist}" varStatus="status">
-
-						<ul class="songlist_one" style="border: solid red;">
-							<li class="thumnails" style="border: solid blue;"><a
-								href="episode.html"> <img class="img-fluid"
-									src="data:image/jpg;base64,${list.song_pic}" alt="" /></a> <img
-								class="show_play_icon"
-								src="<c:url value="/resources/images/play_logo.svg" />" /></li>
-							<li class="songno" style="border: solid black;"><a
-								href="LoginIndex"> <c:out value="${list.user_no}" /></a></li>
-
-							<li class="singername" stlye="border: solid blue"><a
-								href="LoginIndex"> : <c:out value="${list.play_list}" />
-							</a>
-								</td></li>
-							<li class="songname" style="border: solid red;"><a
-								href="LoginIndex">노래 이름 : <c:out value="${list.song_name}" /></li>
-							<li class="viewcnt" style="border: solid magenta"><c:out
-									value="${list.view}" /></li>
-						</ul>
-
-					</c:forEach>
-				</div>
-			</c:when>
-		</c:choose>
-	</tbody>
 	</div>
 </body>
 </html>
