@@ -73,7 +73,7 @@
 				<c:choose>
 					<c:when test="${empty theme}">
 						<tr>
-							<td colspan="5" align="center">?�이?��? ?�습?�다.?�런?�ㅠ</td>
+							<td colspan="5" align="center">데이터가 업습니다.ㅠㅠ</td>
 						</tr>
 					</c:when>
 
@@ -87,23 +87,21 @@
 											<c:forEach var="list" items="${theme}" varStatus="status">
 												<c:if
 													test="${(status.count < 6) and (list.theme == 'chill') }">
-
+										<!--  여기서부터 클릭했을때 uer.no 와 song.no가 겹치는걸로 넘어가는 함수 -->
 													<div class="col">
 														<div class="show_image">
-															<a href="#"
-																onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no}"/>)">		
-																<img class="img-fluid"
-																src="data:image/jpg;base64,${list.song_pic}" alt=""/>
-															 <img class="show_play_icon"
-																src="<c:url value="/resources/images/play.svg" />" /></a>
+															<a href="#" onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no}"/>)">		
+																<img class="img-fluid" src="data:image/jpg;base64,${list.song_pic}" alt=""/>
+															 <img class="show_play_icon" src="<c:url value="/resources/images/play.svg" />" />
+															</a>
 
 
 
 															<td class="img-fluid"><a href="LoginIndex">노래이름
 																	: <c:out value="${list.song_name}" />
 															</a></td>
-															<td class="img-fluid"><a href="LoginIndex">?��?
-																	?�름 : <c:out value="${list.user_name}" />
+															<td class="img-fluid"><a href="LoginIndex">유저이름 
+																	: <c:out value="${list.user_name}" />
 															</a></td>
 														</div>
 													</div>
@@ -118,13 +116,11 @@
 													test="${(status.count < 11 ) and (list.theme == 'chill') and (status.count > 5) }">
 													<div class="col">
 														<div class="show_image">
-															<a href="#"
-																onClick="fn_getuser(<c:out value="${list.user_no}"/>)">
-																<img class="img-fluid"
-																src="data:image/jpg;base64,${list.song_pic}" alt="" />
-															</a> <img class="show_play_icon"
-																src="<c:url value="/resources/images/play.svg" />" />
-
+															<a href="#" onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no}"/>)">
+																<img class="img-fluid" src="data:image/jpg;base64,${list.song_pic}" alt="" />
+															 <img class="show_play_icon" src="<c:url value="/resources/images/play.svg" />" />
+															</a>
+															
 															<td class="img-fluid"><a href="LoginIndex"><c:out
 																		value="${list.song_name}" /></a></td>
 															<td class="img-fluid"><a href="LoginIndex"><c:out

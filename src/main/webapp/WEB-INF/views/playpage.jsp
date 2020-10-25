@@ -46,8 +46,8 @@
 		location.href = url;
 		console.log(url);
 	}
-	
-	function fn_del(song_no,user_no) {
+
+	function fn_del(song_no, user_no) {
 		var url = "${getuser.request.contextPath}/playpage";
 		url = url + "?song_no=" + song_no;
 		url = url + "&user_no=" + user_no;
@@ -113,32 +113,40 @@
 <body style="background-color: #f2f2f2;">
 	<div class="super_class"
 		style="width: 1200px; height: 1100px; left: 350px; background-color: white;">
-	
+
+
+
+		<div class="songlist_big" style="border: solid magenta;">
+			<div class="container">
 			
-			<div class="songlist_big" style="border: solid magenta;">
-				<div class="container">
-					<div class="jumbotron jumbotron-fluid">
+				<div class="userpic">
+					<img class="song_pic_image"
+						src="data:image/jpg;base64,${user_no[1].user_pic[1]}" alt="" />
+				</div>
+				
+				
+				<div class="jumbotron jumbotron-fluid">
 
-						<div class="mainbutton">
-							<div class="userimage">
-								<a href="#" onClick="create()";><img class="song_pic_image"
-									src="data:image/jpg;base64,${user_no[1].user_pic}" alt="" /></a>
-							</div>
+					<div class="mainbutton">
+						<div class="userimage">
+							<a href="#" onClick="fn_del()";><img class="song_pic_image"
+								src="data:image/jpg;base64,${user_no[1].user_pic[1]}" alt="" /></a>
 						</div>
+					</div>
 
-						<div class="maintext">
-							<div class="container text-white">
-								<h4 class="display-4">
-									<c:out value="${list.song_no}" />
-									</a>
-								</h4>
+					<div class="maintext">
+						<div class="container text-white">
+							<h4 class="display-4">
+								<c:out value="${list.song_no}" />
+								</a>
+							</h4>
 
 
-							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
 
 	</div>
