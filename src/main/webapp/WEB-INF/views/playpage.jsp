@@ -47,10 +47,11 @@
 		console.log(url);
 	}
 
-	function fn_del(song_no, user_no) {
+	function fn_del(song_no, user_no, play_list) {
 		var url = "${getuser.request.contextPath}/playpage";
 		url = url + "?song_no=" + song_no;
 		url = url + "&user_no=" + user_no;
+		url = url + "&play_list=" + play_list;
 		location.href = url;
 		console.log(url);
 	}
@@ -118,19 +119,19 @@
 
 		<div class="songlist_big" style="border: solid magenta;">
 			<div class="container">
-			
+
 				<div class="userpic">
 					<img class="song_pic_image"
 						src="data:image/jpg;base64,${user_no[1].user_pic[1]}" alt="" />
 				</div>
-				
-				
+
+
 				<div class="jumbotron jumbotron-fluid">
 
 					<div class="mainbutton">
 						<div class="userimage">
 							<a href="#" onClick="fn_del()";><img class="song_pic_image"
-								src="data:image/jpg;base64,${user_no[1].user_pic[1]}" alt="" /></a>
+								src="data:image/jpg;base64,${user_no[1].user_pic[1].play_list[1]}" alt="" /></a>
 						</div>
 					</div>
 
@@ -154,21 +155,20 @@
 
 
 
-
 	<tbody>
 		<c:choose>
 
 
-			<c:when test="${viewcnt2 == null}">
+			<c:when test="${playlist == null}">
 				<tr>
 					<td colspan="5" align="center">데이터가 없습니다.</td>
 				</tr>
 			</c:when>
 
 
-			<c:when test="${viewcnt2 != null}">
+			<c:when test="${playlist != null}">
 				<div class="songlist_big" style="border: solid magenta;">
-					<c:forEach var="list" items="${viewcnt2}" varStatus="status">
+					<c:forEach var="list" items="${playlist}" varStatus="status">
 
 						<ul class="songlist_one" style="border: solid red;">
 							<li class="thumnails" style="border: solid blue;"><a
@@ -180,7 +180,7 @@
 								href="LoginIndex"> <c:out value="${list.user_no}" /></a></li>
 
 							<li class="singername" stlye="border: solid blue"><a
-								href="LoginIndex"> : <c:out value="${list.user_name}" />
+								href="LoginIndex"> : <c:out value="${list.play_list}" />
 							</a>
 								</td></li>
 							<li class="songname" style="border: solid red;"><a

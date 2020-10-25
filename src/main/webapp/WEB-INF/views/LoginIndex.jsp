@@ -39,13 +39,15 @@
 		objectFitImages()
 	});
 	
-	function fn_getuser(song_no,user_no) {
+	function fn_getuser(song_no,user_no,play_list) {
 
 		var url = "${getuser.request.contextPath}/playpage";
 
 		url = url + "?song_no=" + song_no;
 		
 		url = url + "&user_no=" + user_no;
+		
+		url = url + "&play_list=" + play_list;
 
 		location.href = url;
 		
@@ -90,7 +92,7 @@
 										<!--  여기서부터 클릭했을때 uer.no 와 song.no가 겹치는걸로 넘어가는 함수 -->
 													<div class="col">
 														<div class="show_image">
-															<a href="#" onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no}"/>)">		
+															<a href="#" onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">		
 																<img class="img-fluid" src="data:image/jpg;base64,${list.song_pic}" alt=""/>
 															 <img class="show_play_icon" src="<c:url value="/resources/images/play.svg" />" />
 															</a>
