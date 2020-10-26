@@ -165,6 +165,10 @@ section
 	position: relative;
 	box-sizing: border-box;
 }
+
+
+
+
 .shows
 {
 	background: #FFFFFF;
@@ -314,52 +318,106 @@ section
 
 
 
-/*송 리스트 바*/
-.songlist_big{
+/*1.상단 트렉인포*/
+
+/*제일 큰 컨테이너*/
+.trackInfo{ 
+	display:flex;
+	border:solid blue;
+	width:1200px;
+	height:380px;
+}
+
+
+.player{
+	width:50px;
+	height:50px;
+}
+
+.trackinfo_user_name{
+	font-size:20px;
+	font-weight:lighter;
+}
+
+.trackinfo_song_play_list{
+	font-size:30px;
+	font-weight:bold;
+}
+
+.trackinfo_song_pic{
+	position:relative;
+	width:340px;
+	height:340px;
+	left:600px;
+	margin:30px;
+}
+
+
+
+
+/*2.유저 info 사진&유저닉네임*/
+
+.rounded-circle{
+	width:120px;
+	height:120px;
+	padding:10px;
+}
+
+.userinfo{
+	width:130px;
+	height:150px;
+	padding:10px;
+	margin:10px;
+
+}
+.userinfo a{
+	text-align: left;
+}
+
+
+/*3.송 리스트 바*/
+
+.playlistContainer{
 	display:flex;
 	flex-direction:column;
-	width:1200px;
+	width:900px;
 	height:500px;
 }
 
 .songlist_one{
 	position:relative;
-	width:1200px; 
-	height:50px;
+	width:900px; 
+	height:40px;
 }
 
 .thumnails{
 	position:absolute;
 	width:50px;
-	height:50px;
+	height:40px;
 }
 
 .songno{
 	position:absolute;
 	left:50px;
 	width:30px;
-	height:50px;
+	height:40px;
 }
 .singername{
 	position:absolute;
 	left:80px;
 	width:80px;
-	height:50px;
+	height:40px;
 }
 .songname{
 	position:absolute;
 	left:300px;
 	width:400px;
-	height:50px;
+	height:40px;
 }
 
 .viewcnt{
 	position:absolute;
-	left:1110px;
+	left:820px;
 	width:80px;
-	height:50px;
+	height:40px;
 }
-
-
-
-
