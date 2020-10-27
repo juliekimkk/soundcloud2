@@ -323,7 +323,7 @@ section
 /*제일 큰 컨테이너*/
 .trackInfo{ 
 	display:flex;
-	border:solid blue;
+	border:solid gray;
 	width:1200px;
 	height:380px;
 }
@@ -375,7 +375,7 @@ section
 }
 
 
-/*3.송 리스트 바*/
+/*3.센터 오른쪽 플레이리스트*/
 
 .playlistContainer{
 	display:flex;

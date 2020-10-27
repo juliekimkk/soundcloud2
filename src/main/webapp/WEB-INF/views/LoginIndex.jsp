@@ -41,19 +41,12 @@ response.setDateHeader("Expires", 0);
 	});
 	
 	function fn_getuser(song_no,user_no,play_list) {
-
 		var url = "${getuser.request.contextPath}/playpage";
-
 		url = url + "?song_no=" + song_no;
-		
 		url = url + "&user_no=" + user_no;
-		
 		url = url + "&play_list=" + play_list;
-
 		location.href = url;
-		
 		console.log(url);
-
 	}
 	
 </script>

@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.util.Base64;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -254,5 +255,12 @@ public class perpagecontroller {
 		return "redirect:getuser?user_no=" + user_no;
 
 	}
+	
+	
+	@RequestMapping(value = "/userpage", method = RequestMethod.GET)
+	public String userpage() throws Exception {
+		return "perpage/userpage";
+	}
+	
 
 }

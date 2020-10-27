@@ -47,11 +47,9 @@
 		console.log(url);
 	}
 
-	function fn_del(song_no, user_no, play_list) {
-		var url = "${getuser.request.contextPath}/playpage";
-		url = url + "?song_no=" + song_no;
-		url = url + "&user_no=" + user_no;
-		url = url + "&play_list=" + play_list;
+	function userpage(user_no) {
+		var url = "${getuser.request.contextPath}/perpage/userpage";
+		url = url + "?user_no=" + user_no;
 		location.href = url;
 		console.log(url);
 	}
@@ -114,40 +112,57 @@
 <body style="background-color: #f2f2f2;">
 	<div class="super_class"
 		style="width: 1200px; height: 1100px; left: 350px; background-color: white;">
-
+		<!-- 제일 상단 컨테이너 head  -->
 		<div class="trackInfo">
 			<tbody>
 				<c:choose>
 					<c:when test="${playlist != null}">
-							<div class="trackinfo_player_button"><a href="#"><img class="player" src="/resources/images/play_logo.svg"></a></div> 
-							<div>
-								<div class="trackinfo_user_name" style="border: solid red;"><c:out value="${user_no[0].user_name}" /></div>
-								<div class="trackinfo_song_play_list" style="border: solid blue;"><c:out value="${songno[0].play_list}" /></div>
+						<div class="trackinfo_player_button">
+							<a href="#"><img class="player"
+								src="/resources/images/play_logo.svg"></a>
+						</div>
+						<div>
+							<div class="trackinfo_user_name" style="border: solid red;">
+								<c:out value="${user_no[0].user_name}" />
 							</div>
-							<div><img class="trackinfo_song_pic" src="data:image/jpg;base64,${songno[0].song_pic}" /></div>		
-				 
+							<div class="trackinfo_song_play_list" style="border: solid blue;">
+								<c:out value="${songno[0].play_list}" />
+							</div>
+						</div>
+						<div>
+							<img class="trackinfo_song_pic"
+								src="data:image/jpg;base64,${songno[0].song_pic}" />
+						</div>
+
 					</c:when>
 				</c:choose>
 			</tbody>
 		</div>
 
-
-
+		<div></div>
+		<!-- center 왼쪽 유저정보  -->
 		<div style="display: flex;">
 			<tbody>
 				<c:choose>
 					<c:when test="${user_no != null}">
-						<div class=userinfo>
+						<div class="userinfo">
+						  <a href="#"
+						  	onClick="userpage(<c:out value="${list.user_no}" />)">
 							<img class="rounded-circle"
-								src="data:image/jpg;base64,${user_no[0].user_pic}" alt="" /> <a
-								href="LoginIndex"> <c:out value="${user_no[0].user_name}" /></a>
+								src="data:image/jpg;base64,${user_no[0].user_pic}" alt="" /></a>
+								
+								
+								<a href="LoginIndex"> <c:out value="${user_no[0].user_name}" /></a>
+							<c:out value="${user_no[0].comment}">왜안나오지?</c:out>
 						</div>
+
+						
 					</c:when>
 				</c:choose>
 			</tbody>
 
 
-
+			<!-- center 오른쪽 플레이리스트  -->
 			<div class="playlistContainer">
 				<tbody>
 					<c:choose>
@@ -171,10 +186,10 @@
 											class="show_play_icon"
 											src="<c:url value="/resources/images/play_logo.svg" />" /></li>
 										<li class="songno" style="border: solid black;"><a
-											href="LoginIndex"> <c:out value="${list.user_no}" /></a></li>
+											href="LoginIndex"> <c:out value="${list.song_no}" /></a></li>
 
 										<li class="singername" stlye="border: solid blue"><a
-											href="LoginIndex">: <c:out value="${list.play_list}" />
+											href="LoginIndex">: <c:out value="${list.song_singer}" />
 										</a>
 											</td></li>
 										<li class="songname" style="border: solid red;"><a
@@ -191,6 +206,8 @@
 				</tbody>
 			</div>
 		</div>
+
+
 	</div>
 </body>
 </html>
