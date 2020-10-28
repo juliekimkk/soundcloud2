@@ -27,13 +27,20 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
 <script>
 	$(function() {
 		objectFitImages()
 	});
 </script>
 
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+
+
+
+
 <script type="text/javascript">
 	function create() {
 		var url = "${getuser.request.contextPath}/member/join";
@@ -48,12 +55,17 @@
 	}
 
 	function userpage(user_no) {
-		var url = "${getuser.request.contextPath}/perpage/userpage";
+		var url = "${getuser.request.contextPath}/perpage/getuser";
 		url = url + "?user_no=" + user_no;
 		location.href = url;
 		console.log(url);
 	}
+	
+
 </script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="jquery.fillcolor.js"></script>
+
 
 <link rel="stylesheet" href="/resources/css/play.css">
 
@@ -109,23 +121,24 @@
 </head>
 
 <body>
+
 <body style="background-color: #f2f2f2;">
 	<div class="super_class"
 		style="width: 1200px; height: 1100px; left: 350px; background-color: white;">
 		<!-- 제일 상단 컨테이너 head  -->
-		<div class="trackInfo">
+		<div class="trackInfo" >
 			<tbody>
 				<c:choose>
 					<c:when test="${playlist != null}">
 						<div class="trackinfo_player_button">
 							<a href="#"><img class="player"
-								src="/resources/images/play_logo.svg"></a>
+								src="/resources/images/orangeplaybutton.png"></a>
 						</div>
 						<div>
-							<div class="trackinfo_user_name" style="border: solid red;">
+							<div class="trackinfo_user_name">
 								<c:out value="${user_no[0].user_name}" />
 							</div>
-							<div class="trackinfo_song_play_list" style="border: solid blue;">
+							<div class="trackinfo_song_play_list">
 								<c:out value="${songno[0].play_list}" />
 							</div>
 						</div>
@@ -147,7 +160,7 @@
 					<c:when test="${user_no != null}">
 						<div class="userinfo">
 						  <a href="#"
-						  	onClick="userpage(<c:out value="${list.user_no}" />)">
+						  	onClick="userpage(<c:out value="${user_no[0].user_no}" />)">
 							<img class="rounded-circle"
 								src="data:image/jpg;base64,${user_no[0].user_pic}" alt="" /></a>
 								
@@ -176,28 +189,29 @@
 
 
 						<c:when test="${playlist != null}">
-							<div class="songlist_big" style="border: solid magenta;">
+							<div class="songlist_big">
 								<c:forEach var="list" items="${playlist}" varStatus="status">
 
-									<ul class="songlist_one" style="border: solid red;">
-										<li class="thumnails" style="border: solid blue;"><a
+									<ul class="songlist_one" >
+										<li class="thumnails" ><a
 											href="episode.html"> <img class="img-fluid"
 												src="data:image/jpg;base64,${list.song_pic}" alt="" /></a> <img
 											class="show_play_icon"
 											src="<c:url value="/resources/images/play_logo.svg" />" /></li>
-										<li class="songno" style="border: solid black;"><a
+										<li class="songno" ><a
 											href="LoginIndex"> <c:out value="${list.song_no}" /></a></li>
 
-										<li class="singername" stlye="border: solid blue"><a
+										<li class="singername"><a
 											href="LoginIndex">: <c:out value="${list.song_singer}" />
 										</a>
 											</td></li>
-										<li class="songname" style="border: solid red;"><a
+										<li class="songname" ><a
 											href="LoginIndex">노래 이름 : <c:out
 													value="${list.song_name}" /></li>
-										<li class="viewcnt" style="border: solid magenta"><c:out
+										<li class="viewcnt" ><c:out
 												value="${list.view}" /></li>
 									</ul>
+									<hr class="my-1">
 
 								</c:forEach>
 							</div>
