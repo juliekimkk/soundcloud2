@@ -61,6 +61,43 @@
 		console.log(url);
 	}
 	
+	function get_songpic(song_no) {
+		var url = "${getuser.request.contextPath}/songpic";
+		url = url + "?song_no=" + song_no;
+		location.href = url;
+		console.log(url);
+	}
+	
+	/*클릭했을때 src주소가 바뀌어서 이미지를 다른위치에 뿌려주는것 */
+	function get_src(song_no,user_no,play_list){
+		var url = "${getuser.request.contextPath}/playpage";
+		url = url + "?song_no=" + song_no;
+		url = url + "&user_no=" + user_no;
+		url = url + "&play_list=" + play_list;
+		location.href = url;
+		console.log(url);
+	}
+
+
+	
+
+</script>
+<script>
+var bigPic = document.querySelector("#big");            //큰 사진
+var smallPics = document.querySelectorAll(".small");    //작은 사진(여러개)
+ 
+for(var i = 0 ; i < smallPics.length ; i++){
+    smallPics[i].addEventListener("click", changepic);  //이벤트 처리
+    /* 
+    onclick으로 하면 하나의 요소에 하나의 이벤트만 사용가능
+    smallPics[i].onclick = changepic;
+    */
+}
+ 
+function changepic(){   //사진 바꾸는 함수
+    var smallPicAttribute = this.getAttribute("src");
+    bigPic.setAttribute("src", smallPicAttribute); 
+}
 
 </script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -134,18 +171,23 @@
 							<a href="#"><img class="player"
 								src="/resources/images/orangeplaybutton.png"></a>
 						</div>
-						<div>
+						<div class="trackinfo">
 							<div class="trackinfo_user_name">
 								<c:out value="${user_no[0].user_name}" />
 							</div>
 							<div class="trackinfo_song_play_list">
 								<c:out value="${songno[0].play_list}" />
 							</div>
+							<div>
+							 <img class="trackinfo_song_pic"
+								src="data:image/jpg;base64,${songno[0].song_pic}" /> 
+							</div>
 						</div>
-						<div>
-							<img class="trackinfo_song_pic"
-								src="data:image/jpg;base64,${songno[0].song_pic}" />
-						</div>
+					
+						
+						<%-- <%@ include file="songpic.jsp"%> --%>
+							
+						
 
 					</c:when>
 				</c:choose>
@@ -193,20 +235,21 @@
 								<c:forEach var="list" items="${playlist}" varStatus="status">
 
 									<ul class="songlist_one" >
-										<li class="thumnails" ><a
-											href="episode.html"> <img class="img-fluid"
-												src="data:image/jpg;base64,${list.song_pic}" alt="" /></a> <img
-											class="show_play_icon"
-											src="<c:url value="/resources/images/play_logo.svg" />" /></li>
+										<li class="thumnails" >
+										<!-- 클릭시 위에 이미지 바뀌는 onclick 함수 -->
+										<a href="#" onclick="get_src(${list.song_no},${list.user_no },'${list.play_list}')">
+										<img class="img-fluid" src="data:image/jpg;base64,${list.song_pic}" alt="" /> 
+										
+										<img class="show_play_icon" src="<c:url value="/resources/images/play_logo.svg" />"  />
+										</a></li>
+										
 										<li class="songno" ><a
 											href="LoginIndex"> <c:out value="${list.song_no}" /></a></li>
 
-										<li class="singername"><a
-											href="LoginIndex">: <c:out value="${list.song_singer}" />
+										<li class="singername"><a href="LoginIndex" style="color:black">: <c:out value="${list.song_singer}" />
 										</a>
-											</td></li>
-										<li class="songname" ><a
-											href="LoginIndex">노래 이름 : <c:out
+										</li>
+										<li class="songname" ><a href="LoginIndex" style="color:black">노래 이름 : <c:out
 													value="${list.song_name}" /></li>
 										<li class="viewcnt" ><c:out
 												value="${list.view}" /></li>

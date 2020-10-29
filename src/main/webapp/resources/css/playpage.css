@@ -1,23 +1,28 @@
 
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gamja+Flower&family=Play&family=Teko:wght@500&family=Titillium+Web&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Poppins:100,300,400,500,600,700,800,900');
 .gallery {
 	display:inline-block;
 	display:none;
 }
 
-ul, li{
-
-}
 
 li {
   list-style:none;
   
 
 }
-
+ul a{
+	font-family: 'Play', sans-serif;
+	position:absolute;
+	color:black;
+	top:10px;
+	text-align:left;
+}
 *
 {
+	font-family: 'Play', sans-serif;
 	margin: 0;
 	padding: 0;
 	-webkit-font-smoothing: antialiased;
@@ -45,17 +50,7 @@ ul
 	list-style: none;
 	margin-bottom: 0px;
 }
-p
-{
-	font-family: 'Poppins', sans-serif;
-	font-size: 16px;
-	line-height: 1.875;
-	font-weight: 300;
-	color: #929191;
-	-webkit-font-smoothing: antialiased;
-	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
-	text-shadow: rgba(0,0,0,.01) 0 0 1px;
-}
+
 p a
 {
 	
@@ -326,24 +321,35 @@ section
 /*제일 큰 컨테이너*/
 .trackInfo{ 
 	display:flex;
-
 	width:1200px;
 	height:380px; 
-/* 	background: radial-gradient(ellipse at left, #e66465, transparent),
-            radial-gradient(ellipse at right, #4d9f0c, transparent); */
+	background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#ffc1e2 80%,#e8e5dc 98%,#e5e5e5 100%); 
+/* 	 background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#c7d4db 80%,#e8e5dc 98%,#e5e5e5 100%);   */
+/* 	 background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#dbbafc 80%,#e8e5dc 98%,#e5e5e5 100%); 라벤더 */
+/* 	 background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 98%,#e5e5e5 100%);   */
+/* 	background: -webkit-linear-gradient(left, #d3d3d3 0%,#f2f2f2 2%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 98%,#d3d3d3 100%); 양쪽 다 진한 회색 넣은 그레이블루  */
+/* 	background: -webkit-linear-gradient(left, #b8caed 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 98%,#b8caed 100%); 양쪽 다 진한 블루 넣은 그레이블루 */
+/* 	background: -webkit-linear-gradient(left, #d3d3d3 0%,#f2f2f2 2%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 100%); 왼쪽만 진한 회색넣은 그레이블루 */
+/* 	background: -webkit-linear-gradient(left, #f2f2f2 0%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 100%); 배경색이랑 같은그레이블루 */
+/* 	background: -webkit-linear-gradient(left, #e8e5dc 0%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 100%); 그레이블루 */
+/*  background: radial-gradient(ellipse at left, #e66465, transparent), radial-gradient(ellipse at right, #4d9f0c, transparent); 그라데이션 */
+/*  background: -webkit-linear-gradient(left, #9a901e 0%,#fff600 0%,#ff5454 14%,#ed9092 25%,#ff2b83 51%,#ed9092 67%,#ed9092 75%,#ff5454 84%,#fff600 100%);  */
+/*  background: -webkit-linear-gradient(left, #9a901e 0%,#ffffff 0%,#f7d2f3 0%,#f7f7f7 28%,#f7f7f7 28%,#eeccff 89%,#e8e5dc 100%); */
 
-background: radial-gradient(circle, rgba(238,174,202,1) 21%, rgba(148,187,233,1) 100%);
-
-/* background: #ff6c99;
+/*   background: #ff6c99;
 background: -webkit-repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%); 
 background: -o-repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%); 
 background: -moz-repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%); 
 background: repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%);
-사탕막대
-   */
+막대사탕 */
+   
   
 }
+.trackinfo{
 
+	width:1000px;
+	
+}
 .trackinfo_player_button{
 	top:43px;
 	left:30px;
@@ -356,21 +362,25 @@ background: repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%);
 }
 
 .trackinfo_user_name{
+	width:200px;
 	top:30px;
 	left:50px;
 	font-size:20px;
-	font-weight:bold;
-	background-color:#fff;
+	text-align: left;
+	font-weight:700px;
+	background-color:#f1eae9;
 	border-radius:30px /30px;
 	text-shadow: 0 0 3px #fe1bfe, 0 0 5px #ffffff;
 }
 
 .trackinfo_song_play_list{
+	width:200px;
 	top:40px;
 	left:50px;
 	font-size:30px;
-	font-weight:bold;
-	background-color:#fff;
+	text-align: left;
+	font-weight:400px bold;
+	background-color:#f1eae9;
 	text-shadow: 0 0 3px #fe1bfe, 0 0 5px #ffffff;
 	border-radius: 40px / 40px;
 }
@@ -379,15 +389,15 @@ background: repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%);
 	position:relative;
 	width:340px;
 	height:340px;
-	left:600px;
-	margin:30px;
+	bottom:100px;
+	left:750px;
+	margin:40px;
 }
 
 
 
 
 /*2.유저 info 사진&유저닉네임*/
-
 .rounded-circle{
 	width:120px;
 	height:120px;
@@ -408,7 +418,6 @@ background: repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%);
 
 
 /*3.센터 오른쪽 플레이리스트*/
-
 .playlistContainer{
 	display:flex;
 	flex-direction:column;
@@ -416,16 +425,21 @@ background: repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%);
 	height:500px;
 }
 
+.img-fluid{
+	img-height:28px;
+}
+
 .songlist_one{
 	position:relative;
 	width:900px; 
-	height:40px;
+	height:30px;
 }
 
 .thumnails{
 	position:absolute;
-	width:50px;
-	height:40px;
+	width:35px;
+	height:28px;
+	bottom:8px;
 }
 
 .songno{
@@ -434,17 +448,23 @@ background: repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%);
 	width:30px;
 	height:40px;
 }
-.singername{
+.singername {
 	position:absolute;
 	left:80px;
 	width:80px;
 	height:40px;
+	font-size:15px;
+	color:#000000;
+	font-weight:light;
+
 }
 .songname{
 	position:absolute;
 	left:300px;
 	width:400px;
 	height:40px;
+	font-size:17px;
+	font-color:#000000;
 }
 
 .viewcnt{
