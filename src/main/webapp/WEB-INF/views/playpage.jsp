@@ -27,8 +27,9 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	
-<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
 <script>
 	$(function() {
 		objectFitImages()
@@ -61,12 +62,21 @@
 		console.log(url);
 	}
 	
-	function get_songpic(song_no) {
+/* 	function userpagebyname(user_no) {
+		var url = "${getuser.request.contextPath}/perpage/getuser";
+		url = url + "?user_no=" + user_no;
+		location.href = url;
+		console.log(url);
+	} */
+	
+/* 	function get_songpic(song_no, song_name) {
 		var url = "${getuser.request.contextPath}/songpic";
 		url = url + "?song_no=" + song_no;
 		location.href = url;
 		console.log(url);
-	}
+	} */
+	
+	
 	
 	/*클릭했을때 src주소가 바뀌어서 이미지를 다른위치에 뿌려주는것 */
 	function get_src(song_no,user_no,play_list){
@@ -158,12 +168,11 @@ function changepic(){   //사진 바꾸는 함수
 </head>
 
 <body>
-
 <body style="background-color: #f2f2f2;">
 	<div class="super_class"
 		style="width: 1200px; height: 1100px; left: 350px; background-color: white;">
-		<!-- 제일 상단 컨테이너 head  -->
-		<div class="trackInfo" >
+		<!-- 1.제일 상단 컨테이너 head  -->
+		<div class="trackInfo">
 			<tbody>
 				<c:choose>
 					<c:when test="${playlist != null}">
@@ -179,15 +188,15 @@ function changepic(){   //사진 바꾸는 함수
 								<c:out value="${songno[0].play_list}" />
 							</div>
 							<div>
-							 <img class="trackinfo_song_pic"
-								src="data:image/jpg;base64,${songno[0].song_pic}" /> 
+								<img class="trackinfo_song_pic"
+									src="data:image/jpg;base64,${songno[0].song_pic}" />
 							</div>
 						</div>
-					
-						
+
+
 						<%-- <%@ include file="songpic.jsp"%> --%>
-							
-						
+
+
 
 					</c:when>
 				</c:choose>
@@ -195,29 +204,37 @@ function changepic(){   //사진 바꾸는 함수
 		</div>
 
 		<div></div>
-		<!-- center 왼쪽 유저정보  -->
+		<!-- 2.center 왼쪽 유저정보  -->
 		<div style="display: flex;">
 			<tbody>
 				<c:choose>
 					<c:when test="${user_no != null}">
 						<div class="userinfo">
-						  <a href="#"
-						  	onClick="userpage(<c:out value="${user_no[0].user_no}" />)">
-							<img class="rounded-circle"
-								src="data:image/jpg;base64,${user_no[0].user_pic}" alt="" /></a>
-								
-								
-								<a href="LoginIndex"> <c:out value="${user_no[0].user_name}" /></a>
-							<c:out value="${user_no[0].comment}">왜안나오지?</c:out>
+							<a href="#"
+								onClick="userpage(<c:out value="${user_no[0].user_no}" />)">
+								<img class="rounded-circle"
+								src="data:image/jpg;base64,${user_no[0].user_pic}" alt="" />
+							</a> <a href="#"
+								onclick="userpage(<c:out value="${user_no[0].user_no}" />)">
+								<c:out value="${user_no[0].user_name}" />
+							</a>
+							
+								<c:out value="${user_no[0].comment}" />
+							
+							
+							
 						</div>
 
-						
+
 					</c:when>
 				</c:choose>
 			</tbody>
 
 
-			<!-- center 오른쪽 플레이리스트  -->
+
+
+
+			<!-- 3.center 오른쪽 플레이리스트  -->
 			<div class="playlistContainer">
 				<tbody>
 					<c:choose>
@@ -234,25 +251,28 @@ function changepic(){   //사진 바꾸는 함수
 							<div class="songlist_big">
 								<c:forEach var="list" items="${playlist}" varStatus="status">
 
-									<ul class="songlist_one" >
-										<li class="thumnails" >
-										<!-- 클릭시 위에 이미지 바뀌는 onclick 함수 -->
-										<a href="#" onclick="get_src(${list.song_no},${list.user_no },'${list.play_list}')">
-										<img class="img-fluid" src="data:image/jpg;base64,${list.song_pic}" alt="" /> 
-										
-										<img class="show_play_icon" src="<c:url value="/resources/images/play_logo.svg" />"  />
-										</a></li>
-										
-										<li class="songno" ><a
-											href="LoginIndex"> <c:out value="${list.song_no}" /></a></li>
-
-										<li class="singername"><a href="LoginIndex" style="color:black">: <c:out value="${list.song_singer}" />
+									<ul class="songlist_one">
+										<li class="thumnails">
+											<!-- 클릭시 위에 이미지 바뀌는 onclick 함수 --> 
+											<a href="#"
+											onclick="get_src(${list.song_no},${list.user_no },'${list.play_list}')">
+												<img class="img-fluid"
+												src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
+												class="show_play_icon"
+												src="<c:url value="/resources/images/play_logo.svg" />" />
 										</a>
 										</li>
-										<li class="songname" ><a href="LoginIndex" style="color:black">노래 이름 : <c:out
+
+										<li class="songno"><a href=""> <c:out
+													value="${list.song_no}" /></a></li>
+
+										<li class="singername"><a href=""><c:out
+													value="${list.song_singer}" />
+										</a></li>
+										<li class="songname"><a href="LoginIndex"
+											style="color: black">노래 이름 : <c:out
 													value="${list.song_name}" /></li>
-										<li class="viewcnt" ><c:out
-												value="${list.view}" /></li>
+										<li class="viewcnt"><c:out value="${list.view}" /></li>
 									</ul>
 									<hr class="my-1">
 
@@ -263,6 +283,38 @@ function changepic(){   //사진 바꾸는 함수
 				</tbody>
 			</div>
 		</div>
+
+
+		<div class="footer">
+			<tbody>
+				<c:choose>
+
+					<c:when test="${playlist == null}">
+						<tr>
+							<td colspan="5" align="center">데이터가 없습니다.</td>
+						</tr>
+					</c:when>
+
+
+					<c:when test="${playlist != null}">
+						<div class="playbar">
+							<ul class="playbarLine">
+								<li><a href="#"
+									onclick="get_src(${list.song_no},${list.user_no },'${list.play_list}')">
+										<img class="img-fluid"
+										src="data:image/jpg;base64,${list.song_pic}" alt="" />
+								</a></li>
+
+
+
+							</ul>
+						</div>
+					</c:when>
+				</c:choose>
+			</tbody>
+		</div>
+
+
 
 
 	</div>

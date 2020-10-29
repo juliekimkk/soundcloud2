@@ -1,5 +1,7 @@
 package com.soundcloud.controller;
 
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.soundcloud.domain.MemberVO;
 import com.soundcloud.service.MemberService;
+import com.soundcloud.user.dao.userDAO;
+import com.soundcloud.user.domain.userVO;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -21,7 +25,11 @@ import lombok.extern.log4j.Log4j;
 	  "file:src/main/webapp/WEB-INF/spring/security-context.xml"
 	  })
 public class MemberRegister {
-
+	@Inject
+	private userDAO dao;
+	@Inject
+	private userVO vo;
+	
 	
 	private MemberService service;
 
@@ -35,7 +43,7 @@ public class MemberRegister {
 
 //	@RequestMapping(value = "/joinAction", method = RequestMethod.POST) //등록
 	@PostMapping("/register") //등록
-	public String register(MemberVO membervo) {
+	public String register(MemberVO membervo) throws Exception{
 
 		System.out.println(membervo.toString());
 		log.info("============================== ");
@@ -45,6 +53,13 @@ public class MemberRegister {
 		log.info("register pw: " + pw);
 
 		service.register(membervo);
+		
+		vo.setUser_id(membervo.getUserid());
+		vo.setE_mail(membervo.getUseremail());
+		vo.setUser_name(membervo.getUserName());
+		vo.setUser_id(membervo.getUserid());
+		
+		dao.insertuser(vo);
 
 		/* rttr.addFlashAttribute("result", member.getUserName()); */
 
