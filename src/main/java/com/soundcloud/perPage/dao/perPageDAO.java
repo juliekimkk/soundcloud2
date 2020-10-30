@@ -8,7 +8,7 @@ public interface perPageDAO {
 
 	public List<perPageVO> getsongs() throws Exception;
 	
-	public List<perPageVO> getsongsbyuserno(int user_no) throws Exception;
+	public List<perPageVO> getsongsbyuserno(String user_name) throws Exception;
 
 	public int insertsong(perPageVO pagevo) throws Exception;
 	
@@ -25,6 +25,8 @@ public interface perPageDAO {
 	public List<perPageVO> getsongsbytheme(String theme) throws Exception;
 	
 	public List<perPageVO> getsongsbythemeNone() throws Exception;
+	
+	public List<perPageVO> getsongbysongno(int song_no) throws Exception;
 
 
 }

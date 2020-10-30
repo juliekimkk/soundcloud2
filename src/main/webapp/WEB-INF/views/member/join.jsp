@@ -39,6 +39,11 @@
 					<input type="password" name="userpw" id="userpw" class="input-text" placeholder="Your Password" required>
 					<i class="fas fa-lock"></i>
 				</div>
+				<!-- <div class="form-row">
+					<label for="userpic">Profile</label>
+					<input type="file" name="userpic" id="userpic" class="input-text" placeholder="Your Profile" required>
+					<i class="fas fa-lock"></i>
+				</div> -->
 				<div class="form-row-last">
 					<input type="submit" name="register" class="register" value="Register">
 					  <input type="hidden" name="${_csrf.parameterName}"

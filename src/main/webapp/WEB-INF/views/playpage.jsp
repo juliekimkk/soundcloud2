@@ -103,6 +103,7 @@
 <body style="background-color: #f2f2f2;">
 	<div class="super_class"
 		style="width: 1200px; height: 1100px; left: 350px; background-color: white;">
+		<a href="LoginIndex">메인화면</a>
 
 		<div class="container">
 			<div class="jumbotron jumbotron-fluid">
@@ -139,7 +140,7 @@
 
 				<c:when test="${viewcnt2 == null}">
 					<tr>
-						<td colspan="5" align="center">?�이?��? ?�습?�다.</td>
+						<td colspan="5" align="center">?�이?��? ?�습?�다.</td>
 					</tr>
 				</c:when>
 
@@ -160,7 +161,7 @@
 								<li class="singername" stlye="border: solid blue"><a href="LoginIndex">
 																: <c:out value="${list.user_name}" />
 														</a></td> </li>
-								<li class="songname" style="border: solid red;"><a href="LoginIndex">?�래 ?�름
+								<li class="songname" style="border: solid red;"><a href="LoginIndex">?�래 ?�름
 																: <c:out value="${list.song_name}" /></li>
 								<li class="viewcnt" style="border: solid magenta">
 																<c:out value="${list.view}" /></li>

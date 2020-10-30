@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+
 <!DOCTYPE html>
 <html>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <head>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -30,12 +33,40 @@
 	$(function() {
 		objectFitImages()
 	});
+	
+	function fn_getsongno(song_no) {
+
+		var url = "${getuser.request.contextPath}/playpage";
+
+		url = url + "?song_no=" + song_no;
+
+		location.href = url;
+		
+		console.log(url);
+	}
+	function fn_my(username){
+		
+		var url = "${getuser.request.contextPath}/perpage/getuser";
+		
+		url = url + "?user_name?" + username;
+		
+		location.href = url;
+		
+		consol.log(url);
+	}
 </script>
 <link rel="stylesheet" href="/resources/css/LoginIndex.css">
 
 <title>login mainpage</title>
 </head>
 <body>
+
+<sec:authorize access="isAuthenticated()">
+<sec:authentication property="principal" var="pinfo" />
+<a href="/customLogout">로그아웃</a>
+<a href="/perpage/getuser?user_name=${pinfo.username }" >마이페이지</a>
+
+</sec:authorize>
 	<section style="border: 1px solid red;">
 		<div class="together" style="border: 1px dashed magenta;">
 			<div class="container" style="border: 1px solid blue;">
@@ -50,7 +81,7 @@
 				<c:choose>
 					<c:when test="${empty theme}">
 						<tr>
-							<td colspan="5" align="center">?�이?��? ?�습?�다.?�런?�ㅠ</td>
+							<td colspan="5" align="center">데이터가 없습니다.</td>
 						</tr>
 					</c:when>
 
@@ -67,15 +98,17 @@
 
 													<div class="col">
 														<div class="show_image">
+														<a href="#" onClick="fn_getsongno(<c:out value="${list.song_no}"/>)">
 															<img class="img-fluid"
-																src="data:image/jpg;base64,${list.song_pic}" /></a> <img
+																src="data:image/jpg;base64,${list.song_pic}" /><img
 																class="show_play_icon"
-																src="<c:url value="/resources/images/play.svg" />" />
-																											
-															<td class="img-fluid"><a href="LoginIndex">?�래
-																	?�름: <c:out value="${list.song_name}" />
+																src="<c:url value="/resources/images/play.svg" />" /></a>
+
+															<td class="img-fluid"><a href="LoginIndex">노래
+																	이름: <c:out value="${list.song_name}" />
 															</a></td>
-															<td class="img-fluid"><a href="LoginIndex">?��? ?�름
+															<td class="img-fluid"><a
+																href="perpage/getuser?user_name=${list.user_name}">유저이름
 																	: <c:out value="${list.user_name}" />
 															</a></td>
 														</div>
@@ -96,10 +129,13 @@
 																class="show_play_icon"
 																src="<c:url value="/resources/images/play.svg" />" />
 
-															<td class="img-fluid"><a href="LoginIndex"><c:out
-																		value="${list.song_name}" /></a></td>
-															<td class="img-fluid"><a href="LoginIndex"><c:out
-																		value="${list.user_name}" /></a></td>
+															<td class="img-fluid"><a href="LoginIndex">노래
+																	이름: <c:out value="${list.song_name}" />
+															</a></td>
+															<td class="img-fluid"><a
+																href="perpage/getuser?user_name=${list.user_name}">유저이름
+																	: <c:out value="${list.user_name}" />
+															</a></td>
 														</div>
 													</div>
 												</c:if>
@@ -110,14 +146,14 @@
 									</div>
 								</div>
 								<a class="carousel-control-prev"
-									style="border: 2px dashed magenta; top: 25px; " href="#gallery1"
+									style="border: 2px dashed magenta; top: 25px;" href="#gallery1"
 									role="button" data-slide="prev"> <span
 									class="carousel-control-prev-icon" aria-hidden="true"></span> <span
 									class="sr-only">Previous</span>
-								</a> <a class="carousel-control-next" 
-									style="top:25px;" href="#gallery1" role="button"
-									data-slide="next"> <span class="carousel-control-next-icon"
-									aria-hidden="true"></span> <span class="sr-only">Next</span>
+								</a> <a class="carousel-control-next" style="top: 25px;"
+									href="#gallery1" role="button" data-slide="next"> <span
+									class="carousel-control-next-icon" aria-hidden="true"></span> <span
+									class="sr-only">Next</span>
 								</a>
 							</div>
 						</div>
@@ -132,7 +168,7 @@
 
 
 
-	<!-- ?�번째트?? -->
+	<!-- ?�번째트?? -->
 	<section>
 		<div class="container">
 			<hr class="my-1">
@@ -147,7 +183,7 @@
 
 				<c:when test="${empty theme}">
 					<tr>
-						<td colspan="5" align="center">?�이?��? ?�습?�다.?�런?�ㅠ</td>
+						<td colspan="5" align="center">데이터가 없습니다.</td>
 					</tr>
 				</c:when>
 
@@ -163,16 +199,17 @@
 
 												<div class="col">
 													<div class="show_image">
-												<%-- 		<td class="img-fluid"><c:out value="${list.song_no}" /></td> --%>
+														<%-- 		<td class="img-fluid"><c:out value="${list.song_no}" /></td> --%>
 														<a href="episode.html"> <img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}"
 															alt="Image 1" /></a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play.svg" />" />
-														<td class="img-fluid"><a href="LoginIndex">?�래 ?�름
-																: <c:out value="${list.song_name}" />
+														<td class="img-fluid"><a href="LoginIndex">노래 이름:
+																<c:out value="${list.song_name}" />
 														</a></td>
-														<td class="img-fluid"><a href="LoginIndex">?��? ?�름
-																: <c:out value="${list.user_name}" />
+														<td class="img-fluid"><a
+															href="perpage/getuser?user_name=${list.user_name}">유저이름 :
+																<c:out value="${list.user_name}" />
 														</a></td>
 													</div>
 												</div>
@@ -192,10 +229,13 @@
 															alt="Image 1" /></a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play.svg" />" />
 
-														<td class="img-fluid"><a href="LoginIndex"><c:out
-																	value="${list.song_name}" /></a></td>
-														<td class="img-fluid"><a href="LoginIndex"><c:out
-																	value="${list.user_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex">노래 이름:
+																<c:out value="${list.song_name}" />
+														</a></td>
+														<td class="img-fluid"><a
+															href="perpage/getuser?user_name=${list.user_name}">유저이름 :
+																<c:out value="${list.user_name}" />
+														</a></td>
 													</div>
 												</div>
 											</c:if>
@@ -223,7 +263,7 @@
 
 
 
-	<!-- ?�번째트?? -->
+	<!-- ?�번째트?? -->
 	<section>
 		<div class="container">
 			<hr class="my-1">
@@ -238,7 +278,7 @@
 
 				<c:when test="${empty theme}">
 					<tr>
-						<td colspan="5" align="center">?�이?��? ?�습?�다.?�런?�ㅠ</td>
+						<td colspan="5" align="center">데이터가 없습니다.</td>
 					</tr>
 				</c:when>
 
@@ -258,11 +298,12 @@
 															src="data:image/jpg;base64,${list.song_pic}"
 															alt="Image 1" /></a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play_logo.svg" />" />
-														<td class="img-fluid"><a href="LoginIndex">?�래 ?�름
-																: <c:out value="${list.song_name}" />
+														<td class="img-fluid"><a href="LoginIndex">노래 이름:
+																<c:out value="${list.song_name}" />
 														</a></td>
-														<td class="img-fluid"><a href="LoginIndex">?��? ?�름
-																: <c:out value="${list.user_name}" />
+														<td class="img-fluid"><a
+															href="perpage/getuser?user_name=${list.user_name}">유저이름 :
+																<c:out value="${list.user_name}" />
 														</a></td>
 													</div>
 												</div>
@@ -282,10 +323,13 @@
 															alt="Image 1" /></a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play.svg" />" />
 
-														<td class="img-fluid"><a href="LoginIndex"><c:out
-																	value="${list.song_name}" /></a></td>
-														<td class="img-fluid"><a href="LoginIndex"><c:out
-																	value="${list.user_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex">노래 이름:
+																<c:out value="${list.song_name}" />
+														</a></td>
+														<td class="img-fluid"><a
+															href="perpage/getuser?user_name=${list.user_name}">유저이름 :
+																<c:out value="${list.user_name}" />
+														</a></td>
 													</div>
 												</div>
 											</c:if>
@@ -313,7 +357,7 @@
 
 
 
-	<!-- ?�번째트?? -->
+	<!-- ?�번째트?? -->
 	<section>
 		<div class="container">
 			<hr class="my-1">
@@ -328,7 +372,7 @@
 
 				<c:when test="${empty theme}">
 					<tr>
-						<td colspan="5" align="center">?�이?��? ?�습?�다.?�런?�ㅠ</td>
+						<td colspan="5" align="center">데이터가 없습니다.</td>
 					</tr>
 				</c:when>
 
@@ -348,11 +392,12 @@
 															src="data:image/jpg;base64,${list.song_pic}"
 															alt="Image 1" /></a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play.svg" />" />
-														<td class="img-fluid"><a href="LoginIndex">?�래 ?�름
-																: <c:out value="${list.song_name}" />
+														<td class="img-fluid"><a href="LoginIndex">노래 이름:
+																<c:out value="${list.song_name}" />
 														</a></td>
-														<td class="img-fluid"><a href="LoginIndex">?��? ?�름
-																: <c:out value="${list.user_name}" />
+														<td class="img-fluid"><a
+															href="perpage/getuser?user_name=${list.user_name}">유저이름 :
+																<c:out value="${list.user_name}" />
 														</a></td>
 													</div>
 												</div>
@@ -364,7 +409,7 @@
 									<div class="row">
 										<c:forEach var="list" items="${theme}" varStatus="status">
 											<c:if
-												test="${(status.count < 51) and (list.theme == 'workout') and (status.count > 45) }">												
+												test="${(status.count < 51) and (list.theme == 'workout') and (status.count > 45) }">
 												<div class="col">
 													<div class="show_image">
 														<a href="episode.html"> <img class="img-fluid"
@@ -372,10 +417,13 @@
 															alt="Image 1" /></a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play.svg" />" />
 
-														<td class="img-fluid"><a href="LoginIndex"><c:out
-																	value="${list.song_name}" /></a></td>
-														<td class="img-fluid"><a href="LoginIndex"><c:out
-																	value="${list.user_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex">노래 이름:
+																<c:out value="${list.song_name}" />
+														</a></td>
+														<td class="img-fluid"><a
+															href="perpage/getuser?user_name=${list.user_name}">유저이름 :
+																<c:out value="${list.user_name}" />
+														</a></td>
 													</div>
 												</div>
 											</c:if>
@@ -403,7 +451,7 @@
 
 
 
-	<!-- ?�섯번째?�랙 -->
+	<!-- ?�섯번째?�랙 -->
 	<section>
 		<div class="container">
 			<hr class="my-1">
@@ -418,7 +466,7 @@
 
 				<c:when test="${empty theme}">
 					<tr>
-						<td colspan="5" align="center">?�이?��? ?�습?�다.?�런?�ㅠ</td>
+						<td colspan="5" align="center">데이터가 없습니다.</td>
 					</tr>
 				</c:when>
 
@@ -438,11 +486,12 @@
 															src="data:image/jpg;base64,${list.song_pic}"
 															alt="Image 1" /></a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play.svg" />" />
-														<td class="img-fluid"><a href="LoginIndex">?�래 ?�름
-																: <c:out value="${list.song_name}" />
+														<td class="img-fluid"><a href="LoginIndex">노래 이름:
+																<c:out value="${list.song_name}" />
 														</a></td>
-														<td class="img-fluid"><a href="LoginIndex">?��? ?�름
-																: <c:out value="${list.user_name}" />
+														<td class="img-fluid"><a
+															href="perpage/getuser?user_name=${list.user_name}">유저이름 :
+																<c:out value="${list.user_name}" />
 														</a></td>
 													</div>
 												</div>
@@ -454,7 +503,7 @@
 									<div class="row">
 										<c:forEach var="list" items="${theme}" varStatus="status">
 											<c:if
-												test="${(status.count < 41) and (list.theme == 'study') and (status.count >35)}">												
+												test="${(status.count < 41) and (list.theme == 'study') and (status.count >35)}">
 												<div class="col">
 													<div class="show_image">
 														<a href="episode.html"> <img class="img-fluid"
@@ -462,10 +511,13 @@
 															alt="Image 1" /></a> <img class="show_play_icon"
 															src="<c:url value="/resources/images/play.svg" />" />
 
-														<td class="img-fluid"><a href="LoginIndex"><c:out
-																	value="${list.song_name}" /></a></td>
-														<td class="img-fluid"><a href="LoginIndex"><c:out
-																	value="${list.user_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex">노래 이름:
+																<c:out value="${list.song_name}" />
+														</a></td>
+														<td class="img-fluid"><a
+															href="perpage/getuser?ss=${list.user_name}">유저이름 :
+																<c:out value="${list.user_name}" />
+														</a></td>
 													</div>
 												</div>
 											</c:if>

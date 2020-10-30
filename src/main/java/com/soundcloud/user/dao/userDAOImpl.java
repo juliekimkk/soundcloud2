@@ -22,9 +22,9 @@ public class userDAOImpl implements userDAO {
 	}
 	
 	@Override
-	public List<userVO> getuserbyuserno(int user_no) throws Exception {
+	public List<userVO> getuserbyuserno(String user_name) throws Exception {
 
-		return sqlSession.selectList("com.soundcloud.user.usermapper.getuserbyuserno", user_no);
+		return sqlSession.selectList("com.soundcloud.user.usermapper.getuserbyuserno", user_name);
 	}
 
 	@Override

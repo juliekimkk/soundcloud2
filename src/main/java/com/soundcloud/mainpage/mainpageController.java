@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.soundcloud.perPage.dao.perPageDAO;
 import com.soundcloud.perPage.domain.perPageVO;
@@ -68,13 +69,18 @@ public class mainpageController {
 
 
 	@RequestMapping(value = "/playpage", method = RequestMethod.GET)
-	public String test(Model model) throws Exception {
+	public String test(Model model,@RequestParam("song_no") int song_no) throws Exception {
+
+		
 		List<perPageVO> song = perpageDao.getsongs();
 		model.addAttribute("songList", song);
 
 		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();
 		log.info(viewcnt2.toString());
 		model.addAttribute("viewcnt2", viewcnt2);
+		
+		List<perPageVO> songno = perpageDao.getsongbysongno(song_no);
+		model.addAttribute("songno", songno);
 		
 		return "/playpage";
 
