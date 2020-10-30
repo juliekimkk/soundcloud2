@@ -207,8 +207,9 @@ function changepic(){   //사진 바꾸는 함수
 								src="data:image/jpg;base64,${user_no[0].user_pic}" alt="" /></a>
 								
 								
-								<a href="LoginIndex"> <c:out value="${user_no[0].user_name}" /></a>
-							<c:out value="${user_no[0].comment}">왜안나오지?</c:out>
+								<a href="#"
+								 onClick="userpage(<c:out value="${user_no[0].user_no}" />)">
+								<c:out value="${user_no[0].user_name}">왜안나오지?</c:out></a>
 						</div>
 
 						

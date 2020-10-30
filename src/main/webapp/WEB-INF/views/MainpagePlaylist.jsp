@@ -6,13 +6,11 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-
 <link href="/resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link href="/resources/plugins/colorbox/colorbox.css" rel="stylesheet"
 	type="text/css">
-<link rel="stylesheet" type="text/css" href="/resources/css/index.css">
+
 <link rel="stylesheet" type="text/css"
 	href="/resources/styles/bootstrap-4.1.2/bootstrap.min.css">
 <link rel="stylesheet"
@@ -31,6 +29,21 @@
 		objectFitImages()
 	});
 </script>
+<script>
+	function LoginIndex(){
+		var url = "${getuser.request.contextPath}/LoginIndex";
+		location.href = url;
+		console.log(url);
+	}
+	
+	/*괄호 안에 들어있는 값은 함수안에서 쓰는 변수명*/
+	function get_songbysinger(particular_singer){
+		var url = "${getuser.request.contextPath}/ParticularSinger";
+		url = url + "?particular_singer=" + particular_singer;
+		location.href = url;
+		console.log(url);
+	}
+</script>
 <link rel="stylesheet" href="/resources/css/main.css">
 
 <title>SoundCloud</title>
@@ -38,7 +51,7 @@
 * {
 	margin: 0px; 
 	padding: 0px; 
-	box-sizing: border-box;
+
 }
 .img-fluid{
 
@@ -57,13 +70,19 @@
 	max-width:100%;
 
 }
-
+.box{
+}
 
 
 .submit {
   display: flex;
   align-items: center;
   justify-content: center;
+  bottom:20px;
+}
+
+.show_play_icon {
+height:35px;
 }
 </style>
 
@@ -71,7 +90,7 @@
 </head>
 <body>
 
-<nav>
+<nav class="box">
 	<tbody>
 		<c:choose>
 
@@ -94,10 +113,10 @@
 										<c:if test="${status.count < 13}">
 											
 												<div class="show_image" style= "width:180px; margin:10px; border: solid white; "> 
-													<a href="episode.html"> 
-													<img class="img-fluid" src="data:image/jpg;base64,${list.song_pic}" alt="Image 1" /></a>
+													<a href="#" onclick="get_songbysinger('<c:out value="${list.song_singer}" />')"> 
+													<img class="img-fluid" src="data:image/jpg;base64,${list.song_pic}" alt="Image 1" />
 													<img class="show_play_icon"
-														src="<c:url value="/resources/images/play.svg" />" />
+														src="<c:url value="/resources/images/play.svg" />" /></a>
 
 
 													<td class="img-fluid"><a href="LoginIndex"><c:out
@@ -106,13 +125,12 @@
 																value="${list.user_name}" /></a></td>
 													<td class="img-fluid">조회수:<c:out value="${list.view}" /></td>			
 												</div>
-											
 										</c:if>
 									</c:forEach>
 									</div>
 								</div>
 							</div>
-							<div class="submit"><button onClick="create()"; type="button" class="btn btn-danger btn-lg" >Explore trending playlists</button></div>
+							<div class="submit" style="bottom:30px;"><button onClick="LoginIndex()"; type="button" class="btn btn-danger btn-lg" >Explore trending playlists</button></div>
 						</div>
 
 					</div>
@@ -124,7 +142,8 @@
 	</tbody>
 	
 </nav>
-
+<ul>
+<li><a href="#">노래 이름 : <c:out value="${getparticularsinger.singer_name}" /></li></ul>
 
 
 </body>

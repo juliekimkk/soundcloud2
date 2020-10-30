@@ -89,5 +89,13 @@ public class perPageDAOImpl implements perPageDAO {
 		return sqlSession.selectList("com.soundcloud.perPage.perPagemapper.getsongbyplaylist", playlist);
 	}
 	
+	@Override
+	public List<perPageVO> getparticularsinger(String particular_singer) throws Exception{
+		
+		System.out.println("-----------------------------1");
+		return sqlSession.selectList("com.soundcloud.perPage.perPagemapper.getparticularsinger", particular_singer);
+	}
+
+	
 
 }

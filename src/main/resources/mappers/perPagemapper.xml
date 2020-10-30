@@ -132,7 +132,13 @@
 		select * from songs 
 		where play_list = #{play_list}
 
+	</select>
+	
+	<select id="getparticularsinger"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
 
+		select * from songs 
+		where song_singer = #{song_singer}
 	</select>
 
 </mapper>

@@ -69,6 +69,7 @@ public class mainpageController {
 
 		return "/index";
 	}
+	
 
 	@RequestMapping(value = "/playpage", method = RequestMethod.GET)
 	public String test(Model model, @RequestParam("song_no") int song_no, @RequestParam("user_no") int user_no, @RequestParam("play_list") String play_list) throws Exception {
@@ -105,11 +106,33 @@ public class mainpageController {
 	}
 
 	@RequestMapping(value = "/MainpagePlaylist", method = RequestMethod.GET)
-	public String MainpagePlaylist(Model model) throws Exception {
+	public String MainpagePlaylist(Model model, @RequestParam("particular_singer") String particular_singer) throws Exception {
 		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();
-		log.info(viewcnt2.toString());
 		model.addAttribute("viewcnt2", viewcnt2);
+		
+
+
+		List<perPageVO> particularsinger = perpageDao.getparticularsinger(particular_singer);
+		/*
+		 * System.out.println("--------------1: " + particular_singer); 값이 들어있는지 확인하는 로그
+		 * System.out.println("--------------2: " +
+		 * particularsinger.get(0).getSong_name());
+		 */
 		return "/MainpagePlaylist";
 	}
+	
+	
+	@RequestMapping(value = "/ParticularSinger", method = RequestMethod.GET)
+	public String ParticularSinger(Model model, @RequestParam("particular_singer") String particular_singer) throws Exception {
+		
+		List<perPageVO> particularsinger = perpageDao.getparticularsinger(particular_singer);
+		model.addAttribute("particularsinger", particularsinger);
+		
+
+		
+		
+		return "/ParticularSinger";
+	}
+
 
 }

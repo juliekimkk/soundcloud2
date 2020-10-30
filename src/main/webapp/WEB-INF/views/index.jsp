@@ -49,6 +49,9 @@ function singin() {
 
 
 
+
+
+
 </script>
 
 <link rel="stylesheet" href="/resources/css/main.css">
@@ -68,6 +71,14 @@ function singin() {
 	text-shadow: black 0.2em 0.2em 0.2em;
 	color: white;
 }
+
+.buttonset{
+position:absolute;
+border:solid red;
+ flaot:right;
+ right:0px;
+ top:0px;
+}
 </style>
 
 </head>
@@ -76,11 +87,12 @@ function singin() {
 	<nav>
 		<div class="container">
 			<div class="jumbotron jumbotron-fluid bg-dark" width="90%" height="130%" style="border: solid blue";>
-				<div class="mainbutton" style="border: solid red";>
-					<button onClick="create()"; type="button" class="btn btn-danger btn-sm">Create account</button>
+				<div class="buttonset">
+				<div class="button_border home_button trans_200">
+						<a href="#" onClick="create()";>회원가입</a></div>
 					
 				<div class="button_border home_button trans_200">
-						<a href="#" onClick="singin()";>로그??</a>
+						<a href="#" onClick="singin()";>로그인</a>
 				</div>
 				</div>
 
@@ -99,82 +111,7 @@ function singin() {
 	</nav>
 
 
-	<nav>
-		<tbody>
-
-			<c:choose>
-
-				<c:when test="${empty songList }">
-					<tr>
-						<td colspan="5" align="center">?�이?��? ?�습?�다.?�런?�ㅠ</td>
-					</tr>
-				</c:when>
-				<c:when test="${!empty songList}">
-
-					<div class="container">
-						<div id="gallery" class="carousel slide" data-ride="carousel">
-
-							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<div class="row">
-										<c:forEach var="list" items="${songList}" varStatus="status">
-											<c:if test="${status.count <= 5}">
-												<div class="col">
-													<div class="show_image">
-														<td class="img-fluid"><c:out value="${list.song_no}" /></td>
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
-
-
-														<td class="img-fluid"><a href="LoginIndex"><c:out
-																	value="${list.song_name}" /></a></td>
-														<td class="img-fluid"><a href="LoginIndex"><c:out
-																	value="${list.user_name}" /></a></td>
-													</div>
-												</div>
-											</c:if>
-											<c:if test="${status.count % 5 == 0}">
-									</div>
-								</div>
-								<div class="carousel-item">
-									<div class="row">
-										</c:if>
-										<c:if test="${status.count >= 5}">
-
-											<div class="col">
-												<div class="show_image">
-													<td class="img-fluid"><c:out value="${list.song_no}" /></td>
-													<a href="episode.html"> <img class="img-fluid"
-														src="data:image/jpg;base64,${list.song_pic}" alt="Image 1" /></a>
-													<img class="show_play_icon"
-														src="<c:url value="/resources/images/play.svg" />" />
-
-													<td class="img-fluid"><a href="LoginIndex"><c:out
-																value="${list.song_name}" /></a></td>
-													<td class="img-fluid"><a href="LoginIndex"><c:out
-																value="${list.user_name}" /></a></td>
-												</div>
-											</div>
-										</c:if>
-										</c:forEach>
-									</div>
-								</div>
-							</div>
-							<a class="carousel-control-prev" href="#gallery" role="button"
-								data-slide="prev"> <span class="carousel-control-prev-icon"
-								aria-hidden="true"></span> <span class="sr-only">Previous</span>
-							</a> <a class="carousel-control-next" href="#gallery" role="button"
-								data-slide="next"> <span class="carousel-control-next-icon"
-								aria-hidden="true"></span> <span class="sr-only">Next</span>
-							</a>
-						</div>
-					</div>
-				</c:when>
-			</c:choose>
-		</tbody>
-	</nav>
+	
 
 <%@ include file="MainpagePlaylist.jsp"%>
 

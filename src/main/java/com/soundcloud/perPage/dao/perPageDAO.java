@@ -29,5 +29,7 @@ public interface perPageDAO {
 	public List<perPageVO> getsongbysongno(int song_no) throws Exception;
 	
 	public List<perPageVO> getsongbyplaylist(String playlist) throws Exception;
+	
+	public List<perPageVO> getparticularsinger(String particular_singer) throws Exception;
 
 }
