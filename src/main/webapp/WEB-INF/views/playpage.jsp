@@ -8,14 +8,14 @@
 
 
 <link
-	href="/resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
+	href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-<link href="/resources/plugins/colorbox/colorbox.css" rel="stylesheet"
+<link href="/assets/plugins/colorbox/colorbox.css" rel="stylesheet"
 	type="text/css">
 <link rel="stylesheet" type="text/css"
-	href="/resources/css/playpage.css">
+	href="/assets/css/playpage.css">
 <link rel="stylesheet" type="text/css"
-	href="/resources/styles/bootstrap-4.1.2/bootstrap.min.css">
+	href="/assets/styles/bootstrap-4.1.2/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
@@ -68,7 +68,7 @@
 		console.log(url);
 	}
 	
-	/*?�릭?�을?? src주소가 바뀌어?? ?��?지�? ?�른?�치?? 뿌려주는�? */
+	/*?�릭?�을?? src주소가 바뀌어?? ?��?지�? ?�른?�치?? 뿌려주는�? */
 	function get_src(song_no,user_no,play_list){
 		var url = "${getuser.request.contextPath}/playpage";
 		url = url + "?song_no=" + song_no;
@@ -83,18 +83,18 @@
 
 </script>
 <script>
-var bigPic = document.querySelector("#big");            //?? ?�진
-var smallPics = document.querySelectorAll(".small");    //?��? ?�진(?�러�?)
+var bigPic = document.querySelector("#big");            //?? ?�진
+var smallPics = document.querySelectorAll(".small");    //?��? ?�진(?�러�?)
  
 for(var i = 0 ; i < smallPics.length ; i++){
-    smallPics[i].addEventListener("click", changepic);  //?�벤?? 처리
+    smallPics[i].addEventListener("click", changepic);  //?�벤?? 처리
     /* 
-    onclick?�로 ?�면 ?�나?? ?�소?? ?�나?? ?�벤?�만 ?�용가??
+    onclick?�로 ?�면 ?�나?? ?�소?? ?�나?? ?�벤?�만 ?�용가??
     smallPics[i].onclick = changepic;
     */
 }
  
-function changepic(){   //?�진 바꾸?? ?�수
+function changepic(){   //?�진 바꾸?? ?�수
     var smallPicAttribute = this.getAttribute("src");
     bigPic.setAttribute("src", smallPicAttribute); 
 }
@@ -104,7 +104,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 <script src="jquery.fillcolor.js"></script>
 
 
-<link rel="stylesheet" href="/resources/css/play.css">
+<link rel="stylesheet" href="/assets/css/play.css">
 
 <title>playlist page</title>
 
@@ -120,7 +120,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 }
 
 .jumbotron {
-	background-image: url('/resources/images/main.jpg');
+	background-image: url('/assets/images/main.jpg');
 	background-size: cover;
 	text-shadow: black 0.2em 0.2em 0.2em;
 	color: white;
@@ -149,7 +149,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 }
 
 .asd {
-	background-image: url('/resources/images/pic2.jpg');
+	background-image: url('/assets/images/pic2.jpg');
 	background-size: cover;
 	text-shadow: black 0.2em 0.2em 0.2em;
 	color: white;
@@ -162,14 +162,14 @@ function changepic(){   //?�진 바꾸?? ?�수
 <body style="background-color: #f2f2f2;">
 	<div class="super_class"
 		style="width: 1200px; height: 1100px; left: 350px; background-color: white;">
-		<!-- ?�일 ?�단 컨테?�너 head  -->
+		<!-- ?�일 ?�단 컨테?�너 head  -->
 		<div class="trackInfo" >
 			<tbody>
 				<c:choose>
 					<c:when test="${playlist != null}">
 						<div class="trackinfo_player_button">
 							<a href="#"><img class="player"
-								src="/resources/images/orangeplaybutton.png"></a>
+								src="/assets/images/orangeplaybutton.png"></a>
 						</div>
 						<div class="trackinfo">
 							<div class="trackinfo_user_name">
@@ -195,7 +195,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 		</div>
 
 		<div></div>
-		<!-- center ?�쪽 ?��??�보  -->
+		<!-- center ?�쪽 ?��??�보  -->
 		<div style="display: flex;">
 			<tbody>
 				<c:choose>
@@ -209,7 +209,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 								
 								<a href="#"
 								 onClick="userpage(<c:out value="${user_no[0].user_no}" />)">
-								<c:out value="${user_no[0].user_name}">?�안?�오지?</c:out></a>
+								<c:out value="${user_no[0].user_name}">?�안?�오지?</c:out></a>
 						</div>
 
 						
@@ -218,7 +218,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 			</tbody>
 
 
-			<!-- center ?�른�? ?�레?�리?�트  -->
+			<!-- center ?�른�? ?�레?�리?�트  -->
 			<div class="playlistContainer">
 				<tbody>
 					<c:choose>
@@ -226,7 +226,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 
 						<c:when test="${playlist == null}">
 							<tr>
-								<td colspan="5" align="center">?�이?��? ?�습?�다.</td>
+								<td colspan="5" align="center">?�이?��? ?�습?�다.</td>
 							</tr>
 						</c:when>
 
@@ -237,11 +237,11 @@ function changepic(){   //?�진 바꾸?? ?�수
 
 									<ul class="songlist_one" >
 										<li class="thumnails" >
-										<!-- ?�릭?? ?�에 ?��?지 바뀌는 onclick ?�수 -->
+										<!-- ?�릭?? ?�에 ?��?지 바뀌는 onclick ?�수 -->
 										<a href="#" onclick="get_src(${list.song_no},${list.user_no },'${list.play_list}')">
 										<img class="img-fluid" src="data:image/jpg;base64,${list.song_pic}" alt="" /> 
 										
-										<img class="show_play_icon" src="<c:url value="/resources/images/play_logo.svg" />"  />
+										<img class="show_play_icon" src="<c:url value="/assets/images/play_logo.svg" />"  />
 										</a></li>
 										
 										<li class="songno" ><a
@@ -250,7 +250,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 										<li class="singername"><a href="LoginIndex" style="color:black">: <c:out value="${list.song_singer}" />
 										</a>
 										</li>
-										<li class="songname" ><a href="LoginIndex" style="color:black">?�래 ?�름 : <c:out
+										<li class="songname" ><a href="LoginIndex" style="color:black">?�래 ?�름 : <c:out
 													value="${list.song_name}" /></li>
 										<li class="viewcnt" ><c:out
 												value="${list.view}" /></li>

@@ -6,7 +6,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
+<link rel="stylesheet" type="text/css" href="/assets/css/ParticularSinger.css">
 <meta charset="utf-8">
 <title>특정가수노래만 모은 트렉</title>
 </head>
@@ -31,7 +31,7 @@
 										<a href="#" onclick="get_src(${list.song_singer})">
 										<img class="img-fluid" src="data:image/jpg;base64,${list.song_pic}" alt="" /> 
 										
-										<img class="show_play_icon" src="<c:url value="/resources/images/play_logo.svg" />"  />
+										<img class="show_play_icon" src="<c:url value="assets/images/play_logo.svg" />"  />
 										</a></li>
 
 
@@ -98,7 +98,7 @@
 										<a href="#" onclick="get_src(${list.song_no},${list.user_no },'${list.play_list}')">
 										<img class="img-fluid" src="data:image/jpg;base64,${list.song_pic}" alt="" /> 
 										
-										<img class="show_play_icon" src="<c:url value="/resources/images/play_logo.svg" />"  />
+										<img class="show_play_icon" src="<c:url value="assets/images/play_logo.svg" />"  />
 										</a></li>
 										
 										<li class="songno" ><a

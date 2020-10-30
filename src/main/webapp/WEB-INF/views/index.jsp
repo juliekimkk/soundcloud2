@@ -8,13 +8,12 @@
 
 
 <link
-	href="/resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
+	href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-<link href="/resources/plugins/colorbox/colorbox.css" rel="stylesheet"
+<link href="/assets/plugins/colorbox/colorbox.css" rel="stylesheet"
 	type="text/css">
-<link rel="stylesheet" type="text/css" href="/resources/css/index.css">
-<link rel="stylesheet" type="text/css"
-	href="/resources/styles/bootstrap-4.1.2/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
@@ -54,19 +53,19 @@ function singin() {
 
 </script>
 
-<link rel="stylesheet" href="/resources/css/main.css">
+<link rel="stylesheet" href="/assets/css/main.css">
 
 <title>SoundCloud</title>
 <style type="text/css">
 .jumbotron {
-	background-image: url('/resources/images/main.jpg');
+	background-image: url('/assets/images/main.jpg');
 	background-size: cover;
 	text-shadow: black 0.2em 0.2em 0.2em;
 	color: white;
 }
 
 .asd {
-	background-image: url('/resources/images/pic2.jpg');
+	background-image: url('/assets/images/pic2.jpg');
 	background-size: cover;
 	text-shadow: black 0.2em 0.2em 0.2em;
 	color: white;
@@ -243,32 +242,32 @@ border:solid red;
 						
 						<!-- Gallery Item -->
 						<div class="gallery_item">
-							<a class="colorbox" href="resources/images/gallery_1_large.jpg"><img src="resources/images/gallery_1.jpg" alt=""></a>
+							<a class="colorbox" href="assets/images/gallery_1_large.jpg"><img src="assets/images/gallery_1.jpg" alt=""></a>
 						</div>
 
 						<!-- Gallery Item -->
 						<div class="gallery_item">
-							<a class="colorbox" href="resources/images/gallery_2_large.jpg"><img src="resources/images/gallery_2.jpg" alt=""></a>
+							<a class="colorbox" href="assets/images/gallery_2_large.jpg"><img src="assets/images/gallery_2.jpg" alt=""></a>
 						</div>
 
 						<!-- Gallery Item -->
 						<div class="gallery_item">
-							<a class="colorbox" href="resources/images/gallery_3_large.jpg"><img src="resources/images/gallery_3.jpg" alt=""></a>
+							<a class="colorbox" href="assets/images/gallery_3_large.jpg"><img src="assets/images/gallery_3.jpg" alt=""></a>
 						</div>
 
 						<!-- Gallery Item -->
 						<div class="gallery_item">
-							<a class="colorbox" href="resources/images/gallery_4_large.jpg"><img src="resources/images/gallery_4.jpg" alt=""></a>
+							<a class="colorbox" href="assets/images/gallery_4_large.jpg"><img src="assets/images/gallery_4.jpg" alt=""></a>
 						</div>
 
 						<!-- Gallery Item -->
 						<div class="gallery_item">
-							<a class="colorbox" href="resources/images/gallery_5_large.jpg"><img src="resources/images/gallery_5.jpg" alt=""></a>
+							<a class="colorbox" href="assets/images/gallery_5_large.jpg"><img src="assets/images/gallery_5.jpg" alt=""></a>
 						</div>
 						
 						<!-- Gallery Item -->
 						<div class="gallery_item">
-							<a class="colorbox" href="resources/images/gallery_3_large.jpg"><img src="resources/images/gallery_3.jpg" alt=""></a>
+							<a class="colorbox" href="assets/images/gallery_3_large.jpg"><img src="assets/images/gallery_3.jpg" alt=""></a>
 						</div>
 
 					</div>

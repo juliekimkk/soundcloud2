@@ -6,24 +6,24 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link href="/resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
+<link href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-<link href="/resources/plugins/colorbox/colorbox.css" rel="stylesheet"
+<link href="/assets/plugins/colorbox/colorbox.css" rel="stylesheet"
 	type="text/css">
 
 <link rel="stylesheet" type="text/css"
-	href="/resources/styles/bootstrap-4.1.2/bootstrap.min.css">
+	href="/assets/styles/bootstrap-4.1.2/bootstrap.min.css">
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+	href="https:/maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	src="https:/ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	src="https:/cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	src="https:/maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
 	$(function() {
 		objectFitImages()
@@ -44,7 +44,7 @@
 		console.log(url);
 	}
 </script>
-<link rel="stylesheet" href="/resources/css/main.css">
+<link rel="stylesheet" href="/assets/css/main.css">
 
 <title>SoundCloud</title>
 <style type="text/css">
@@ -57,7 +57,7 @@
 
 }
 .jumbotron {
-	background-image: url('/resources/images/main.jpg');
+	background-image: url('/assets/images/main.jpg');
 	background-size: cover;
 	text-shadow: black 0.2em 0.2em 0.2em;
 	color: white;
@@ -116,7 +116,7 @@ height:35px;
 													<a href="#" onclick="get_songbysinger('<c:out value="${list.song_singer}" />')"> 
 													<img class="img-fluid" src="data:image/jpg;base64,${list.song_pic}" alt="Image 1" />
 													<img class="show_play_icon"
-														src="<c:url value="/resources/images/play.svg" />" /></a>
+														src="<c:url value="/assets/images/play.svg" />" /></a>
 
 
 													<td class="img-fluid"><a href="LoginIndex"><c:out

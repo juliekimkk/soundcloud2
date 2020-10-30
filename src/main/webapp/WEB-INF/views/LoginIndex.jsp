@@ -15,13 +15,13 @@ response.setDateHeader("Expires", 0);
 
 
 <link
-	href="/resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
+	href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-<link href="/resources/plugins/colorbox/colorbox.css" rel="stylesheet"
+<link href="/assets/plugins/colorbox/colorbox.css" rel="stylesheet"
 	type="text/css">
-<link rel="stylesheet" type="text/css" href="/resources/css/index.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/index.css">
 <link rel="stylesheet" type="text/css"
-	href="/resources/styles/bootstrap-4.1.2/bootstrap.min.css">
+	href="/assets/styles/bootstrap-4.1.2/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
@@ -50,7 +50,7 @@ response.setDateHeader("Expires", 0);
 	}
 	
 </script>
-<link rel="stylesheet" href="/resources/css/LoginIndex.css">
+<link rel="stylesheet" href="/assets/css/LoginIndex.css">
 
 <title>login mainpage</title>
 </head>
@@ -69,7 +69,7 @@ response.setDateHeader("Expires", 0);
 				<c:choose>
 					<c:when test="${empty theme}">
 						<tr>
-							<td colspan="5" align="center">?∞Ïù¥?∞Í? ?ÖÏäµ?àÎã§.?†„Ö†</td>
+							<td colspan="5" align="center">?ÔøΩÏù¥?ÔøΩÔøΩ? ?ÔøΩÏäµ?ÔøΩÎã§.?ÔøΩ„Ö†</td>
 						</tr>
 					</c:when>
 
@@ -83,7 +83,7 @@ response.setDateHeader("Expires", 0);
 											<c:forEach var="list" items="${theme}" varStatus="status">
 												<c:if
 													test="${(status.count < 6) and (list.theme == 'chill') }">
-													<!--  ?¨Í∏∞?úÎ??? ?¥Î¶≠?àÏùÑ?? uer.no ?Ä song.noÍ∞Ä Í≤πÏπò?îÍ±∏Î°? ?òÏñ¥Í∞Ä?? ?®Ïàò -->
+													<!--  ?ÔøΩÍ∏∞?ÔøΩÔøΩ??? ?ÔøΩÎ¶≠?ÔøΩÏùÑ?? uer.no ?ÔøΩ song.noÍ∞Ä Í≤πÏπò?ÔøΩÍ±∏ÔøΩ? ?ÔøΩÏñ¥Í∞Ä?? ?ÔøΩÏàò -->
 													<div class="col">
 														<div class="show_image">
 															<a href="#"
@@ -91,15 +91,15 @@ response.setDateHeader("Expires", 0);
 																<img class="img-fluid"
 																src="data:image/jpg;base64,${list.song_pic}" alt="" />
 																<img class="show_play_icon"
-																src="<c:url value="/resources/images/play.svg" />" />
+																src="<c:url value="/assets/images/play.svg" />" />
 															</a>
 
 
 
-															<td class="img-fluid"><a href="LoginIndex">?∏Îûò?¥Î¶Ñ
+															<td class="img-fluid"><a href="LoginIndex">?ÔøΩÎûò?ÔøΩÎ¶Ñ
 																	: <c:out value="${list.song_name}" />
 															</a></td>
-															<td class="img-fluid"><a href="LoginIndex">?†Ï??¥Î¶Ñ
+															<td class="img-fluid"><a href="LoginIndex">?ÔøΩÔøΩ??ÔøΩÎ¶Ñ
 																	: <c:out value="${list.user_name}" />
 															</a></td>
 														</div>
@@ -120,7 +120,7 @@ response.setDateHeader("Expires", 0);
 																<img class="img-fluid"
 																src="data:image/jpg;base64,${list.song_pic}" alt="" />
 																<img class="show_play_icon"
-																src="<c:url value="/resources/images/play.svg" />" />
+																src="<c:url value="/assets/images/play.svg" />" />
 															</a>
 
 															<td class="img-fluid"><a href="LoginIndex"><c:out
@@ -195,7 +195,7 @@ response.setDateHeader("Expires", 0);
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
+															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
 														<td class="img-fluid"><a href="LoginIndex"><c:out
@@ -220,7 +220,7 @@ response.setDateHeader("Expires", 0);
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
+															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
 														<td class="img-fluid"><a href="LoginIndex"><c:out
@@ -290,7 +290,7 @@ response.setDateHeader("Expires", 0);
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
+															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
 														<td class="img-fluid"><a href="LoginIndex"><c:out
@@ -315,7 +315,7 @@ response.setDateHeader("Expires", 0);
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
+															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
 														<td class="img-fluid"><a href="LoginIndex"><c:out
@@ -385,7 +385,7 @@ response.setDateHeader("Expires", 0);
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
+															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
 														<td class="img-fluid"><a href="LoginIndex"><c:out
@@ -410,7 +410,7 @@ response.setDateHeader("Expires", 0);
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
+															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
 														<td class="img-fluid"><a href="LoginIndex"><c:out
@@ -480,7 +480,7 @@ response.setDateHeader("Expires", 0);
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
+															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
 														<td class="img-fluid"><a href="LoginIndex"><c:out
@@ -505,7 +505,7 @@ response.setDateHeader("Expires", 0);
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
+															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
 														<td class="img-fluid"><a href="LoginIndex"><c:out
