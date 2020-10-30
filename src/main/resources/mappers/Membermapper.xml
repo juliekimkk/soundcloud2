@@ -33,7 +33,11 @@
 		WHERE mem.userid =
 		#{userid}
 	</select>
-
+	
+	<!--아이디중복체크-->
+    <select id="checkOverId" parameterType="String" resultType="String">
+    	select count(*) from tbl_member where userid = #{user_id}
+    </select>
 
 	<insert id="insert"
 		parameterType="com.soundcloud.domain.MemberVO">

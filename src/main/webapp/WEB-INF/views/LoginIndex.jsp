@@ -69,7 +69,7 @@ response.setDateHeader("Expires", 0);
 				<c:choose>
 					<c:when test="${empty theme}">
 						<tr>
-							<td colspan="5" align="center">데이터가 업습니다.ㅠㅠ</td>
+							<td colspan="5" align="center">?�이?��? ?�습?�다.?�ㅠ</td>
 						</tr>
 					</c:when>
 
@@ -83,7 +83,7 @@ response.setDateHeader("Expires", 0);
 											<c:forEach var="list" items="${theme}" varStatus="status">
 												<c:if
 													test="${(status.count < 6) and (list.theme == 'chill') }">
-													<!--  여기서부터 클릭했을때 uer.no 와 song.no가 겹치는걸로 넘어가는 함수 -->
+													<!--  ?�기?��??? ?�릭?�을?? uer.no ?� song.no가 겹치?�걸�? ?�어가?? ?�수 -->
 													<div class="col">
 														<div class="show_image">
 															<a href="#"
@@ -96,10 +96,10 @@ response.setDateHeader("Expires", 0);
 
 
 
-															<td class="img-fluid"><a href="LoginIndex">노래이름
+															<td class="img-fluid"><a href="LoginIndex">?�래?�름
 																	: <c:out value="${list.song_name}" />
 															</a></td>
-															<td class="img-fluid"><a href="LoginIndex">유저이름
+															<td class="img-fluid"><a href="LoginIndex">?��??�름
 																	: <c:out value="${list.user_name}" />
 															</a></td>
 														</div>

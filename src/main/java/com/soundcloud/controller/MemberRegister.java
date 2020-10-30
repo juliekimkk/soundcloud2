@@ -1,17 +1,18 @@
 package com.soundcloud.controller;
 
-import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.soundcloud.domain.MemberVO;
 import com.soundcloud.service.MemberService;
-import com.soundcloud.user.dao.userDAO;
-import com.soundcloud.user.domain.userVO;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -25,11 +26,7 @@ import lombok.extern.log4j.Log4j;
 	  "file:src/main/webapp/WEB-INF/spring/security-context.xml"
 	  })
 public class MemberRegister {
-	@Inject
-	private userDAO dao;
-	@Inject
-	private userVO vo;
-	
+
 	
 	private MemberService service;
 
@@ -37,13 +34,13 @@ public class MemberRegister {
 	@GetMapping("/join")
 	public void memberJoin() {
 
-		log.info("회원가입하면 : ");
+		log.info("?�원가?�하�? : ");
 
 	}
 
-//	@RequestMapping(value = "/joinAction", method = RequestMethod.POST) //등록
-	@PostMapping("/register") //등록
-	public String register(MemberVO membervo) throws Exception{
+//	@RequestMapping(value = "/joinAction", method = RequestMethod.POST) //?�록
+	@PostMapping("/register") //?�록
+	public String register(MemberVO membervo) {
 
 		System.out.println(membervo.toString());
 		log.info("============================== ");
@@ -53,17 +50,20 @@ public class MemberRegister {
 		log.info("register pw: " + pw);
 
 		service.register(membervo);
-		
-		vo.setUser_id(membervo.getUserid());
-		vo.setE_mail(membervo.getUseremail());
-		vo.setUser_name(membervo.getUserName());
-		vo.setUser_id(membervo.getUserid());
-		
-		dao.insertuser(vo);
 
 		/* rttr.addFlashAttribute("result", member.getUserName()); */
 
 		return "redirect:/customLogin";
 	}
+	
+	
+	@RequestMapping(value = "/idCheck", method = RequestMethod.POST)
+	public @ResponseBody String checkSignup(HttpServletRequest request, Model model){
 
+		String id = request.getParameter("id");
+		System.out.println("idddddddddddddd: 1" + id);
+
+		return service.userIdCheck(id);
+	
+	}
 }
