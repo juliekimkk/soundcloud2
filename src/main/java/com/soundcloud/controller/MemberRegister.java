@@ -1,10 +1,15 @@
 package com.soundcloud.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.soundcloud.domain.MemberVO;
 import com.soundcloud.service.MemberService;
@@ -50,5 +55,15 @@ public class MemberRegister {
 
 		return "redirect:/customLogin";
 	}
+	
+	
+	@RequestMapping(value = "/idCheck", method = RequestMethod.POST)
+	public @ResponseBody String checkSignup(HttpServletRequest request, Model model){
 
+		String id = request.getParameter("id");
+		System.out.println("idddddddddddddd: 1" + id);
+
+		return service.userIdCheck(id);
+	
+	}
 }

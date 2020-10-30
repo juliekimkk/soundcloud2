@@ -80,6 +80,21 @@ public class mainpageController {
 
 	}
 
+	
+	@RequestMapping(value = "/playlist", method = RequestMethod.GET)
+	public String playlist(Model model) throws Exception {
+		List<perPageVO> song = perpageDao.getsongs();
+		model.addAttribute("songList", song);
+
+		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();
+		log.info(viewcnt2.toString());
+		model.addAttribute("viewcnt2", viewcnt2);
+		
+		return "/playlist";
+
+	}
+	
+	
 	@RequestMapping(value = "/MainpagePlaylist", method = RequestMethod.GET)
 	public String MainpagePlaylist(Model model) throws Exception {
 		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();

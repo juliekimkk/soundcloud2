@@ -12,4 +12,7 @@ public interface MemberMapper {
 	public int insert_useauth(MemberVO membervo);
 	public int update(MemberVO membervo);
 	public int delete(int mid);
+	public String checkOverId(String user_id);//아이디중복체크
+	
+	
 }
