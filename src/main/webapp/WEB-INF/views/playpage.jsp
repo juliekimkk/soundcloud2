@@ -68,7 +68,7 @@
 		console.log(url);
 	}
 	
-	/*클릭했을때 src주소가 바뀌어서 이미지를 다른위치에 뿌려주는것 */
+	/*?�릭?�을?? src주소가 바뀌어?? ?��?지�? ?�른?�치?? 뿌려주는�? */
 	function get_src(song_no,user_no,play_list){
 		var url = "${getuser.request.contextPath}/playpage";
 		url = url + "?song_no=" + song_no;
@@ -83,18 +83,18 @@
 
 </script>
 <script>
-var bigPic = document.querySelector("#big");            //큰 사진
-var smallPics = document.querySelectorAll(".small");    //작은 사진(여러개)
+var bigPic = document.querySelector("#big");            //?? ?�진
+var smallPics = document.querySelectorAll(".small");    //?��? ?�진(?�러�?)
  
 for(var i = 0 ; i < smallPics.length ; i++){
-    smallPics[i].addEventListener("click", changepic);  //이벤트 처리
+    smallPics[i].addEventListener("click", changepic);  //?�벤?? 처리
     /* 
-    onclick으로 하면 하나의 요소에 하나의 이벤트만 사용가능
+    onclick?�로 ?�면 ?�나?? ?�소?? ?�나?? ?�벤?�만 ?�용가??
     smallPics[i].onclick = changepic;
     */
 }
  
-function changepic(){   //사진 바꾸는 함수
+function changepic(){   //?�진 바꾸?? ?�수
     var smallPicAttribute = this.getAttribute("src");
     bigPic.setAttribute("src", smallPicAttribute); 
 }
@@ -126,7 +126,7 @@ function changepic(){   //사진 바꾸는 함수
 	color: white;
 }
 
-.show_image { /*가로정렬 */
+.show_image { /*가로정?? */
 	display: inline;
 	float: right;
 	max-width: 100%;
@@ -162,7 +162,7 @@ function changepic(){   //사진 바꾸는 함수
 <body style="background-color: #f2f2f2;">
 	<div class="super_class"
 		style="width: 1200px; height: 1100px; left: 350px; background-color: white;">
-		<!-- 제일 상단 컨테이너 head  -->
+		<!-- ?�일 ?�단 컨테?�너 head  -->
 		<div class="trackInfo" >
 			<tbody>
 				<c:choose>
@@ -195,7 +195,7 @@ function changepic(){   //사진 바꾸는 함수
 		</div>
 
 		<div></div>
-		<!-- center 왼쪽 유저정보  -->
+		<!-- center ?�쪽 ?��??�보  -->
 		<div style="display: flex;">
 			<tbody>
 				<c:choose>
@@ -209,7 +209,7 @@ function changepic(){   //사진 바꾸는 함수
 								
 								<a href="#"
 								 onClick="userpage(<c:out value="${user_no[0].user_no}" />)">
-								<c:out value="${user_no[0].user_name}">왜안나오지?</c:out></a>
+								<c:out value="${user_no[0].user_name}">?�안?�오지?</c:out></a>
 						</div>
 
 						
@@ -218,7 +218,7 @@ function changepic(){   //사진 바꾸는 함수
 			</tbody>
 
 
-			<!-- center 오른쪽 플레이리스트  -->
+			<!-- center ?�른�? ?�레?�리?�트  -->
 			<div class="playlistContainer">
 				<tbody>
 					<c:choose>
@@ -226,7 +226,7 @@ function changepic(){   //사진 바꾸는 함수
 
 						<c:when test="${playlist == null}">
 							<tr>
-								<td colspan="5" align="center">데이터가 없습니다.</td>
+								<td colspan="5" align="center">?�이?��? ?�습?�다.</td>
 							</tr>
 						</c:when>
 
@@ -237,7 +237,7 @@ function changepic(){   //사진 바꾸는 함수
 
 									<ul class="songlist_one" >
 										<li class="thumnails" >
-										<!-- 클릭시 위에 이미지 바뀌는 onclick 함수 -->
+										<!-- ?�릭?? ?�에 ?��?지 바뀌는 onclick ?�수 -->
 										<a href="#" onclick="get_src(${list.song_no},${list.user_no },'${list.play_list}')">
 										<img class="img-fluid" src="data:image/jpg;base64,${list.song_pic}" alt="" /> 
 										
@@ -250,7 +250,7 @@ function changepic(){   //사진 바꾸는 함수
 										<li class="singername"><a href="LoginIndex" style="color:black">: <c:out value="${list.song_singer}" />
 										</a>
 										</li>
-										<li class="songname" ><a href="LoginIndex" style="color:black">노래 이름 : <c:out
+										<li class="songname" ><a href="LoginIndex" style="color:black">?�래 ?�름 : <c:out
 													value="${list.song_name}" /></li>
 										<li class="viewcnt" ><c:out
 												value="${list.view}" /></li>
