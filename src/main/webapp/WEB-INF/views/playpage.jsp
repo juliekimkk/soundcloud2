@@ -250,7 +250,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 										<li class="singername"><a href="LoginIndex" style="color:black">: <c:out value="${list.song_singer}" />
 										</a>
 										</li>
-										<li class="songname" ><a href="LoginIndex" style="color:black">?�래 ?�름 : <c:out
+										<li class="songname" ><a href="LoginIndex" style="color:black">노래이름 : <c:out
 													value="${list.song_name}" /></li>
 										<li class="viewcnt" ><c:out
 												value="${list.view}" /></li>
