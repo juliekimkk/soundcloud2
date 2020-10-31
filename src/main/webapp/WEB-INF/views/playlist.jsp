@@ -18,7 +18,7 @@
 	<div id="footer">
 
 
-		<!-- 버튼,플레이어,음량 -->
+		 <!-- 버튼,플레이어,음량 -->
 		<div class="player">
 			<!-- Define the section for displaying track buttons -->
 			<div class="buttons">
@@ -51,7 +51,8 @@
 
 
 
-		<!-- 노래 제목 가수 이미지 -->
+
+		<!-- ë¸ë ì ëª© ê°ì ì´ë¯¸ì§ -->
 		<div class="details">
 			<div class="track-art" style="display: inline-block";></div>
 			<div class="track-name-artist" style="display: inline-block";>
@@ -64,5 +65,6 @@
 
 	<!-- Load the main script for the player -->
 	<script type="text/javascript" src="/assets/js/playlist2.js"></script>
+	
 </body>
 </html>

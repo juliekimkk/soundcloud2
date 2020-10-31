@@ -4,9 +4,10 @@
   border:3px solid blue; /*임의색상*/
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 4px;
   /* float:left; */
   height: 4rem;
+  color:black;
 }
 
 /* #contetns{
@@ -26,7 +27,7 @@
 
 
 
-.player {
+.player2 {
   justify-content:center;
   display: flex;
   float:right;
