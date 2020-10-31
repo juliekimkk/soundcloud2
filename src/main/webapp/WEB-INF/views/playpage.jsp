@@ -5,7 +5,7 @@
 <head>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-	<!-- ?�영 ?�레?�리?�트 ?��??? -->
+	<!-- ?�영 ?�레?�리?�트 ?��??? -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
@@ -77,7 +77,7 @@
 		console.log(url);
 	}
 	
-	/*?�릭?�을?? src주소가 바뀌어?? ?��?지�?? ?�른?�치?? 뿌려주는�?? */
+	/*?�릭?�을?? src주소가 바뀌어?? ?��?지�?? ?�른?�치?? 뿌려주는�?? */
 	function get_src(song_no,user_no,play_list){
 		var url = "${getuser.request.contextPath}/playpage";
 		url = url + "?song_no=" + song_no;
@@ -93,7 +93,7 @@
 </script>
 <script>
 var bigPic = document.querySelector("#big");            //?? ?�진
-var smallPics = document.querySelectorAll(".small");    //?��? ?�진(?�러�??)
+var smallPics = document.querySelectorAll(".small");    //?��? ?�진(?�러�??)
  
 for(var i = 0 ; i < smallPics.length ; i++){
     smallPics[i].addEventListener("click", changepic);  //?�벤?? 처리
@@ -171,7 +171,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 <body style="background-color: #f2f2f2;">
 	<div class="super_class"
 		style="width: 1200px; height: 1100px; left: 350px; background-color: white;">
-		<!-- ?�일 ?�단 컨테?�너 head  -->
+		<!-- top container head  -->
 		<div class="trackInfo" >
 			<tbody>
 				<c:choose>
@@ -227,7 +227,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 			</tbody>
 
 
-			<!-- center ?�른�?? ?�레?�리?�트  -->
+			<!-- center ?�른�?? ?�레?�리?�트  -->
 			<div class="playlistContainer">
 				<tbody>
 					<c:choose>
@@ -282,13 +282,13 @@ function changepic(){   //?�진 바꾸?? ?�수
 	
 	
 	
-<!-- ?�영 ?�단 ?�레?? 리스?? -->	
+<!-- 인영씨플레이어 -->	
 	
 	
 <div id="footer">
 
 
-		<!-- 버튼,?�레?�어,?�량 -->
+		<!-- button,slider bar -->
 		<div class="player2">
 			<!-- Define the section for displaying track buttons -->
 			<div class="buttons">
@@ -311,24 +311,40 @@ function changepic(){   //?�진 바꾸?? ?�수
 				<div class="total-duration">00:00</div>
 			</div>
 
-			<!-- Define the section for displaying the volume slider-->
+
+
+			<!-- 볼륨바-->
 			<div class="slider_container">
-				<i class="fa fa-volume-down"></i> <input type="range" min="1"
+				<i class="fa fa-volume-down"></i> 
+				<input type="range" min="1"
 					max="100" value="99" class="volume_slider" onchange="setVolume()">
 				<i class="fa fa-volume-up"></i>
 			</div>
-		</div>
+		
 
 
+<tbody>
+<c:choose>
+<c:when test="${playlist != null}">
 
-		<!-- ?�래 ?�목 가?? ?��?지 -->
 		<div class="details">
-			<div class="track-art" style="display: inline-block";></div>
+			<div class="track-art">
+			<img class="miniartsize" src="data:image/jpg;base64,${songno[0].song_pic}" /> </div>
 			<div class="track-name-artist" style="display: inline-block";>
-				<div class="track-name">Track Name</div>
-				<div class="track-artist">Track Artist</div>
+				<div class="track-name"><c:out value="${songno[0].song_singer}" /></div>
+				<div class="track-artist"><c:out value="${songno[0].song_name}" /></div>
+				
+				<audio controls="controls"  autoplay>
+									<source src="data:audio/mpeg;base64,${songno[0].song}"
+										type="audio/ogg">
+								</audio>
 			</div>
 		</div>
+
+		</c:when>
+</c:choose>
+</tbody>		
+		
 	</div>
 	</div>
 

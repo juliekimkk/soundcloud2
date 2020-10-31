@@ -20,7 +20,7 @@ let updateTimer;
 let curr_track = document.createElement('audio');
 
 // Define the tracks that have to be played
-let track_list = [
+/*let track_list = [
   {
     name: "Night Owl",
     artist: "Broke For Free",
@@ -39,17 +39,17 @@ let track_list = [
     image: "https://images.pexels.com/photos/1717969/pexels-photo-1717969.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
     path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Chad_Crouch/Arps/Chad_Crouch_-_Shipping_Lanes.mp3",
   },
-];
+];*/
 
 
 
-function loadTrack(track_index) {
+/*function loadTrack(track_index) {
   clearInterval(updateTimer);
   resetValues();
   curr_track.src = track_list[track_index].path;
   curr_track.load();
 
-  track_art.style.backgroundImage = "url(" + track_list[track_index].image + ")";
+
   track_name.textContent = track_list[track_index].name;
   track_artist.textContent = track_list[track_index].artist;
   now_playing.textContent = "PLAYING " + (track_index + 1) + " OF " + track_list.length;
@@ -58,8 +58,8 @@ function loadTrack(track_index) {
   curr_track.addEventListener("ended", nextTrack);
   random_bg_color();
 }
-
-function random_bg_color() {
+*/
+/*function random_bg_color() {
 
   // Get a number between 64 to 256 (for getting lighter colors)
   let red = Math.floor(Math.random() * 256) + 64;
@@ -71,7 +71,7 @@ function random_bg_color() {
 
   // Set the background to that color
   document.body.style.background = bgColor;
-}
+}*/
 
 function resetValues() {
   curr_time.textContent = "00:00";
