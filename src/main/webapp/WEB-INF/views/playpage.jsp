@@ -5,6 +5,11 @@
 <head>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<!-- ?�영 ?�레?�리?�트 ?��??? -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+<link rel="stylesheet" type="text/css" href="/assets/css/playlist2.css">
 
 
 <link
@@ -18,6 +23,10 @@
 	href="/assets/styles/bootstrap-4.1.2/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+	
+	
+
+	
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -68,7 +77,7 @@
 		console.log(url);
 	}
 	
-	/*?�릭?�을?? src주소가 바뀌어?? ?��?지�? ?�른?�치?? 뿌려주는�? */
+	/*?�릭?�을?? src주소가 바뀌어?? ?��?지�?? ?�른?�치?? 뿌려주는�?? */
 	function get_src(song_no,user_no,play_list){
 		var url = "${getuser.request.contextPath}/playpage";
 		url = url + "?song_no=" + song_no;
@@ -84,7 +93,7 @@
 </script>
 <script>
 var bigPic = document.querySelector("#big");            //?? ?�진
-var smallPics = document.querySelectorAll(".small");    //?��? ?�진(?�러�?)
+var smallPics = document.querySelectorAll(".small");    //?��? ?�진(?�러�??)
  
 for(var i = 0 ; i < smallPics.length ; i++){
     smallPics[i].addEventListener("click", changepic);  //?�벤?? 처리
@@ -218,7 +227,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 			</tbody>
 
 
-			<!-- center ?�른�? ?�레?�리?�트  -->
+			<!-- center ?�른�?? ?�레?�리?�트  -->
 			<div class="playlistContainer">
 				<tbody>
 					<c:choose>
@@ -244,13 +253,12 @@ function changepic(){   //?�진 바꾸?? ?�수
 										<img class="show_play_icon" src="<c:url value="/assets/images/play_logo.svg" />"  />
 										</a></li>
 										
-										<li class="songno" ><a
-											href="LoginIndex"> <c:out value="${list.song_no}" /></a></li>
+										<li class="songno" ><a href="#"> <c:out value="${list.song_no}" /></a></li>
 
-										<li class="singername"><a href="LoginIndex" style="color:black">: <c:out value="${list.song_singer}" />
+										<li class="singername"><a href="#">: <c:out value="${list.song_singer}" />
 										</a>
 										</li>
-										<li class="songname" ><a href="LoginIndex" style="color:black">?�래 ?�름 : <c:out
+										<li class="songname" ><a href="#">?�래 ?�름 : <c:out
 													value="${list.song_name}" /></li>
 										<li class="viewcnt" ><c:out
 												value="${list.view}" /></li>
@@ -267,5 +275,67 @@ function changepic(){   //?�진 바꾸?? ?�수
 
 
 	</div>
+	
+	
+	
+	
+	
+	
+	
+<!-- ?�영 ?�단 ?�레?? 리스?? -->	
+	
+	
+<div id="footer">
+
+
+		<!-- 버튼,?�레?�어,?�량 -->
+		<div class="player2">
+			<!-- Define the section for displaying track buttons -->
+			<div class="buttons">
+				<div class="prev-track" onclick="prevTrack()">
+					<i class="fa fa-step-backward fa-2x"></i>
+				</div>
+				
+				<div class="playpause-track" onclick="playpauseTrack()">
+					<i class="fa fa-play-circle fa-2x"></i>
+				</div>
+				<div class="next-track" onclick="nextTrack()">
+					<i class="fa fa-step-forward fa-2x"></i>
+				</div>
+			</div>
+			<!-- Define the section for displaying the seek slider-->
+			<div class="slider_container">
+				<div class="current-time">00:00</div>
+				<input type="range" min="1" max="100" value="0" class="seek_slider"
+					onchange="seekTo()">
+				<div class="total-duration">00:00</div>
+			</div>
+
+			<!-- Define the section for displaying the volume slider-->
+			<div class="slider_container">
+				<i class="fa fa-volume-down"></i> <input type="range" min="1"
+					max="100" value="99" class="volume_slider" onchange="setVolume()">
+				<i class="fa fa-volume-up"></i>
+			</div>
+		</div>
+
+
+
+		<!-- ?�래 ?�목 가?? ?��?지 -->
+		<div class="details">
+			<div class="track-art" style="display: inline-block";></div>
+			<div class="track-name-artist" style="display: inline-block";>
+				<div class="track-name">Track Name</div>
+				<div class="track-artist">Track Artist</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<!-- Load the main script for the player -->
+	<script type="text/javascript" src="/assets/js/playlist2.js"></script>	
+	
+	
+	
 </body>
 </html>

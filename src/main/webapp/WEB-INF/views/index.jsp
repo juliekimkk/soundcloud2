@@ -73,7 +73,6 @@ function singin() {
 
 .buttonset{
 position:absolute;
-border:solid red;
  flaot:right;
  right:0px;
  top:0px;
@@ -85,7 +84,7 @@ border:solid red;
 
 	<nav>
 		<div class="container">
-			<div class="jumbotron jumbotron-fluid bg-dark" width="90%" height="130%" style="border: solid blue";>
+			<div class="jumbotron jumbotron-fluid bg-dark" width="90%" height="130%";>
 				<div class="buttonset">
 				<div class="button_border home_button trans_200">
 						<a href="#" onClick="create()";>회원가입</a></div>
