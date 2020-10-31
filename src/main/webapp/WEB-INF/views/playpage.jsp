@@ -177,8 +177,8 @@ function changepic(){   //?�진 바꾸?? ?�수
 				<c:choose>
 					<c:when test="${playlist != null}">
 						<div class="trackinfo_player_button">
-							<a href="#"><img class="player"
-								src="/assets/images/orangeplaybutton.png"></a>
+							<button class="orange" onclick="playpauseTrack2()"><img class="player"
+								src="/assets/images/orangeplaybutton.png"></button>
 						</div>
 						<div class="trackinfo">
 							<div class="trackinfo_user_name">
