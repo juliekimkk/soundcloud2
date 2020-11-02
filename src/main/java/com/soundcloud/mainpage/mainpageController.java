@@ -148,6 +148,15 @@ public class mainpageController {
 		
 		return "/ParticularSinger";
 	}
+	
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String songpic() throws Exception {
+
+		
+		return "/test";
+
+
+	}
 
 
 }
