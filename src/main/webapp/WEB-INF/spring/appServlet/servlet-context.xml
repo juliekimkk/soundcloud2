@@ -18,15 +18,11 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->
-<<<<<<< HEAD
-	<resources mapping="/resources/**" location="/resources/" />
-	<resources mapping="/assets/**" location="/assets/" />
-=======
+
 	<resources mapping="/assets/**" location="/assets/" />
 	<resources mapping="/upload/**" location="/upload/" />
 	<resources mapping="/userpic/**" location="/userpic/" />
-	
->>>>>>> 창민
+
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
