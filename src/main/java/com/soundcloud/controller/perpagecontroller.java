@@ -52,8 +52,8 @@ public class perpagecontroller {
 	@RequestMapping(value = "/getuser", method = RequestMethod.GET)
 	public String getuser(Model model, @RequestParam("user_name") String user_name) throws Exception {
 
-		model.addAttribute("songList", perpageDao.getsongsbyuserno(user_name));
-		model.addAttribute("user", userDao.getuserbyuserno(user_name));
+		model.addAttribute("songList", perpageDao.getsongsbyusername(user_name));
+		model.addAttribute("user", userDao.getuserbyusername(user_name));
 
 		return "perpage/getuser";
 	}
@@ -61,7 +61,7 @@ public class perpagecontroller {
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public void insert(Model model, @RequestParam("user_name") String user_name) throws Exception {
 
-		model.addAttribute("user", userDao.getuserbyuserno(user_name));
+		model.addAttribute("user", userDao.getuserbyusername(user_name));
 
 	}
 
@@ -151,8 +151,8 @@ public class perpagecontroller {
 	@RequestMapping(value = "/userupdate", method = RequestMethod.GET)
 	public void userupdate(Model model, @RequestParam("user_name") String user_name) throws Exception {
 
-		model.addAttribute("userList", userDao.getuserbyuserno(user_name));
-		model.addAttribute("songList", perpageDao.getsongsbyuserno(user_name));
+		model.addAttribute("userList", userDao.getuserbyusername(user_name));
+		model.addAttribute("songList", perpageDao.getsongsbyusername(user_name));
 
 	}
 

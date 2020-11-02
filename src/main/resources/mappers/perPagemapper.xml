@@ -15,7 +15,7 @@
 		select * from songs
 
 	</select>
-	<select id="getsongsbyuserno"
+	<select id="getsongsbyusername"
 		resultType="com.soundcloud.perPage.domain.perPageVO">
 
 		select * from songs where
@@ -127,13 +127,6 @@
 		from songs
 	</select>
 
-	<select id="getsongbysongno"
-		resultType="com.soundcloud.perPage.domain.perPageVO">
-
-		select * from songs where
-		song_no = #{song_no}
-
-	</select>
 
 	<select id="getsongbyplaylist"
 		resultType="com.soundcloud.perPage.domain.perPageVO">
