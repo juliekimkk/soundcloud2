@@ -94,13 +94,7 @@ public class mainpageController {
 
 	}
 	
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String songpic() throws Exception {
-			
-		return "/test";
 
-
-	}
 
 	
 	@RequestMapping(value = "/playlist", method = RequestMethod.GET)
@@ -139,15 +133,14 @@ public class mainpageController {
 		
 		List<perPageVO> particularsinger = perpageDao.getparticularsinger(particular_singer);
 		model.addAttribute("particularsinger", particularsinger);
-		
 
-		
-		
 		return "/ParticularSinger";
 	}
 	
+	
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String songpic() throws Exception {
+	public String get3D() throws Exception {
+		
 
 		
 		return "/test";

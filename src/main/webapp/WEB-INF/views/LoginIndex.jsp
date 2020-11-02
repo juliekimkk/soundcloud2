@@ -14,8 +14,7 @@ response.setDateHeader("Expires", 0);
 
 
 
-<link
-	href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
+<link href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link href="/assets/plugins/colorbox/colorbox.css" rel="stylesheet"
 	type="text/css">
@@ -25,20 +24,23 @@ response.setDateHeader("Expires", 0);
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <script>
 	$(function() {
 		objectFitImages()
 	});
+	
+	function mypage() {
+		var url = "${getuser.request.contextPath}/perpage/getuser";
+		location.href = url;
+		console.log(url);
+	}
+
+	function logout() {
+		var url = "${getuser.request.contextPath}/customLogin";
+		location.href = url;
+		console.log(url);
+	}
 	
 	function fn_getuser(song_no,user_no,play_list) {
 		var url = "${getuser.request.contextPath}/playpage";
@@ -57,6 +59,17 @@ response.setDateHeader("Expires", 0);
 <body>
 	<section style="border: 1px solid red;">
 		<div class="together" style="border: 1px dashed magenta;">
+
+			<div class="buttonset">
+				<div class="button_border home_button trans_200" style="background-color:orange;">
+					<a href="#" onClick="mypage()";>마이페이지</a>
+				</div>
+
+				<div class="button_border home_button trans_200" style="background-color:gray;">
+					<a href="#" onClick="logout()";>로그아웃</a>
+				</div>
+			</div>
+
 			<div class="container" style="border: 1px solid blue;">
 				<hr class="my-1">
 				<h4 class="display-5">

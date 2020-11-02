@@ -6,6 +6,50 @@ body{
 /* 	font-weight: bold; */
 }
 
+/*top button*/
+.button_border
+{
+	display: inline-block;
+	height: 42px;
+	border: solid 1px #FFFFFF;
+	border-radius: 21px;
+	background: transparent;
+}
+.button_border a
+{
+	display: block;
+	position: relative;
+	height: 100%;
+	padding-left: 28px;
+	padding-right: 31px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #FFFFFF;
+	line-height: 40px;
+	border-radius: 21px;
+}
+.button_border:hover
+{
+	background: #FFFFFF;
+}
+.button_border:hover a
+{
+	color: #ff3500;
+}
+.button_fill
+{
+	display: inline-block;
+	height: 42px;
+	background: #ffffff;
+	border-radius: 21px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+
+
 .show_image{
 	font-color:red;
 }
