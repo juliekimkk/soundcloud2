@@ -15,11 +15,19 @@
 		select * from songs
 
 	</select>
-	<select id="getsongsbyuserno"
+	<select id="getsongsbyusername"
 		resultType="com.soundcloud.perPage.domain.perPageVO">
 
 		select * from songs where
-		user_no = #{user_no}
+		user_name = #{user_name}
+
+	</select>
+	
+	<select id="getsongbysongno"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs where
+		song_no = #{song_no}
 
 	</select>
 
@@ -28,7 +36,7 @@
 
 		insert into songs(user_name, song_name, song,
 		song_pic,
-		theme, play_list,user_no)
+		theme, play_list,user_no,path)
 
 		value(
 		#{user_name},
@@ -37,7 +45,8 @@
 		#{song_pic},
 		#{theme},
 		#{play_list},
-		#{user_no}
+		#{user_no},
+		#{path}
 		)
 
 	</insert>
@@ -89,7 +98,7 @@
 
 		update songs set
 
-		view = view + 1
+		view = view + 1                                                                               
 
 		where song_no =
 		#{song_no}
@@ -118,13 +127,6 @@
 		from songs
 	</select>
 
-	<select id="getsongbysongno"
-		resultType="com.soundcloud.perPage.domain.perPageVO">
-
-		select * from songs where
-		song_no = #{song_no}
-
-	</select>
 
 	<select id="getsongbyplaylist"
 		resultType="com.soundcloud.perPage.domain.perPageVO">

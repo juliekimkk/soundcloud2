@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.soundcloud.perPage.dao.perPageDAO;
 import com.soundcloud.perPage.domain.perPageVO;
@@ -46,42 +47,45 @@ public class perpagecontroller {
 		return "perpage/getsongs";
 	}
 
-	@RequestMapping(value = "/getuser", method = RequestMethod.GET)
-	public String getuser(Model model, @RequestParam("user_no") int user_no) throws Exception {
+	
 
-		model.addAttribute("songList", perpageDao.getsongsbyuserno(user_no));
-		model.addAttribute("user", userDao.getuserbyuserno(user_no));
+	@RequestMapping(value = "/getuser", method = RequestMethod.GET)
+	public String getuser(Model model, @RequestParam("user_name") String user_name) throws Exception {
+
+		model.addAttribute("songList", perpageDao.getsongsbyusername(user_name));
+		model.addAttribute("user", userDao.getuserbyusername(user_name));
 
 		return "perpage/getuser";
 	}
 
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
-	public void insert(Model model, @RequestParam("user_no") int user_no) throws Exception {
+	public void insert(Model model, @RequestParam("user_name") String user_name) throws Exception {
 
-		model.addAttribute("user", userDao.getuserbyuserno(user_no));
+		model.addAttribute("user", userDao.getuserbyusername(user_name));
 
 	}
 
 	@PostMapping("/saveImage")
 	public String saveImage(@RequestParam(value = "songpic") MultipartFile song_pic,
-			@RequestParam(value = "song_") MultipartFile song, @ModelAttribute perPageVO vo, Model model)
+			@RequestParam(value = "song_") MultipartFile song, @ModelAttribute perPageVO vo, Model model, MultipartHttpServletRequest request)
 			throws Exception {
+		
+		String path3 = request.getSession().getServletContext().getRealPath("/") + "upload/";
+		
+		File folder3 = new File(path3);
 
-		String path2 = "C:\\upload\\";
+		if (!folder3.exists()) {
+			folder3.mkdir();
+		}
+		
+		String path11 = path3+ vo.getUser_name()+"/";
 
-		File folder2 = new File(path2);
+		File folder2 = new File(path11);
 
 		if (!folder2.exists()) {
 			folder2.mkdir();
 		}
 
-		String path = path2 + vo.getUser_name();
-
-		File folder = new File(path);
-
-		if (!folder.exists()) {
-			folder.mkdir();
-		}
 
 		Calendar cal = Calendar.getInstance();
 		String dateyear;
@@ -92,78 +96,71 @@ public class perpagecontroller {
 		datemonth = String.format("%02d", cal.get(Calendar.MONTH) + 1);
 		dateday = String.format("%02d", cal.get(Calendar.DAY_OF_MONTH));
 
-		String yearpath = path + "\\" + dateyear + "\\";
+		String yearpath = path11 + "/" + dateyear + "/";
 		File yearfolder = new File(yearpath);
 		if (!yearfolder.exists()) {
 			yearfolder.mkdir();
 		}
 
-		String monthpath = yearpath + "\\" + datemonth + "\\";
+		String monthpath = yearpath + "/" + datemonth + "/";
 		File monthfolder = new File(monthpath);
 		if (!monthfolder.exists()) {
 			monthfolder.mkdir();
 		}
 
-		String daypath = monthpath + "\\" + dateday + "\\";
+		String daypath = monthpath + "/" + dateday + "/";
 		File dayfolder = new File(daypath);
 		if (!dayfolder.exists()) {
 			dayfolder.mkdir();
 		}
 
-		String picpath = song_pic.getOriginalFilename();
+		String stringpath = "/upload/" + vo.getUser_name() + "/" + dateyear + "/" + datemonth + "/" + dateday
+				+ "/";
 
-		UUID picuuid = UUID.randomUUID();
+		String pic_name = song_pic.getOriginalFilename();
 
-		File picfile = new File(daypath, picuuid.toString() + "_" + picpath);
+		UUID picuid = UUID.randomUUID();
+
+		String pic_name2 = picuid + pic_name;
+
+		String song_name = song.getOriginalFilename();
+
+		UUID songuid = UUID.randomUUID();
+
+		String song_name2 = songuid + song_name;
+
+		File picfile = new File(daypath, pic_name2);
 
 		song_pic.transferTo(picfile);
 
-		String songpath = song.getOriginalFilename();
-
-		UUID songuuid = UUID.randomUUID();
-
-		File songfile = new File(daypath, songuuid + "_" + songpath);
+		File songfile = new File(daypath, song_name2);
 
 		song.transferTo(songfile);
 
-		byte[] pic = null;
-		String imagePath = picuuid.toString() + "_" + picpath;
-		File image = new File(daypath + imagePath);
-		InputStream is = new FileInputStream(image);
-		pic = new byte[is.available()];
-		is.read(pic);
-		String getImage = Base64.getEncoder().encodeToString(pic);
+		vo.setSong_pic(pic_name2);
 
-		byte[] song2 = null;
-		String songPath = songuuid.toString() + "_" + songpath;
-		File song1 = new File(daypath + songPath);
-		InputStream sis = new FileInputStream(song1);
-		song2 = new byte[sis.available()];
-		sis.read(song2);
-		String getSong = Base64.getEncoder().encodeToString(song2);
-
-		vo.setSong_pic(getImage);
-
-		vo.setSong(getSong);
+		vo.setSong(song_name2);
+		
+		vo.setPath(stringpath);
 
 		perpageDao.insertsong(vo);
 
-		return "redirect:getuser" + "?user_no=" + vo.getUser_no();
+		return "redirect:getuser?user_name=" + vo.getUser_name();
 	}
 
 	@RequestMapping(value = "/userupdate", method = RequestMethod.GET)
-	public void userupdate(Model model, @RequestParam("user_no") int user_no) throws Exception {
+	public void userupdate(Model model, @RequestParam("user_name") String user_name) throws Exception {
 
-		model.addAttribute("userList", userDao.getuserbyuserno(user_no));
-		model.addAttribute("songList", perpageDao.getsongsbyuserno(user_no));
+		model.addAttribute("userList", userDao.getuserbyusername(user_name));
+		model.addAttribute("songList", perpageDao.getsongsbyusername(user_name));
 
 	}
 
 	@PostMapping("/userupdateaction")
-	public String userupdateaction(Model model, userVO vo, perPageVO pvo, @RequestParam("user_no") int user_no,
-			@RequestParam(value = "userpic") MultipartFile user_pic) throws Exception {
+	public String userupdateaction(Model model, userVO vo, perPageVO pvo, @RequestParam("user_name") String user_name,
+			@RequestParam(value = "userpic") MultipartFile user_pic,MultipartHttpServletRequest request) throws Exception {
 
-		String path2 = "C:\\user_pic\\";
+		String path2 = request.getSession().getServletContext().getRealPath("/") + "userpic/";
 
 		File folder2 = new File(path2);
 
@@ -188,71 +185,54 @@ public class perpagecontroller {
 		datemonth = String.format("%02d", cal.get(Calendar.MONTH) + 1);
 		dateday = String.format("%02d", cal.get(Calendar.DAY_OF_MONTH));
 
-		String yearpath = path + "\\" + dateyear + "\\";
+		String yearpath = path + "/" + dateyear + "/";
 		File yearfolder = new File(yearpath);
 		if (!yearfolder.exists()) {
 			yearfolder.mkdir();
 		}
 
-		String monthpath = yearpath + "\\" + datemonth + "\\";
+		String monthpath = yearpath + datemonth + "/";
 		File monthfolder = new File(monthpath);
 		if (!monthfolder.exists()) {
 			monthfolder.mkdir();
 		}
 
-		String daypath = monthpath + "\\" + dateday + "\\";
+		String daypath = monthpath + dateday + "/";
 		File dayfolder = new File(daypath);
 		if (!dayfolder.exists()) {
 			dayfolder.mkdir();
 		}
-		if (user_pic.getOriginalFilename() == "") {
-			byte[] im = null;
-			String image = "C:\\user_pic\\pngegg.png";
-			File img = new File(image);
-			InputStream iis = new FileInputStream(img);
-			im = new byte[iis.available()];
-			iis.read();
-			String getImage = Base64.getEncoder().encodeToString(im);
-			
-			vo.setUser_pic(getImage);
 
-			userDao.updateuser(vo);
-		}
+		String picpath = user_pic.getOriginalFilename();
 
-		if (vo.getUser_pic() != "") {
-			String picpath = user_pic.getOriginalFilename();
+		UUID picuuid = UUID.randomUUID();
+		
+		String stringpath = "/userpic/" + vo.getUser_name() + "/" + dateyear + "/" + datemonth + "/" + dateday
+				+ "/";
 
-			UUID picuuid = UUID.randomUUID();
+		File picfile = new File(daypath, picuuid.toString() + "_" + picpath);
 
-			File picfile = new File(daypath, picuuid.toString() + "_" + picpath);
+		String imagePath = picuuid.toString() + "_" + picpath;
+		
+		user_pic.transferTo(picfile);
 
-			user_pic.transferTo(picfile);
+		vo.setUser_pic(picuuid + picpath);
+		vo.setPath(stringpath);
 
-			byte[] pic = null;
-			String imagePath = picuuid.toString() + "_" + picpath;
-			File image = new File(daypath + imagePath);
-			InputStream is = new FileInputStream(image);
-			pic = new byte[is.available()];
-			is.read(pic);
-			String getImage = Base64.getEncoder().encodeToString(pic);
-
-			vo.setUser_pic(getImage);
-
-			userDao.updateuser(vo);
-		}
+		userDao.updateuser(vo);
 
 		perpageDao.updatesonguser(pvo);
 
-		return "redirect:getuser?user_no=" + vo.getUser_no();
+		return "redirect:getuser?user_name=" + vo.getUser_name();
 	}
 
 	@RequestMapping(value = "/songdelete", method = RequestMethod.GET)
 	public String songdelete(Model model, perPageVO vo, @RequestParam(value = "song_no") int song_no,
-			@RequestParam(value = "user_no") int user_no) throws Exception {
+			@RequestParam(value = "user_name") String user_name) throws Exception {
 
 		perpageDao.deletesong(song_no);
 
-		return "redirect:getuser?user_no=" + user_no;
+		return "redirect:getuser?user_name=" + user_name;
 
 	}
 	

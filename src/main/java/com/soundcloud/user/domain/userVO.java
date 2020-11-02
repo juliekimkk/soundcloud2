@@ -9,6 +9,14 @@ public class userVO {
 	private String e_mail;
 	private String user_pic;
 	private String comment;
+	private String path;
+	
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
 	public int getUser_no() {
 		return user_no;
 	}

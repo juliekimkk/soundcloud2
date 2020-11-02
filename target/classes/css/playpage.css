@@ -1,0 +1,475 @@
+
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gamja+Flower&family=Play&family=Teko:wght@500&family=Titillium+Web&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Poppins:100,300,400,500,600,700,800,900');
+.gallery {
+	display:inline-block;
+	display:none;
+}
+
+
+li {
+  list-style:none;
+  
+
+}
+ul a{
+	font-family: 'Play', sans-serif;
+	position:absolute;
+	color:black;
+	top:10px;
+	text-align:left;
+}
+*
+{
+	font-family: 'Play', sans-serif;
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+body
+{
+	font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	background: #FFFFFF;
+	color: #a5a5a5;
+}
+div
+{	
+	display: block;
+	position: relative;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+ul
+{
+	list-style: none;
+	margin-bottom: 0px;
+}
+
+p a
+{
+	
+	position: relative;
+	color: inherit;
+	border-bottom: solid 1px #ffa07f;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+p:last-of-type
+{
+	margin-bottom: 0;
+}
+a
+{
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+a, a:hover, a:visited, a:active, a:link
+{
+	text-decoration: none;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+p a:active
+{
+	position: relative;
+	color: #FF6347;
+}
+p a:hover
+{
+	color: #FFFFFF;
+	background: #ffa07f;
+}
+p a:hover::after
+{
+	opacity: 0.2;
+}
+::selection
+{
+	background: #ff3500;
+	color: #FFFFFF;
+}
+p::selection
+{
+	
+}
+
+h1{font-size: 48px;}
+h2{font-size: 36px;}
+h3{font-size: 24px;}
+h4{font-size: 18px;}
+h5{font-size: 14px;}
+h1, h2, h3, h4, h5, h6
+{
+	font-family: 'Poppins', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	line-height: 1.2;
+}
+h1::selection, 
+h2::selection, 
+h3::selection, 
+h4::selection, 
+h5::selection, 
+h6::selection
+{
+}
+	
+.mainbutton{
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top:0px;
+	right:0px;
+	float:right;
+	
+}
+	
+	
+}
+img
+{
+	max-width: 100%;
+}
+button:active
+{
+	outline: none;
+}
+
+
+.form-control
+{
+	color: #db5246;
+}
+section
+{
+	display: block;
+	position: relative;
+	box-sizing: border-box;
+}
+
+
+
+
+.shows
+{
+	background: #FFFFFF;
+	padding-top: 93px;
+	padding-bottom: 99px;
+}
+.shows_row > div[class^='col']
+{
+	margin-bottom: 50px;
+}
+.show
+{
+	border-radius: 3px;
+	overflow: hidden;
+	background: #f6f6f6;
+}
+.show_image a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.show_content
+{
+	padding-top: 20px;
+	padding-left: 31px;
+	padding-bottom: 22px;
+	padding-right: 30px;
+}
+.show_tags
+{
+	position: absolute;
+	top: 24px;
+	left: 24px;
+}
+.show_date a
+{
+	font-size: 14px;
+	font-weight: 300;
+	color: #2e3038;
+}
+.show_title
+{
+	margin-top: 11px;
+}
+.show_title a
+{
+	font-size: 18px;
+	font-weight: 500;
+	color: #2e3038;
+	line-height: 1.5;
+}
+.show_title a:hover,
+.show_date a:hover
+{
+	color: #ff3500;
+}
+.show_info
+{
+	margin-top: 23px;
+}
+.show_fav
+{
+	margin-left: -3px;
+}
+.show_fav_icon
+{
+	width: 26px;
+	height: 26px;
+	cursor: pointer;
+}
+.show_comments
+{
+	margin-left: 17px;
+}
+.show_comments a
+{
+	display: block;
+}
+.show_comments_icon
+{
+	width: 26px;
+	height: 26px;
+	cursor: pointer;
+}
+.show_info_icon svg
+{
+	max-width: 100%;
+	max-height: 100%;
+}
+.svg path, .svg rect, .svg polygon
+{
+    fill: #7b7b7b;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+}
+.show_fav_icon.active .svg path,
+.show_fav_icon:hover .svg path,
+.show_comments:hover .svg path
+{
+	fill: #ff3500;
+}
+.show_fav_count,
+.show_comments_count
+{
+	font-size: 14px;
+	font-weight: 500;
+	color: #2e3038;
+	margin-left: 7px;
+	margin-bottom: 2px;
+}
+.show_comments:hover .show_comments_count
+{
+	color: #ff3500;
+}
+.show_play_icon
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%) scale(0.85);
+	-moz-transform: translate(-50%, -50%) scale(0.85);
+	-ms-transform: translate(-50%, -50%) scale(0.85);
+	-o-transform: translate(-50%, -50%) scale(0.85);
+	transform: translate(-50%, -50%) scale(0.85);
+	width: 20px;
+	height: 20px;
+	pointer-events: none;
+	-webkit-transition: all 400ms ease;
+	-moz-transition: all 400ms ease;
+	-ms-transition: all 400ms ease;
+	-o-transition: all 400ms ease;
+	transition: all 400ms ease;
+}
+.show_image:hover .show_play_icon
+{
+	-webkit-transform: translate(-50%, -50%) scale(1);
+	-moz-transform: translate(-50%, -50%) scale(1);
+	-ms-transform: translate(-50%, -50%) scale(1);
+	-o-transform: translate(-50%, -50%) scale(1);
+	transform: translate(-50%, -50%) scale(1);
+}
+
+
+
+
+
+
+
+/*1.상단 트렉인포*/
+
+/*제일 큰 컨테이너*/
+.trackInfo{ 
+	display:flex;
+	width:1200px;
+	height:380px; 
+	background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#ffc1e2 80%,#e8e5dc 98%,#e5e5e5 100%); 
+/* 	 background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#c7d4db 80%,#e8e5dc 98%,#e5e5e5 100%);   */
+/* 	 background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#dbbafc 80%,#e8e5dc 98%,#e5e5e5 100%); 라벤더 */
+/* 	 background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 98%,#e5e5e5 100%);   */
+/* 	background: -webkit-linear-gradient(left, #d3d3d3 0%,#f2f2f2 2%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 98%,#d3d3d3 100%); 양쪽 다 진한 회색 넣은 그레이블루  */
+/* 	background: -webkit-linear-gradient(left, #b8caed 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 98%,#b8caed 100%); 양쪽 다 진한 블루 넣은 그레이블루 */
+/* 	background: -webkit-linear-gradient(left, #d3d3d3 0%,#f2f2f2 2%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 100%); 왼쪽만 진한 회색넣은 그레이블루 */
+/* 	background: -webkit-linear-gradient(left, #f2f2f2 0%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 100%); 배경색이랑 같은그레이블루 */
+/* 	background: -webkit-linear-gradient(left, #e8e5dc 0%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 100%); 그레이블루 */
+/*  background: radial-gradient(ellipse at left, #e66465, transparent), radial-gradient(ellipse at right, #4d9f0c, transparent); 그라데이션 */
+/*  background: -webkit-linear-gradient(left, #9a901e 0%,#fff600 0%,#ff5454 14%,#ed9092 25%,#ff2b83 51%,#ed9092 67%,#ed9092 75%,#ff5454 84%,#fff600 100%);  */
+/*  background: -webkit-linear-gradient(left, #9a901e 0%,#ffffff 0%,#f7d2f3 0%,#f7f7f7 28%,#f7f7f7 28%,#eeccff 89%,#e8e5dc 100%); */
+
+/*   background: #ff6c99;
+background: -webkit-repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%); 
+background: -o-repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%); 
+background: -moz-repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%); 
+background: repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%);
+막대사탕 */
+   
+  
+}
+.trackinfo{
+
+	width:1000px;
+	
+}
+.trackinfo_player_button{
+	top:43px;
+	left:30px;
+}
+.player{
+	top:43px;
+	left:10px;
+	width:50px;
+	height:50px;
+}
+
+.trackinfo_user_name{
+	width:200px;
+	top:30px;
+	left:50px;
+	font-size:20px;
+	text-align: left;
+	font-weight:700px;
+	background-color:#f1eae9;
+	border-radius:30px /30px;
+	text-shadow: 0 0 3px #fe1bfe, 0 0 5px #ffffff;
+}
+
+.trackinfo_song_play_list{
+	width:200px;
+	top:40px;
+	left:50px;
+	font-size:30px;
+	text-align: left;
+	font-weight:400px bold;
+	background-color:#f1eae9;
+	text-shadow: 0 0 3px #fe1bfe, 0 0 5px #ffffff;
+	border-radius: 40px / 40px;
+}
+
+.trackinfo_song_pic{
+	position:relative;
+	width:340px;
+	height:340px;
+	bottom:100px;
+	left:750px;
+	margin:40px;
+}
+
+
+
+
+/*2.유저 info 사진&유저닉네임*/
+.rounded-circle{
+	width:120px;
+	height:120px;
+	padding:10px;
+}
+
+.userinfo{
+	width:130px;
+	height:150px;
+	padding:10px;
+	margin:10px;
+	
+
+}
+.userinfo a{
+	text-align: left;
+}
+
+
+/*3.센터 오른쪽 플레이리스트*/
+.playlistContainer{
+	display:flex;
+	flex-direction:column;
+	width:900px;
+	height:500px;
+}
+
+.img-fluid{
+	img-height:28px;
+}
+
+.songlist_one{
+	position:relative;
+	width:900px; 
+	height:30px;
+}
+
+.thumnails{
+	position:absolute;
+	width:35px;
+	height:28px;
+	bottom:8px;
+}
+
+.songno{
+	position:absolute;
+	left:50px;
+	width:30px;
+	height:40px;
+}
+.singername {
+	position:absolute;
+	left:80px;
+	width:200px;
+	height:40px;
+	font-size:15px;
+	color:#000000;
+	font-weight:light;
+
+}
+.songname{
+	position:absolute;
+	left:300px;
+	width:400px;
+	height:40px;
+	font-size:17px;
+	font-color:#000000;
+}
+
+.viewcnt{
+	position:absolute;
+	left:820px;
+	width:80px;
+	height:40px;
+}

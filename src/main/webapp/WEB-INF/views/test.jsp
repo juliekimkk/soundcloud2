@@ -256,7 +256,11 @@ body {
 
   <div class="slider">
     <div class="wrapper">
+<<<<<<< HEAD
         <div style="background-image: url('https://alikinvv.github.io/3d-carousel/build/img/slide2.jpg')" class="item item1 active">
+=======
+        <div style="background-image: url('/assets/images/main.jpg')" class="item item1 active">
+>>>>>>> 7e33556fc270540933205298f88167a35423524a
             <div class="item__info">
                 <p class="item__year"><span>1483 - 1484</span></p>
                 <p class="item__name"><span>BIRH OF VENUS</span></p>
