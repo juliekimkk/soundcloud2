@@ -451,7 +451,7 @@ background: repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%);
 .singername {
 	position:absolute;
 	left:80px;
-	width:80px;
+	width:200px;
 	height:40px;
 	font-size:15px;
 	color:#000000;
