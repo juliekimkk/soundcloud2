@@ -56,9 +56,10 @@
 		<c:out value="${user[0].user_name }" />
 		<div>
 			<%-- <img id="userpic_" src="${image}" alt="프로필사진" onerror="/resources/pngegg.png"/> --%>
-			<img id="userpic_" src="data:image/jpg;base64,${user[0].user_pic}"
+			<%-- <img id="userpic_" src="data:image/jpg;base64,${user[0].user_pic}"
 				onerror="/resources/pngegg.png" />
-		</div>
+		</div> --%>
+		<img id="userpic_" src="${user[0].path }${user[0].user_pic}" onerror="/assets/pngegg.png">
 	</div>
 
 	<ul class="menu">
@@ -155,6 +156,7 @@
 
 
 	</tbody>
+	<img src="/assets/chill1.jpg">
 
 
 

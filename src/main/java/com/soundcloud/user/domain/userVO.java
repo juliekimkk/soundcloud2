@@ -11,6 +11,15 @@ public class userVO {
 	private String user_name;
 	private String e_mail;
 	private String user_pic;
+	private String path;
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
 
 	public String getUser_pic() {
 		return user_pic;

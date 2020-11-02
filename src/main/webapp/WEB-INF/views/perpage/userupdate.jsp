@@ -39,7 +39,6 @@ function checkpicFile(f){
 		<label for="user_pic">프로필 사진</label>
 		<input type="file" name="userpic" accept="image/*" required>
 		<input type="hidden" name="user_no" value="${userList[0].user_no}">
-		<input type="hidden" name="user_password" value="${userList[0].user_password}">
 		<input type="hidden" name="theme" value="${songList[0].theme}">
 		<input type="hidden" name="play_list" value="${songList[0].play_list}">
 		<input type="hidden" name="song_name" value="${songList[0].song_name}">
