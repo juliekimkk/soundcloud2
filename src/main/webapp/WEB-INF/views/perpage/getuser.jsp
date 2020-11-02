@@ -37,6 +37,12 @@
 </head>
 <body>
 	<div>
+<<<<<<< HEAD
+		<a href="getsongs">목록가기</a> <a href="#"
+			onClick="fn_insert(<c:out value="${songList[0].user_no}"/>)">노래넣기user</a> <a
+			href="#"
+			onClick="fn_userupdate(<c:out value="${songList[0].user_no}"/>)">회원정보수정 user</a>
+=======
 
 		<sec:authentication property="principal" var="pinfo" />
 		<sec:authorize access="isAuthenticated()">
@@ -51,6 +57,7 @@
 				<a href="userupdate?user_name=${pinfo.username }">회원정보수정</a>
 			</c:if>
 		</sec:authorize>
+>>>>>>> 창민
 	</div>
 	<div>
 		<c:out value="${user[0].user_name }" />

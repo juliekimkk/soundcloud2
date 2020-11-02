@@ -1,12 +1,18 @@
+
+<%
+	response.setHeader("Cache-Control", "no-cache");
+response.setHeader("Pragma", "no-cache");
+response.setDateHeader("Expires", 0);
+%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-
 <!DOCTYPE html>
 <html>
-<%@ taglib uri="http://www.springframework.org/security/tags"
-	prefix="sec"%>
 <head>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+
 
 <link
 	href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
@@ -15,7 +21,7 @@
 	type="text/css">
 <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
 <link rel="stylesheet" type="text/css"
-	href="/assets/vendor/bootstrap-4.1.2/bootstrap.min.css">
+	href="/assets/styles/bootstrap-4.1.2/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
@@ -34,39 +40,21 @@
 		objectFitImages()
 	});
 	
-	function fn_getsongno(song_no) {
-
+	function fn_getuser(song_no,user_no,play_list) {
 		var url = "${getuser.request.contextPath}/playpage";
-
 		url = url + "?song_no=" + song_no;
-
+		url = url + "&user_no=" + user_no;
+		url = url + "&play_list=" + play_list;
 		location.href = url;
-		
 		console.log(url);
 	}
-	function fn_my(username){
-		
-		var url = "${getuser.request.contextPath}/perpage/getuser";
-		
-		url = url + "?user_name?" + username;
-		
-		location.href = url;
-		
-		consol.log(url);
-	}
+	
 </script>
-<link rel="stylesheet" href="/resources/css/LoginIndex.css">
+<link rel="stylesheet" href="/assets/css/LoginIndex.css">
 
 <title>login mainpage</title>
 </head>
 <body>
-
-<sec:authorize access="isAuthenticated()">
-<sec:authentication property="principal" var="pinfo" />
-<a href="/customLogout">로그아웃</a>
-<a href="/perpage/getuser?user_name=${pinfo.username }" >마이페이지</a>
-
-</sec:authorize>
 	<section style="border: 1px solid red;">
 		<div class="together" style="border: 1px dashed magenta;">
 			<div class="container" style="border: 1px solid blue;">
@@ -81,7 +69,7 @@
 				<c:choose>
 					<c:when test="${empty theme}">
 						<tr>
-							<td colspan="5" align="center">데이터가 없습니다.</td>
+							<td colspan="5" align="center">?�이?��? ?�습?�다.?�ㅠ</td>
 						</tr>
 					</c:when>
 
@@ -95,20 +83,23 @@
 											<c:forEach var="list" items="${theme}" varStatus="status">
 												<c:if
 													test="${(status.count < 6) and (list.theme == 'chill') }">
-
+													<!--  ?�기?��??? ?�릭?�을?? uer.no ?� song.no가 겹치?�걸�? ?�어가?? ?�수 -->
 													<div class="col">
 														<div class="show_image">
-														<a href="#" onClick="fn_getsongno(<c:out value="${list.song_no}"/>)">
-															<img class="img-fluid"
-																src="data:image/jpg;base64,${list.song_pic}" /><img
-																class="show_play_icon"
-																src="<c:url value="/resources/images/play.svg" />" /></a>
+															<a href="#"
+																onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+																<img class="img-fluid"
+																src="data:image/jpg;base64,${list.song_pic}" alt="" />
+																<img class="show_play_icon"
+																src="<c:url value="/assets/images/play.svg" />" />
+															</a>
 
-															<td class="img-fluid"><a href="LoginIndex">노래
-																	이름: <c:out value="${list.song_name}" />
+
+
+															<td class="img-fluid"><a href="LoginIndex">?�래?�름
+																	: <c:out value="${list.song_name}" />
 															</a></td>
-															<td class="img-fluid"><a
-																href="perpage/getuser?user_name=${list.user_name}">유저이름
+															<td class="img-fluid"><a href="LoginIndex">?��??�름
 																	: <c:out value="${list.user_name}" />
 															</a></td>
 														</div>
@@ -124,18 +115,18 @@
 													test="${(status.count < 11 ) and (list.theme == 'chill') and (status.count > 5) }">
 													<div class="col">
 														<div class="show_image">
-															<img class="img-fluid"
-																src="data:image/jpg;base64,${list.song_pic}" /></a> <img
-																class="show_play_icon"
-																src="<c:url value="/resources/images/play.svg" />" />
+															<a href="#"
+																onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+																<img class="img-fluid"
+																src="data:image/jpg;base64,${list.song_pic}" alt="" />
+																<img class="show_play_icon"
+																src="<c:url value="/assets/images/play.svg" />" />
+															</a>
 
-															<td class="img-fluid"><a href="LoginIndex">노래
-																	이름: <c:out value="${list.song_name}" />
-															</a></td>
-															<td class="img-fluid"><a
-																href="perpage/getuser?user_name=${list.user_name}">유저이름
-																	: <c:out value="${list.user_name}" />
-															</a></td>
+															<td class="img-fluid"><a href="LoginIndex"><c:out
+																		value="${list.song_name}" /></a></td>
+															<td class="img-fluid"><a href="LoginIndex"><c:out
+																		value="${list.user_name}" /></a></td>
 														</div>
 													</div>
 												</c:if>
@@ -183,7 +174,7 @@
 
 				<c:when test="${empty theme}">
 					<tr>
-						<td colspan="5" align="center">데이터가 없습니다.</td>
+						<td colspan="5" align="center">?�이?��? ?�습?�다.?�런?�ㅠ</td>
 					</tr>
 				</c:when>
 
@@ -199,18 +190,18 @@
 
 												<div class="col">
 													<div class="show_image">
-														<%-- 		<td class="img-fluid"><c:out value="${list.song_no}" /></td> --%>
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
-														<td class="img-fluid"><a href="LoginIndex">노래 이름:
-																<c:out value="${list.song_name}" />
-														</a></td>
-														<td class="img-fluid"><a
-															href="perpage/getuser?user_name=${list.user_name}">유저이름 :
-																<c:out value="${list.user_name}" />
-														</a></td>
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
+															class="show_play_icon"
+															src="<c:url value="/assets/images/play.svg" />" />
+														</a>
+
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
 											</c:if>
@@ -224,18 +215,18 @@
 												test="${(status.count > 15) and (status.count < 21) and (list.theme == 'party') }">
 												<div class="col">
 													<div class="show_image">
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
+															class="show_play_icon"
+															src="<c:url value="/assets/images/play.svg" />" />
+														</a>
 
-														<td class="img-fluid"><a href="LoginIndex">노래 이름:
-																<c:out value="${list.song_name}" />
-														</a></td>
-														<td class="img-fluid"><a
-															href="perpage/getuser?user_name=${list.user_name}">유저이름 :
-																<c:out value="${list.user_name}" />
-														</a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
 											</c:if>
@@ -278,7 +269,7 @@
 
 				<c:when test="${empty theme}">
 					<tr>
-						<td colspan="5" align="center">데이터가 없습니다.</td>
+						<td colspan="5" align="center">?�이?��? ?�습?�다.?�런?�ㅠ</td>
 					</tr>
 				</c:when>
 
@@ -294,17 +285,18 @@
 
 												<div class="col">
 													<div class="show_image">
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
-															src="<c:url value="/resources/images/play_logo.svg" />" />
-														<td class="img-fluid"><a href="LoginIndex">노래 이름:
-																<c:out value="${list.song_name}" />
-														</a></td>
-														<td class="img-fluid"><a
-															href="perpage/getuser?user_name=${list.user_name}">유저이름 :
-																<c:out value="${list.user_name}" />
-														</a></td>
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
+															class="show_play_icon"
+															src="<c:url value="/assets/images/play.svg" />" />
+														</a>
+
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
 											</c:if>
@@ -318,18 +310,18 @@
 												test="${(status.count < 31) and (list.theme == 'relax') and (status.count > 25) }">
 												<div class="col">
 													<div class="show_image">
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
+															class="show_play_icon"
+															src="<c:url value="/assets/images/play.svg" />" />
+														</a>
 
-														<td class="img-fluid"><a href="LoginIndex">노래 이름:
-																<c:out value="${list.song_name}" />
-														</a></td>
-														<td class="img-fluid"><a
-															href="perpage/getuser?user_name=${list.user_name}">유저이름 :
-																<c:out value="${list.user_name}" />
-														</a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
 											</c:if>
@@ -372,7 +364,7 @@
 
 				<c:when test="${empty theme}">
 					<tr>
-						<td colspan="5" align="center">데이터가 없습니다.</td>
+						<td colspan="5" align="center">?�이?��? ?�습?�다.?�런?�ㅠ</td>
 					</tr>
 				</c:when>
 
@@ -388,17 +380,18 @@
 
 												<div class="col">
 													<div class="show_image">
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
-														<td class="img-fluid"><a href="LoginIndex">노래 이름:
-																<c:out value="${list.song_name}" />
-														</a></td>
-														<td class="img-fluid"><a
-															href="perpage/getuser?user_name=${list.user_name}">유저이름 :
-																<c:out value="${list.user_name}" />
-														</a></td>
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
+															class="show_play_icon"
+															src="<c:url value="/assets/images/play.svg" />" />
+														</a>
+
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
 											</c:if>
@@ -412,18 +405,18 @@
 												test="${(status.count < 51) and (list.theme == 'workout') and (status.count > 45) }">
 												<div class="col">
 													<div class="show_image">
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
+															class="show_play_icon"
+															src="<c:url value="/assets/images/play.svg" />" />
+														</a>
 
-														<td class="img-fluid"><a href="LoginIndex">노래 이름:
-																<c:out value="${list.song_name}" />
-														</a></td>
-														<td class="img-fluid"><a
-															href="perpage/getuser?user_name=${list.user_name}">유저이름 :
-																<c:out value="${list.user_name}" />
-														</a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
 											</c:if>
@@ -466,7 +459,7 @@
 
 				<c:when test="${empty theme}">
 					<tr>
-						<td colspan="5" align="center">데이터가 없습니다.</td>
+						<td colspan="5" align="center">?�이?��? ?�습?�다.?�런?�ㅠ</td>
 					</tr>
 				</c:when>
 
@@ -482,17 +475,18 @@
 
 												<div class="col">
 													<div class="show_image">
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
-														<td class="img-fluid"><a href="LoginIndex">노래 이름:
-																<c:out value="${list.song_name}" />
-														</a></td>
-														<td class="img-fluid"><a
-															href="perpage/getuser?user_name=${list.user_name}">유저이름 :
-																<c:out value="${list.user_name}" />
-														</a></td>
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
+															class="show_play_icon"
+															src="<c:url value="/assets/images/play.svg" />" />
+														</a>
+
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
 											</c:if>
@@ -506,18 +500,18 @@
 												test="${(status.count < 41) and (list.theme == 'study') and (status.count >35)}">
 												<div class="col">
 													<div class="show_image">
-														<a href="episode.html"> <img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}"
-															alt="Image 1" /></a> <img class="show_play_icon"
-															src="<c:url value="/resources/images/play.svg" />" />
+														<a href="#"
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															<img class="img-fluid"
+															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
+															class="show_play_icon"
+															src="<c:url value="/assets/images/play.svg" />" />
+														</a>
 
-														<td class="img-fluid"><a href="LoginIndex">노래 이름:
-																<c:out value="${list.song_name}" />
-														</a></td>
-														<td class="img-fluid"><a
-															href="perpage/getuser?ss=${list.user_name}">유저이름 :
-																<c:out value="${list.user_name}" />
-														</a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
+																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
 											</c:if>

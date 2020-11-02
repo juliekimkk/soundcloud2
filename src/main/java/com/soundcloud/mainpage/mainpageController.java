@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.soundcloud.perPage.dao.perPageDAO;
 import com.soundcloud.perPage.domain.perPageVO;
+import com.soundcloud.user.dao.userDAO;
+import com.soundcloud.user.domain.userVO;
 
 import lombok.extern.log4j.Log4j;
 
@@ -26,7 +28,10 @@ public class mainpageController {
 
 	@Inject
 	private perPageDAO perpageDao;
-	private perPageVO pagevo;
+
+	@Inject
+	private userDAO userDao;
+
 
 	private static final Logger logger = LoggerFactory.getLogger(mainpageController.class);
 
@@ -41,16 +46,14 @@ public class mainpageController {
 	@RequestMapping(value = "/LoginIndex", method = RequestMethod.GET) // post방식
 	public String LoginIndex(Model model, String theme2) throws Exception {
 		List<perPageVO> theme;
-		if(theme2 == null || theme2.equals("")) {
+		if (theme2 == null || theme2.equals("")) {
 			theme = perpageDao.getsongsbythemeNone();
 			model.addAttribute("theme", theme);
-		}
-		else
-		{
+		} else {
 			theme = perpageDao.getsongsbytheme(theme2);
 			model.addAttribute("theme", theme);
 		}
-				
+
 		log.info(theme.get(0).getSong_name());
 		return "/LoginIndex";
 	}
@@ -66,12 +69,45 @@ public class mainpageController {
 
 		return "/index";
 	}
-
+	
 
 	@RequestMapping(value = "/playpage", method = RequestMethod.GET)
-	public String test(Model model,@RequestParam("song_no") int song_no) throws Exception {
+	public String test(Model model, @RequestParam("song_no") int song_no, @RequestParam("user_no") int user_no, @RequestParam("play_list") String play_list) throws Exception {
+		List<perPageVO> song = perpageDao.getsongs();
+		model.addAttribute("songList", song);
 
+		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();;
+		model.addAttribute("viewcnt2", viewcnt2);
 		
+		List<perPageVO> songno = perpageDao.getsongbysongno(song_no);
+		model.addAttribute("songno", songno);
+
+
+		List<userVO> userno = userDao.getuserbyuserno2(user_no);
+		model.addAttribute("user_no", userno);
+		
+		List<perPageVO> playlist = perpageDao.getsongbyplaylist(play_list);
+		model.addAttribute("playlist", playlist);
+		
+		return "/playpage";
+
+
+	}
+	
+	@RequestMapping(value = "/songpic", method = RequestMethod.GET)
+	public String songpic(Model model, @RequestParam("song_no") int song_no) throws Exception {
+	
+		List<perPageVO> songno = perpageDao.getsongbysongno(song_no);
+		model.addAttribute("songno", songno);
+		
+		return "/songpic";
+
+
+	}
+
+	
+	@RequestMapping(value = "/playlist", method = RequestMethod.GET)
+	public String playlist(Model model) throws Exception {
 		List<perPageVO> song = perpageDao.getsongs();
 		model.addAttribute("songList", song);
 
@@ -79,19 +115,39 @@ public class mainpageController {
 		log.info(viewcnt2.toString());
 		model.addAttribute("viewcnt2", viewcnt2);
 		
-		List<perPageVO> songno = perpageDao.getsongbysongno(song_no);
-		model.addAttribute("songno", songno);
-		
-		return "/playpage";
+		return "/playlist";
 
 	}
-
+	
+	
 	@RequestMapping(value = "/MainpagePlaylist", method = RequestMethod.GET)
-	public String MainpagePlaylist(Model model) throws Exception {
+	public String MainpagePlaylist(Model model, @RequestParam("particular_singer") String particular_singer) throws Exception {
 		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();
-		log.info(viewcnt2.toString());
 		model.addAttribute("viewcnt2", viewcnt2);
+		
+
+
+		List<perPageVO> particularsinger = perpageDao.getparticularsinger(particular_singer);
+		/*
+		 * System.out.println("--------------1: " + particular_singer); 값이 들어있는지 확인하는 로그
+		 * System.out.println("--------------2: " +
+		 * particularsinger.get(0).getSong_name());
+		 */
 		return "/MainpagePlaylist";
 	}
+	
+	
+	@RequestMapping(value = "/ParticularSinger", method = RequestMethod.GET)
+	public String ParticularSinger(Model model, @RequestParam("particular_singer") String particular_singer) throws Exception {
+		
+		List<perPageVO> particularsinger = perpageDao.getparticularsinger(particular_singer);
+		model.addAttribute("particularsinger", particularsinger);
+		
+
+		
+		
+		return "/ParticularSinger";
+	}
+
 
 }

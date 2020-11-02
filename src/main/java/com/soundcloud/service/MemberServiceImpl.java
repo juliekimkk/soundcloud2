@@ -1,5 +1,6 @@
 package com.soundcloud.service;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,12 +16,17 @@ import lombok.extern.log4j.Log4j;
 @Service
 @AllArgsConstructor
 public class MemberServiceImpl implements MemberService {
+	
+	@Setter(onMethod_ = @Autowired)
+	private SqlSession userSqlSessin;
 
 	@Setter(onMethod_ = @Autowired)
 	private MemberMapper mapper;
 
 	@Setter(onMethod_ = @Autowired)
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
+	
 
 	@Override
 	public void register(MemberVO member) {
@@ -62,4 +68,13 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.delete(mid) == 1;
 	}
 
+	@Override
+	public String userIdCheck(String user_id) {
+		
+		mapper = userSqlSessin.getMapper(MemberMapper.class);
+				
+		return mapper.checkOverId(user_id);
+	}
+	
+	
 }

@@ -29,7 +29,7 @@ function checkpicFile(f){
 
 	// file[0].name 은 파일명 입니다.
 	// 정규식으로 확장자 체크
-	if(!/\.(gif|jpg|fpeg|png)$/i.test(file[0].name)) alert('해당 확장자의 파일은 업로드할수 없습니다.\n\n현재 파일 : ' + file[0].name);
+	if(!/\.(gif|jpg|jpeg|png)$/i.test(file[0].name)) alert('해당 확장자의 파일은 업로드할수 없습니다.\n\n현재 파일 : ' + file[0].name);
 	 //mp3, wav, m4a, flac, ogg, amr, mp2
 	// 체크를 통과했다면 종료.
 	else return;
