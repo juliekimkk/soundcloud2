@@ -1,6 +1,10 @@
 package com.soundcloud.service;
 
+import org.springframework.stereotype.Service;
+
 import com.soundcloud.domain.MemberVO;
+
+@Service
 
 public interface MemberService {
 

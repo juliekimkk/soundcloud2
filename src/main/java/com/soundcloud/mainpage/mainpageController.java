@@ -94,13 +94,10 @@ public class mainpageController {
 
 	}
 	
-	@RequestMapping(value = "/songpic", method = RequestMethod.GET)
-	public String songpic(Model model, @RequestParam("song_no") int song_no) throws Exception {
-	
-		List<perPageVO> songno = perpageDao.getsongbysongno(song_no);
-		model.addAttribute("songno", songno);
-		
-		return "/songpic";
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String songpic() throws Exception {
+			
+		return "/test";
 
 
 	}

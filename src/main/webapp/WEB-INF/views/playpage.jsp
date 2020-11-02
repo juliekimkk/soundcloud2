@@ -45,6 +45,19 @@
 </script>
 
 
+<script>
+function zoomIn(event) {
+    event.target.style.transform = "scale(1.2)";
+    event.target.style.zIndex = 1;
+    event.target.style.transition = "all 0.5s";
+  }
+
+function zoomOut(event) {
+    event.target.style.transform = "scale(1)";
+    event.target.style.zIndex = 0;
+    event.target.style.transition = "all 0.5s";
+  }
+</script>
 
 
 
@@ -176,8 +189,8 @@ function changepic(){   //?�진 바꾸?? ?�수
 				<c:choose>
 					<c:when test="${playlist != null}">
 						<div class="trackinfo_player_button">
-							<a href="#"><img class="player"
-								src="/assets/images/orangeplaybutton.png"></a>
+							<button class="orange" onclick="playpauseTrack2()"><img class="player"
+								src="/assets/images/orangeplaybutton.png"></button>
 						</div>
 						<div class="trackinfo">
 							<div class="trackinfo_user_name">
@@ -212,7 +225,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 						  <a href="#"
 						  	onClick="userpage(<c:out value="${user_no[0].user_no}" />)">
 							<img class="rounded-circle"
-								src="data:image/jpg;base64,${user_no[0].user_pic}" alt="" /></a>
+								src="data:image/jpg;base64,${user_no[0].user_pic}" onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)" alt="" /></a>
 								
 								
 								<a href="#"
@@ -257,7 +270,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 										<li class="singername"><a href="#">: <c:out value="${list.song_singer}" />
 										</a>
 										</li>
-										<li class="songname" ><a href="#">?�래 ?�름 : <c:out
+										<li class="songname" ><a href="#"> <c:out
 													value="${list.song_name}" /></li>
 										<li class="viewcnt" ><c:out
 												value="${list.view}" /></li>
