@@ -12,29 +12,15 @@
 	<select id="getsongs"
 		resultType="com.soundcloud.perPage.domain.perPageVO">
 
-		select
-
-		*
-
-		from
-
-		songs
+		select * from songs
 
 	</select>
 	<select id="getsongsbyusername"
 		resultType="com.soundcloud.perPage.domain.perPageVO">
 
-		select
+		select * from songs where
+		user_name = #{user_name}
 
-		*
-
-		from
-
-		songs
-
-		where
-
-		user_name=#{username}
 	</select>
 	
 	<select id="getsongbysongno"
@@ -50,7 +36,7 @@
 
 		insert into songs(user_name, song_name, song,
 		song_pic,
-		theme, play_list)
+		theme, play_list,user_no,path)
 
 		value(
 		#{user_name},
@@ -58,7 +44,9 @@
 		#{song},
 		#{song_pic},
 		#{theme},
-		#{play_list}
+		#{play_list},
+		#{user_no},
+		#{path}
 		)
 
 	</insert>
@@ -77,14 +65,31 @@
 
 		update songs set
 
-		song_name = #{song_name},
+		user_name = #{user_name},
+
+		song_name =
+		#{song_name},
 
 		theme =
 		#{theme},
 
-		play_list = #{play_list}
+		play_list =
+		#{play_list}
 
-		where song_no = #{song_no}
+		where song_no =
+		#{song_no}
+
+	</update>
+
+	<update id="updatesonguser"
+		parameterType="com.soundcloud.perPage.domain.perPageVO">
+
+		update songs set
+
+		user_name = #{user_name}
+
+		where user_no =
+		#{user_no}
 
 	</update>
 
@@ -93,7 +98,7 @@
 
 		update songs set
 
-		view = view + 1
+		view = view + 1                                                                               
 
 		where song_no =
 		#{song_no}
@@ -101,17 +106,41 @@
 	</update>
 
 	<select id="viewcnt2"
-		parameterType="com.soundcloud.perPage.domain.perPageVO">
+		resultType="com.soundcloud.perPage.domain.perPageVO">
 
-		select * from songs order by view DESC limit 0,10;
+		select * from songs order by view DESC limit 10;
+
+
 	</select>
 
-	<select id="theme"
-		parameterType="com.soundcloud.perPage.domain.perPageVO">
 
-		select * from songs order by theme = #{theme}
+	<select id="getsongsbytheme"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+		select *
+		from songs
+		where theme = #{study}
 	</select>
 
+	<select id="getsongsbythemeNone"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+		select *
+		from songs
+	</select>
+
+
+	<select id="getsongbyplaylist"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs 
+		where play_list = #{play_list}
+
+	</select>
 	
+	<select id="getparticularsinger"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs 
+		where song_singer = #{song_singer}
+	</select>
 
 </mapper>
