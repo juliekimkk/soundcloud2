@@ -15,6 +15,14 @@ public class perPageVO {
 	private int view;
 	private int user_no;
 	private String song_singer;
+	private String path;
+	
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
 	public int getSong_no() {
 		return song_no;
 	}
