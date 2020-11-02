@@ -166,7 +166,6 @@ function changepic(){   //?�진 바꾸?? ?�수
 </style>
 </head>
 
-<body>
 
 <body style="background-color: #f2f2f2;">
 	<div class="super_class"
@@ -290,6 +289,11 @@ function changepic(){   //?�진 바꾸?? ?�수
 
 		<!-- button,slider bar -->
 		<div class="player2">
+		 <div class="details">
+    
+      <div class="track-art"></div>
+      <div class="track-name">Track Name</div>
+      <div class="track-artist">Track Artist</div>
 			<!-- Define the section for displaying track buttons -->
 			<div class="buttons">
 				<div class="prev-track" onclick="prevTrack()">
@@ -305,7 +309,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 			</div>
 			<!-- Define the section for displaying the seek slider-->
 			<div class="slider_container">
-				<div class="current-time">00:00</div>
+				<div class="current-time" style=color:#f50;>00:00</div></style>
 				<input type="range" min="1" max="100" value="0" class="seek_slider"
 					onchange="seekTo()">
 				<div class="total-duration">00:00</div>
@@ -334,10 +338,12 @@ function changepic(){   //?�진 바꾸?? ?�수
 				<div class="track-name"><c:out value="${songno[0].song_singer}" /></div>
 				<div class="track-artist"><c:out value="${songno[0].song_name}" /></div>
 				
-				<audio controls="controls"  autoplay>
+			<%-- 	<audio controls="controls"  autoplay>
 									<source src="data:audio/mpeg;base64,${songno[0].song}"
 										type="audio/ogg">
-								</audio>
+								</audio> --%>
+								
+								
 			</div>
 		</div>
 

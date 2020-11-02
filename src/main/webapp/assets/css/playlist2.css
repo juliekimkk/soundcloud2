@@ -8,6 +8,7 @@
   /* float:left; */
   height: 4rem;
   color:black;
+  background:#F2F2F2;
 }
 
 /* #contetns{
@@ -105,31 +106,33 @@
 	postion:relative;
 	width:50px;
 	height:50px;
-	justify-content: center;
+	  margin-left: auto;
+  margin-right: auto;
 }
 
-.track-name-artist {
+/* .track-name-artist {
   font-size: 0.8rem;
   width: 60%;
   float:right;
 
   
-}
+} */
 
 .track-name {
   font-size: 0.8rem;
   float:right;
-  
+  color:#333;
   
 }
 
 
-.track-artist {
+/* .track-artist {
   font-size:0.9rem;
   position:relative;
   float:right;
+  color:#666;
   
-}
+} */
 
 
 
@@ -170,7 +173,7 @@
   -moz-appearance: none;
   appearance: none;
   height: 4px;
-  background: black;
+  background: #333333;
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
@@ -223,6 +226,7 @@
   float:right;
   position:relative;
   top:12px;
+  color:#CCCCCC;
  
 }
 
