@@ -9,13 +9,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link
-	href="/resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
+	href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-<link href="/resources/plugins/colorbox/colorbox.css" rel="stylesheet"
+<link href="/assets/plugins/colorbox/colorbox.css" rel="stylesheet"
 	type="text/css">
-<link rel="stylesheet" type="text/css" href="/resources/css/index.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/index.css">
 <link rel="stylesheet" type="text/css"
-	href="/resources/styles/bootstrap-4.1.2/bootstrap.min.css">
+	href="/assets/vendor/bootstrap-4.1.2/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
