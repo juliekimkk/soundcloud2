@@ -40,14 +40,14 @@ public class perPageDAOTest {
 				logger.info(list.getSong_name());
 			}
 		} else {
-			logger.info("?°ì´?°ê? ?†ìŠµ?ˆë‹¤.");
+			logger.info("?ï¿½ì´?ï¿½ï¿½? ?ï¿½ìŠµ?ï¿½ë‹¤.");
 		}
 	}
 	
 //	@Test
 	public void testgetsongsbyusername() throws Exception{
 		
-		List<perPageVO> pageList = pageDAO.getsongsbyuserno(1);
+		List<perPageVO> pageList = pageDAO.getsongsbyuserno("1");
 		logger.info("\n Song List by User_Name \n");
 		if(pageList.size() > 0) {
 			for(perPageVO list : pageList) {
@@ -55,7 +55,7 @@ public class perPageDAOTest {
 				logger.info(list.getUser_name());
 			}
 		}else {
-			logger.info("?°ì´?°ê? ?†ìŠµ?ˆë‹¤.");
+			logger.info("?ï¿½ì´?ï¿½ï¿½? ?ï¿½ìŠµ?ï¿½ë‹¤.");
 		}
 	}
 
@@ -68,15 +68,15 @@ public class perPageDAOTest {
 		pagevo.setSong_name("showpic");
 		pagevo.setSong(getSong());
 		pagevo.setSong_pic(getImage());
-		pagevo.setPlay_list("?ŒìŠ¤??");
+		pagevo.setPlay_list("?ï¿½ìŠ¤??");
 		pagevo.setTheme("ì»¤ë²„");
 
 		int result = pageDAO.insertsong(pagevo);
 		logger.info("\n Insert Song Result \n");
 		if (result == 1) {
-			logger.info("\n ?±ë¡?±ê³µ");
+			logger.info("\n ?ï¿½ë¡?ï¿½ê³µ");
 		} else {
-			logger.info("\n ?±ë¡?¤íŒ¨");
+			logger.info("\n ?ï¿½ë¡?ï¿½íŒ¨");
 		}
 	}
 
@@ -114,9 +114,9 @@ public class perPageDAOTest {
 		logger.info("\n Delete song Result \n");
 
 		if (result == 1) {
-			logger.info("\n ?? œ?±ê³µ");
+			logger.info("\n ??ï¿½ï¿½?ï¿½ê³µ");
 		} else {
-			logger.info("\n ?? œ?¤íŒ¨");
+			logger.info("\n ??ï¿½ï¿½?ï¿½íŒ¨");
 		}
 	}
 
@@ -126,18 +126,18 @@ public class perPageDAOTest {
 		perPageVO pagevo = new perPageVO();
 
 		pagevo.setSong_no(1);
-		pagevo.setSong_name("ê°€?˜ë‹¤??");
+		pagevo.setSong_name("ê°€?ï¿½ë‹¤??");
 		pagevo.setTheme("ê°€??");
-		pagevo.setPlay_list("?Œë ˆ?´ë¦¬?¤íŠ¸");
+		pagevo.setPlay_list("?ï¿½ë ˆ?ï¿½ë¦¬?ï¿½íŠ¸");
 
 		int result = pageDAO.updatesong(pagevo);
 
 		logger.info("\n Update song Result \n");
 
 		if (result > 0) {
-			logger.info("\n ?…ë°?´íŠ¸ ?±ê³µ");
+			logger.info("\n ?ï¿½ë°?ï¿½íŠ¸ ?ï¿½ê³µ");
 		} else {
-			logger.info("\n ?…ë°?´íŠ¸ ?¤íŒ¨");
+			logger.info("\n ?ï¿½ë°?ï¿½íŠ¸ ?ï¿½íŒ¨");
 		}
 	}
 
@@ -149,9 +149,9 @@ public class perPageDAOTest {
 		logger.info("\n Update view Result \n");
 
 		if (result > 0) {
-			logger.info("\n ?…ë°?´íŠ¸ ?±ê³µ");
+			logger.info("\n ?ï¿½ë°?ï¿½íŠ¸ ?ï¿½ê³µ");
 		} else {
-			logger.info("\n ?…ë°?´íŠ¸ ?¤íŒ¨");
+			logger.info("\n ?ï¿½ë°?ï¿½íŠ¸ ?ï¿½íŒ¨");
 		}
 	}
 
