@@ -59,7 +59,7 @@
 			<%-- <img id="userpic_" src="data:image/jpg;base64,${user[0].user_pic}"
 				onerror="/resources/pngegg.png" />
 		</div> --%>
-		<img id="userpic_" src="${user[0].path }${user[0].user_pic}" onerror="/assets/pngegg.png">
+		<img id="userpic_"src="${user[0].path}${user[0].user_pic }">
 	</div>
 
 	<ul class="menu">
