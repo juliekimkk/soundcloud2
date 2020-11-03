@@ -1,5 +1,9 @@
 package com.soundcloud.user.domain;
 
+import org.springframework.stereotype.Service;
+
+@Service
+
 public class userVO {
 
 	private int user_no;

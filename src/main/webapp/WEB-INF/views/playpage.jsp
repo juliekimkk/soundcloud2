@@ -182,6 +182,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 <body>
 
 <body style="background-color: #f2f2f2;">
+<%@ include file="navbar.jsp"%>
 	<div class="super_class"
 		style="width: 1200px; height: 1100px; left: 350px; background-color: white;">
 		<!-- top container head  -->

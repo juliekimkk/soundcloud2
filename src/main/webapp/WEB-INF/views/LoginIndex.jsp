@@ -12,7 +12,8 @@ response.setDateHeader("Expires", 0);
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 
 <link href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
@@ -26,9 +27,7 @@ response.setDateHeader("Expires", 0);
 
 
 <script>
-	$(function() {
-		objectFitImages()
-	});
+
 	
 	function mypage() {
 		var url = "${getuser.request.contextPath}/perpage/getuser";
@@ -55,20 +54,23 @@ response.setDateHeader("Expires", 0);
 <link rel="stylesheet" href="/assets/css/LoginIndex.css">
 
 <title>login mainpage</title>
+
+
+
+
+
 </head>
 <body>
+<sec:authentication property="principal" var="pinfo" />
+			<sec:authorize access="isAuthenticated()">
+			<a href="/perpage/getuser?user_name=${pinfo.username}">마이페이지</a>
+			
+			</sec:authorize>
+<%@ include file="navbar.jsp"%>
 	<section style="border: 1px solid red;">
 		<div class="together" style="border: 1px dashed magenta;">
 
-			<div class="buttonset">
-				<div class="button_border home_button trans_200" style="background-color:orange;">
-					<a href="#" onClick="mypage()";>마이페이지</a>
-				</div>
-
-				<div class="button_border home_button trans_200" style="background-color:gray;">
-					<a href="#" onClick="logout()";>로그아웃</a>
-				</div>
-			</div>
+			
 
 			<div class="container" style="border: 1px solid blue;">
 				<hr class="my-1">

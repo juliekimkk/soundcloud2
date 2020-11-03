@@ -9,8 +9,17 @@
 <link rel="stylesheet" type="text/css"
 	href="/assets/css/ParticularSinger.css">
 <meta charset="utf-8">
+	<script type="text/javascript" src="/assets/js/playlist2.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
 
-<script>
+<script type="text/javascript">
 function zoomIn(event) {
     event.target.style.transform = "scale(1.2)";
     event.target.style.zIndex = 1;
@@ -30,17 +39,23 @@ function zoomOut(event) {
     event.target.style.transition = "all 0.5s";
   }
   
-function get_3D(song_singer){
+function get3d(song_singer){
 	var url = "${getuser.request.contextPath}/test";
 	url = url + "?song_singer=" + song_singer;
+	location.href = url;
 }
-
 </script>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
 
 <title>특정가수노래만 모은 트렉</title>
 </head>
 
 <body style="background-color: #f2f2f2;">
+
+<%@ include file="navbar.jsp"%>
 	<div class="super_class"
 		style="width: 1200px; height: auto; left: 350px; background-color: white;">
 		
@@ -62,8 +77,7 @@ function get_3D(song_singer){
 
 								<ul class="songlist_one">
 									<li class="thumnails">
-										<!-- 클릭시 위에 이미지 바뀌는 onclick 함수 --> <a href="#"
-										onclick="get_3D('<c:out value="${list.song_singer}" />')"> <img
+										<!-- 클릭시 위에 이미지 바뀌는 onclick 함수 --> <a href="#"><img
 											class="img-fluid"
 											src="data:image/jpg;base64,${list.song_pic}" onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)" alt="" /> <img
 											class="show_play_icon"
@@ -73,9 +87,9 @@ function get_3D(song_singer){
 									</li>
 
 
-									<li class="singername"><a href="#" onclick="get_3D('<c:out value="${list.song_singer}" />')">
-											<c:out value="${list.song_singer}" />
-									</a></li>
+									<li class="singername"><a href="#" onclick="get3d('${list.song_singer}')">
+											<c:out value="${list.song_singer}" /></a>
+									</li>
 									<li class="songname"><a href="#" style="color: black">노래
 											이름 : <c:out value="${list.song_name}" /></li>
 									<li class="viewcnt"><c:out value="${list.view}" /></li>
@@ -146,9 +160,9 @@ function get_3D(song_singer){
 			</tbody>
 		</div>
 </div>
+</div>
 
 
-	<script type="text/javascript" src="/assets/js/playlist2.js"></script>
 
 </body>
 </html>

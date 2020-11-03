@@ -139,14 +139,18 @@ public class mainpageController {
 	
 	
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String get3D() throws Exception {
-		
-
-		
+	public String get3D(@RequestParam(value="song_singer")String song_singer) throws Exception {
+				
 		return "/test";
 
-
 	}
+	
+	
+	@RequestMapping(value = "/navbar", method = RequestMethod.GET)
+	public String navbar() throws Exception {
+				
+		return "/navbar";
 
 
+}
 }
