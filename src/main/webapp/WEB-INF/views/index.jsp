@@ -80,6 +80,7 @@ position:absolute;
 </style>
 
 </head>
+<%@ include file="navbar.jsp"%>
 <body>
 
 	<nav>

@@ -256,7 +256,9 @@ body {
 
   <div class="slider">
     <div class="wrapper">
+
         <div style="background-image: url('/assets/images/main.jpg')" class="item item1 active">
+
             <div class="item__info">
                 <p class="item__year"><span>1483 - 1484</span></p>
                 <p class="item__name"><span>BIRH OF VENUS</span></p>

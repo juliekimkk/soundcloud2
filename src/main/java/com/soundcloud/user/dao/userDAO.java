@@ -2,7 +2,11 @@ package com.soundcloud.user.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.soundcloud.user.domain.userVO;
+
+@Service
 
 public interface userDAO {
 
