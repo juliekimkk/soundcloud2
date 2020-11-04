@@ -54,7 +54,7 @@ function get3d(song_singer){
 </head>
 
 <body style="background-color: #f2f2f2;">
-
+<div class="super_class2">
 <%@ include file="navbar.jsp"%>
 	<div class="super_class"
 		style="width: 1200px; height: auto; left: 350px; background-color: white;">
@@ -90,8 +90,8 @@ function get3d(song_singer){
 									<li class="singername"><a href="#" onclick="get3d('${list.song_singer}')">
 											<c:out value="${list.song_singer}" /></a>
 									</li>
-									<li class="songname"><a href="#" style="color: black">노래
-											이름 : <c:out value="${list.song_name}" /></li>
+									<li class="songname"><a href="#" style="color: black">
+											 : <c:out value="${list.song_name}" /></li>
 									<li class="viewcnt"><c:out value="${list.view}" /></li>
 
 

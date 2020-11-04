@@ -41,10 +41,10 @@ response.setDateHeader("Expires", 0);
 		console.log(url);
 	}
 	
-	function fn_getuser(song_no,user_no,play_list) {
+	function fn_getuser(song_no,user_name,play_list) {
 		var url = "${getuser.request.contextPath}/playpage";
 		url = url + "?song_no=" + song_no;
-		url = url + "&user_no=" + user_no;
+		url = url + "&user_name=" + user_name;
 		url = url + "&play_list=" + play_list;
 		location.href = url;
 		console.log(url);
@@ -102,7 +102,7 @@ response.setDateHeader("Expires", 0);
 													<div class="col">
 														<div class="show_image">
 															<a href="#"
-																onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+																onClick="fn_getuser(<c:out value="'${list.song_no}','${list.user_name}','${list.play_list}'"/>)">
 																<img class="img-fluid"
 																src="data:image/jpg;base64,${list.song_pic}" alt="" />
 																<img class="show_play_icon"
@@ -125,13 +125,13 @@ response.setDateHeader("Expires", 0);
 									</div>
 									<div class="carousel-item">
 										<div class="row">
-											<c:forEach var="list" items="${theme}" varStatus="status">
+											<c:forEach var="list" items="${theme2}" varStatus="status">
 												<c:if
 													test="${(status.count < 11 ) and (list.theme == 'chill') and (status.count > 5) }">
 													<div class="col">
 														<div class="show_image">
 															<a href="#"
-																onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+																onClick="fn_getuser(<c:out value="'${list.song_no}','${list.user_name}','${list.play_list}'"/>)">
 																<img class="img-fluid"
 																src="data:image/jpg;base64,${list.song_pic}" alt="" />
 																<img class="show_play_icon"
@@ -206,7 +206,7 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
@@ -231,7 +231,7 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
@@ -301,7 +301,7 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
@@ -326,7 +326,7 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
@@ -396,7 +396,7 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
@@ -421,7 +421,7 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
@@ -491,7 +491,7 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
@@ -516,7 +516,7 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
 															<img class="img-fluid"
 															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"

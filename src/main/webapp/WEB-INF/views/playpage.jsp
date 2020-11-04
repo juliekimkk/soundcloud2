@@ -59,7 +59,26 @@ function zoomOut(event) {
   }
 </script>
 
+<!-- song with DB -->
+<script type="text/javascript">
 
+var track_list = new Array();
+<c:forEach items="${playlist}" var="item">
+track_list.push(
+      {name:"${item.song_name}",
+      artist:"${item.song_singer}",
+      image:"data:image/jpg;base64,${item.song_pic}",
+      path:"data:audio/mp3;base64,${item.song}"}
+   );
+</c:forEach>
+
+for(var i=0; i < track_list.length; i++)
+{
+    var person = JSON.stringify(track_list[i]);
+      var oPerson = JSON.parse(person);
+}
+
+</script>
 
 
 
@@ -78,7 +97,7 @@ function zoomOut(event) {
 
 	function userpage(user_no) {
 		var url = "${getuser.request.contextPath}/perpage/getuser";
-		url = url + "?user_no=" + user_no;
+		url = url + "?user_name=" + user_name;
 		location.href = url;
 		console.log(url);
 	}
@@ -126,7 +145,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 <script src="jquery.fillcolor.js"></script>
 
 
-<link rel="stylesheet" href="/assets/css/play.css">
+<link rel="stylesheet" href="/assets/css/playlist2.css">
 
 <title>playlist page</title>
 
@@ -142,7 +161,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 }
 
 .jumbotron {
-	background-image: url('/assets/images/main.jpg');
+	background-image: url('/assets/images/conangray1.jpg');
 	background-size: cover;
 	text-shadow: black 0.2em 0.2em 0.2em;
 	color: white;
@@ -218,21 +237,21 @@ function changepic(){   //?�진 바꾸?? ?�수
 		</div>
 
 		<div></div>
-		<!-- center ?�쪽 ?��??�보  -->
+		<!-- center userinfo  -->
 		<div style="display: flex;">
 			<tbody>
 				<c:choose>
 					<c:when test="${user_no != null}">
 						<div class="userinfo">
 						  <a href="#"
-						  	onClick="userpage(<c:out value="${user_no[0].user_no}" />)">
+						  	onClick="userpage(<c:out value="${user_no[0].user_name}" />)">
 							<img class="rounded-circle"
 								src="data:image/jpg;base64,${user_no[0].user_pic}" onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)" alt="" /></a>
 								
 								
 								<a href="#"
-								 onClick="userpage(<c:out value="${user_no[0].user_no}" />)">
-								<c:out value="${user_no[0].user_name}">?�안?�오지?</c:out></a>
+								 onClick="userpage(<c:out value="${user_no[0].user_name}" />)">
+								<c:out value="${user_no[0].user_name}"></c:out></a>
 						</div>
 
 						
@@ -241,7 +260,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 			</tbody>
 
 
-			<!-- center ?�른�?? ?�레?�리?�트  -->
+			<!-- center list  -->
 			<div class="playlistContainer">
 				<tbody>
 					<c:choose>
@@ -258,7 +277,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 							<div class="songlist_big">
 								<c:forEach var="list" items="${playlist}" varStatus="status">
 
-									<ul class="songlist_one" >
+									<ul class="songlist_one" style="top:10px;">
 										<li class="thumnails" >
 										<!-- ?�릭?? ?�에 ?��?지 바뀌는 onclick ?�수 -->
 										<a href="#" onclick="get_src(${list.song_no},${list.user_no },'${list.play_list}')">
@@ -307,7 +326,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 			<!-- Define the section for displaying track buttons -->
 			<div class="buttons">
 				<div class="prev-track" onclick="prevTrack()">
-					<i class="fa fa-step-backward fa-2x"></i>
+					<i class="fa fa-step-backward fa-2x" style="top:3px;"></i>
 				</div>
 				
 				<div class="playpause-track" onclick="playpauseTrack()">
@@ -345,13 +364,10 @@ function changepic(){   //?�진 바꾸?? ?�수
 			<div class="track-art">
 			<img class="miniartsize" src="data:image/jpg;base64,${songno[0].song_pic}" /> </div>
 			<div class="track-name-artist" style="display: inline-block";>
-				<div class="track-name"><c:out value="${songno[0].song_singer}" /></div>
+				<div class="track-name"><c:out value="${songno[0].song_singer}" /> : </div>
 				<div class="track-artist"><c:out value="${songno[0].song_name}" /></div>
 				
-				<audio controls="controls"  autoplay>
-									<source src="data:audio/mpeg;base64,${songno[0].song}"
-										type="audio/ogg">
-								</audio>
+				
 			</div>
 		</div>
 

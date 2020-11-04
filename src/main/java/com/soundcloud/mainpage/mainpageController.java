@@ -72,7 +72,7 @@ public class mainpageController {
 	
 
 	@RequestMapping(value = "/playpage", method = RequestMethod.GET)
-	public String test(Model model, @RequestParam("song_no") int song_no, @RequestParam("user_no") int user_no, @RequestParam("play_list") String play_list) throws Exception {
+	public String test(Model model, @RequestParam("song_no") int song_no, @RequestParam("user_name") String user_name, @RequestParam("play_list") String play_list) throws Exception {
 		List<perPageVO> song = perpageDao.getsongs();
 		model.addAttribute("songList", song);
 
@@ -83,8 +83,8 @@ public class mainpageController {
 		model.addAttribute("songno", songno);
 
 
-		List<userVO> userno = userDao.getuserbyuserno2(user_no);
-		model.addAttribute("user_no", userno);
+		List<userVO> username = userDao.getuserbyusername(user_name);
+		model.addAttribute("user_name", user_name);
 		
 		List<perPageVO> playlist = perpageDao.getsongbyplaylist(play_list);
 		model.addAttribute("playlist", playlist);

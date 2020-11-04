@@ -28,14 +28,14 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="container" style="width: 100%;">
+<div class="container">
 
 	<!------------- Navbar -------------->
 	<nav class="navbar navbar-inverse bs-dark">
 
 
 		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1" style="height: 17px;">
+			id="bs-example-navbar-collapse-1" style="height: 30px;">
 
 
 			<ul class="nav navbar-nav">
@@ -75,36 +75,27 @@
 			<sec:authentication property="principal" var="pinfo" />
 			<sec:authorize access="isAuthenticated()">
 
-				<ul class="nav navbar-nav" style="width: 150px;">
-					<li class="dropdown"><a href="#"
-						class="dropdown-toggle navbar-img" data-toggle="dropdown"
-						role="button" aria-haspopup="true" aria-expanded="false">
-							Account <img src="http://placehold.it/150x150" class="img-circle"
-							alt="Profile Image" />
-					</a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Profile</a></li>
-							<li><a href="#">Inbox</a></li>
-							<li><a href="#">Followers</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="#">Settings</a></li>
-						</ul></li>
+				<ul class="nav navbar-nav" style="width: 300px;">
+
+
 
 					<li class="active" style="right: 0px;"><a href="#">Logout
 							<span class="sr-only">(current)</span>
 					</a></li>
-					<li class="active" style="right: 0px;"><a href="/perpage/getuser?user_name=${pinfo.username }">Mypage
-							<span class="sr-only">(current)</span>
+					<li class="active" style="right: 0px;"><a
+						href="/perpage/getuser?user_name=${pinfo.username }">Mypage <span
+							class="sr-only">(current)</span>
 					</a></li>
+				</ul>	
 			</sec:authorize>
-			</ul>
+			
 
 		</div>
 
 
 	</nav>
 
-	<div></div>
+
 </div>
 
 

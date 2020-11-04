@@ -13,12 +13,13 @@
 	display:inline-block;
 	display:float;
 }
-container{
+.container{
+	position:relative;
 	text-align:center;
-	width:1600px;
+	
 	magin:0px;
 	padding:0px;
-	 position: fixed;
+
 
 }
 
@@ -49,6 +50,7 @@ container{
 
 
 .bs-dark.navbar-inverse {
+  
   background-color: #222;
   border-color: #080808;
 }
