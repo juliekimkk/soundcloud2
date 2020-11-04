@@ -46,6 +46,26 @@
 
 
 
+<script type="text/javascript">
+
+var track_list = new Array();
+<c:forEach items="${playlist}" var="item">
+track_list.push(
+		{name:"${item.song_name}",
+		artist:"${item.song_singer}",
+		image:"data:image/jpg;base64,${item.song_pic}",
+		path:"data:audio/mp3;base64,${item.song}"}
+	);
+</c:forEach>
+
+for(var i=0; i < track_list.length; i++)
+{
+	 var person = JSON.stringify(track_list[i]);
+	   var oPerson = JSON.parse(person);
+}
+
+</script>
+
 
 
 
@@ -242,14 +262,19 @@ function changepic(){   //?�진 바꾸?? ?�수
 						<c:when test="${playlist != null}">
 							<div class="songlist_big">
 								<c:forEach var="list" items="${playlist}" varStatus="status">
-
+<%-- <audio controls>
+											<source src="data:audio/mp3;base64,${list.song}" />
+											</audio> --%>
 									<ul class="songlist_one" >
+										<li> 
+										</li>
 										<li class="thumnails" >
 										<!-- ?�릭?? ?�에 ?��?지 바뀌는 onclick ?�수 -->
 										<a href="#" onclick="get_src(${list.song_no},${list.user_no },'${list.play_list}')">
 										<img class="img-fluid" src="data:image/jpg;base64,${list.song_pic}" alt="" /> 
 										
-										<img class="show_play_icon" src="<c:url value="/assets/images/play_logo.svg" />"  />
+										<img class="show_play_icon" src="<c:url value="/assets/images/play_logo.svg" />"
+										  />
 										</a></li>
 										
 										<li class="songno" ><a href="#"> <c:out value="${list.song_no}" /></a></li>
@@ -332,16 +357,16 @@ function changepic(){   //?�진 바꾸?? ?�수
 <c:when test="${playlist != null}">
 
 		<div class="details">
+		
+      <!-- <div class="now-playing">PLAYING x OF y</div> -->
 			<div class="track-art">
 			<img class="miniartsize" src="data:image/jpg;base64,${songno[0].song_pic}" /> </div>
 			<div class="track-name-artist" style="display: inline-block";>
-				<div class="track-name"><c:out value="${songno[0].song_singer}" /></div>
-				<div class="track-artist"><c:out value="${songno[0].song_name}" /></div>
+				<div class="track-name"></div>
+				<div class="track-artist"></div>
 				
-			<%-- 	<audio controls="controls"  autoplay>
-									<source src="data:audio/mpeg;base64,${songno[0].song}"
-										type="audio/ogg">
-								</audio> --%>
+							
+		
 								
 								
 			</div>
