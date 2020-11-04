@@ -1,9 +1,11 @@
-package com.soundcloud.controller;
+﻿package com.soundcloud.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +19,10 @@ import com.soundcloud.service.MemberService;
 import com.soundcloud.user.dao.userDAO;
 import com.soundcloud.user.domain.userVO;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
+@Service
 @Controller
 @Log4j
 @RequestMapping("/member/*") 
@@ -26,15 +30,16 @@ import lombok.extern.log4j.Log4j;
 	  "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 	  "file:src/main/webapp/WEB-INF/spring/security-context.xml"
 	  })
+@Component
 public class MemberRegister {
 
 	@Autowired
-	private MemberService service;
+	private userDAO dao;
 	@Autowired
 	private userVO vo;
 	@Autowired
-	private userDAO dao;
-
+	private MemberService service;
+	
 	
 	@GetMapping("/join")
 	public void memberJoin() {
@@ -52,14 +57,15 @@ public class MemberRegister {
 		
 		String pw = membervo.getUserpw();
 		
-		log.info("register pw: " + pw);
-		
-		vo.setE_mail(membervo.getUseremail());
-		vo.setUser_name(membervo.getUserName());
 		vo.setUser_id(membervo.getUserid());
 		vo.setUser_password(membervo.getUserpw());
+		vo.setUser_name(membervo.getUserName());
+		vo.setE_mail(membervo.getUseremail());
+		
+		log.info("register pw: " + pw);
 
-		service.register(membervo);
+		
+		service.register(membervo);	
 		dao.insertuser(vo);
 
 		/* rttr.addFlashAttribute("result", member.getUserName()); */

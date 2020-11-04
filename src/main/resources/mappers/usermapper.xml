@@ -31,13 +31,12 @@
 		parameterType="com.soundcloud.user.domain.userVO">
 
 		insert into user(user_id, user_password, user_name,
-		e_mail, user_pic)
+		e_mail)
 		value(
 		#{user_id},
 		#{user_password},
 		#{user_name},
-		#{e_mail},
-		#{user_pic}
+		#{e_mail}
 		)
 
 	</insert>

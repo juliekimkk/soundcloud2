@@ -71,6 +71,8 @@
 				<a href="insert?user_name=${pinfo.username }">노래넣기</a>
 				<a href="userupdate?user_name=${pinfo.username }">회원정보수정</a>
 			</c:if>
+			<c:out value="${pinfo.username }"/>
+			<c:out value="${user[0].user_name }"/>
 		</sec:authorize>
 	</div>
 	<div>

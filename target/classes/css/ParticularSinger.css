@@ -1,8 +1,17 @@
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gamja+Flower&family=Play&family=Teko:wght@500&family=Titillium+Web&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Poppins:100,300,400,500,600,700,800,900');
+
+
+
+*{
+	font-family: 'Play', sans-serif;
+}
 
 
 li {
   list-style:none;
+  
 }
 
 ul
@@ -11,11 +20,26 @@ ul
 	margin-bottom: 0px;
 }
 
+ul a{
+	font-family: 'Play', sans-serif;
+	
+	color:black;
+
+	text-align:left;
+}
+
 img
 {
 	max-width: 500%;
 }
 
+
+.super_class{
+	position:absolute;
+	
+	width:1200px;
+	left:300px;
+}
 .playlistContainer{
 	display:flex;
 	flex-direction:column;
@@ -86,16 +110,12 @@ img
 	top:0px;
 }
 
-.songno{
-	position:absolute;
-	left:0px;
-	width:20px;
-	height:40px;
-}
+
 .singername {
 	position:absolute;
+	top:5px;
 	left:300px;
-	width:50px;
+	width:200px;
 	height:40px;
 	font-size:15px;
 	color:#000000;
@@ -104,11 +124,12 @@ img
 }
 .songname{
 	position:absolute;
-	border: solid red;
+	top:5px;
+font-family: 'Play', sans-serif;
 	left:400px;
 	width:400px;
 	height:40px;
-	font-size:17px;
+	font-size:15px;
 	font-color:#000000;
 }
 
@@ -117,6 +138,7 @@ img
 	left:820px;
 	width:80px;
 	height:40px;
+	top:5px;
 }
 
 
@@ -371,6 +393,83 @@ i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward {
   cursor: pointer;
   float:right;
 
+  
+.trackInfo{ 
+	display:flex;
+	width:1200px;
+	height:380px; 
+	background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#ffc1e2 80%,#e8e5dc 98%,#e5e5e5 100%); 
+/* 	 background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#c7d4db 80%,#e8e5dc 98%,#e5e5e5 100%);   */
+/* 	 background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#dbbafc 80%,#e8e5dc 98%,#e5e5e5 100%); 라벤더 */
+/* 	 background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 98%,#e5e5e5 100%);   */
+/* 	background: -webkit-linear-gradient(left, #d3d3d3 0%,#f2f2f2 2%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 98%,#d3d3d3 100%); 양쪽 다 진한 회색 넣은 그레이블루  */
+/* 	background: -webkit-linear-gradient(left, #b8caed 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 98%,#b8caed 100%); 양쪽 다 진한 블루 넣은 그레이블루 */
+/* 	background: -webkit-linear-gradient(left, #d3d3d3 0%,#f2f2f2 2%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 100%); 왼쪽만 진한 회색넣은 그레이블루 */
+/* 	background: -webkit-linear-gradient(left, #f2f2f2 0%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 100%); 배경색이랑 같은그레이블루 */
+/* 	background: -webkit-linear-gradient(left, #e8e5dc 0%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 100%); 그레이블루 */
+/*  background: radial-gradient(ellipse at left, #e66465, transparent), radial-gradient(ellipse at right, #4d9f0c, transparent); 그라데이션 */
+/*  background: -webkit-linear-gradient(left, #9a901e 0%,#fff600 0%,#ff5454 14%,#ed9092 25%,#ff2b83 51%,#ed9092 67%,#ed9092 75%,#ff5454 84%,#fff600 100%);  */
+/*  background: -webkit-linear-gradient(left, #9a901e 0%,#ffffff 0%,#f7d2f3 0%,#f7f7f7 28%,#f7f7f7 28%,#eeccff 89%,#e8e5dc 100%); */
+
+/*   background: #ff6c99;
+background: -webkit-repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%); 
+background: -o-repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%); 
+background: -moz-repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%); 
+background: repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%);
+막대사탕 */
+   
+  
+}
+.trackinfo{
+
+	width:1000px;
+	
+}
+.trackinfo_player_button{
+	top:43px;
+	left:30px;
+}
+.player{
+	top:43px;
+	left:10px;
+	width:50px;
+	height:50px;
+}
+
+.trackinfo_user_name{
+	width:200px;
+	top:30px;
+	left:50px;
+	font-size:20px;
+	text-align: left;
+	font-weight:700px;
+	background-color:#f1eae9;
+	border-radius:30px /30px;
+	text-shadow: 0 0 3px #fe1bfe, 0 0 5px #ffffff;
+}
+
+.trackinfo_song_play_list{
+	width:200px;
+	top:40px;
+	left:50px;
+	font-size:30px;
+	text-align: left;
+	font-weight:400px bold;
+	background-color:#f1eae9;
+	text-shadow: 0 0 3px #fe1bfe, 0 0 5px #ffffff;
+	border-radius: 40px / 40px;
+}
+
+.trackinfo_song_pic{
+	position:relative;
+	width:340px;
+	height:340px;
+	bottom:100px;
+	left:750px;
+	margin:40px;
+}
+  
+  
   
   
 }
