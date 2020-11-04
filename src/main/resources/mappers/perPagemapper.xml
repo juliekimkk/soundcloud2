@@ -64,17 +64,15 @@
 		parameterType="com.soundcloud.perPage.domain.perPageVO">
 
 		update songs set
-
-		user_name = #{user_name},
-
-		song_name =
-		#{song_name},
-
-		theme =
-		#{theme},
-
-		play_list =
-		#{play_list}
+		
+		song_pic =
+		#{song_pic},
+		
+		song =
+		#{song},
+		
+		path = 
+		#{path}
 
 		where song_no =
 		#{song_no}

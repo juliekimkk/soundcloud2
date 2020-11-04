@@ -10,12 +10,12 @@ response.setDateHeader("Expires", 0);
 <html>
 <head>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 
 
 
-
-<link
-	href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
+<link href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link href="/assets/plugins/colorbox/colorbox.css" rel="stylesheet"
 	type="text/css">
@@ -56,6 +56,16 @@ response.setDateHeader("Expires", 0);
 </head>
 <body>
 	<section style="border: 1px solid red;">
+		<sec:authentication property="principal" var="pinfo" />
+		<sec:authorize access="isAuthenticated()">
+			<c:if test="${!empty pinfo.username }">
+				<a href="/logout">로그아웃</a>
+				<a href="/perpage/getuser?user_name=${pinfo.username }">마이페이지</a>
+			</c:if>
+			<c:if test="${empty pinfo.username }">
+				<a href="/Index">목록가기</a>
+			</c:if>
+		</sec:authorize>
 		<div class="together" style="border: 1px dashed magenta;">
 			<div class="container" style="border: 1px solid blue;">
 				<hr class="my-1">
@@ -478,7 +488,7 @@ response.setDateHeader("Expires", 0);
 														<a href="#"
 															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
 															<img class="img-fluid"
-															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
+																src="${list.path}${list.song_pic }" alt="" /> <img
 															class="show_play_icon"
 															src="<c:url value="/assets/images/play.svg" />" />
 														</a>

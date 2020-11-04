@@ -15,11 +15,11 @@
 	</select>
 	
 	<select id="getuserbyuserno" resultType="com.soundcloud.user.domain.userVO">
-		select user.* from user where user_no = #{user_no}
+		select * from user where user_no = #{user_no}
 	</select>
 	
 	<select id="getuserbyusername" resultType="com.soundcloud.user.domain.userVO">
-		select user.* from user where user_name = #{user_name}
+		select * from user where user_name = #{user_name}
 	</select>
 
 	<select id="getuserbyuserno2" resultType="com.soundcloud.user.domain.userVO">
@@ -50,8 +50,8 @@
 		user_name = #{user_name},
 		e_mail =
 		#{e_mail},
-		user_password = #{user_password},
-		user_pic = #{user_pic}
+		user_pic = #{user_pic},
+		path = #{path}
 
 		where user_no = #{user_no}
 

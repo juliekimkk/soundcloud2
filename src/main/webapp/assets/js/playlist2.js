@@ -19,31 +19,8 @@ let updateTimer;
 // Create new audio element
 let curr_track = document.createElement('audio');
 
-// Define the tracks that have to be played
-/*let track_list = [
-  {
-    name: "Night Owl",
-    artist: "Broke For Free",
-    image: "https://images.pexels.com/photos/2264753/pexels-photo-2264753.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
-    path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/WFMU/Broke_For_Free/Directionless_EP/Broke_For_Free_-_01_-_Night_Owl.mp3"
-  },
-  {
-    name: "Enthusiast",
-    artist: "Tours",
-    image: "https://images.pexels.com/photos/3100835/pexels-photo-3100835.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
-    path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Tours/Enthusiast/Tours_-_01_-_Enthusiast.mp3"
-  },
-  {
-    name: "Shipping Lanes",
-    artist: "Chad Crouch",
-    image: "https://images.pexels.com/photos/1717969/pexels-photo-1717969.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
-    path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Chad_Crouch/Arps/Chad_Crouch_-_Shipping_Lanes.mp3",
-  },
-];*/
 
-
-
-/*function loadTrack(track_index) {
+function loadTrack(track_index) {
   clearInterval(updateTimer);
   resetValues();
   curr_track.src = track_list[track_index].path;
@@ -52,13 +29,13 @@ let curr_track = document.createElement('audio');
 
   track_name.textContent = track_list[track_index].name;
   track_artist.textContent = track_list[track_index].artist;
-  now_playing.textContent = "PLAYING " + (track_index + 1) + " OF " + track_list.length;
+  /*now_playing.textContent = "PLAYING " + (track_index + 1) + " OF " + track_list.length;*/
 
   updateTimer = setInterval(seekUpdate, 1000);
   curr_track.addEventListener("ended", nextTrack);
-  random_bg_color();
+  /*random_bg_color();*/
 }
-*/
+
 /*function random_bg_color() {
 
   // Get a number between 64 to 256 (for getting lighter colors)
@@ -72,7 +49,22 @@ let curr_track = document.createElement('audio');
   // Set the background to that color
   document.body.style.background = bgColor;
 }*/
+/*if (song.canPlayType('audio/mpeg;')) {
+     song.type= 'audio/mpeg';
+     song.src= 'music/track1.mp3';
+   } else {
+     song.type= 'audio/ogg';
+     song.src= 'music/track1.ogg';
+   }
+   
+   var audioFile = new Audio('C://Users//lenovo//Download//jin.mp3');
 
+   audioFile.pause();
+   audioFile.currentTime = 0;*/
+   
+   
+   
+   
 function resetValues() {
   curr_time.textContent = "00:00";
   total_duration.textContent = "00:00";
@@ -147,4 +139,4 @@ function seekUpdate() {
     total_duration.textContent = durationMinutes + ":" + durationSeconds;
   }
 }
-
+s
