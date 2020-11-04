@@ -14,6 +14,7 @@
 </head>
 <body>
 
+<%@ include file="navbar.jsp"%>
 
 	<div id="footer">
 
