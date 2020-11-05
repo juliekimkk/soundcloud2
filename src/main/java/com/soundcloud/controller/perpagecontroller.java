@@ -242,5 +242,27 @@ public class perpagecontroller {
 		return "perpage/userpage";
 	}
 	
-
+	@RequestMapping(value ="/getsongno" , method = RequestMethod.GET)
+	public String getsongno(@RequestParam(value="song_no") int song_no) throws Exception{
+		String path = perpageDao.getsongbysongno(song_no).get(0).getPath();
+		String songname = perpageDao.getsongbysongno(song_no).get(0).getSong();
+		
+		String getsong = path + songname;
+		
+		return getsong;
+	}
+	
+	@RequestMapping(value ="/updatesongpro", method = RequestMethod.GET)
+	public String updatesong(@ModelAttribute perPageVO vo,@RequestParam(value="song_no")int song_no,
+			@RequestParam(value = "songpic") MultipartFile song_pic,
+			@RequestParam(value = "song_") MultipartFile song) throws Exception{
+		
+		return "redirect:getuser?user_name=" + vo.getUser_name();
+	}
+	
+	/*
+	 * @RequsetMapping(value ="/updatesong", method + RequestMethod.POST) pubplic
+	 * String
+	 * 
+	 */
 }

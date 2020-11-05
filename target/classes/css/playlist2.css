@@ -1,4 +1,4 @@
-#footer{
+﻿#footer{
   position: fixed;
   display: flex;
   background-color:#F2F2F2;/*임의색상*/
@@ -21,7 +21,6 @@
 } */
 /* body {
  
-
   Smoothly transition the background color
   transition: background-color .5s;
 } */
@@ -214,7 +213,7 @@ width: 1000px;
 .seek_slider:hover, .volume_slider:hover {
   opacity: 1.0;
   display:flex;
-  top:30px
+  top:30px;
    float:right;
 }
 
