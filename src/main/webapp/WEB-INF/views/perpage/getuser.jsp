@@ -6,7 +6,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
-
+<link rel="stylesheet" type="text/css"
+	href="/assets/css/ParticularSinger.css">
+<meta charset="utf-8">
+	<script type="text/javascript" src="/assets/js/playlist2.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -71,8 +80,6 @@
 				<a href="insert?user_name=${pinfo.username }">노래넣기</a>
 				<a href="userupdate?user_name=${pinfo.username }">회원정보수정</a>
 			</c:if>
-			<c:out value="${pinfo.username }"/>
-			<c:out value="${user[0].user_name }"/>
 		</sec:authorize>
 	</div>
 	<div>
@@ -85,18 +92,6 @@
 			<img id="userpic_" src="${user[0].path}${user[0].user_pic }"
 				onerror="this.src='/assets/pngegg.png'">
 		</div>
-
-		<ul class="menu">
-			<li>메뉴1</li>
-
-			<li>메뉴2</li>
-
-			<li>메뉴3</li>
-
-			<li>메뉴4</li>
-
-			<li>메뉴5</li>
-		</ul>
 
 		<%-- <tbody>
 		<c:choose>

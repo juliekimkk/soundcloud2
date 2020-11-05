@@ -30,6 +30,29 @@
 		song_no = #{song_no}
 
 	</select>
+	<select id="getsongbysongno2"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs where
+		song_no = #{song_no}
+
+	</select>
+	
+	<select id="getnextsong"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs where
+		song_no > #{song_no} and user_name = #{user_name} and play_list = #{play_list}
+
+	</select>
+	
+	<select id="getprevsong"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs where
+		#{song_no} > song_no and user_name = #{user_name} and play_list = #{play_list} order by song_no desc
+
+	</select>
 
 	<insert id="insertsong"
 		parameterType="com.soundcloud.perPage.domain.perPageVO">

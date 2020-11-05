@@ -73,7 +73,7 @@ response.setDateHeader("Expires", 0);
 		<sec:authentication property="principal" var="pinfo" />
 		<sec:authorize access="isAuthenticated()">
 			<c:if test="${!empty pinfo.username }">
-				<a href="/logout">로그아웃</a>
+				<a href="/customLogout">로그아웃</a>
 				<a href="/perpage/getuser?user_name=${pinfo.username }">마이페이지</a>
 			</c:if>
 			<c:if test="${empty pinfo.username }">
@@ -143,9 +143,9 @@ response.setDateHeader("Expires", 0);
 													<div class="col">
 														<div class="show_image">
 															<a href="#"
-																onClick="fn_getuser(<c:out value="'${list.song_no}','${list.user_name}','${list.play_list}'"/>)">
+																onClick="fn_getuser(<c:out value="'${list.song_no}',${list.user_name},'${list.play_list}'"/>)">
 																<img class="img-fluid"
-																src="data:image/jpg;base64,${list.song_pic}" alt="" />
+																src="${list.path}${list.song_pic}" alt="" />
 																<img class="show_play_icon"
 																src="<c:url value="/assets/images/play.svg" />" />
 															</a>
@@ -503,7 +503,7 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},'${list.user_name}','${list.play_list}'"/>)">
 															<img class="img-fluid"
 																src="${list.path}${list.song_pic }" alt="" /> <img
 															class="show_play_icon"

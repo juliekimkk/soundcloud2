@@ -260,8 +260,9 @@ public class perpagecontroller {
 		return "redirect:getuser?user_name=" + vo.getUser_name();
 	}
 	
-	@RequsetMapping(value ="/updatesong", method + RequestMethod.POST)
-	pubplic String
-	
-
+	/*
+	 * @RequsetMapping(value ="/updatesong", method + RequestMethod.POST) pubplic
+	 * String
+	 * 
+	 */
 }
