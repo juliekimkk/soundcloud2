@@ -19,41 +19,17 @@ let updateTimer;
 // Create new audio element
 let curr_track = document.createElement('audio');
 
-// Define the tracks that have to be played
-let track_list = [
-  {
-      name: "night",
-        artist: "jin",
-        image: "https://images.pexels.com/photos/2264753/pexels-photo-2264753.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
-        path: "../assets/song/jin.mp3"
-      },
-      {
-        name: "please",
-        artist: "Tours",
-        image: "https://images.pexels.com/photos/3100835/pexels-photo-3100835.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
-        path: "../assets/song/iknow.mp3"
-      },
-      {
-        name: "Shipping Lanes",
-        artist: "Chad Crouch",
-        image: "https://images.pexels.com/photos/1717969/pexels-photo-1717969.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
-        path: "../assets/song/suga.mp3",
-      },
-{
-        name: "Shipping Lanes",
-        artist: "Chad Crouch",
-        image: "https://images.pexels.com/photos/1717969/pexels-photo-1717969.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
-        path: "../assets/song/suga.mp3",
-      },
-    ];
-
-
 
 function loadTrack(track_index) {
   clearInterval(updateTimer);
   resetValues();
   curr_track.src = track_list[track_index].path;
   curr_track.load();
+  curr_track.play();
+  isPlaying = true;
+  playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-2x"></i>';
+
+
 
 
   track_name.textContent = track_list[track_index].name;
@@ -66,34 +42,30 @@ function loadTrack(track_index) {
 }
 
 /*function random_bg_color() {
-
   // Get a number between 64 to 256 (for getting lighter colors)
   let red = Math.floor(Math.random() * 256) + 64;
   let green = Math.floor(Math.random() * 256) + 64;
   let blue = Math.floor(Math.random() * 256) + 64;
-
   // Construct a color withe the given values
   let bgColor = "rgb(" + red + "," + green + "," + blue + ")";
-
   // Set the background to that color
   document.body.style.background = bgColor;
 }*/
 /*if (song.canPlayType('audio/mpeg;')) {
-  	song.type= 'audio/mpeg';
-  	song.src= 'music/track1.mp3';
-	} else {
-  	song.type= 'audio/ogg';
-  	song.src= 'music/track1.ogg';
-	}
-	
-	var audioFile = new Audio('C://Users//lenovo//Download//jin.mp3');
-
-	audioFile.pause();
-	audioFile.currentTime = 0;*/
-	
-	
-	
-	
+     song.type= 'audio/mpeg';
+     song.src= 'music/track1.mp3';
+   } else {
+     song.type= 'audio/ogg';
+     song.src= 'music/track1.ogg';
+   }
+   
+   var audioFile = new Audio('C://Users//lenovo//Download//jin.mp3');
+   audioFile.pause();
+   audioFile.currentTime = 0;*/
+   
+   
+   
+   
 function resetValues() {
   curr_time.textContent = "00:00";
   total_duration.textContent = "00:00";
@@ -120,22 +92,22 @@ function pauseTrack() {
   playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-2x"></i>';;
 }
 
-function nextTrack() {
+/*function nextTrack() {
   if (track_index < track_list.length - 1)
     track_index += 1;
   else track_index = 0;
   loadTrack(track_index);
   playTrack();
-}
+}*/
 
-function prevTrack() {
+/*function prevTrack() {
   if (track_index > 0){
     track_index -= 1;
 }
   else track_index = track_list.length;
   loadTrack(track_index);
   playTrack();
-}
+}*/
 
 function seekTo() {
   seekto = curr_track.duration * (seek_slider.value / 100);
@@ -168,4 +140,3 @@ function seekUpdate() {
     total_duration.textContent = durationMinutes + ":" + durationSeconds;
   }
 }
-

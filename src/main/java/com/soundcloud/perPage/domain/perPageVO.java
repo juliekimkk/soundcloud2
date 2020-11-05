@@ -1,7 +1,5 @@
 package com.soundcloud.perPage.domain;
 
-import java.io.File;
-
 public class perPageVO {
 
 	private int song_no;

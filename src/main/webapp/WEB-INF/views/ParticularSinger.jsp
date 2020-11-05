@@ -79,7 +79,7 @@ function get3d(song_singer){
 									<li class="thumnails">
 										<!-- 클릭시 위에 이미지 바뀌는 onclick 함수 --> <a href="#"><img
 											class="img-fluid"
-											src="data:image/jpg;base64,${list.song_pic}" onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)" alt="" /> <img
+											src="${list.path }${list.song_pic}" onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)" alt="" /> <img
 											class="show_play_icon"
 											src="<c:url value="assets/images/orangeplaybutton.png" />" />
 
@@ -133,7 +133,7 @@ function get3d(song_singer){
 										<!--mini track  -->
 										<div class="details">
 											<div class="track-art"
-												src="data:image/jpg;base64,${songno[0].song_pic}" /></div>
+												src="${songno[0].path }${songno[0].song_pic}" /></div>
 											<div class="track-name-artist" style="display: inline-block";>
 												<div class="track-name">
 													<c:out value="${songno[0].song_singer}" />
@@ -145,7 +145,7 @@ function get3d(song_singer){
 										</div>
 
 										<audio controls="controls" autoplay>
-											<source src="data:audio/mpeg;base64,${songno[0].song}"
+											<source src="${songno[0].path }${songno[0].song}"
 												type="audio/ogg">
 										</audio>
 
