@@ -37,6 +37,8 @@
         
         
         <wb-resource deploy-path="/" source-path="/src/main/resources"/>
+                        
+        
                                 
         
         

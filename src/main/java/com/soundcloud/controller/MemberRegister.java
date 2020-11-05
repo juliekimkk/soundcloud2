@@ -1,9 +1,11 @@
-package com.soundcloud.controller;
+﻿package com.soundcloud.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,14 +21,15 @@ import com.soundcloud.user.domain.userVO;
 
 import lombok.extern.log4j.Log4j;
 
+@Service
 @Controller
 @Log4j
 @RequestMapping("/member/*") 
-
 @ContextConfiguration({
 	  "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 	  "file:src/main/webapp/WEB-INF/spring/security-context.xml"
 	  })
+@Component
 public class MemberRegister {
 
 	@Autowired
@@ -35,12 +38,11 @@ public class MemberRegister {
 	private userVO vo;
 	@Autowired
 	private MemberService service;
-
 	
 	@GetMapping("/join")
 	public void memberJoin() {
 
-		log.info("?�원가?�하�? : ");
+		log.info("?�원가?�하�?? : ");
 
 	}
 
@@ -60,7 +62,8 @@ public class MemberRegister {
 		vo.setUser_name(membervo.getUserName());
 		vo.setUser_password(membervo.getUserpw());
 
-		service.register(membervo);
+		
+		service.register(membervo);	
 		dao.insertuser(vo);
 
 		/* rttr.addFlashAttribute("result", member.getUserName()); */

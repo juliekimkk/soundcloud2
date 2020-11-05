@@ -1,4 +1,4 @@
-#footer{
+﻿#footer{
   position: fixed;
   display: flex;
   background-color:#F2F2F2;/*임의색상*/
@@ -9,7 +9,10 @@
   /* float:left; */
   height: 4rem;
   color:black;
+<<<<<<< HEAD
 
+=======
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 }
 
 /* #contetns{
@@ -53,7 +56,11 @@
 /*   top: 0;
   left: 0; */
 /*   height:65px; */
+<<<<<<< HEAD
 /*   background-color: #ff8040; */
+=======
+  background-color: #ff8040;
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
   /* overflow-x: hidden; */
  /*  width:23%; */
   display: flex;
@@ -85,12 +92,18 @@
 
   float:right;
   flex-direction: row;
+<<<<<<< HEAD
   /* width:40%; */
   max-width: 250px;
+=======
+  width:30%;
+  max-width: 300px;
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
   display:flex;
   justify-content: center;
  
 }
+<<<<<<< HEAD
 .slider_container2 {
 
   float:right;
@@ -103,6 +116,10 @@
 }
 .range{
    position:relative;
+=======
+.range{
+	position:relative;
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 width: 1000px;
 }
 
@@ -119,22 +136,32 @@ width: 1000px;
 }
 
 .miniartsize{
+<<<<<<< HEAD
    postion:relative;
    width:50px;
    height:50px;
    justify-content: center;
    
    
+=======
+	postion:relative;
+	width:50px;
+	height:50px;
+	justify-content: center;
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 }
 
 .track-name-artist {
   font-size: 0.8rem;
   width: 200px;
   float:left;
+<<<<<<< HEAD
   justify-content: space-between;
   position:absolute;
   top:50%;
   transform: translate(0, -50%)
+=======
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 
   
 }
@@ -230,23 +257,40 @@ width: 1000px;
 .seek_slider:hover, .volume_slider:hover {
   opacity: 1.0;
   display:flex;
-  top:30px
+  top:30px;
    float:right;
 }
 
 .seek_slider {
+<<<<<<< HEAD
   width: 500px;
   float:right;
   position:relative;
   top:18px;
+=======
+  width: 1000px;
+  float:right;
+  position:relative;
+  top:18px;
+  
+ 
+  
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 }
 
 
 .volume_slider {
+<<<<<<< HEAD
  /*  width: 300px; */
   float:right;
   position:relative;
   top:20px;
+=======
+  width: 300px;
+  float:right;
+  position:relative;
+  top:18px;
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
  
 }
 
@@ -275,10 +319,19 @@ i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward {
 
 /*soundbar*/
 .track-name, .track-artist{
+<<<<<<< HEAD
       color:black;
    position:relative;
    text-align:right;
       font-size: 14px;
    font-weight: 400;
    display:float;
+=======
+		color:black;
+	position:relative;
+	text-align:right;
+		font-size: 14px;
+	font-weight: 400;
+	display:float;
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 }

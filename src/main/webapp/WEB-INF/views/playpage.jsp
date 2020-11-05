@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+﻿<%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="/assets/css/playlist2.css">
 
 
+<<<<<<< HEAD
 <link href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link href="/assets/plugins/colorbox/colorbox.css" rel="stylesheet"
@@ -19,6 +20,13 @@
 <link rel="stylesheet" type="text/css" href="/assets/css/playpage.css">
 <link rel="stylesheet" type="text/css"
 	href="/assets/styles/bootstrap-4.1.2/bootstrap.min.css">
+=======
+<link href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/assets/css/playpage.css">
+<link rel="stylesheet" type="text/css"
+	href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
@@ -37,12 +45,17 @@
 
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+<<<<<<< HEAD
 <script>
 /* 	$(function() {
+=======
+<!-- <script>
+	$(function() {
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 		objectFitImages()
 	}); */
 </script>
-
+ -->
 
 <script>
 function zoomIn(event) {
@@ -57,6 +70,22 @@ function zoomOut(event) {
   }
 </script>
 
+<<<<<<< HEAD
+<script>
+function zoomIn(event) {
+    event.target.style.transform = "scale(1.2)";
+    event.target.style.zIndex = 1;
+    event.target.style.transition = "all 0.5s";
+  }
+function zoomOut(event) {
+    event.target.style.transform = "scale(1)";
+    event.target.style.zIndex = 0;
+    event.target.style.transition = "all 0.5s";
+  }
+</script>
+
+=======
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 <!-- song with DB -->
 <script type="text/javascript">
 var track_list = new Array();
@@ -103,15 +132,34 @@ for(var i=0; i < track_list.length; i++)
 	}
 	
 	/*?�릭?�을?? src주소가 바뀌어?? ?��?지�?? ?�른?�치?? 뿌려주는�?? */
-	function get_src(song_no,user_no,play_list){
+	function get_src(song_no,user_name,play_list){
 		var url = "${getuser.request.contextPath}/playpage";
 		url = url + "?song_no=" + song_no;
-		url = url + "&user_no=" + user_no;
+		url = url + "&user_name=" + user_name;
 		url = url + "&play_list=" + play_list;
 		location.href = url;
 		console.log(url);
 	}
 	
+<<<<<<< HEAD
+=======
+	function next_song(song_no,user_name,play_list){
+		var url = "${getuser.request.contextPath}/nextsong";
+		url = url + "?song_no=" + song_no;
+		url = url + "&user_name=" + user_name;
+		url = url + "&play_list=" + play_list;
+		location.href = url;
+	}
+	
+	function prev_song(song_no,user_name,play_list){
+		var url = "${getuser.request.contextPath}/prevsong";
+		url = url + "?song_no=" + song_no;
+		url = url + "&user_name=" + user_name;
+		url = url + "&play_list=" + play_list;
+		location.href = url;
+	}
+	
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 </script>
 <script>
 var bigPic = document.querySelector("#big");            //?? ?�진
@@ -131,7 +179,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 }
 </script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="jquery.fillcolor.js"></script>
+<script src="/assets/jquery.fillcolor.js"></script>
 
 
 <link rel="stylesheet" href="/assets/css/playlist2.css">
@@ -211,12 +259,20 @@ function changepic(){   //?�진 바꾸?? ?�수
 							</div>
 							<div>
 								<img class="trackinfo_song_pic"
+<<<<<<< HEAD
 									src="${songno[0].path}${songno[0].song_pic}" />
+=======
+									src="${songno[0].path }${songno[0].song_pic}" />
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 							</div>
 						</div>
 
 
+<<<<<<< HEAD
 						<%@ include file="songpic.jsp"%>
+=======
+						<%-- <%@ include file="songpic.jsp"%> --%>
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 
 
 
@@ -229,6 +285,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 		<!-- center userinfo  -->
 		<div style="display: flex;">
 			<tbody>
+<<<<<<< HEAD
 				<c:choose>
 					<c:when test="${user_no != null}">
 						<div class="userinfo">
@@ -247,6 +304,22 @@ function changepic(){   //?�진 바꾸?? ?�수
 
 					</c:when>
 				</c:choose>
+=======
+
+				<div class="userinfo">
+					<a href="#"
+						onClick="userpage(<c:out value="${user_no[0].user_name}" />)">
+						<img class="rounded-circle"
+						src="${user_no[0].path }${user_no[0].user_pic}"
+						onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)" alt=""
+						onerror="this.src='/assets/pngegg.png'" />
+					</a> <a href="#"
+						onClick="userpage(<c:out value="${user_no[0].user_name}" />)">
+						<c:out value="${user_no[0].user_name}"></c:out>
+					</a>
+				</div>
+
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 			</tbody>
 
 
@@ -270,10 +343,16 @@ function changepic(){   //?�진 바꾸?? ?�수
 									<ul class="songlist_one" style="top: 10px;">
 										<li class="thumnails">
 											<!-- ?�릭?? ?�에 ?��?지 바뀌는 onclick ?�수 --> <a href="#"
+<<<<<<< HEAD
 											onclick="get_src(${list.song_no},${list.user_no },'${list.play_list}')">
 												<img class="img-fluid"
 												src="${list.path }${list.song_pic}" alt="" /> <img
 												class="show_play_icon"
+=======
+											onclick="get_src(${list.song_no},'${list.user_name }','${list.play_list}')">
+												<img class="img-fluid" src="${list.path}${list.song_pic}"
+												alt="" /> <img class="show_play_icon"
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 												src="<c:url value="/assets/images/play_logo.svg" />" />
 										</a>
 										</li>
@@ -317,19 +396,28 @@ function changepic(){   //?�진 바꾸?? ?�수
 		<div class="player2">
 			<!-- Define the section for displaying track buttons -->
 			<div class="buttons">
+<<<<<<< HEAD
 				<div class="prev-track" onclick="prevTrack()">
+=======
+				<div class="prev-track" onclick="prev_song(${songno[0].song_no},'${songno[0].user_name}','${songno[0].play_list}')">
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 					<i class="fa fa-step-backward fa-2x" style="top: 3px;"></i>
 				</div>
 
 				<div class="playpause-track" onclick="playpauseTrack()">
 					<i class="fa fa-play-circle fa-2x"></i>
 				</div>
-				<div class="next-track" onclick="nextTrack()">
+				<div class="next-track"
+					onclick="next_song(${songno[0].song_no},'${songno[0].user_name}','${songno[0].play_list}')">
 					<i class="fa fa-step-forward fa-2x"></i>
 				</div>
 			</div>
 			<!-- Define the section for displaying the seek slider-->
+<<<<<<< HEAD
 			<div class="slider_container2">
+=======
+			<div class="slider_container">
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 				<div class="current-time">00:00</div>
 				<input type="range" min="1" max="100" value="0" class="seek_slider"
 					onchange="seekTo()">
@@ -344,6 +432,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 					max="100" value="99" class="volume_slider" onchange="setVolume()">
 				<i class="fa fa-volume-up"></i>
 			</div>
+<<<<<<< HEAD
 
 
 
@@ -370,6 +459,30 @@ function changepic(){   //?�진 바꾸?? ?�수
 								</div>
 
 
+=======
+
+
+
+			<tbody>
+				<c:choose>
+					<c:when test="${playlist != null}">
+
+						<div class="details">
+							<div class="track-art">
+								<img class="miniartsize"
+									src="${songno[0].path }${songno[0].song_pic}" />
+							</div>
+							<div class="track-name-artist" style="display: inline-block";>
+								<div class="track-name">
+									<c:out value="${songno[0].song_singer}" />
+									:
+								</div>
+								<div class="track-artist">
+									<c:out value="${songno[0].song_name}" />
+								</div>
+
+
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 							</div>
 						</div>
 

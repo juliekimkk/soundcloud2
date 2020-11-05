@@ -113,7 +113,11 @@ height:35px;
 										<c:if test="${status.count < 13}">
 											
 												<div class="show_image" style= "width:180px; margin:10px; border: solid white; "> 
+<<<<<<< HEAD
 													<a href="#" onclick="get_songbysinger('<c:out value="${list.song_singer}" />')"> 
+=======
+													<a href="#" onclick="get_songbysinger('${list.song_singer}')"> 
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 													<img class="img-fluid" src="${list.path }${list.song_pic}" alt="Image 1" />
 													<img class="show_play_icon"
 														src="<c:url value="/assets/images/play.svg" />" /></a>

@@ -77,7 +77,16 @@
 		<property name="maxUploadSize" value="104857600" />
 		<property name="maxInMemorySize" value="102400" />
 	</bean>
-
+<!-- 	
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:/webapp/resources/Path.properties
+				</value>
+			</list>
+		</property>
+	</bean> -->
 
 
 	<mybatis-spring:scan

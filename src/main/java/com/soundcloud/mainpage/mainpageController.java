@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,7 +32,6 @@ public class mainpageController {
 
 	@Inject
 	private userDAO userDao;
-
 
 	private static final Logger logger = LoggerFactory.getLogger(mainpageController.class);
 
@@ -69,43 +69,30 @@ public class mainpageController {
 
 		return "/index";
 	}
-	
 
 	@RequestMapping(value = "/playpage", method = RequestMethod.GET)
-	public String test(Model model, @RequestParam("song_no") int song_no, @RequestParam("user_no") int user_no, @RequestParam("play_list") String play_list) throws Exception {
+	public String test(Model model, @RequestParam("song_no") int song_no, @RequestParam("user_name") String user_name,
+			@RequestParam("play_list") String play_list) throws Exception {
 		List<perPageVO> song = perpageDao.getsongs();
 		model.addAttribute("songList", song);
 
-		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();;
+		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();
+		;
 		model.addAttribute("viewcnt2", viewcnt2);
-		
+
 		List<perPageVO> songno = perpageDao.getsongbysongno(song_no);
 		model.addAttribute("songno", songno);
 
+		List<userVO> username = userDao.getuserbyusername(user_name);
+		model.addAttribute("user_mo", user_name);
 
-		List<userVO> userno = userDao.getuserbyuserno2(user_no);
-		model.addAttribute("user_no", userno);
-		
 		List<perPageVO> playlist = perpageDao.getsongbyplaylist(play_list);
 		model.addAttribute("playlist", playlist);
-		
+
 		return "/playpage";
 
-
-	}
-	
-	@RequestMapping(value = "/songpic", method = RequestMethod.GET)
-	public String songpic(Model model, @RequestParam("song_no") int song_no) throws Exception {
-	
-		List<perPageVO> songno = perpageDao.getsongbysongno(song_no);
-		model.addAttribute("songno", songno);
-		
-		return "/songpic";
-
-
 	}
 
-	
 	@RequestMapping(value = "/playlist", method = RequestMethod.GET)
 	public String playlist(Model model) throws Exception {
 		List<perPageVO> song = perpageDao.getsongs();
@@ -114,18 +101,16 @@ public class mainpageController {
 		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();
 		log.info(viewcnt2.toString());
 		model.addAttribute("viewcnt2", viewcnt2);
-		
+
 		return "/playlist";
 
 	}
-	
-	
+
 	@RequestMapping(value = "/MainpagePlaylist", method = RequestMethod.GET)
-	public String MainpagePlaylist(Model model, @RequestParam("particular_singer") String particular_singer) throws Exception {
+	public String MainpagePlaylist(Model model, @RequestParam("particular_singer") String particular_singer)
+			throws Exception {
 		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();
 		model.addAttribute("viewcnt2", viewcnt2);
-		
-
 
 		List<perPageVO> particularsinger = perpageDao.getparticularsinger(particular_singer);
 		/*
@@ -135,19 +120,67 @@ public class mainpageController {
 		 */
 		return "/MainpagePlaylist";
 	}
-	
-	
+
 	@RequestMapping(value = "/ParticularSinger", method = RequestMethod.GET)
-	public String ParticularSinger(Model model, @RequestParam("particular_singer") String particular_singer) throws Exception {
-		
+	public String ParticularSinger(Model model, @RequestParam("particular_singer") String particular_singer)
+			throws Exception {
+
 		List<perPageVO> particularsinger = perpageDao.getparticularsinger(particular_singer);
 		model.addAttribute("particularsinger", particularsinger);
-		
 
-		
-		
 		return "/ParticularSinger";
 	}
 
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String get3D(@RequestParam(value = "song_singer") String song_singer) throws Exception {
+
+		return "/test";
+
+	}
+
+	@RequestMapping(value = "/navbar", method = RequestMethod.GET)
+	public String navbar() throws Exception {
+
+		return "/navbar";
+
+	}
+
+	@RequestMapping(value = "/nextsong", method = RequestMethod.GET)
+	public String nextsong(Model model, @RequestParam(value = "song_no") int song_no,
+			@RequestParam("user_name") String user_name, @RequestParam("play_list") String play_list) throws Exception {
+
+		perPageVO song = perpageDao.getsongbysongno2(song_no);
+		
+		List<perPageVO> playlist = perpageDao.getsongbyplaylist(play_list);
+
+		List<perPageVO> next_song = perpageDao.getnextsong(song);
+
+		if (next_song.size() > 0) {
+			return "redirect:/playpage?song_no=" + next_song.get(0).getSong_no() + "&user_name="
+					+ next_song.get(0).getUser_name() + "&play_list=" + next_song.get(0).getPlay_list();
+		} else {
+			return "redirect:/playpage?song_no=" + playlist.get(0).getSong_no() + "&user_name="
+					+ playlist.get(0).getUser_name() + "&play_list=" + playlist.get(0).getPlay_list();
+		}
+	}
+	
+	@RequestMapping(value = "/prevsong", method = RequestMethod.GET)
+	public String prevsong(Model model, @RequestParam(value = "song_no") int song_no,
+			@RequestParam("user_name") String user_name, @RequestParam("play_list") String play_list) throws Exception {
+
+		perPageVO song = perpageDao.getsongbysongno2(song_no);
+		
+		List<perPageVO> playlist = perpageDao.getsongbyplaylist(play_list);
+
+		List<perPageVO> prev_song = perpageDao.getprevsong(song);
+
+		if (prev_song.size() > 0) {
+			return "redirect:/playpage?song_no=" + prev_song.get(0).getSong_no() + "&user_name="
+					+ prev_song.get(0).getUser_name() + "&play_list=" + prev_song.get(0).getPlay_list();
+		} else {
+			return "redirect:/playpage?song_no=" + playlist.get(playlist.size()-1).getSong_no() + "&user_name="
+					+ playlist.get(playlist.size()-1).getUser_name() + "&play_list=" + playlist.get(playlist.size()-1).getPlay_list();
+		}
+	}
 
 }

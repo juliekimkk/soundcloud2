@@ -27,7 +27,13 @@ function loadTrack(track_index) {
   curr_track.load();
   curr_track.play();
   isPlaying = true;
+<<<<<<< HEAD
   playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-2x"></i>';  
+=======
+  playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-2x"></i>';
+
+
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 
 
   track_name.textContent = track_list[track_index].name;
@@ -61,7 +67,11 @@ function loadTrack(track_index) {
    audioFile.pause();
    audioFile.currentTime = 0;*/
    
+<<<<<<< HEAD
  
+=======
+   
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
    
    
 function resetValues() {
@@ -90,22 +100,22 @@ function pauseTrack() {
   playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-2x"></i>';;
 }
 
-function nextTrack() {
+/*function nextTrack() {
   if (track_index < track_list.length - 1)
     track_index += 1;
   else track_index = 0;
   loadTrack(track_index);
   playTrack();
-}
+}*/
 
-function prevTrack() {
+/*function prevTrack() {
   if (track_index > 0){
     track_index -= 1;
 }
   else track_index = track_list.length;
   loadTrack(track_index);
   playTrack();
-}
+}*/
 
 function seekTo() {
   seekto = curr_track.duration * (seek_slider.value / 100);

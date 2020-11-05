@@ -18,9 +18,14 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
+
 	<resources mapping="/assets/**" location="/assets/" />
 	<resources mapping="/upload/**" location="/upload/" />
+<<<<<<< HEAD
+=======
+	<resources mapping="/userpic/**" location="/userpic/" />
+
+>>>>>>> a973cf016f84aa190f34084ce39df43bb6f44bba
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
@@ -32,6 +37,7 @@
 			value="text/html; charset=UTF-8" />
 
 	</beans:bean>
+
 
 	<context:component-scan
 		base-package="com.soundcloud.*" />

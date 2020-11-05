@@ -15,11 +15,42 @@
 		select * from songs
 
 	</select>
-	<select id="getsongsbyuserno"
+	<select id="getsongsbyusername"
 		resultType="com.soundcloud.perPage.domain.perPageVO">
 
 		select * from songs where
-		user_no = #{user_no}
+		user_name = #{user_name}
+
+	</select>
+	
+	<select id="getsongbysongno"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs where
+		song_no = #{song_no}
+
+	</select>
+	<select id="getsongbysongno2"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs where
+		song_no = #{song_no}
+
+	</select>
+	
+	<select id="getnextsong"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs where
+		song_no > #{song_no} and user_name = #{user_name} and play_list = #{play_list}
+
+	</select>
+	
+	<select id="getprevsong"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs where
+		#{song_no} > song_no and user_name = #{user_name} and play_list = #{play_list} order by song_no desc
 
 	</select>
 	
@@ -64,17 +95,15 @@
 		parameterType="com.soundcloud.perPage.domain.perPageVO">
 
 		update songs set
-
-		user_name = #{user_name},
-
-		song_name =
-		#{song_name},
-
-		theme =
-		#{theme},
-
-		play_list =
-		#{play_list}
+		
+		song_pic =
+		#{song_pic},
+		
+		song =
+		#{song},
+		
+		path = 
+		#{path}
 
 		where song_no =
 		#{song_no}
@@ -98,7 +127,7 @@
 
 		update songs set
 
-		view = view + 1
+		view = view + 1                                                                               
 
 		where song_no =
 		#{song_no}
@@ -127,13 +156,6 @@
 		from songs
 	</select>
 
-	<select id="getsongbysongno"
-		resultType="com.soundcloud.perPage.domain.perPageVO">
-
-		select * from songs where
-		song_no = #{song_no}
-
-	</select>
 
 	<select id="getsongbyplaylist"
 		resultType="com.soundcloud.perPage.domain.perPageVO">
