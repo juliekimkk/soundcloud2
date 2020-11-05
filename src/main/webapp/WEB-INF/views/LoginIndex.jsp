@@ -111,10 +111,10 @@ response.setDateHeader("Expires", 0);
 
 
 
-															<td class="img-fluid"><a href="LoginIndex">?�래?�름
+															<td class="img-fluid"><a href="LoginIndex">
 																	: <c:out value="${list.song_name}" />
 															</a></td>
-															<td class="img-fluid"><a href="LoginIndex">?��??�름
+															<td class="img-fluid"><a href="LoginIndex">
 																	: <c:out value="${list.user_name}" />
 															</a></td>
 														</div>
@@ -125,7 +125,7 @@ response.setDateHeader("Expires", 0);
 									</div>
 									<div class="carousel-item">
 										<div class="row">
-											<c:forEach var="list" items="${theme2}" varStatus="status">
+											<c:forEach var="list" items="${theme}" varStatus="status">
 												<c:if
 													test="${(status.count < 11 ) and (list.theme == 'chill') and (status.count > 5) }">
 													<div class="col">
