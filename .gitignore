@@ -1,2 +1,10 @@
 pom.properties
 *.orig
+target/classes/com/soundcloud/controller/MemberRegister.class
+target/classes/com/soundcloud/controller/perpagecontroller.class
+target/classes/com/soundcloud/perPage/dao/perPageDAO.class
+target/classes/com/soundcloud/perPage/dao/perPageDAOImpl.class
+target/classes/com/soundcloud/perPage/domain/perPageVO.class
+target/classes/com/soundcloud/user/dao/userDAO.class
+target/classes/com/soundcloud/user/dao/userDAOImpl.class
+target/classes/com/soundcloud/user/domain/userVO.class

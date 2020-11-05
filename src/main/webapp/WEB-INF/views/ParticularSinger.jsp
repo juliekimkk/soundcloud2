@@ -31,7 +31,7 @@
 								<li class="thumnails">
 									<!-- 클릭시 위에 이미지 바뀌는 onclick 함수 --> <a href="#"
 									onclick="get_src(${list.song_singer})"> <img
-										class="img-fluid" src="data:image/jpg;base64,${list.song_pic}"
+										class="img-fluid" src="${list.path }${list.song_pic}"
 										alt="" /> <img class="show_play_icon"
 										src="<c:url value="assets/images/orangeplaybutton.png" />" />
 

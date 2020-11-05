@@ -13,7 +13,7 @@ function fn_insert(user_no) {
 
 	var url = "${getuser.request.contextPath}/perpage/insert";
 
-	url = url + "?user_no=" + user_no;
+	url = url + "?user_name=" + user_no;
 
 	location.href = url;
 	
@@ -59,14 +59,13 @@ function fn_del(song_no,user_no) {
 </head>
 <body>
 	<div>
-		<a href="getsongs">목록가기</a> <a href="#"
-			onClick="fn_insert(<c:out value="${songList[0].user_no}"/>)">노래넣기user</a> <a
+		<a href="getsongs">목록가기</a> <a href="/perpage/insert?user_name=${user[0].user_name }">노래넣기user</a> <a
 			href="#"
 			onClick="fn_userupdate(<c:out value="${songList[0].user_no}"/>)">회원정보수정 user</a>
 	</div>
 	<div>
 		<c:out value="${user[0].user_name }" />
-		<img id="userpic_" src="data:image/jpg;base64,${user[0].user_pic}"/>
+		<img id="userpic_" src="${user[0].path }${user[0].user_pic}"/>
 	</div>
 
 	<ul class="menu">
@@ -93,11 +92,8 @@ function fn_del(song_no,user_no) {
 				<c:forEach var="list" items="${songList}">
 					<div>
 						<tr>
-							<td><img src="data:image/jpg;base64,${list.song_pic}" /></td>
-							<td><audio controls="controls">
-									<source src="data:audio/mpeg;base64,${list.song}"
-										type="audio/ogg"></td>
-							</audio>
+							<td><img src="${list.path }${list.song_pic}" /></td>
+							
 							<td><c:out value="${list.song_name}" /></td>
 							<td><a href="#"
 								onClick="fn_del(<c:out value="${list.song_no},${list.user_no}"/>)">

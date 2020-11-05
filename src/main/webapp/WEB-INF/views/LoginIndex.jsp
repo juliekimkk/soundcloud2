@@ -89,7 +89,7 @@ response.setDateHeader("Expires", 0);
 															<a href="#"
 																onClick="fn_getuser(<c:out value="${list.song_no},${list.user_no},'${list.play_list}'"/>)">
 																<img class="img-fluid"
-																src="data:image/jpg;base64,${list.song_pic}" alt="" />
+																src="${list.path }${list.song_pic}" alt="" />
 																<img class="show_play_icon"
 																src="<c:url value="/assets/images/play.svg" />" />
 															</a>

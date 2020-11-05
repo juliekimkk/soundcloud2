@@ -6,9 +6,11 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.soundcloud.user.domain.userVO;
 
+@Service
 @Repository("userDAO")
 public class userDAOImpl implements userDAO {
 
@@ -26,6 +28,12 @@ public class userDAOImpl implements userDAO {
 
 		System.out.println("++++++++++++++1 : "+ user_no);
 		return sqlSession.selectList("com.soundcloud.user.usermapper.getuserbyuserno", user_no);
+	}
+	
+	@Override
+	public List<userVO> getuserbyusername(String user_name) throws Exception {
+
+		return sqlSession.selectList("com.soundcloud.user.usermapper.getuserbyusername", user_name);
 	}
 
 	@Override

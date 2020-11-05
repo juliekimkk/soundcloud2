@@ -17,6 +17,10 @@
 	<select id="getuserbyuserno" resultType="com.soundcloud.user.domain.userVO">
 		select user.* from user where user_no = #{user_no}
 	</select>
+	
+	<select id="getuserbyusername" resultType="com.soundcloud.user.domain.userVO">
+		select user.* from user where user_name = #{user_name}
+	</select>
 
 	<select id="getuserbyuserno2" resultType="com.soundcloud.user.domain.userVO">
 		select user_no, user_id, user_password, user_name, e_mail, user_pic from user where user_no = #{user_no}
@@ -27,13 +31,13 @@
 		parameterType="com.soundcloud.user.domain.userVO">
 
 		insert into user(user_id, user_password, user_name,
-		e_mail, user_pic)
+		e_mail)
 		value(
 		#{user_id},
 		#{user_password},
 		#{user_name},
-		#{e_mail},
-		#{user_pic}
+		#{user_name}
+
 		)
 
 	</insert>

@@ -2,13 +2,19 @@ package com.soundcloud.user.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.soundcloud.user.domain.userVO;
 
+@Service
 public interface userDAO {
 
 	public List<userVO> getuser() throws Exception;
 	
 	public List<userVO> getuserbyuserno(int user_no) throws Exception;
+	
+	public List<userVO> getuserbyusername(String user_name) throws Exception;
+	
 	public List<userVO> getuserbyuserno2(int user_no) throws Exception;
 
 	public int insertuser(userVO uservo) throws Exception;
