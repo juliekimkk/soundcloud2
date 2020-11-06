@@ -1,0 +1,464 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gamja+Flower&family=Play&family=Teko:wght@500&family=Titillium+Web&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Poppins:100,300,400,500,600,700,800,900');
+
+
+
+*{
+	font-family: 'Play', sans-serif;
+}
+
+
+li {
+  list-style:none;
+  
+}
+
+ul
+{
+	list-style: none;
+	margin-bottom: 0px;
+}
+
+ul a{
+	font-family: 'Play', sans-serif;
+	
+	color:black;
+
+	text-align:left;
+}
+
+img
+{
+	max-width: 500%;
+}
+
+
+.super_class{
+	position:absolute;
+	
+	width:1200px;
+	left:300px;
+}
+.playlistContainer{
+	display:flex;
+	flex-direction:column;
+	width:900px;
+	height:500px;
+}
+.show_fav_icon.active .svg path,
+.show_fav_icon:hover .svg path,
+.show_comments:hover .svg path
+{
+	fill: #ff3500;
+}
+.show_fav_count,
+.show_comments_count
+{
+	font-size: 14px;
+	font-weight: 500;
+	color: #2e3038;
+	margin-left: 7px;
+	margin-bottom: 2px;
+}
+.show_comments:hover .show_comments_count
+{
+	color: #ff3500;
+}
+.show_play_icon
+{
+	position: absolute;
+	top: 30px;
+	left: 210px;
+	-webkit-transform: translate(-50%, -50%) scale(0.85);
+	-moz-transform: translate(-50%, -50%) scale(0.85);
+	-ms-transform: translate(-50%, -50%) scale(0.85);
+	-o-transform: translate(-50%, -50%) scale(0.85);
+	transform: translate(-50%, -50%) scale(0.85);
+	width: 50px;
+	height: 50px;
+	pointer-events: none;
+	-webkit-transition: all 400ms ease;
+	-moz-transition: all 400ms ease;
+	-ms-transition: all 400ms ease;
+	-o-transition: all 400ms ease;
+	transition: all 400ms ease;
+}
+.show_image:hover .show_play_icon
+{
+	-webkit-transform: translate(-50%, -50%) scale(1);
+	-moz-transform: translate(-50%, -50%) scale(1);
+	-ms-transform: translate(-50%, -50%) scale(1);
+	-o-transform: translate(-50%, -50%) scale(1);
+	transform: translate(-50%, -50%) scale(1);
+}
+.img-fluid{
+	img-height:28px;
+}
+
+.songlist_one{
+	position:relative;
+	display:flex;
+	width:1000px; 
+	height:200px;
+}
+
+.thumnails{
+	position:absolute;
+	width:35px;
+	height:0px;
+	top:0px;
+}
+
+
+.singername {
+	position:absolute;
+	top:5px;
+	left:300px;
+	width:200px;
+	height:40px;
+	font-size:15px;
+	color:#000000;
+	font-weight:light;
+
+}
+.songname{
+	position:absolute;
+	top:5px;
+font-family: 'Play', sans-serif;
+	left:400px;
+	width:400px;
+	height:40px;
+	font-size:15px;
+	font-color:#000000;
+}
+
+.viewcnt{
+	position:absolute;
+	left:820px;
+	width:80px;
+	height:40px;
+	top:5px;
+}
+
+
+
+
+
+
+
+
+
+
+/*플레이바 css*/
+
+
+#footer{
+  position: absolute;
+  
+  display: flex;
+  border:3px solid blue; /*임의색상*/
+  left: 300px;
+  
+  right: 0;
+  bottom: 4px;
+  /* float:left; */
+  height: 4rem;
+}
+
+/* #contetns{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 6rem;
+    float:right;
+} */
+/* body {
+ 
+
+  Smoothly transition the background color
+  transition: background-color .5s;
+} */
+
+
+
+
+
+.details {
+	
+ /*  flex-direction: row; */
+  justify-content: center;
+  border-style: dotted solid  #ffff00;
+  z-index: 1;
+  background-color: #ff8040;
+  /* overflow-x: hidden; */
+ /*  width:23%; */
+  display: flex;
+  top:0px;
+  left:100px;
+  position:relative;
+  margin-top:2%;
+  
+
+}
+
+.buttons {
+  flex-direction: row;
+  float:right;
+  width:20%;
+  display:flex;
+  padding-bottom:50px;
+  justify-content:center;
+/*   background-color: #008000; */
+  height: 5px;
+ 
+  
+ 
+ 
+}
+
+.slider_container {
+
+  float:right;
+  flex-direction: row;
+  width:60%;
+  max-width: 400px;
+  display:flex;
+  justify-content: center;
+  
+
+ 
+
+}
+
+
+.track-art {
+  background-image: url("https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  background-size: cover;
+ /*  border-radius: 15%; */
+  height: 40px;
+  width: 50px;
+  float:right;
+  justify-content: center;
+
+    
+  
+}
+
+.track-name-artist {
+  font-size: 0.8rem;
+  width: 60%;
+  float:right;
+
+  
+}
+
+.track-name {
+  font-size: 0.8rem;
+  float:right;
+  
+  
+}
+
+
+.track-artist {
+  font-size:0.9rem;
+  position:relative;
+  float:right;
+  
+}
+
+
+
+
+.now-playing {
+  margin: 15px;
+  height:40px;
+  width: 50px;
+  font-size: 0.2rem;
+  top: -5px;
+  right: 500px;
+   float:right;
+}
+
+
+.playpause-track, .prev-track, .next-track {
+ /*  padding: 5px; */
+ /*  opacity: 0.1; */
+ /*   position:relative; */
+  flex-direction: row;
+  float:right;
+  display:flex;
+  top:20px;
+
+  /* Smoothly transition the opacity */
+  transition: opacity .2s;
+}
+
+.playpause-track:hover, .prev-track:hover, .next-track:hover {
+  opacity: 1.0;
+}
+
+
+
+/* Modify the appearance of the slider */
+.seek_slider, .volume_slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: black;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  display:flex;
+  top:40px;
+   float:right;
+   width:100px;
+   
+   
+   
+   
+   
+  
+}
+
+/* Modify the appearance of the slider thumb */
+.seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+  border-radius: 50%;
+   float:left;
+   
+   
+}
+
+.seek_slider:hover, .volume_slider:hover {
+  opacity: 1.0;
+  display:flex;
+  top:30px;
+   float:right;
+}
+
+.seek_slider {
+  width: 60%;
+  float:right;
+  position:relative;
+  top:12px;
+  
+ 
+  
+}
+
+.volume_slider {
+  width: 30%;
+  float:right;
+  position:relative;
+  top:12px;
+ 
+}
+
+.current-time, .total-duration {
+  padding: 5px;
+  float:right;
+  display:flex;
+  top:30px;
+ 
+}
+
+i.fa-volume-down, i.fa-volume-up {
+  padding: 8px;
+  display:flex;
+  top:30px;
+  float:right;
+}
+
+i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward {
+  cursor: pointer;
+  float:right;
+}
+  
+.trackInfo{ 
+	display:flex;
+	width:1200px;
+	height:380px; 
+	background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#ffc1e2 80%,#e8e5dc 98%,#e5e5e5 100%); 
+/* 	 background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#c7d4db 80%,#e8e5dc 98%,#e5e5e5 100%);   */
+/* 	 background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#dbbafc 80%,#e8e5dc 98%,#e5e5e5 100%); 라벤더 */
+/* 	 background: -webkit-linear-gradient(left, #e5e5e5 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 98%,#e5e5e5 100%);   */
+/* 	background: -webkit-linear-gradient(left, #d3d3d3 0%,#f2f2f2 2%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 98%,#d3d3d3 100%); 양쪽 다 진한 회색 넣은 그레이블루  */
+/* 	background: -webkit-linear-gradient(left, #b8caed 0%,#f2f2f2 1%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 98%,#b8caed 100%); 양쪽 다 진한 블루 넣은 그레이블루 */
+/* 	background: -webkit-linear-gradient(left, #d3d3d3 0%,#f2f2f2 2%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 100%); 왼쪽만 진한 회색넣은 그레이블루 */
+/* 	background: -webkit-linear-gradient(left, #f2f2f2 0%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 100%); 배경색이랑 같은그레이블루 */
+/* 	background: -webkit-linear-gradient(left, #e8e5dc 0%,#f7f7f7 28%,#f7f7f7 28%,#b8caed 80%,#e8e5dc 100%); 그레이블루 */
+/*  background: radial-gradient(ellipse at left, #e66465, transparent), radial-gradient(ellipse at right, #4d9f0c, transparent); 그라데이션 */
+/*  background: -webkit-linear-gradient(left, #9a901e 0%,#fff600 0%,#ff5454 14%,#ed9092 25%,#ff2b83 51%,#ed9092 67%,#ed9092 75%,#ff5454 84%,#fff600 100%);  */
+/*  background: -webkit-linear-gradient(left, #9a901e 0%,#ffffff 0%,#f7d2f3 0%,#f7f7f7 28%,#f7f7f7 28%,#eeccff 89%,#e8e5dc 100%); */
+
+/*   background: #ff6c99;
+background: -webkit-repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%); 
+background: -o-repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%); 
+background: -moz-repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%); 
+background: repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%);
+막대사탕 */
+ 
+  
+}
+.trackinfo{
+
+	width:1000px;
+	
+}
+.trackinfo_player_button{
+	top:43px;
+	left:30px;
+}
+.player{
+	top:43px;
+	left:10px;
+	width:50px;
+	height:50px;
+}
+
+.trackinfo_user_name{
+	width:200px;
+	top:30px;
+	left:50px;
+	font-size:20px;
+	text-align: left;
+	font-weight:700px;
+	background-color:#f1eae9;
+	border-radius:30px /30px;
+	text-shadow: 0 0 3px #fe1bfe, 0 0 5px #ffffff;
+}
+
+.trackinfo_song_play_list{
+	width:200px;
+	top:40px;
+	left:50px;
+	font-size:30px;
+	text-align: left;
+	font-weight:400px bold;
+	background-color:#f1eae9;
+	text-shadow: 0 0 3px #fe1bfe, 0 0 5px #ffffff;
+	border-radius: 40px / 40px;
+}
+
+.trackinfo_song_pic{
+	position:relative;
+	width:340px;
+	height:340px;
+	bottom:100px;
+	left:750px;
+	margin:40px;
+}
+  
+  
+  
+  

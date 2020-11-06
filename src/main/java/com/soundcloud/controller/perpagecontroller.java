@@ -1,12 +1,8 @@
 package com.soundcloud.controller;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.util.Base64;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -47,13 +43,25 @@ public class perpagecontroller {
 		return "perpage/getsongs";
 	}
 
-	
+	@RequestMapping(value = "/getuserproc", method = RequestMethod.GET)
+	public String getuserproc(Model model, @RequestParam("user_name") String user_name) throws Exception {
+		if (perpageDao.getsongbyusername(user_name).size() > 0) {
+			int song_no = perpageDao.getsongbyusername(user_name).get(0).getSong_no();
+
+			return "redirect:getuser?user_name=" + user_name + "&song_no=" + song_no;
+		}else{
+			return "redirect:getuser?user_name=" + user_name;
+		}
+	}
 
 	@RequestMapping(value = "/getuser", method = RequestMethod.GET)
-	public String getuser(Model model, @RequestParam("user_name") String user_name) throws Exception {
+	public String getuser(Model model, @RequestParam("user_name") String user_name,
+			@RequestParam(required = false, defaultValue = "0") int song_no) throws Exception {
 
 		model.addAttribute("songList", perpageDao.getsongsbyusername(user_name));
 		model.addAttribute("user", userDao.getuserbyusername(user_name));
+		List<perPageVO> songno = perpageDao.getsongbysongno(song_no);
+		model.addAttribute("song", songno);
 
 		return "perpage/getuser";
 	}
@@ -67,25 +75,24 @@ public class perpagecontroller {
 
 	@PostMapping("/saveImage")
 	public String saveImage(@RequestParam(value = "songpic") MultipartFile song_pic,
-			@RequestParam(value = "song_") MultipartFile song, @ModelAttribute perPageVO vo, Model model, MultipartHttpServletRequest request)
-			throws Exception {
-		
+			@RequestParam(value = "song_") MultipartFile song, @ModelAttribute perPageVO vo, Model model,
+			MultipartHttpServletRequest request) throws Exception {
+
 		String path3 = request.getSession().getServletContext().getRealPath("/") + "upload/";
-		
+
 		File folder3 = new File(path3);
 
 		if (!folder3.exists()) {
 			folder3.mkdir();
 		}
-		
-		String path11 = path3+ vo.getUser_name()+"/";
+
+		String path11 = path3 + vo.getUser_name() + "/";
 
 		File folder2 = new File(path11);
 
 		if (!folder2.exists()) {
 			folder2.mkdir();
 		}
-
 
 		Calendar cal = Calendar.getInstance();
 		String dateyear;
@@ -114,8 +121,7 @@ public class perpagecontroller {
 			dayfolder.mkdir();
 		}
 
-		String stringpath = "/upload/" + vo.getUser_name() + "/" + dateyear + "/" + datemonth + "/" + dateday
-				+ "/";
+		String stringpath = "/upload/" + vo.getUser_name() + "/" + dateyear + "/" + datemonth + "/" + dateday + "/";
 
 		String pic_name = song_pic.getOriginalFilename();
 
@@ -140,7 +146,7 @@ public class perpagecontroller {
 		vo.setSong_pic(pic_name2);
 
 		vo.setSong(song_name2);
-		
+
 		vo.setPath(stringpath);
 
 		perpageDao.insertsong(vo);
@@ -158,7 +164,8 @@ public class perpagecontroller {
 
 	@PostMapping("/userupdateaction")
 	public String userupdateaction(Model model, userVO vo, perPageVO pvo, @RequestParam("user_name") String user_name,
-			@RequestParam(value = "userpic") MultipartFile user_pic,MultipartHttpServletRequest request) throws Exception {
+			@RequestParam(value = "userpic") MultipartFile user_pic, MultipartHttpServletRequest request)
+			throws Exception {
 
 		String path2 = request.getSession().getServletContext().getRealPath("/") + "userpic/";
 
@@ -206,14 +213,13 @@ public class perpagecontroller {
 		String picpath = user_pic.getOriginalFilename();
 
 		UUID picuuid = UUID.randomUUID();
-		
-		String stringpath = "/userpic/" + vo.getUser_name() + "/" + dateyear + "/" + datemonth + "/" + dateday
-				+ "/";
+
+		String stringpath = "/userpic/" + vo.getUser_name() + "/" + dateyear + "/" + datemonth + "/" + dateday + "/";
 
 		File picfile = new File(daypath, picuuid.toString() + "_" + picpath);
 
 		String imagePath = picuuid.toString() + "_" + picpath;
-		
+
 		user_pic.transferTo(picfile);
 
 		vo.setUser_pic(picuuid + picpath);
@@ -235,31 +241,30 @@ public class perpagecontroller {
 		return "redirect:getuser?user_name=" + user_name;
 
 	}
-	
-	
+
 	@RequestMapping(value = "/userpage", method = RequestMethod.GET)
 	public String userpage() throws Exception {
 		return "perpage/userpage";
 	}
-	
-	@RequestMapping(value ="/getsongno" , method = RequestMethod.GET)
-	public String getsongno(@RequestParam(value="song_no") int song_no) throws Exception{
+
+	@RequestMapping(value = "/getsongno", method = RequestMethod.GET)
+	public String getsongno(@RequestParam(value = "song_no") int song_no) throws Exception {
 		String path = perpageDao.getsongbysongno(song_no).get(0).getPath();
 		String songname = perpageDao.getsongbysongno(song_no).get(0).getSong();
-		
+
 		String getsong = path + songname;
-		
+
 		return getsong;
 	}
-	
-	@RequestMapping(value ="/updatesongpro", method = RequestMethod.GET)
-	public String updatesong(@ModelAttribute perPageVO vo,@RequestParam(value="song_no")int song_no,
-			@RequestParam(value = "songpic") MultipartFile song_pic,
-			@RequestParam(value = "song_") MultipartFile song) throws Exception{
-		
+
+	@RequestMapping(value = "/updatesongpro", method = RequestMethod.GET)
+	public String updatesong(@ModelAttribute perPageVO vo, @RequestParam(value = "song_no") int song_no,
+			@RequestParam(value = "songpic") MultipartFile song_pic, @RequestParam(value = "song_") MultipartFile song)
+			throws Exception {
+
 		return "redirect:getuser?user_name=" + vo.getUser_name();
 	}
-	
+
 	/*
 	 * @RequsetMapping(value ="/updatesong", method + RequestMethod.POST) pubplic
 	 * String

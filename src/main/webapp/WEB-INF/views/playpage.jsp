@@ -5,6 +5,8 @@
 <head>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <!-- ?�영 ?�레?�리?�트 ?��??? -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -148,7 +150,7 @@ function changepic(){   //?�진 바꾸?? ?�수
 <script src="/assets/jquery.fillcolor.js"></script>
 
 
-<link rel="stylesheet" href="/assets/css/playlist2.css">
+<link rel="stylesheet" href="/assets/css/playpage.css">
 
 <title>playlist page</title>
 
@@ -203,7 +205,11 @@ function changepic(){   //?�진 바꾸?? ?�수
 
 <body>
 <body style="background-color: #f2f2f2;">
+<sec:authentication property="principal" var="pinfo" />
 	<%@ include file="navbar.jsp"%>
+	<c:if test="${empty pinfo.username }">
+				<%@ include file="navbar2.jsp"%>
+			</c:if>
 	<div class="super_class"
 		style="width: 1200px; height: 1100px; left: 350px; background-color: white;">
 		<!-- top container head  -->
@@ -245,14 +251,12 @@ function changepic(){   //?�진 바꾸?? ?�수
 			<tbody>
 
 				<div class="userinfo">
-					<a href="#"
-						onClick="userpage(<c:out value="${user_no[0].user_name}" />)">
+					<a href="/perpage/getuser?user_name=${user_no[0].user_name }">
 						<img class="rounded-circle"
 						src="${user_no[0].path }${user_no[0].user_pic}"
 						onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)" alt=""
 						onerror="this.src='/assets/pngegg.png'" />
-					</a> <a href="#"
-						onClick="userpage(<c:out value="${user_no[0].user_name}" />)">
+					</a> <a href="/perpage/getuser?user_name=${user_no[0].user_name }">
 						<c:out value="${user_no[0].user_name}"></c:out>
 					</a>
 				</div>

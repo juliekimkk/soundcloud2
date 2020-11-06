@@ -77,14 +77,13 @@ public class mainpageController {
 		model.addAttribute("songList", song);
 
 		List<perPageVO> viewcnt2 = perpageDao.viewcnt2();
-		;
 		model.addAttribute("viewcnt2", viewcnt2);
 
 		List<perPageVO> songno = perpageDao.getsongbysongno(song_no);
 		model.addAttribute("songno", songno);
 
 		List<userVO> username = userDao.getuserbyusername(user_name);
-		model.addAttribute("user_mo", user_name);
+		model.addAttribute("user_no", username);
 
 		List<perPageVO> playlist = perpageDao.getsongbyplaylist(play_list);
 		model.addAttribute("playlist", playlist);

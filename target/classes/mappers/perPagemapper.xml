@@ -23,6 +23,14 @@
 
 	</select>
 	
+	<select id="getsongbyusername"
+		resultType="com.soundcloud.perPage.domain.perPageVO">
+
+		select * from songs where
+		user_name = #{user_name}
+
+	</select>
+	
 	<select id="getsongbysongno"
 		resultType="com.soundcloud.perPage.domain.perPageVO">
 
@@ -59,7 +67,7 @@
 
 		insert into songs(user_name, song_name, song,
 		song_pic,
-		theme, play_list,user_no,path)
+		theme, play_list,user_no,path,song_singer)
 
 		value(
 		#{user_name},
@@ -69,7 +77,8 @@
 		#{theme},
 		#{play_list},
 		#{user_no},
-		#{path}
+		#{path},
+		#{song_singer}
 		)
 
 	</insert>

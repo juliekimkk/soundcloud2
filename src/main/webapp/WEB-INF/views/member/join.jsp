@@ -16,7 +16,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/assets/css/roboto-font.css">
 <link rel="stylesheet" type="text/css"
-	href="/assets/sfonts/font-awesome-5/css/fontawesome-all.min.css">
+	href="/assets/fonts/font-awesome-5/css/fontawesome-all.min.css">
 <!-- Main Style Css -->
 <link rel="stylesheet" href="/assets/css/style.css" />
 
@@ -36,9 +36,9 @@
 				<div class="form-row">
 					<label for="userid">ID</label> 
 					<input type="text" name="userid" id="userid" class="input-text" placeholder="Your ID" required>
-					<button id="idChkBtn" class="btn btn-primary" onclick="checkId()">ID중복확인</button>
+					<!-- <button id="idChkBtn" class="btn btn-primary" onclick="checkId()">ID중복확인</button>
 					<div class="check_font" id="id_check"></div>
-					<div id="checkMsg"></div>			
+					<div id="checkMsg"></div>			 -->
 					<i class="fas fa-user"></i>
 				</div>
 				<div class="form-row">
@@ -66,8 +66,8 @@
 					<i class="fas fa-lock"></i>
 				</div> -->
 				<div class="form-row-last">
-					<input type="button" name="register" class="register"
-						value="Register"> <input type="hidden"
+					<button name="register" class="register"
+						>Register</button> <input type="hidden"
 						name="${_csrf.parameterName}" value="${_csrf.token}" />
 				</div>
 			</form>
@@ -78,7 +78,6 @@
 <script type="text/javascript">
 	//	     아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
 	var idCheck = 0;
-
 	//아이디 체크하여 가입버튼 비활성화, 중복확인.
 	function checkId() {
 		var token = $("meta[name='_csrf']").attr("content");
@@ -94,8 +93,7 @@
 			},
 			success : function(data) {
 				if (data == '0') {
-					$(".register").prop("disabled", true);
-					$(".register").css("background-color", "#aaaaaa");
+					$(".register").prop("disabled", false);
 					$("#input-text").css("background-color", "#FFCECE");
 					$('#checkMsg').html('<p style="color:blue">사용가능</p>');
 					idCheck = 0;
@@ -103,7 +101,6 @@
 					$(".register").prop("disabled", true);
 					$(".register").css("background-color", "red");
 					$("#input-text").css("background-color", "yellow");
-
 					$('#checkMsg').html('<p style="color:blue">이미 가입된 ID입니다.</p>');
 					idCheck = 0;
 				}

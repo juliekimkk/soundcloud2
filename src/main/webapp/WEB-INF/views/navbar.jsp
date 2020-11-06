@@ -4,6 +4,8 @@
 <html>
 <head>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 
 <link href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
@@ -27,6 +29,10 @@
 	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
+<body>
+<sec:authentication property="principal" var="pinfo" />
+
+<sec:authorize access="isAuthenticated()">
 
 <div class="container">
 
@@ -40,7 +46,10 @@
 
 			<ul class="nav navbar-nav">
 				<li class="active"><img src="/assets/images/orangelogo.jpg"></li>
-				<li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+				<c:if test="${empty pinfo.username}">
+				<li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li></c:if>
+				<c:if test="${!empty pinfo.username}">
+				<li class="active"><a href="/LoginIndex">Home <span class="sr-only">(current)</span></a></li></c:if>
 				<li class="active"><a href="#">Stream <span class="sr-only">(current)</span></a></li>
 				<li class="active"><a href="#">Library <span
 						class="sr-only">(current)</span></a></li>
@@ -79,11 +88,11 @@
 
 
 
-					<li class="active" style="right: 0px;"><a href="#">Logout
+					<li class="active" style="right: 0px;"><a href="/customLogout">Logout
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="active" style="right: 0px;"><a
-						href="/perpage/getuser?user_name=${pinfo.username }">Mypage <span
+						href="/perpage/getuserproc?user_name=${pinfo.username }">Mypage <span
 							class="sr-only">(current)</span>
 					</a></li>
 				</ul>	
@@ -99,6 +108,6 @@
 </div>
 
 
-
+</sec:authorize>
 </body>
 </html>
