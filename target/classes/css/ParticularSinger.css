@@ -352,7 +352,7 @@ font-family: 'Play', sans-serif;
 .seek_slider:hover, .volume_slider:hover {
   opacity: 1.0;
   display:flex;
-  top:30px
+  top:30px;
    float:right;
 }
 
@@ -393,7 +393,7 @@ i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward {
   cursor: pointer;
   float:right;
 
-  
+}
 .trackInfo{ 
 	display:flex;
 	width:1200px;
@@ -686,7 +686,7 @@ background: repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%);
 .seek_slider:hover, .volume_slider:hover {
   opacity: 1.0;
   display:flex;
-  top:30px
+  top:30px;
    float:right;
 }
 
@@ -732,5 +732,3 @@ i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward {
 
 }
   
-  
-}
