@@ -392,8 +392,8 @@ i.fa-volume-down, i.fa-volume-up {
 i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward {
   cursor: pointer;
   float:right;
+
 }
-  
 .trackInfo{ 
 	display:flex;
 	width:1200px;
@@ -417,7 +417,7 @@ background: -o-repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%);
 background: -moz-repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%); 
 background: repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%);
 막대사탕 */
- 
+   
   
 }
 .trackinfo{
@@ -471,4 +471,264 @@ background: repeating-radial-gradient(#ff6c99, #ffe96c 10%, #08ce61 15%);
   
   
   
+  
+  
+  
+  
+  
+/*footer*/
+#footer{
+  position: fixed;
+  display: flex;
+  border:3px solid blue; /*임의색상*/
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  /* float:left; */
+  height: 4rem;
+  color:black;
+  background:#F2F2F2;
+}
+
+/* #contetns{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 6rem;
+    float:right;
+} */
+/* body {
+ 
+
+  Smoothly transition the background color
+  transition: background-color .5s;
+} */
+
+
+
+.player2 {
+
+  justify-content:center;
+  display: flex;
+  top:0px;
+  float:right;
+  background-color: #8080ff;
+  left:500px;
+
+
+  
+ 
+}
+
+.details {
+ /*  flex-direction: row; */
+  justify-content: center;
+  border-style: dotted solid  #ffff00;
+  z-index: 1;
+/*   top: 0;
+  left: 0; */
+/*   height:65px; */
+  background-color: #ff8040;
+  /* overflow-x: hidden; */
+ /*  width:23%; */
+  display: flex;
+
+  position:relative
+
+  
+  
+
+}
+
+.buttons {
+  flex-direction: row;
+  float:right;
+  width:20%;
+  display:flex;
+  padding-bottom:50px;
+  justify-content:center;
+  background-color: #008000;
+  height: 5px;
+ 
+  
+ 
+ 
+}
+
+.slider_container {
+
+  float:right;
+  flex-direction: row;
+  width:60%;
+  max-width: 400px;
+  display:flex;
+  justify-content: center;
+  
+
+ 
+
+}
+
+
+.track-art {
+ 
+  background-size: cover;
+ /*  border-radius: 15%; */
+  height: 40px;
+  width: 200px;
+  float:right;
+  justify-content: center;
+}
+
+.miniartsize{
+	postion:relative;
+	width:50px;
+	height:50px;
+	  margin-left: auto;
+  margin-right: auto;
+}
+
+/* .track-name-artist {
+  font-size: 0.8rem;
+  width: 60%;
+  float:right;
+
+  
+} */
+
+.track-name {
+  font-size: 0.8rem;
+  float:right;
+  color:#333;
+  
+}
+
+
+/* .track-artist {
+  font-size:0.9rem;
+  position:relative;
+  float:right;
+  color:#666;
+  
+} */
+
+
+
+
+.now-playing {
+  margin: 15px;
+  height:40px;
+  width: 50px;
+  font-size: 0.2rem;
+  top: -5px;
+  right: 500px;
+   float:right;
+}
+
+
+.playpause-track, .prev-track, .next-track {
+ /*  padding: 5px; */
+ /*  opacity: 0.1; */
+ /*   position:relative; */
+  flex-direction: row;
+  float:right;
+  display:flex;
+  top:20px;
+
+  /* Smoothly transition the opacity */
+  transition: opacity .2s;
+}
+
+.playpause-track:hover, .prev-track:hover, .next-track:hover {
+  opacity: 1.0;
+}
+
+
+
+/* Modify the appearance of the slider */
+.seek_slider, .volume_slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: #333333;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  display:flex;
+  top:40px;
+   float:right;
+   width:100px;
+   
+   
+   
+   
+   
+  
+}
+
+/* Modify the appearance of the slider thumb */
+.seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+  border-radius: 50%;
+   float:left;
+   
+   
+}
+
+.seek_slider:hover, .volume_slider:hover {
+  opacity: 1.0;
+  display:flex;
+  top:30px;
+   float:right;
+}
+
+.seek_slider {
+  width: 60%;
+  float:right;
+  position:relative;
+  top:12px;
+  
+ 
+  
+}
+
+.volume_slider {
+  width: 30%;
+  float:right;
+  position:relative;
+  top:12px;
+  color:#CCCCCC;
+ 
+}
+
+.current-time, .total-duration {
+  padding: 5px;
+  float:right;
+  display:flex;
+  top:30px;
+ 
+}
+
+i.fa-volume-down, i.fa-volume-up {
+  padding: 8px;
+  display:flex;
+  top:30px;
+  float:right;
+}
+
+i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward {
+  cursor: pointer;
+  float:right;
+
+  
+
+}
   

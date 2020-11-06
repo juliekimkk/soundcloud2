@@ -118,13 +118,7 @@ position:absolute;
 
 	<footer class="footer">
 		<div class="container">
-			<div class="row footer_logo_row">
-				<div class="col d-flex flex-row align-items-center justify-content-center">
-					<div class="logo">
-						<a href="#"><span>my</span>podcast<img src="images/play.png" alt=""></a>
-					</div>
-				</div>
-			</div>
+		
 			<div class="row footer_content_row">
 				
 				<!-- Tags -->
@@ -273,7 +267,7 @@ position:absolute;
 					</div>
 				</div>
 			</div>
-			<div class="row footer_social_row">
+			<!-- <div class="row footer_social_row">
 				<div class="col">
 					<div class="footer_social">
 						<ul class="d-flex flex-row align-items-center justify-content-center">
@@ -285,7 +279,7 @@ position:absolute;
 						</ul>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 </br></br><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>

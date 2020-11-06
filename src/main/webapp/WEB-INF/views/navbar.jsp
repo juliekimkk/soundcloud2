@@ -72,8 +72,7 @@
 
 
 
-			<form class="navbar-form navbar-left form-horizontal" role="search"
-				style="border: solid red;">
+			<form class="navbar-form navbar-left form-horizontal" role="search">
 				<div class="input-group">
 					<input type="text" class="search-box" placeholder="Search">
 					<button type="submit" class="btn">

@@ -63,22 +63,28 @@ response.setDateHeader("Expires", 0);
 
 </head>
 <body>
-<%@ include file="navbar.jsp"%>
 <sec:authentication property="principal" var="pinfo" />
 			<sec:authorize access="isAuthenticated()">
-
+			<a href="/perpage/getuser?user_name=${pinfo.username}">마이페이지</a>
+			
 			</sec:authorize>
-
-	<section >
+<%@ include file="navbar.jsp"%>
+	<section style="border: 1px solid red;">
 		<sec:authentication property="principal" var="pinfo" />
 		<sec:authorize access="isAuthenticated()">
-		
+			<c:if test="${!empty pinfo.username }">
+				<a href="/customLogout">로그아웃</a>
+				<a href="/perpage/getuser?user_name=${pinfo.username }">마이페이지</a>
+			</c:if>
+			<c:if test="${empty pinfo.username }">
+				<a href="/Index">목록가기</a>
+			</c:if>
 		</sec:authorize>
-		<div class="together">
+		<div class="together" style="border: 1px dashed magenta;">
 
 			
 
-			<div class="container">
+			<div class="container" style="border: 1px solid blue;">
 				<hr class="my-1">
 				<h4 class="display-5">
 					Chill
@@ -90,12 +96,12 @@ response.setDateHeader("Expires", 0);
 				<c:choose>
 					<c:when test="${empty theme}">
 						<tr>
-							<td colspan="5" align="center">데이터가 없습니다.</td>
+							<td colspan="5" align="center">?�이?��? ?�습?�다.?�ㅠ</td>
 						</tr>
 					</c:when>
 
 					<c:when test="${!empty theme}">
-						<div class="container">
+						<div class="container" style="border: 3px solid green;">
 							<div id="gallery1" class="carousel slide" data-ride="carousel">
 								<div class="carousel-inner">
 
@@ -110,17 +116,17 @@ response.setDateHeader("Expires", 0);
 															<a href="#"
 																onClick="fn_getuser(<c:out value="'${list.song_no}','${list.user_name}','${list.play_list}'"/>)">
 																<img class="img-fluid"
-																src="${list.path }${list.song_pic}" alt="" />
+																src="data:image/jpg;base64,${list.song_pic}" alt="" />
 																<img class="show_play_icon"
 																src="<c:url value="/assets/images/play.svg" />" />
 															</a>
 
 
 
-															<td class="img-fluid"><a href="LoginIndex">노래이름
+															<td class="img-fluid"><a href="LoginIndex">
 																	: <c:out value="${list.song_name}" />
 															</a></td>
-															<td class="img-fluid"><a href="LoginIndex">유저이름
+															<td class="img-fluid"><a href="LoginIndex">
 																	: <c:out value="${list.user_name}" />
 															</a></td>
 														</div>
@@ -131,24 +137,22 @@ response.setDateHeader("Expires", 0);
 									</div>
 									<div class="carousel-item">
 										<div class="row">
-											<c:forEach var="list" items="${theme2}" varStatus="status">
+											<c:forEach var="list" items="${theme}" varStatus="status">
 												<c:if
 													test="${(status.count < 11 ) and (list.theme == 'chill') and (status.count > 5) }">
 													<div class="col">
 														<div class="show_image">
 															<a href="#"
-																onClick="fn_getuser(<c:out value="'${list.song_no}','${list.user_name}','${list.play_list}'"/>)">
+																onClick="fn_getuser(<c:out value="'${list.song_no}',${list.user_name},'${list.play_list}'"/>)">
 																<img class="img-fluid"
 																src="${list.path}${list.song_pic}" alt="" />
 																<img class="show_play_icon"
 																src="<c:url value="/assets/images/play.svg" />" />
 															</a>
 
-															<td class="img-fluid"><a href="LoginIndex">노래이름
-																	:<c:out
+															<td class="img-fluid"><a href="LoginIndex"><c:out
 																		value="${list.song_name}" /></a></td>
-															<td class="img-fluid"><a href="LoginIndex">유저이름
-																	:<c:out
+															<td class="img-fluid"><a href="LoginIndex"><c:out
 																		value="${list.user_name}" /></a></td>
 														</div>
 													</div>
@@ -160,7 +164,7 @@ response.setDateHeader("Expires", 0);
 									</div>
 								</div>
 								<a class="carousel-control-prev"
-									style= "top: 25px;" href="#gallery1"
+									style="border: 2px dashed magenta; top: 25px;" href="#gallery1"
 									role="button" data-slide="prev"> <span
 									class="carousel-control-prev-icon" aria-hidden="true"></span> <span
 									class="sr-only">Previous</span>
@@ -214,18 +218,16 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},'${list.user_name}','${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
 															<img class="img-fluid"
-															src="${list.path }${list.song_pic}" alt="" /> <img
+															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
 															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
-														<td class="img-fluid"><a href="LoginIndex">노래이름
-																	:<c:out
+														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.song_name}" /></a></td>
-														<td class="img-fluid"><a href="LoginIndex">유저이름
-																	:<c:out
+														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
@@ -241,18 +243,16 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},'${list.user_name}','${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
 															<img class="img-fluid"
-															src="${list.path }${list.song_pic}" alt="" /> <img
+															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
 															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
-														<td class="img-fluid"><a href="LoginIndex">노래이름
-																	:<c:out
+														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.song_name}" /></a></td>
-														<td class="img-fluid"><a href="LoginIndex">유저이름
-																	:<c:out
+														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
@@ -313,18 +313,16 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},'${list.user_name}','${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
 															<img class="img-fluid"
-															src="${list.path }${list.song_pic}" alt="" /> <img
+															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
 															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
-														<td class="img-fluid"><a href="LoginIndex">노래이름
-																	:<c:out
+														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.song_name}" /></a></td>
-														<td class="img-fluid"><a href="LoginIndex">유저이름
-																	:<c:out
+														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
@@ -340,18 +338,16 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},'${list.user_name}','${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
 															<img class="img-fluid"
-															src="${list.path }${list.song_pic}" alt="" /> <img
+															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
 															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
-														<td class="img-fluid"><a href="LoginIndex">노래이름
-																	:<c:out
+														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.song_name}" /></a></td>
-														<td class="img-fluid"><a href="LoginIndex">유저이름
-																	:<c:out
+														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
@@ -412,18 +408,16 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},'${list.user_name}','${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
 															<img class="img-fluid"
-															src="${list.path }${list.song_pic}" alt="" /> <img
+															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
 															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
-														<td class="img-fluid"><a href="LoginIndex">노래이름
-																	:<c:out
+														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.song_name}" /></a></td>
-														<td class="img-fluid"><a href="LoginIndex">유저이름
-																	:<c:out
+														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
@@ -439,18 +433,16 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},'${list.user_name}','${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
 															<img class="img-fluid"
-															src="${list.path }${list.song_pic}" alt="" /> <img
+															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
 															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
-														<td class="img-fluid"><a href="LoginIndex">노래이름
-																	:<c:out
+														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.song_name}" /></a></td>
-														<td class="img-fluid"><a href="LoginIndex">유저이름
-																	:<c:out
+														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
@@ -518,11 +510,9 @@ response.setDateHeader("Expires", 0);
 															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
-														<td class="img-fluid"><a href="LoginIndex">노래이름
-																	:<c:out
+														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.song_name}" /></a></td>
-														<td class="img-fluid"><a href="LoginIndex">유저이름
-																	:<c:out
+														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>
@@ -538,18 +528,16 @@ response.setDateHeader("Expires", 0);
 												<div class="col">
 													<div class="show_image">
 														<a href="#"
-															onClick="fn_getuser(<c:out value="${list.song_no},'${list.user_name}','${list.play_list}'"/>)">
+															onClick="fn_getuser(<c:out value="${list.song_no},${list.user_name},'${list.play_list}'"/>)">
 															<img class="img-fluid"
-															src="${list.path }${list.song_pic}" alt="" /> <img
+															src="data:image/jpg;base64,${list.song_pic}" alt="" /> <img
 															class="show_play_icon"
 															src="<c:url value="/assets/images/play.svg" />" />
 														</a>
 
 														<td class="img-fluid"><a href="LoginIndex"><c:out
-																	value="${list.song_name}" /></a>노래이름
-																	:</td>
-														<td class="img-fluid"><a href="LoginIndex">유저이름
-																	:<c:out
+																	value="${list.song_name}" /></a></td>
+														<td class="img-fluid"><a href="LoginIndex"><c:out
 																	value="${list.user_name}" /></a></td>
 													</div>
 												</div>

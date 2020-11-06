@@ -97,9 +97,6 @@ padding:0px;
 
 
 
-
-
-
 .carousel-control-prev,
 .carousel-control-next{
 	height: 150px;
@@ -112,6 +109,6 @@ padding:0px;
 .img-fluid{
 	position:relative;
 	top:50%;
-	
+	left:%;
 	
 }
