@@ -65,9 +65,9 @@
 
 
 .show_image{ /*가로정렬 */
-	display:inline;
-	float:right;
-	max-width:100%;
+   display:inline;
+   float:left;
+   max-width:100%;
 
 }
 .box{
