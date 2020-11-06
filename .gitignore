@@ -2,3 +2,6 @@ pom.properties
 *.orig
 target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
 target/m2e-wtp/web-resources/META-INF/MANIFEST.MF~창민
+target/classes/com/soundcloud/controller/perpagecontroller.class
+target/classes/com/soundcloud/mainpage/mainpageController.class
+target/classes/com/soundcloud/perPage/dao/perPageDAO.class
